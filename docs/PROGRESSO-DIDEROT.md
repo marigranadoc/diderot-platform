@@ -6,7 +6,7 @@ Auditoria: **11/11/2026**, horário de referência America/Sao_Paulo. Pasta do p
 
 A Diderot implementa uma **vitrine pública demonstrativa**. Não implementa a plataforma completa de shopper, creator, brand e administrador. O caminho `/criador` é o perfil público de uma criadora fictícia, não um painel de gestão.
 
-Existem 13 endereços de conteúdo: início, perfil público, três coleções e oito produtos. Também existe uma página 404. O catálogo agora é lido de duas tabelas Supabase por `lib/catalog-store.ts`, com migração e dados demonstrativos persistidos. `lib/catalog.ts` permanece como fixture do modo offline explícito. Os filtros e favoritos ainda usam estado React em `components/Catalog.tsx`. Não há login, sessão autenticada, verificação de papel/proprietário ou gravação persistente de favoritos. Não há integração financeira nem alteração de dados reais nesta auditoria.
+Existem 13 endereços de conteúdo: início, perfil público, três coleções e oito produtos. Também existe uma página 404. O catálogo agora é lido de duas tabelas Supabase por `lib/catalog-store.ts`, com migração e dados demonstrativos persistidos. `lib/catalog.ts` permanece como fixture do modo offline explícito. Os filtros e favoritos ainda usam estado React em `components/Catalog.tsx`. Agora há cliente de login/logout em `/conta` e operações de favoritos com RLS por usuário. A validação com Auth real continua pendente, não há cadastro público nem papéis de creator/brand/admin. Não há integração financeira nem alteração de dados reais nesta auditoria.
 
 O usuário confirmou que não havia PRD. Foi criado [PRD-DIDEROT-REFERENCIA.md](PRD-DIDEROT-REFERENCIA.md), separando requisitos observados via REA, declarações comerciais da ShopMy, exigências desta auditoria e escopo anterior do protótipo. Esse documento é uma referência derivada, não um PRD oficial da ShopMy nem prova de acesso a áreas privadas.
 
@@ -165,3 +165,22 @@ A integração usa somente chave publicável local, com pacote @supabase/supabas
 A prioridade seguinte permanece A01/T02: identidade e autorização por proprietário. A persistência do catálogo resolve parte de T01, mas GAP-01/02/03/04 continuam abertos. Não há justificativa para declarar as jornadas de shopper, creator, brand ou administrador completas.
 
 Resultado conectado: **16 aprovados / 8 falhas**, 24 casos, zero pulados, aproximadamente 2,4 minutos, em `evidencias/auditoria-supabase.json`. Build e TypeScript aprovados. O processo encerrou sozinho com código 1, preservando as falhas reais. A mensagem antiga de GAP-01 no relatório diz que não há banco; essa descrição foi corrigida no teste após a execução: há banco para catálogo, mas não para favoritos. A asserção e a falha permanecem as mesmas.
+
+## Acesso por conta e favoritos — implementação parcial
+
+Foi adicionada `/conta` para entrar e sair com e-mail/senha via Supabase Auth. Não há cadastro público nem recuperação de senha; o projeto ainda possui zero usuários Auth. Nenhum e-mail foi enviado pela automação.
+
+A migração `20261111213111_shopper_favorites.sql` criou favoritos com chave composta usuário/produto, referência a Auth, RLS por `auth.uid()` e permissão somente SELECT/INSERT/DELETE para authenticated. Anônimos não recebem acesso. UPDATE não é concedido, impedindo transferência de proprietário. A interface só muda o estado após o banco confirmar uma linha gravada/removida; falhas mantêm o estado anterior e mostram erro. Visitantes continuam usando favoritos temporários, com convite explícito para entrar.
+
+A inspeção confirmou as políticas aplicadas e o advisor de segurança retornou zero alertas. O teste comportamental entre dois usuários, em `supabase/tests/favorites.sql`, **não foi executado**: a confirmação adicional do serviço expirou. A contagem posterior confirmou zero usuários e zero favoritos. Não afirmar isolamento testado somente pela existência da política.
+
+Os cenários AUTH-01/02 usam respostas simuladas de Auth e favoritos no navegador. Verificam erro de login, login, salvar, recarregar, erro de escrita, remover, recarregar e sair; não comprovam uma sessão Auth real nem persistência remota por usuário. GAP-01 permanece aberto para a jornada sem conta e a validação ponta a ponta autenticada continua pendente.
+
+Execução inicial com contas: 28 casos, 16 aprovados e 12 falhas (`evidencias/auditoria-contas.json`). Quatro falhas eram seletores ambíguos dos testes AUTH: o aviso do Next.js também tem role alert. O seletor foi limitado ao conteúdo principal, preservando a verificação da mensagem. As oito falhas GAP continuam registradas.
+
+Reexecução após corrigir os seletores: **4/4 contratos de conta aprovados**, 19,1 s, em `evidencias/contratos-contas.json`. A suíte anterior preserva 16 cenários públicos aprovados e oito lacunas GAP. Não foi feita nova execução integral após a correção exclusivamente dos seletores. Build e TypeScript passaram. O teste de isolamento com usuários continua NÃO EXECUTADO.
+
+| Módulo | Rota | Funcionalidade | Status real | Evidência | Problemas | Correção necessária |
+|---|---|---|---|---|---|---|
+| Conta A01 | `/conta` | Login/logout com e-mail/senha | Implementado; contrato simulado aprovado | AUTH-01/02 em computador/celular; build/typecheck | Zero usuários; cadastro e recuperação ausentes; login remoto não validado | Preparar contas/ambiente de teste e validar Auth real |
+| Favoritos S07 | `/criador`, coleções | Salvar/reler/remover por usuário | Implementado no cliente e banco; validação completa pendente | AUTH-02 simulado; inspeção de políticas e grants remotos | Teste SQL entre usuários aguardando execução; visitantes temporários | Executar `supabase/tests/favorites.sql` em ambiente autorizado e jornada real com duas sessões |

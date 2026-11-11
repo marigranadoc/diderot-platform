@@ -32,3 +32,11 @@ Consultas SQL com registros temporários e ROLLBACK confirmaram que produtos de 
 Auth, gestão de perfis/papéis, favoritos por conta, CRUD do creator, marcas, campanhas e administração não foram implementados. O catálogo conectado não conclui essas jornadas. Não há deploy do site, checkout, envio de mensagens nem serviços financeiros.
 
 Referências: [changelog](https://supabase.com/changelog.md), [RLS](https://supabase.com/docs/guides/database/postgres/row-level-security), [cliente JavaScript](https://supabase.com/docs/reference/javascript/initializing).
+
+## Incremento: contas existentes e favoritos
+
+A rota `/conta` agora permite login/logout por e-mail e senha para contas existentes. O cadastro público e a recuperação de senha continuam pendentes, assim como a validação com uma sessão Auth real. O projeto segue sem usuários cadastrados.
+
+`favorites` foi criada pela migração `20261111213111_shopper_favorites.sql`, com RLS por usuário. O browser usa apenas a chave publicável e a sessão do próprio usuário. As regras do banco, não a visibilidade dos botões, controlam o acesso. O teste SQL de isolamento de dois usuários está preparado em `supabase/tests/favorites.sql`, mas a execução ficou pendente porque a confirmação do Supabase expirou. Não executar em ambiente com dados reais sem preparar um ambiente de teste adequado.
+
+A suíte de interface `tests/account.spec.ts` simula as respostas de Auth/favoritos e não substitui o teste remoto. As descrições anteriores de Auth ausente são o histórico antes deste incremento: agora o cliente de login existe, mas a jornada completa ainda não está validada.

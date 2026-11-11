@@ -1,0 +1,404 @@
+{
+  "evidence_id": "ev_67f7246dbcd177de5e0f0c53b366e7c8406257dbd409617badec2fa1caf5c044",
+  "subject": null,
+  "provider": {
+    "id": "rea-playwright-browser-scenario",
+    "name": "REA Playwright browser scenario capture provider",
+    "version": "1"
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.browser-scenario-capture",
+  "operation": "capture_browser_scenario",
+  "parameters": {
+    "browser": {
+      "mode": "launch",
+      "executable_path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "headless": true
+    },
+    "start_url": {
+      "url": "https://shopmy.us/shop/my/circles",
+      "query": []
+    },
+    "environment": {
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "device_scale_factor": 1
+      },
+      "locale": "en-US",
+      "timezone": "UTC",
+      "color_scheme": "light",
+      "reduced_motion": "reduce",
+      "service_workers": "block"
+    },
+    "actions": [
+      {
+        "step_id": "circles-ready",
+        "action": "wait_for_timeout",
+        "duration_ms": 2000
+      },
+      {
+        "step_id": "taste",
+        "timeout_ms": 20000,
+        "action": "goto",
+        "destination": {
+          "url": "https://shopmy.us/shop/my/taste",
+          "query": []
+        },
+        "wait_until": "load"
+      },
+      {
+        "step_id": "taste-ready",
+        "action": "wait_for_timeout",
+        "duration_ms": 2000
+      }
+    ],
+    "storage": {
+      "cookies": [],
+      "local_storage": [],
+      "session_storage": []
+    },
+    "secrets": [],
+    "capture": {
+      "after_each_step": [
+        "accessibility",
+        "url"
+      ],
+      "at_end": [
+        "url"
+      ],
+      "events": [],
+      "network": {
+        "request_body": false,
+        "response_body": false,
+        "header_values": false
+      },
+      "limits": {
+        "max_events": 10000,
+        "max_event_allocation_bytes": 4194304,
+        "max_total_event_allocation_bytes": 16777216,
+        "max_network_transactions": 1024,
+        "max_network_body_bytes": 65536,
+        "max_network_body_allocation_bytes": 1048576,
+        "max_network_header_allocation_bytes": 1048576,
+        "max_network_metadata_allocation_bytes": 1048576
+      }
+    },
+    "scenario_sha256": "77af04c29121a4b378dccb99ff1825810a839f23e1fd4e83ae23f5c33abc1ed0"
+  },
+  "raw_result": null,
+  "normalized_result": {
+    "browser": {
+      "mode": "launch",
+      "process_ownership": "provider-owned",
+      "cleanup": "terminated-owned-process",
+      "product": "Chromium",
+      "version": "157.0.8103.39"
+    },
+    "scenario": {
+      "start_origin": "https://shopmy.us",
+      "action_count": 3,
+      "secret_references": [],
+      "network_content": {
+        "request_body": false,
+        "response_body": false,
+        "header_values": false
+      },
+      "event_families": [],
+      "limits": {
+        "max_events": 10000,
+        "max_event_allocation_bytes": 4194304,
+        "max_total_event_allocation_bytes": 16777216,
+        "max_network_transactions": 1024,
+        "max_network_body_bytes": 65536,
+        "max_network_body_allocation_bytes": 1048576,
+        "max_network_header_allocation_bytes": 1048576,
+        "max_network_metadata_allocation_bytes": 1048576
+      }
+    },
+    "duration_ms": 20984,
+    "steps": [
+      {
+        "step_index": 0,
+        "step_id": "scenario_start",
+        "action": "goto_start",
+        "elapsed_ms": 12694,
+        "before_url": {
+          "url": "about:blank",
+          "origin": null,
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "after_url": {
+          "url": "https://shopmy.us/shop/my/circles",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "event_sequence_start": 1,
+        "event_sequence_end": 0,
+        "artifacts": {
+          "screenshot": {
+            "state": "not_requested"
+          },
+          "dom": {
+            "state": "not_requested"
+          },
+          "accessibility": {
+            "state": "captured",
+            "value": {
+              "sha256": "48df734e35ce7309959eec560c589ff945e6c4015a71ebb87bb28650046bf276",
+              "bytes": 4749,
+              "text": "- document:\n  - img \"ShopMy Logo\"\n  - navigation:\n    - button \"Sign Up\"\n    - textbox \"What are you shopping for?\"\n    - button \"Menu Icon\":\n      - img \"Menu Icon\"\n  - navigation:\n    - text: For Creators\n    - link \"Overview for Creators\":\n      - /url: /home/creators\n    - link \"Digital Shops\":\n      - /url: /home/creators/shop\n    - link \"Affiliate Links\":\n      - /url: /home/creators/affiliates\n    - link \"Brand Partnerships\":\n      - /url: /home/creators/partnerships\n    - link \"Apply to be a Creator\":\n      - /url: /apply/creator\n    - text: For Brands\n    - link \"Overview for Brands\":\n      - /url: /home/brands\n    - link \"Creator Network\":\n      - /url: /home/brands/discover\n    - link \"Gifting & Affiliates\":\n      - /url: /home/brands/engage\n    - link \"Performance Tracking\":\n      - /url: /home/brands/track\n    - link \"Opportunities at Scale\":\n      - /url: /home/brands/amplify\n    - text: For Shoppers\n    - link \"Shop By Curator\":\n      - /url: /shop/discover/curators\n    - link \"Shop By Circle\":\n      - /url: /shop/discover/circles\n    - link \"Shop By Brand\":\n      - /url: /shop/discover/brands\n    - link \"Shop By Category\":\n      - /url: /shop/discover/categories\n    - link \"Create a Circle\":\n      - /url: /shop/my/circles\n    - link \"Create a Taste Profile\":\n      - /url: /shop/my/taste\n    - text: General\n    - link \"About Us\":\n      - /url: /about\n    - link \"Blog\":\n      - /url: /blog\n    - link \"Careers\":\n      - /url: /careers\n    - link \"Contact Us\":\n      - /url: /contact\n    - text: Apply Log In\n  - text: It's better on mobile.\n  - link \"App Store\":\n    - /url: https://apps.apple.com/us/app/shopmy/id6443850511\n    - img \"App Store\"\n  - heading \"My Circles\" [level=1]\n  - heading \"Your own personal shops, curated by your favorite people.\" [level=2]\n  - text: From Instagram\n  - img \"Instagram\"\n  - text: Create Circle Create your first Circle! All My Circles Favorited Circles With New Finds You don't have any circles Circles enable you to choose who curates your shopping experience. Create your own or search and heart others. Create My First Circle\n  - link \"Discover Circles\":\n    - /url: /shop/discover/circles\n  - text: For Creators\n  - list:\n    - listitem:\n      - link \"ShopMy For Creators\":\n        - /url: /home/creators\n    - listitem:\n      - link \"Digital Shops\":\n        - /url: /home/creators/shop\n    - listitem:\n      - link \"Affiliate Links\":\n        - /url: /home/creators/affiliates\n    - listitem:\n      - link \"Brand Partnerships\":\n        - /url: /home/creators/partnerships\n    - listitem:\n      - link \"Apply to be a Creator\":\n        - /url: /apply/creator\n    - listitem:\n      - link \"Webinars\":\n        - /url: /home/creators/webinars\n  - text: For Brands\n  - list:\n    - listitem:\n      - link \"ShopMy For Brands\":\n        - /url: /home/brands\n    - listitem:\n      - link \"Discover\":\n        - /url: /home/brands/discover\n    - listitem:\n      - link \"Engage\":\n        - /url: /home/brands/engage\n    - listitem:\n      - link \"Track\":\n        - /url: /home/brands/track\n    - listitem:\n      - link \"Amplify\":\n        - /url: /home/brands/amplify\n  - text: For Shoppers\n  - list:\n    - listitem:\n      - link \"Shop By Curator\":\n        - /url: /shop/discover/curators\n    - listitem:\n      - link \"Shop By Circle\":\n        - /url: /shop/discover/circles\n    - listitem:\n      - link \"Shop By Brand\":\n        - /url: /shop/discover/brands\n    - listitem:\n      - link \"Shop By Category\":\n        - /url: /shop/discover/categories\n    - listitem:\n      - link \"My Circles\":\n        - /url: /shop/my/circles\n    - listitem:\n      - link \"My Taste Profile\":\n        - /url: /shop/my/taste\n  - text: Explore\n  - list:\n    - listitem:\n      - link \"Blog\":\n        - /url: /blog\n    - listitem:\n      - link \"About Us\":\n        - /url: /about\n    - listitem:\n      - link \"Careers\":\n        - /url: /careers\n    - listitem:\n      - link \"Shop All Categories\":\n        - /url: /shop\n    - listitem:\n      - link \"Reports\":\n        - /url: /reports\n  - text: Support + Legal\n  - list:\n    - listitem:\n      - link \"Creator Guide\":\n        - /url: https://guide.shopmy.us\n    - listitem:\n      - link \"Brand Guide\":\n        - /url: https://brands.shopmy.us\n    - listitem:\n      - link \"Contact Us\":\n        - /url: /contact\n    - listitem:\n      - link \"Terms of Service\":\n        - /url: https://shopmy.us/legal/terms-of-service\n    - listitem:\n      - link \"Privacy\":\n        - /url: https://shopmy.us/legal/privacy-policy\n  - link \"ShopMy Logo\":\n    - /url: /home\n    - img \"ShopMy Logo\"\n  - text: © Copyright 2026 Shop My Shelf, Inc. All Rights Reserved. |\n  - link \"Do Not Sell or Share My Personal Information\":\n    - /url: /do-not-sell\n  - text: \"| Cookie Settings\""
+            }
+          },
+          "url": {
+            "state": "captured",
+            "value": {
+              "url": "https://shopmy.us/shop/my/circles",
+              "origin": "https://shopmy.us",
+              "query_parameter_names": [],
+              "redacted": false
+            }
+          },
+          "history": {
+            "state": "not_requested"
+          },
+          "storage": {
+            "state": "not_requested"
+          }
+        },
+        "completeness": {
+          "status": "complete",
+          "equality_eligible": true,
+          "missing_sections": [],
+          "truncated_sections": []
+        },
+        "status": "completed",
+        "error": null
+      },
+      {
+        "step_index": 1,
+        "step_id": "circles-ready",
+        "action": "wait_for_timeout",
+        "elapsed_ms": 2075,
+        "before_url": {
+          "url": "https://shopmy.us/shop/my/circles",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "after_url": {
+          "url": "https://shopmy.us/shop/my/circles",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "event_sequence_start": 1,
+        "event_sequence_end": 0,
+        "artifacts": {
+          "screenshot": {
+            "state": "not_requested"
+          },
+          "dom": {
+            "state": "not_requested"
+          },
+          "accessibility": {
+            "state": "captured",
+            "value": {
+              "sha256": "48df734e35ce7309959eec560c589ff945e6c4015a71ebb87bb28650046bf276",
+              "bytes": 4749,
+              "text": "- document:\n  - img \"ShopMy Logo\"\n  - navigation:\n    - button \"Sign Up\"\n    - textbox \"What are you shopping for?\"\n    - button \"Menu Icon\":\n      - img \"Menu Icon\"\n  - navigation:\n    - text: For Creators\n    - link \"Overview for Creators\":\n      - /url: /home/creators\n    - link \"Digital Shops\":\n      - /url: /home/creators/shop\n    - link \"Affiliate Links\":\n      - /url: /home/creators/affiliates\n    - link \"Brand Partnerships\":\n      - /url: /home/creators/partnerships\n    - link \"Apply to be a Creator\":\n      - /url: /apply/creator\n    - text: For Brands\n    - link \"Overview for Brands\":\n      - /url: /home/brands\n    - link \"Creator Network\":\n      - /url: /home/brands/discover\n    - link \"Gifting & Affiliates\":\n      - /url: /home/brands/engage\n    - link \"Performance Tracking\":\n      - /url: /home/brands/track\n    - link \"Opportunities at Scale\":\n      - /url: /home/brands/amplify\n    - text: For Shoppers\n    - link \"Shop By Curator\":\n      - /url: /shop/discover/curators\n    - link \"Shop By Circle\":\n      - /url: /shop/discover/circles\n    - link \"Shop By Brand\":\n      - /url: /shop/discover/brands\n    - link \"Shop By Category\":\n      - /url: /shop/discover/categories\n    - link \"Create a Circle\":\n      - /url: /shop/my/circles\n    - link \"Create a Taste Profile\":\n      - /url: /shop/my/taste\n    - text: General\n    - link \"About Us\":\n      - /url: /about\n    - link \"Blog\":\n      - /url: /blog\n    - link \"Careers\":\n      - /url: /careers\n    - link \"Contact Us\":\n      - /url: /contact\n    - text: Apply Log In\n  - text: It's better on mobile.\n  - link \"App Store\":\n    - /url: https://apps.apple.com/us/app/shopmy/id6443850511\n    - img \"App Store\"\n  - heading \"My Circles\" [level=1]\n  - heading \"Your own personal shops, curated by your favorite people.\" [level=2]\n  - text: From Instagram\n  - img \"Instagram\"\n  - text: Create Circle Create your first Circle! All My Circles Favorited Circles With New Finds You don't have any circles Circles enable you to choose who curates your shopping experience. Create your own or search and heart others. Create My First Circle\n  - link \"Discover Circles\":\n    - /url: /shop/discover/circles\n  - text: For Creators\n  - list:\n    - listitem:\n      - link \"ShopMy For Creators\":\n        - /url: /home/creators\n    - listitem:\n      - link \"Digital Shops\":\n        - /url: /home/creators/shop\n    - listitem:\n      - link \"Affiliate Links\":\n        - /url: /home/creators/affiliates\n    - listitem:\n      - link \"Brand Partnerships\":\n        - /url: /home/creators/partnerships\n    - listitem:\n      - link \"Apply to be a Creator\":\n        - /url: /apply/creator\n    - listitem:\n      - link \"Webinars\":\n        - /url: /home/creators/webinars\n  - text: For Brands\n  - list:\n    - listitem:\n      - link \"ShopMy For Brands\":\n        - /url: /home/brands\n    - listitem:\n      - link \"Discover\":\n        - /url: /home/brands/discover\n    - listitem:\n      - link \"Engage\":\n        - /url: /home/brands/engage\n    - listitem:\n      - link \"Track\":\n        - /url: /home/brands/track\n    - listitem:\n      - link \"Amplify\":\n        - /url: /home/brands/amplify\n  - text: For Shoppers\n  - list:\n    - listitem:\n      - link \"Shop By Curator\":\n        - /url: /shop/discover/curators\n    - listitem:\n      - link \"Shop By Circle\":\n        - /url: /shop/discover/circles\n    - listitem:\n      - link \"Shop By Brand\":\n        - /url: /shop/discover/brands\n    - listitem:\n      - link \"Shop By Category\":\n        - /url: /shop/discover/categories\n    - listitem:\n      - link \"My Circles\":\n        - /url: /shop/my/circles\n    - listitem:\n      - link \"My Taste Profile\":\n        - /url: /shop/my/taste\n  - text: Explore\n  - list:\n    - listitem:\n      - link \"Blog\":\n        - /url: /blog\n    - listitem:\n      - link \"About Us\":\n        - /url: /about\n    - listitem:\n      - link \"Careers\":\n        - /url: /careers\n    - listitem:\n      - link \"Shop All Categories\":\n        - /url: /shop\n    - listitem:\n      - link \"Reports\":\n        - /url: /reports\n  - text: Support + Legal\n  - list:\n    - listitem:\n      - link \"Creator Guide\":\n        - /url: https://guide.shopmy.us\n    - listitem:\n      - link \"Brand Guide\":\n        - /url: https://brands.shopmy.us\n    - listitem:\n      - link \"Contact Us\":\n        - /url: /contact\n    - listitem:\n      - link \"Terms of Service\":\n        - /url: https://shopmy.us/legal/terms-of-service\n    - listitem:\n      - link \"Privacy\":\n        - /url: https://shopmy.us/legal/privacy-policy\n  - link \"ShopMy Logo\":\n    - /url: /home\n    - img \"ShopMy Logo\"\n  - text: © Copyright 2026 Shop My Shelf, Inc. All Rights Reserved. |\n  - link \"Do Not Sell or Share My Personal Information\":\n    - /url: /do-not-sell\n  - text: \"| Cookie Settings\""
+            }
+          },
+          "url": {
+            "state": "captured",
+            "value": {
+              "url": "https://shopmy.us/shop/my/circles",
+              "origin": "https://shopmy.us",
+              "query_parameter_names": [],
+              "redacted": false
+            }
+          },
+          "history": {
+            "state": "not_requested"
+          },
+          "storage": {
+            "state": "not_requested"
+          }
+        },
+        "completeness": {
+          "status": "complete",
+          "equality_eligible": true,
+          "missing_sections": [],
+          "truncated_sections": []
+        },
+        "status": "completed",
+        "error": null
+      },
+      {
+        "step_index": 2,
+        "step_id": "taste",
+        "action": "goto",
+        "elapsed_ms": 3066,
+        "before_url": {
+          "url": "https://shopmy.us/shop/my/circles",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "after_url": {
+          "url": "https://shopmy.us/shop/my/taste",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "event_sequence_start": 1,
+        "event_sequence_end": 0,
+        "artifacts": {
+          "screenshot": {
+            "state": "not_requested"
+          },
+          "dom": {
+            "state": "not_requested"
+          },
+          "accessibility": {
+            "state": "captured",
+            "value": {
+              "sha256": "66a802a932704bcaf382956a53ee586cc215d0c5f7217c877f3062b3f3b5e200",
+              "bytes": 4695,
+              "text": "- document:\n  - img \"ShopMy Logo\"\n  - navigation:\n    - button \"Sign Up\"\n    - textbox \"What are you shopping for?\"\n    - button \"Menu Icon\":\n      - img \"Menu Icon\"\n  - navigation:\n    - text: For Creators\n    - link \"Overview for Creators\":\n      - /url: /home/creators\n    - link \"Digital Shops\":\n      - /url: /home/creators/shop\n    - link \"Affiliate Links\":\n      - /url: /home/creators/affiliates\n    - link \"Brand Partnerships\":\n      - /url: /home/creators/partnerships\n    - link \"Apply to be a Creator\":\n      - /url: /apply/creator\n    - text: For Brands\n    - link \"Overview for Brands\":\n      - /url: /home/brands\n    - link \"Creator Network\":\n      - /url: /home/brands/discover\n    - link \"Gifting & Affiliates\":\n      - /url: /home/brands/engage\n    - link \"Performance Tracking\":\n      - /url: /home/brands/track\n    - link \"Opportunities at Scale\":\n      - /url: /home/brands/amplify\n    - text: For Shoppers\n    - link \"Shop By Curator\":\n      - /url: /shop/discover/curators\n    - link \"Shop By Circle\":\n      - /url: /shop/discover/circles\n    - link \"Shop By Brand\":\n      - /url: /shop/discover/brands\n    - link \"Shop By Category\":\n      - /url: /shop/discover/categories\n    - link \"Create a Circle\":\n      - /url: /shop/my/circles\n    - link \"Create a Taste Profile\":\n      - /url: /shop/my/taste\n    - text: General\n    - link \"About Us\":\n      - /url: /about\n    - link \"Blog\":\n      - /url: /blog\n    - link \"Careers\":\n      - /url: /careers\n    - link \"Contact Us\":\n      - /url: /contact\n    - text: Apply Log In\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - heading \"Let's build your taste profile\" [level=3]\n  - text: Heart 25 products to get started. Generate Taste Profile\n  - link \"Shop Top Categories\":\n    - /url: /shop/discover/categories\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - text: For Creators\n  - list:\n    - listitem:\n      - link \"ShopMy For Creators\":\n        - /url: /home/creators\n    - listitem:\n      - link \"Digital Shops\":\n        - /url: /home/creators/shop\n    - listitem:\n      - link \"Affiliate Links\":\n        - /url: /home/creators/affiliates\n    - listitem:\n      - link \"Brand Partnerships\":\n        - /url: /home/creators/partnerships\n    - listitem:\n      - link \"Apply to be a Creator\":\n        - /url: /apply/creator\n    - listitem:\n      - link \"Webinars\":\n        - /url: /home/creators/webinars\n  - text: For Brands\n  - list:\n    - listitem:\n      - link \"ShopMy For Brands\":\n        - /url: /home/brands\n    - listitem:\n      - link \"Discover\":\n        - /url: /home/brands/discover\n    - listitem:\n      - link \"Engage\":\n        - /url: /home/brands/engage\n    - listitem:\n      - link \"Track\":\n        - /url: /home/brands/track\n    - listitem:\n      - link \"Amplify\":\n        - /url: /home/brands/amplify\n  - text: For Shoppers\n  - list:\n    - listitem:\n      - link \"Shop By Curator\":\n        - /url: /shop/discover/curators\n    - listitem:\n      - link \"Shop By Circle\":\n        - /url: /shop/discover/circles\n    - listitem:\n      - link \"Shop By Brand\":\n        - /url: /shop/discover/brands\n    - listitem:\n      - link \"Shop By Category\":\n        - /url: /shop/discover/categories\n    - listitem:\n      - link \"My Circles\":\n        - /url: /shop/my/circles\n    - listitem:\n      - link \"My Taste Profile\":\n        - /url: /shop/my/taste\n  - text: Explore\n  - list:\n    - listitem:\n      - link \"Blog\":\n        - /url: /blog\n    - listitem:\n      - link \"About Us\":\n        - /url: /about\n    - listitem:\n      - link \"Careers\":\n        - /url: /careers\n    - listitem:\n      - link \"Shop All Categories\":\n        - /url: /shop\n    - listitem:\n      - link \"Reports\":\n        - /url: /reports\n  - text: Support + Legal\n  - list:\n    - listitem:\n      - link \"Creator Guide\":\n        - /url: https://guide.shopmy.us\n    - listitem:\n      - link \"Brand Guide\":\n        - /url: https://brands.shopmy.us\n    - listitem:\n      - link \"Contact Us\":\n        - /url: /contact\n    - listitem:\n      - link \"Terms of Service\":\n        - /url: https://shopmy.us/legal/terms-of-service\n    - listitem:\n      - link \"Privacy\":\n        - /url: https://shopmy.us/legal/privacy-policy\n  - link \"ShopMy Logo\":\n    - /url: /home\n    - img \"ShopMy Logo\"\n  - text: © Copyright 2026 Shop My Shelf, Inc. All Rights Reserved. |\n  - link \"Do Not Sell or Share My Personal Information\":\n    - /url: /do-not-sell\n  - text: \"| Cookie Settings\""
+            }
+          },
+          "url": {
+            "state": "captured",
+            "value": {
+              "url": "https://shopmy.us/shop/my/taste",
+              "origin": "https://shopmy.us",
+              "query_parameter_names": [],
+              "redacted": false
+            }
+          },
+          "history": {
+            "state": "not_requested"
+          },
+          "storage": {
+            "state": "not_requested"
+          }
+        },
+        "completeness": {
+          "status": "complete",
+          "equality_eligible": true,
+          "missing_sections": [],
+          "truncated_sections": []
+        },
+        "status": "completed",
+        "error": null
+      },
+      {
+        "step_index": 3,
+        "step_id": "taste-ready",
+        "action": "wait_for_timeout",
+        "elapsed_ms": 2064,
+        "before_url": {
+          "url": "https://shopmy.us/shop/my/taste",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "after_url": {
+          "url": "https://shopmy.us/shop/my/taste",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "event_sequence_start": 1,
+        "event_sequence_end": 0,
+        "artifacts": {
+          "screenshot": {
+            "state": "not_requested"
+          },
+          "dom": {
+            "state": "not_requested"
+          },
+          "accessibility": {
+            "state": "captured",
+            "value": {
+              "sha256": "66a802a932704bcaf382956a53ee586cc215d0c5f7217c877f3062b3f3b5e200",
+              "bytes": 4695,
+              "text": "- document:\n  - img \"ShopMy Logo\"\n  - navigation:\n    - button \"Sign Up\"\n    - textbox \"What are you shopping for?\"\n    - button \"Menu Icon\":\n      - img \"Menu Icon\"\n  - navigation:\n    - text: For Creators\n    - link \"Overview for Creators\":\n      - /url: /home/creators\n    - link \"Digital Shops\":\n      - /url: /home/creators/shop\n    - link \"Affiliate Links\":\n      - /url: /home/creators/affiliates\n    - link \"Brand Partnerships\":\n      - /url: /home/creators/partnerships\n    - link \"Apply to be a Creator\":\n      - /url: /apply/creator\n    - text: For Brands\n    - link \"Overview for Brands\":\n      - /url: /home/brands\n    - link \"Creator Network\":\n      - /url: /home/brands/discover\n    - link \"Gifting & Affiliates\":\n      - /url: /home/brands/engage\n    - link \"Performance Tracking\":\n      - /url: /home/brands/track\n    - link \"Opportunities at Scale\":\n      - /url: /home/brands/amplify\n    - text: For Shoppers\n    - link \"Shop By Curator\":\n      - /url: /shop/discover/curators\n    - link \"Shop By Circle\":\n      - /url: /shop/discover/circles\n    - link \"Shop By Brand\":\n      - /url: /shop/discover/brands\n    - link \"Shop By Category\":\n      - /url: /shop/discover/categories\n    - link \"Create a Circle\":\n      - /url: /shop/my/circles\n    - link \"Create a Taste Profile\":\n      - /url: /shop/my/taste\n    - text: General\n    - link \"About Us\":\n      - /url: /about\n    - link \"Blog\":\n      - /url: /blog\n    - link \"Careers\":\n      - /url: /careers\n    - link \"Contact Us\":\n      - /url: /contact\n    - text: Apply Log In\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - heading \"Let's build your taste profile\" [level=3]\n  - text: Heart 25 products to get started. Generate Taste Profile\n  - link \"Shop Top Categories\":\n    - /url: /shop/discover/categories\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - img \"Featured product\"\n  - text: For Creators\n  - list:\n    - listitem:\n      - link \"ShopMy For Creators\":\n        - /url: /home/creators\n    - listitem:\n      - link \"Digital Shops\":\n        - /url: /home/creators/shop\n    - listitem:\n      - link \"Affiliate Links\":\n        - /url: /home/creators/affiliates\n    - listitem:\n      - link \"Brand Partnerships\":\n        - /url: /home/creators/partnerships\n    - listitem:\n      - link \"Apply to be a Creator\":\n        - /url: /apply/creator\n    - listitem:\n      - link \"Webinars\":\n        - /url: /home/creators/webinars\n  - text: For Brands\n  - list:\n    - listitem:\n      - link \"ShopMy For Brands\":\n        - /url: /home/brands\n    - listitem:\n      - link \"Discover\":\n        - /url: /home/brands/discover\n    - listitem:\n      - link \"Engage\":\n        - /url: /home/brands/engage\n    - listitem:\n      - link \"Track\":\n        - /url: /home/brands/track\n    - listitem:\n      - link \"Amplify\":\n        - /url: /home/brands/amplify\n  - text: For Shoppers\n  - list:\n    - listitem:\n      - link \"Shop By Curator\":\n        - /url: /shop/discover/curators\n    - listitem:\n      - link \"Shop By Circle\":\n        - /url: /shop/discover/circles\n    - listitem:\n      - link \"Shop By Brand\":\n        - /url: /shop/discover/brands\n    - listitem:\n      - link \"Shop By Category\":\n        - /url: /shop/discover/categories\n    - listitem:\n      - link \"My Circles\":\n        - /url: /shop/my/circles\n    - listitem:\n      - link \"My Taste Profile\":\n        - /url: /shop/my/taste\n  - text: Explore\n  - list:\n    - listitem:\n      - link \"Blog\":\n        - /url: /blog\n    - listitem:\n      - link \"About Us\":\n        - /url: /about\n    - listitem:\n      - link \"Careers\":\n        - /url: /careers\n    - listitem:\n      - link \"Shop All Categories\":\n        - /url: /shop\n    - listitem:\n      - link \"Reports\":\n        - /url: /reports\n  - text: Support + Legal\n  - list:\n    - listitem:\n      - link \"Creator Guide\":\n        - /url: https://guide.shopmy.us\n    - listitem:\n      - link \"Brand Guide\":\n        - /url: https://brands.shopmy.us\n    - listitem:\n      - link \"Contact Us\":\n        - /url: /contact\n    - listitem:\n      - link \"Terms of Service\":\n        - /url: https://shopmy.us/legal/terms-of-service\n    - listitem:\n      - link \"Privacy\":\n        - /url: https://shopmy.us/legal/privacy-policy\n  - link \"ShopMy Logo\":\n    - /url: /home\n    - img \"ShopMy Logo\"\n  - text: © Copyright 2026 Shop My Shelf, Inc. All Rights Reserved. |\n  - link \"Do Not Sell or Share My Personal Information\":\n    - /url: /do-not-sell\n  - text: \"| Cookie Settings\""
+            }
+          },
+          "url": {
+            "state": "captured",
+            "value": {
+              "url": "https://shopmy.us/shop/my/taste",
+              "origin": "https://shopmy.us",
+              "query_parameter_names": [],
+              "redacted": false
+            }
+          },
+          "history": {
+            "state": "not_requested"
+          },
+          "storage": {
+            "state": "not_requested"
+          }
+        },
+        "completeness": {
+          "status": "complete",
+          "equality_eligible": true,
+          "missing_sections": [],
+          "truncated_sections": []
+        },
+        "status": "completed",
+        "error": null
+      }
+    ],
+    "events": {
+      "retained": 0,
+      "dropped": 0,
+      "items": [],
+      "omissions": {
+        "by_kind": [],
+        "network_transactions": [],
+        "network_transaction_range": null
+      }
+    },
+    "completeness": {
+      "status": "complete",
+      "equality_eligible": true,
+      "missing_sections": [],
+      "truncated_sections": []
+    },
+    "limitations": [
+      "Event sequence records provider receipt order; simultaneous browser causality is not inferred.",
+      "Network content is retained only when selected; Playwright response-body bytes are API results and are not guaranteed to match wire bytes.",
+      "Request bytes are limited to what Playwright exposes; not_exposed does not establish body absence or multipart file coverage.",
+      "Network content reads settle within 5 seconds each and the observer does not request bodies from unfinished responses.",
+      "Playwright scenario events do not expose request initiator stacks; receipt order does not prove causality.",
+      "Storage values are hashed only after declared-secret redaction."
+    ]
+  },
+  "confidence": "observed",
+  "authority": "controlled-replay",
+  "environment": {
+    "id": "Chromium@157.0.8103.39",
+    "platform": "unknown",
+    "architecture": "unknown",
+    "isolation": "process"
+  },
+  "limitations": [
+    "Artifact identity is unavailable for this observation.",
+    "Event sequence records provider receipt order; simultaneous browser causality is not inferred.",
+    "Network content is retained only when selected; Playwright response-body bytes are API results and are not guaranteed to match wire bytes.",
+    "Request bytes are limited to what Playwright exposes; not_exposed does not establish body absence or multipart file coverage.",
+    "Network content reads settle within 5 seconds each and the observer does not request bodies from unfinished responses.",
+    "Playwright scenario events do not expose request initiator stacks; receipt order does not prove causality.",
+    "Storage values are hashed only after declared-secret redaction.",
+    "Browser host platform and architecture were not observed."
+  ],
+  "relationship_coverage": null,
+  "locations": [],
+  "evidence_links": []
+}

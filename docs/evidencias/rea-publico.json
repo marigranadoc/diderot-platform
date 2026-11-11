@@ -1,0 +1,674 @@
+{
+  "evidence_id": "ev_29d9f301188fb38661cec5c699b1a9a36930d405f84dfbc5bed933ec8a52bf5a",
+  "subject": null,
+  "provider": {
+    "id": "rea-playwright-browser-scenario",
+    "name": "REA Playwright browser scenario capture provider",
+    "version": "1"
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.browser-scenario-capture",
+  "operation": "capture_browser_scenario",
+  "parameters": {
+    "browser": {
+      "mode": "launch",
+      "executable_path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "headless": true
+    },
+    "start_url": {
+      "url": "https://shopmy.us/home",
+      "query": []
+    },
+    "environment": {
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "device_scale_factor": 1
+      },
+      "locale": "en-US",
+      "timezone": "UTC",
+      "color_scheme": "light",
+      "reduced_motion": "reduce",
+      "service_workers": "block"
+    },
+    "actions": [
+      {
+        "step_id": "home",
+        "action": "wait_for_timeout",
+        "duration_ms": 2500
+      },
+      {
+        "step_id": "creators",
+        "timeout_ms": 20000,
+        "action": "goto",
+        "destination": {
+          "url": "https://shopmy.us/home/creators",
+          "query": []
+        },
+        "wait_until": "load"
+      },
+      {
+        "step_id": "creator-ready",
+        "action": "wait_for_timeout",
+        "duration_ms": 2000
+      },
+      {
+        "step_id": "brands",
+        "timeout_ms": 20000,
+        "action": "goto",
+        "destination": {
+          "url": "https://shopmy.us/home/brands",
+          "query": []
+        },
+        "wait_until": "load"
+      },
+      {
+        "step_id": "brand-ready",
+        "action": "wait_for_timeout",
+        "duration_ms": 2000
+      },
+      {
+        "step_id": "creator-apply",
+        "timeout_ms": 20000,
+        "action": "goto",
+        "destination": {
+          "url": "https://shopmy.us/apply/creator",
+          "query": []
+        },
+        "wait_until": "load"
+      },
+      {
+        "step_id": "apply-ready",
+        "action": "wait_for_timeout",
+        "duration_ms": 2000
+      }
+    ],
+    "storage": {
+      "cookies": [],
+      "local_storage": [],
+      "session_storage": []
+    },
+    "secrets": [],
+    "capture": {
+      "after_each_step": [
+        "accessibility",
+        "url"
+      ],
+      "at_end": [
+        "url"
+      ],
+      "events": [
+        "page-errors"
+      ],
+      "network": {
+        "request_body": false,
+        "response_body": false,
+        "header_values": false
+      },
+      "limits": {
+        "max_events": 10000,
+        "max_event_allocation_bytes": 4194304,
+        "max_total_event_allocation_bytes": 16777216,
+        "max_network_transactions": 1024,
+        "max_network_body_bytes": 65536,
+        "max_network_body_allocation_bytes": 1048576,
+        "max_network_header_allocation_bytes": 1048576,
+        "max_network_metadata_allocation_bytes": 1048576
+      }
+    },
+    "scenario_sha256": "a28983e2ca1cd8bb8253f93a1641527402938305ac63ad788441aa3c472fe527"
+  },
+  "raw_result": null,
+  "normalized_result": {
+    "browser": {
+      "mode": "launch",
+      "process_ownership": "provider-owned",
+      "cleanup": "terminated-owned-process",
+      "product": "Chromium",
+      "version": "157.0.8103.39"
+    },
+    "scenario": {
+      "start_origin": "https://shopmy.us",
+      "action_count": 7,
+      "secret_references": [],
+      "network_content": {
+        "request_body": false,
+        "response_body": false,
+        "header_values": false
+      },
+      "event_families": [
+        "page-errors"
+      ],
+      "limits": {
+        "max_events": 10000,
+        "max_event_allocation_bytes": 4194304,
+        "max_total_event_allocation_bytes": 16777216,
+        "max_network_transactions": 1024,
+        "max_network_body_bytes": 65536,
+        "max_network_body_allocation_bytes": 1048576,
+        "max_network_header_allocation_bytes": 1048576,
+        "max_network_metadata_allocation_bytes": 1048576
+      }
+    },
+    "duration_ms": 38221,
+    "steps": [
+      {
+        "step_index": 0,
+        "step_id": "scenario_start",
+        "action": "goto_start",
+        "elapsed_ms": 11213,
+        "before_url": {
+          "url": "about:blank",
+          "origin": null,
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "after_url": {
+          "url": "https://shopmy.us/home",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "event_sequence_start": 1,
+        "event_sequence_end": 0,
+        "artifacts": {
+          "screenshot": {
+            "state": "not_requested"
+          },
+          "dom": {
+            "state": "not_requested"
+          },
+          "accessibility": {
+            "state": "captured",
+            "value": {
+              "sha256": "399c7c20cdbe22e92342f5a84d799b5e4e52253369240c9ff3154136c2af768d",
+              "bytes": 7560,
+              "text": "- document:\n  - img \"ShopMy Logo\"\n  - navigation:\n    - link \"For Shoppers\":\n      - /url: /home/shoppers\n    - link \"For Creators\":\n      - /url: /home/creators\n    - link \"For Brands\":\n      - /url: /home/brands\n    - button \"Log In\"\n    - button \"Sign Up\"\n    - textbox \"What are you shopping for?\"\n    - button \"Menu Icon\":\n      - img \"Menu Icon\"\n  - heading \"Curated by the obsessed, not the algorithm.\" [level=1]\n  - heading \"Shop the recommendations of the world's most trusted curators.\" [level=2]\n  - text: It's better on mobile. Access to our newest feature, Noir, a 1:1 text-based concierge offering personalized recommendations from a real human.\n  - link \"App Store\":\n    - /url: https://apps.apple.com/us/app/shopmy/id6443850511\n    - img \"App Store\"\n  - text: Shop by Curator Insider access to your favorite tastemakers' most loved and trusted products.\n  - link \"Shop All Curators\":\n    - /url: /shop/discover/curators\n  - link \"Sofia Richie Grainge\":\n    - /url: /shop/sofiarichiegrainge\n    - img \"Sofia Richie Grainge\"\n  - link \"Alexandra Leclerc\":\n    - /url: /shop/alexandraleclerc\n    - img \"Alexandra Leclerc\"\n  - link \"Elsa Hosk\":\n    - /url: /shop/hoskelsa\n    - img \"Elsa Hosk\"\n  - link \"Lila Moss\":\n    - /url: /shop/lilamoss\n    - img \"Lila Moss\"\n  - link \"Nara Smith\":\n    - /url: /shop/naraaziza\n    - img \"Nara Smith\"\n  - link \"aurora\":\n    - /url: /shop/aurorajames\n    - img \"aurora\"\n  - link \"Marianna Hewitt\":\n    - /url: /shop/mariannahewitt\n    - img \"Marianna Hewitt\"\n  - link \"Hailee Steinfeld\":\n    - /url: /shop/haileesteinfeld\n    - img \"Hailee Steinfeld\"\n  - link \"Kelly Wearstler\":\n    - /url: /shop/kellywearstler\n    - img \"Kelly Wearstler\"\n  - text: Shop by Circle Create groups of curators who share your style and shop their top recommendations. Create Circle\n  - link \"Shop All Circles\":\n    - /url: /shop/discover/circles\n  - link \"The ShopMy Team\":\n    - /url: /shop?CuratorGroup_id=682&tab=popular-monthly\n    - img \"The ShopMy Team\"\n  - link \"Stylists\":\n    - /url: /shop?Industry_id=1&Department_id=44&CuratorGroup_id=1384&tab=popular-monthly\n    - img \"Stylists\"\n  - link \"Tastemakers in the Kitchen\":\n    - /url: /shop?Industry_id=5&CuratorGroup_id=2189&tab=popular-monthly\n    - img \"Tastemakers in the Kitchen\"\n  - link \"Professional Makeup Artists\":\n    - /url: /shop?Industry_id=2&Department_id=2&CuratorGroup_id=2191&tab=popular-monthly\n    - img \"Professional Makeup Artists\"\n  - link \"Interior Designers\":\n    - /url: /shop?Industry_id=5&CuratorGroup_id=616&tab=popular-monthly\n    - img \"Interior Designers\"\n  - link \"Fashion Industry Insiders\":\n    - /url: /shop?Industry_id=1&CuratorGroup_id=1383&tab=popular-monthly\n    - img \"Fashion Industry Insiders\"\n  - link \"Beauty Industry Insiders\":\n    - /url: /shop?Industry_id=2&CuratorGroup_id=2205&tab=popular-monthly\n    - img \"Beauty Industry Insiders\"\n  - link \"Designers & Founders\":\n    - /url: /shop?CuratorGroup_id=350644&tab=popular-monthly\n    - img \"Designers & Founders\"\n  - img\n  - text: The best things in life are worth sharing. Sign Up Create a Circle Shop by Category Confidently shop the best of every category.\n  - link \"Shop All Categories\":\n    - /url: /shop/discover/categories\n  - link \"Necklaces\":\n    - /url: /shop?Category_id=227&tab=popular-monthly\n    - img \"Necklaces\"\n  - link \"Jeans\":\n    - /url: /shop?Category_id=203&tab=popular-monthly\n    - img \"Jeans\"\n  - link \"Sandals\":\n    - /url: /shop?Category_id=183&tab=popular-monthly\n    - img \"Sandals\"\n  - link \"Dresses\":\n    - /url: /shop?Category_id=192&tab=popular-monthly\n    - img \"Dresses\"\n  - link \"Blazers\":\n    - /url: /shop?Category_id=243&tab=popular-monthly\n    - img \"Blazers\"\n  - link \"Sneakers\":\n    - /url: /shop?Category_id=184&tab=popular-monthly\n    - img \"Sneakers\"\n  - link \"Tote Bags\":\n    - /url: /shop?Category_id=211&tab=popular-monthly\n    - img \"Tote Bags\"\n  - link \"Flats\":\n    - /url: /shop?Category_id=186&tab=popular-monthly\n    - img \"Flats\"\n  - text: Shop by Brand Explore top-tier products from brands you know and discover new brands you'll love.\n  - link \"Shop All Brands\":\n    - /url: /shop/discover/brands\n  - link \"Call It By Your Name\":\n    - /url: /shop?AllBrand_id=8877&tab=popular-monthly\n    - img \"Call It By Your Name\"\n  - link \"Emme Parsons\":\n    - /url: /shop?AllBrand_id=713&tab=popular-monthly\n    - img \"Emme Parsons\"\n  - link \"ALÉMAIS\":\n    - /url: /shop?AllBrand_id=6249&tab=popular-monthly\n    - img \"ALÉMAIS\"\n  - link \"Sofie Pavitt Face\":\n    - /url: /shop?AllBrand_id=502&tab=popular-monthly\n    - img \"Sofie Pavitt Face\"\n  - link \"Olive Ateliers\":\n    - /url: /shop?AllBrand_id=837&tab=popular-monthly\n    - img \"Olive Ateliers\"\n  - link \"Liberowe\":\n    - /url: /shop?AllBrand_id=1206&tab=popular-monthly\n    - img \"Liberowe\"\n  - link \"Suzie Kondi\":\n    - /url: /shop?AllBrand_id=814&tab=popular-monthly\n    - img \"Suzie Kondi\"\n  - link \"Ceremonia\":\n    - /url: /shop?AllBrand_id=4915&tab=popular-monthly\n    - img \"Ceremonia\"\n  - text: For Creators\n  - list:\n    - listitem:\n      - link \"ShopMy For Creators\":\n        - /url: /home/creators\n    - listitem:\n      - link \"Digital Shops\":\n        - /url: /home/creators/shop\n    - listitem:\n      - link \"Affiliate Links\":\n        - /url: /home/creators/affiliates\n    - listitem:\n      - link \"Brand Partnerships\":\n        - /url: /home/creators/partnerships\n    - listitem:\n      - link \"Apply to be a Creator\":\n        - /url: /apply/creator\n    - listitem:\n      - link \"Webinars\":\n        - /url: /home/creators/webinars\n  - text: For Brands\n  - list:\n    - listitem:\n      - link \"ShopMy For Brands\":\n        - /url: /home/brands\n    - listitem:\n      - link \"Discover\":\n        - /url: /home/brands/discover\n    - listitem:\n      - link \"Engage\":\n        - /url: /home/brands/engage\n    - listitem:\n      - link \"Track\":\n        - /url: /home/brands/track\n    - listitem:\n      - link \"Amplify\":\n        - /url: /home/brands/amplify\n  - text: For Shoppers\n  - list:\n    - listitem:\n      - link \"Shop By Curator\":\n        - /url: /shop/discover/curators\n    - listitem:\n      - link \"Shop By Circle\":\n        - /url: /shop/discover/circles\n    - listitem:\n      - link \"Shop By Brand\":\n        - /url: /shop/discover/brands\n    - listitem:\n      - link \"Shop By Category\":\n        - /url: /shop/discover/categories\n    - listitem:\n      - link \"My Circles\":\n        - /url: /shop/my/circles\n    - listitem:\n      - link \"My Taste Profile\":\n        - /url: /shop/my/taste\n  - text: Explore\n  - list:\n    - listitem:\n      - link \"Blog\":\n        - /url: /blog\n    - listitem:\n      - link \"About Us\":\n        - /url: /about\n    - listitem:\n      - link \"Careers\":\n        - /url: /careers\n    - listitem:\n      - link \"Shop All Categories\":\n        - /url: /shop\n    - listitem:\n      - link \"Reports\":\n        - /url: /reports\n  - text: Support + Legal\n  - list:\n    - listitem:\n      - link \"Creator Guide\":\n        - /url: https://guide.shopmy.us\n    - listitem:\n      - link \"Brand Guide\":\n        - /url: https://brands.shopmy.us\n    - listitem:\n      - link \"Contact Us\":\n        - /url: /contact\n    - listitem:\n      - link \"Terms of Service\":\n        - /url: https://shopmy.us/legal/terms-of-service\n    - listitem:\n      - link \"Privacy\":\n        - /url: https://shopmy.us/legal/privacy-policy\n  - link \"ShopMy Logo\":\n    - /url: /home\n    - img \"ShopMy Logo\"\n  - text: © Copyright 2026 Shop My Shelf, Inc. All Rights Reserved. |\n  - link \"Do Not Sell or Share My Personal Information\":\n    - /url: /do-not-sell\n  - text: \"| Cookie Settings\""
+            }
+          },
+          "url": {
+            "state": "captured",
+            "value": {
+              "url": "https://shopmy.us/home",
+              "origin": "https://shopmy.us",
+              "query_parameter_names": [],
+              "redacted": false
+            }
+          },
+          "history": {
+            "state": "not_requested"
+          },
+          "storage": {
+            "state": "not_requested"
+          }
+        },
+        "completeness": {
+          "status": "complete",
+          "equality_eligible": true,
+          "missing_sections": [],
+          "truncated_sections": []
+        },
+        "status": "completed",
+        "error": null
+      },
+      {
+        "step_index": 1,
+        "step_id": "home",
+        "action": "wait_for_timeout",
+        "elapsed_ms": 2563,
+        "before_url": {
+          "url": "https://shopmy.us/home",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "after_url": {
+          "url": "https://shopmy.us/home",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "event_sequence_start": 1,
+        "event_sequence_end": 0,
+        "artifacts": {
+          "screenshot": {
+            "state": "not_requested"
+          },
+          "dom": {
+            "state": "not_requested"
+          },
+          "accessibility": {
+            "state": "captured",
+            "value": {
+              "sha256": "399c7c20cdbe22e92342f5a84d799b5e4e52253369240c9ff3154136c2af768d",
+              "bytes": 7560,
+              "text": "- document:\n  - img \"ShopMy Logo\"\n  - navigation:\n    - link \"For Shoppers\":\n      - /url: /home/shoppers\n    - link \"For Creators\":\n      - /url: /home/creators\n    - link \"For Brands\":\n      - /url: /home/brands\n    - button \"Log In\"\n    - button \"Sign Up\"\n    - textbox \"What are you shopping for?\"\n    - button \"Menu Icon\":\n      - img \"Menu Icon\"\n  - heading \"Curated by the obsessed, not the algorithm.\" [level=1]\n  - heading \"Shop the recommendations of the world's most trusted curators.\" [level=2]\n  - text: It's better on mobile. Access to our newest feature, Noir, a 1:1 text-based concierge offering personalized recommendations from a real human.\n  - link \"App Store\":\n    - /url: https://apps.apple.com/us/app/shopmy/id6443850511\n    - img \"App Store\"\n  - text: Shop by Curator Insider access to your favorite tastemakers' most loved and trusted products.\n  - link \"Shop All Curators\":\n    - /url: /shop/discover/curators\n  - link \"Sofia Richie Grainge\":\n    - /url: /shop/sofiarichiegrainge\n    - img \"Sofia Richie Grainge\"\n  - link \"Alexandra Leclerc\":\n    - /url: /shop/alexandraleclerc\n    - img \"Alexandra Leclerc\"\n  - link \"Elsa Hosk\":\n    - /url: /shop/hoskelsa\n    - img \"Elsa Hosk\"\n  - link \"Lila Moss\":\n    - /url: /shop/lilamoss\n    - img \"Lila Moss\"\n  - link \"Nara Smith\":\n    - /url: /shop/naraaziza\n    - img \"Nara Smith\"\n  - link \"aurora\":\n    - /url: /shop/aurorajames\n    - img \"aurora\"\n  - link \"Marianna Hewitt\":\n    - /url: /shop/mariannahewitt\n    - img \"Marianna Hewitt\"\n  - link \"Hailee Steinfeld\":\n    - /url: /shop/haileesteinfeld\n    - img \"Hailee Steinfeld\"\n  - link \"Kelly Wearstler\":\n    - /url: /shop/kellywearstler\n    - img \"Kelly Wearstler\"\n  - text: Shop by Circle Create groups of curators who share your style and shop their top recommendations. Create Circle\n  - link \"Shop All Circles\":\n    - /url: /shop/discover/circles\n  - link \"The ShopMy Team\":\n    - /url: /shop?CuratorGroup_id=682&tab=popular-monthly\n    - img \"The ShopMy Team\"\n  - link \"Stylists\":\n    - /url: /shop?Industry_id=1&Department_id=44&CuratorGroup_id=1384&tab=popular-monthly\n    - img \"Stylists\"\n  - link \"Tastemakers in the Kitchen\":\n    - /url: /shop?Industry_id=5&CuratorGroup_id=2189&tab=popular-monthly\n    - img \"Tastemakers in the Kitchen\"\n  - link \"Professional Makeup Artists\":\n    - /url: /shop?Industry_id=2&Department_id=2&CuratorGroup_id=2191&tab=popular-monthly\n    - img \"Professional Makeup Artists\"\n  - link \"Interior Designers\":\n    - /url: /shop?Industry_id=5&CuratorGroup_id=616&tab=popular-monthly\n    - img \"Interior Designers\"\n  - link \"Fashion Industry Insiders\":\n    - /url: /shop?Industry_id=1&CuratorGroup_id=1383&tab=popular-monthly\n    - img \"Fashion Industry Insiders\"\n  - link \"Beauty Industry Insiders\":\n    - /url: /shop?Industry_id=2&CuratorGroup_id=2205&tab=popular-monthly\n    - img \"Beauty Industry Insiders\"\n  - link \"Designers & Founders\":\n    - /url: /shop?CuratorGroup_id=350644&tab=popular-monthly\n    - img \"Designers & Founders\"\n  - img\n  - text: The best things in life are worth sharing. Sign Up Create a Circle Shop by Category Confidently shop the best of every category.\n  - link \"Shop All Categories\":\n    - /url: /shop/discover/categories\n  - link \"Necklaces\":\n    - /url: /shop?Category_id=227&tab=popular-monthly\n    - img \"Necklaces\"\n  - link \"Jeans\":\n    - /url: /shop?Category_id=203&tab=popular-monthly\n    - img \"Jeans\"\n  - link \"Sandals\":\n    - /url: /shop?Category_id=183&tab=popular-monthly\n    - img \"Sandals\"\n  - link \"Dresses\":\n    - /url: /shop?Category_id=192&tab=popular-monthly\n    - img \"Dresses\"\n  - link \"Blazers\":\n    - /url: /shop?Category_id=243&tab=popular-monthly\n    - img \"Blazers\"\n  - link \"Sneakers\":\n    - /url: /shop?Category_id=184&tab=popular-monthly\n    - img \"Sneakers\"\n  - link \"Tote Bags\":\n    - /url: /shop?Category_id=211&tab=popular-monthly\n    - img \"Tote Bags\"\n  - link \"Flats\":\n    - /url: /shop?Category_id=186&tab=popular-monthly\n    - img \"Flats\"\n  - text: Shop by Brand Explore top-tier products from brands you know and discover new brands you'll love.\n  - link \"Shop All Brands\":\n    - /url: /shop/discover/brands\n  - link \"Call It By Your Name\":\n    - /url: /shop?AllBrand_id=8877&tab=popular-monthly\n    - img \"Call It By Your Name\"\n  - link \"Emme Parsons\":\n    - /url: /shop?AllBrand_id=713&tab=popular-monthly\n    - img \"Emme Parsons\"\n  - link \"ALÉMAIS\":\n    - /url: /shop?AllBrand_id=6249&tab=popular-monthly\n    - img \"ALÉMAIS\"\n  - link \"Sofie Pavitt Face\":\n    - /url: /shop?AllBrand_id=502&tab=popular-monthly\n    - img \"Sofie Pavitt Face\"\n  - link \"Olive Ateliers\":\n    - /url: /shop?AllBrand_id=837&tab=popular-monthly\n    - img \"Olive Ateliers\"\n  - link \"Liberowe\":\n    - /url: /shop?AllBrand_id=1206&tab=popular-monthly\n    - img \"Liberowe\"\n  - link \"Suzie Kondi\":\n    - /url: /shop?AllBrand_id=814&tab=popular-monthly\n    - img \"Suzie Kondi\"\n  - link \"Ceremonia\":\n    - /url: /shop?AllBrand_id=4915&tab=popular-monthly\n    - img \"Ceremonia\"\n  - text: For Creators\n  - list:\n    - listitem:\n      - link \"ShopMy For Creators\":\n        - /url: /home/creators\n    - listitem:\n      - link \"Digital Shops\":\n        - /url: /home/creators/shop\n    - listitem:\n      - link \"Affiliate Links\":\n        - /url: /home/creators/affiliates\n    - listitem:\n      - link \"Brand Partnerships\":\n        - /url: /home/creators/partnerships\n    - listitem:\n      - link \"Apply to be a Creator\":\n        - /url: /apply/creator\n    - listitem:\n      - link \"Webinars\":\n        - /url: /home/creators/webinars\n  - text: For Brands\n  - list:\n    - listitem:\n      - link \"ShopMy For Brands\":\n        - /url: /home/brands\n    - listitem:\n      - link \"Discover\":\n        - /url: /home/brands/discover\n    - listitem:\n      - link \"Engage\":\n        - /url: /home/brands/engage\n    - listitem:\n      - link \"Track\":\n        - /url: /home/brands/track\n    - listitem:\n      - link \"Amplify\":\n        - /url: /home/brands/amplify\n  - text: For Shoppers\n  - list:\n    - listitem:\n      - link \"Shop By Curator\":\n        - /url: /shop/discover/curators\n    - listitem:\n      - link \"Shop By Circle\":\n        - /url: /shop/discover/circles\n    - listitem:\n      - link \"Shop By Brand\":\n        - /url: /shop/discover/brands\n    - listitem:\n      - link \"Shop By Category\":\n        - /url: /shop/discover/categories\n    - listitem:\n      - link \"My Circles\":\n        - /url: /shop/my/circles\n    - listitem:\n      - link \"My Taste Profile\":\n        - /url: /shop/my/taste\n  - text: Explore\n  - list:\n    - listitem:\n      - link \"Blog\":\n        - /url: /blog\n    - listitem:\n      - link \"About Us\":\n        - /url: /about\n    - listitem:\n      - link \"Careers\":\n        - /url: /careers\n    - listitem:\n      - link \"Shop All Categories\":\n        - /url: /shop\n    - listitem:\n      - link \"Reports\":\n        - /url: /reports\n  - text: Support + Legal\n  - list:\n    - listitem:\n      - link \"Creator Guide\":\n        - /url: https://guide.shopmy.us\n    - listitem:\n      - link \"Brand Guide\":\n        - /url: https://brands.shopmy.us\n    - listitem:\n      - link \"Contact Us\":\n        - /url: /contact\n    - listitem:\n      - link \"Terms of Service\":\n        - /url: https://shopmy.us/legal/terms-of-service\n    - listitem:\n      - link \"Privacy\":\n        - /url: https://shopmy.us/legal/privacy-policy\n  - link \"ShopMy Logo\":\n    - /url: /home\n    - img \"ShopMy Logo\"\n  - text: © Copyright 2026 Shop My Shelf, Inc. All Rights Reserved. |\n  - link \"Do Not Sell or Share My Personal Information\":\n    - /url: /do-not-sell\n  - text: \"| Cookie Settings\""
+            }
+          },
+          "url": {
+            "state": "captured",
+            "value": {
+              "url": "https://shopmy.us/home",
+              "origin": "https://shopmy.us",
+              "query_parameter_names": [],
+              "redacted": false
+            }
+          },
+          "history": {
+            "state": "not_requested"
+          },
+          "storage": {
+            "state": "not_requested"
+          }
+        },
+        "completeness": {
+          "status": "complete",
+          "equality_eligible": true,
+          "missing_sections": [],
+          "truncated_sections": []
+        },
+        "status": "completed",
+        "error": null
+      },
+      {
+        "step_index": 2,
+        "step_id": "creators",
+        "action": "goto",
+        "elapsed_ms": 5694,
+        "before_url": {
+          "url": "https://shopmy.us/home",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "after_url": {
+          "url": "https://shopmy.us/home/creators",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "event_sequence_start": 1,
+        "event_sequence_end": 0,
+        "artifacts": {
+          "screenshot": {
+            "state": "not_requested"
+          },
+          "dom": {
+            "state": "not_requested"
+          },
+          "accessibility": {
+            "state": "captured",
+            "value": {
+              "sha256": "daba986642fb76a8496956b3ebc717d39b83e677ef7c110951989602310da35c",
+              "bytes": 9376,
+              "text": "- document:\n  - img \"ShopMy Logo\"\n  - navigation:\n    - link \"For Shoppers\":\n      - /url: /home/shoppers\n    - link \"For Creators\":\n      - /url: /home/creators\n    - link \"For Brands\":\n      - /url: /home/brands\n    - button \"Log In\"\n    - button \"Sign Up\"\n    - textbox \"What are you shopping for?\"\n    - button \"Menu Icon\":\n      - img \"Menu Icon\"\n  - img \"header\"\n  - img \"header\"\n  - img \"header\"\n  - heading \"Where great taste leads to great opportunities.\" [level=1]\n  - paragraph: Turn your taste into lasting revenue through the infrastructure that connects you with premium brands—no algorithms, just authentic partnerships.\n  - button \"Apply to be a Creator\"\n  - text: 0k+ Commissionable Partners $0+ Paid to ShopMy Curators 0+ Curators Worldwide How ShopMy works\n  - heading \"All the tools you need to monetize your favorite finds while connecting with top brands.\" [level=2]\n  - button \"Curate your own digital shop.\" [expanded]:\n    - heading \"Curate your own digital shop.\" [level=3]\n  - paragraph: Design a storefront that feels uniquely yours. Share shoppable posts, gift guides, and curated collections all in one beautifully organized place.\n  - link \"More on Digital Shops\":\n    - /url: /home/creators/shop\n  - img \"Curate your own digital shop.\"\n  - button \"Link and monetize your recommendations.\":\n    - heading \"Link and monetize your recommendations.\" [level=3]\n  - paragraph: Choose from 50,000+ brand partners and earn industry-leading commissions. ShopMy links update automatically, so your audience always has the best way to shop your picks.\n  - link \"More on Affiliate Links\":\n    - /url: /home/creators/affiliates\n  - img \"Link and monetize your recommendations.\"\n  - button \"Build lasting brand relationships.\":\n    - heading \"Build lasting brand relationships.\" [level=3]\n  - paragraph: Unlock collaborations that go beyond a single campaign. Connect directly with brands, access custom codes and gifting, and drive evergreen revenue through partnerships via Opportunities and Spotlights.\n  - link \"More on Brand Partnerships\":\n    - /url: /home/creators/partnerships\n  - img \"Build lasting brand relationships.\"\n  - heading \"Everything you need, wherever you work\" [level=2]\n  - text: WEB Manage your storefront, track performance, and collaborate with your team in one place APP Chat with brands, accept opportunities, and create links in seconds. Stay on top of it so you’re always connected, even on the go BROWSER EXTENSION Never lose a product you love. Create links directly from your browser with SnapShop.\n  - button \"Apply to be a Creator\"\n  - img \"Product suite overlay\"\n  - text: Tap into endless opportunity with thousands of top-tier brands.\n  - tablist \"Brand categories\":\n    - tab \"fashion\" [selected]\n    - tab \"home & decor\"\n    - tab \"beauty\"\n    - tab \"accessories\"\n    - tab \"health & wellness\"\n    - tab \"food & drink\"\n  - button \"Visit Toteme\":\n    - img \"Toteme\"\n  - button \"Visit Khaite\":\n    - img \"Khaite\"\n  - button \"Visit Prada\":\n    - img \"Prada\"\n  - button \"Visit Gucci\":\n    - img \"Gucci\"\n  - button \"Visit Jenni Kayne\":\n    - img \"Jenni Kayne\"\n  - button \"Visit Anine Bing\":\n    - img \"Anine Bing\"\n  - button \"Visit Frame\":\n    - img \"Frame\"\n  - button \"Visit Doen\":\n    - img \"Doen\"\n  - button \"Visit Set\":\n    - img \"Set\"\n  - button \"Scroll left\" [disabled]\n  - button \"Scroll right\"\n  - text: Creator Insights\n  - link \"View Insights\":\n    - /url: /blog/creator-insights\n  - link \"How Stylists are Maximizing their Income with Affiliate Programs Creator Insights How Stylists are Maximizing their Income with Affiliate Programs\":\n    - /url: /blog/post/how-stylists-are-maximizing-their-income-with-affiliate-programs\n    - img \"How Stylists are Maximizing their Income with Affiliate Programs\"\n    - text: Creator Insights How Stylists are Maximizing their Income with Affiliate Programs\n  - 'link \"Creator Spotlight: Shenea Walker Creator Spotlight Creator Spotlight: Shenea Walker\"':\n    - /url: /blog/post/creator-spotlight:-shenea-walker\n    - 'img \"Creator Spotlight: Shenea Walker\"'\n    - text: \"Creator Spotlight Creator Spotlight: Shenea Walker\"\n  - 'link \"The Future of Shopping is Human: Introducing 3 New Ways to Earn This Summer Product Launch The Future of Shopping is Human: Introducing 3 New Ways to Earn This Summer\"':\n    - /url: /blog/post/summer-launch\n    - 'img \"The Future of Shopping is Human: Introducing 3 New Ways to Earn This Summer\"'\n    - text: \"Product Launch The Future of Shopping is Human: Introducing 3 New Ways to Earn This Summer\"\n  - img \"background\"\n  - button \"Previous quote\"\n  - img \"quote\"\n  - paragraph: ShopMy is the best tool I've used since I started on social media. Anyone who is on social media, it provides you with direct exposure to brands whether you are interested in gifting, paid opps or simply sharing links with your audience. I can't tell you how many brands pay attention to your statistics just by linking.\n  - text: Olivia's Shopping Diary\n  - button \"Next quote\"\n  - heading \"FAQ\" [level=2]\n  - paragraph:\n    - text: If you have additional questions, our\n    - link \"creator onboarding team\":\n      - /url: mailto:creatorsupport@shopmy.us\n    - text: can help.\n  - heading \"How do I earn on ShopMy?\" [level=3]\n  - paragraph: \"ShopMy creators earn in two ways: performance-based commissions (10-30% on sales you drive) and paid brand partnerships through our Opportunities feature. Commissions work seamlessly—just add any product to your storefront and ShopMy automatically monetizes it through brand and retailer affiliate programs. Opportunities connects you directly with premium brands seeking authentic collaborations, making paid work reliable and plannable. All earnings are tracked in real-time, with payments every Friday via PayPal or Stripe.\"\n  - heading \"How many brands can I work with on ShopMy?\" [level=3]\n  - paragraph: The ShopMy network includes 47,000+ brands offering commission as well as over 1500+ brand partners that you can chat directly with in the ShopMy platform.\n  - heading \"What's special about ShopMy compared to other tools?\" [level=3]\n  - paragraph: The ShopMy platform was built specifically for the modern social media landscape. It offers the most comprehensive suite of tools for creators to monetize their influence with digital shops, easy affiliate linking and world-class brands to partner with.\n  - heading \"Why do I need to apply?\" [level=3]\n  - paragraph: ShopMy maintains a curated network of culture-driving tastemakers. Our application process ensures mutual fit—that you'll benefit from our premium brand partnerships and that brands can trust your authentic presence and content quality.\n  - img \"background\"\n  - heading \"Turn your influence into income.\" [level=2]\n  - button \"Apply to be a Creator\"\n  - text: For Creators\n  - list:\n    - listitem:\n      - link \"ShopMy For Creators\":\n        - /url: /home/creators\n    - listitem:\n      - link \"Digital Shops\":\n        - /url: /home/creators/shop\n    - listitem:\n      - link \"Affiliate Links\":\n        - /url: /home/creators/affiliates\n    - listitem:\n      - link \"Brand Partnerships\":\n        - /url: /home/creators/partnerships\n    - listitem:\n      - link \"Apply to be a Creator\":\n        - /url: /apply/creator\n    - listitem:\n      - link \"Webinars\":\n        - /url: /home/creators/webinars\n  - text: For Brands\n  - list:\n    - listitem:\n      - link \"ShopMy For Brands\":\n        - /url: /home/brands\n    - listitem:\n      - link \"Discover\":\n        - /url: /home/brands/discover\n    - listitem:\n      - link \"Engage\":\n        - /url: /home/brands/engage\n    - listitem:\n      - link \"Track\":\n        - /url: /home/brands/track\n    - listitem:\n      - link \"Amplify\":\n        - /url: /home/brands/amplify\n  - text: For Shoppers\n  - list:\n    - listitem:\n      - link \"Shop By Curator\":\n        - /url: /shop/discover/curators\n    - listitem:\n      - link \"Shop By Circle\":\n        - /url: /shop/discover/circles\n    - listitem:\n      - link \"Shop By Brand\":\n        - /url: /shop/discover/brands\n    - listitem:\n      - link \"Shop By Category\":\n        - /url: /shop/discover/categories\n    - listitem:\n      - link \"My Circles\":\n        - /url: /shop/my/circles\n    - listitem:\n      - link \"My Taste Profile\":\n        - /url: /shop/my/taste\n  - text: Explore\n  - list:\n    - listitem:\n      - link \"Blog\":\n        - /url: /blog\n    - listitem:\n      - link \"About Us\":\n        - /url: /about\n    - listitem:\n      - link \"Careers\":\n        - /url: /careers\n    - listitem:\n      - link \"Shop All Categories\":\n        - /url: /shop\n    - listitem:\n      - link \"Reports\":\n        - /url: /reports\n  - text: Support + Legal\n  - list:\n    - listitem:\n      - link \"Creator Guide\":\n        - /url: https://guide.shopmy.us\n    - listitem:\n      - link \"Brand Guide\":\n        - /url: https://brands.shopmy.us\n    - listitem:\n      - link \"Contact Us\":\n        - /url: /contact\n    - listitem:\n      - link \"Terms of Service\":\n        - /url: https://shopmy.us/legal/terms-of-service\n    - listitem:\n      - link \"Privacy\":\n        - /url: https://shopmy.us/legal/privacy-policy\n  - link \"ShopMy Logo\":\n    - /url: /home\n    - img \"ShopMy Logo\"\n  - text: © Copyright 2026 Shop My Shelf, Inc. All Rights Reserved. |\n  - link \"Do Not Sell or Share My Personal Information\":\n    - /url: /do-not-sell\n  - text: \"| Cookie Settings\""
+            }
+          },
+          "url": {
+            "state": "captured",
+            "value": {
+              "url": "https://shopmy.us/home/creators",
+              "origin": "https://shopmy.us",
+              "query_parameter_names": [],
+              "redacted": false
+            }
+          },
+          "history": {
+            "state": "not_requested"
+          },
+          "storage": {
+            "state": "not_requested"
+          }
+        },
+        "completeness": {
+          "status": "complete",
+          "equality_eligible": true,
+          "missing_sections": [],
+          "truncated_sections": []
+        },
+        "status": "completed",
+        "error": null
+      },
+      {
+        "step_index": 3,
+        "step_id": "creator-ready",
+        "action": "wait_for_timeout",
+        "elapsed_ms": 2078,
+        "before_url": {
+          "url": "https://shopmy.us/home/creators",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "after_url": {
+          "url": "https://shopmy.us/home/creators",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "event_sequence_start": 1,
+        "event_sequence_end": 0,
+        "artifacts": {
+          "screenshot": {
+            "state": "not_requested"
+          },
+          "dom": {
+            "state": "not_requested"
+          },
+          "accessibility": {
+            "state": "captured",
+            "value": {
+              "sha256": "daba986642fb76a8496956b3ebc717d39b83e677ef7c110951989602310da35c",
+              "bytes": 9376,
+              "text": "- document:\n  - img \"ShopMy Logo\"\n  - navigation:\n    - link \"For Shoppers\":\n      - /url: /home/shoppers\n    - link \"For Creators\":\n      - /url: /home/creators\n    - link \"For Brands\":\n      - /url: /home/brands\n    - button \"Log In\"\n    - button \"Sign Up\"\n    - textbox \"What are you shopping for?\"\n    - button \"Menu Icon\":\n      - img \"Menu Icon\"\n  - img \"header\"\n  - img \"header\"\n  - img \"header\"\n  - heading \"Where great taste leads to great opportunities.\" [level=1]\n  - paragraph: Turn your taste into lasting revenue through the infrastructure that connects you with premium brands—no algorithms, just authentic partnerships.\n  - button \"Apply to be a Creator\"\n  - text: 0k+ Commissionable Partners $0+ Paid to ShopMy Curators 0+ Curators Worldwide How ShopMy works\n  - heading \"All the tools you need to monetize your favorite finds while connecting with top brands.\" [level=2]\n  - button \"Curate your own digital shop.\" [expanded]:\n    - heading \"Curate your own digital shop.\" [level=3]\n  - paragraph: Design a storefront that feels uniquely yours. Share shoppable posts, gift guides, and curated collections all in one beautifully organized place.\n  - link \"More on Digital Shops\":\n    - /url: /home/creators/shop\n  - img \"Curate your own digital shop.\"\n  - button \"Link and monetize your recommendations.\":\n    - heading \"Link and monetize your recommendations.\" [level=3]\n  - paragraph: Choose from 50,000+ brand partners and earn industry-leading commissions. ShopMy links update automatically, so your audience always has the best way to shop your picks.\n  - link \"More on Affiliate Links\":\n    - /url: /home/creators/affiliates\n  - img \"Link and monetize your recommendations.\"\n  - button \"Build lasting brand relationships.\":\n    - heading \"Build lasting brand relationships.\" [level=3]\n  - paragraph: Unlock collaborations that go beyond a single campaign. Connect directly with brands, access custom codes and gifting, and drive evergreen revenue through partnerships via Opportunities and Spotlights.\n  - link \"More on Brand Partnerships\":\n    - /url: /home/creators/partnerships\n  - img \"Build lasting brand relationships.\"\n  - heading \"Everything you need, wherever you work\" [level=2]\n  - text: WEB Manage your storefront, track performance, and collaborate with your team in one place APP Chat with brands, accept opportunities, and create links in seconds. Stay on top of it so you’re always connected, even on the go BROWSER EXTENSION Never lose a product you love. Create links directly from your browser with SnapShop.\n  - button \"Apply to be a Creator\"\n  - img \"Product suite overlay\"\n  - text: Tap into endless opportunity with thousands of top-tier brands.\n  - tablist \"Brand categories\":\n    - tab \"fashion\" [selected]\n    - tab \"home & decor\"\n    - tab \"beauty\"\n    - tab \"accessories\"\n    - tab \"health & wellness\"\n    - tab \"food & drink\"\n  - button \"Visit Toteme\":\n    - img \"Toteme\"\n  - button \"Visit Khaite\":\n    - img \"Khaite\"\n  - button \"Visit Prada\":\n    - img \"Prada\"\n  - button \"Visit Gucci\":\n    - img \"Gucci\"\n  - button \"Visit Jenni Kayne\":\n    - img \"Jenni Kayne\"\n  - button \"Visit Anine Bing\":\n    - img \"Anine Bing\"\n  - button \"Visit Frame\":\n    - img \"Frame\"\n  - button \"Visit Doen\":\n    - img \"Doen\"\n  - button \"Visit Set\":\n    - img \"Set\"\n  - button \"Scroll left\" [disabled]\n  - button \"Scroll right\"\n  - text: Creator Insights\n  - link \"View Insights\":\n    - /url: /blog/creator-insights\n  - link \"How Stylists are Maximizing their Income with Affiliate Programs Creator Insights How Stylists are Maximizing their Income with Affiliate Programs\":\n    - /url: /blog/post/how-stylists-are-maximizing-their-income-with-affiliate-programs\n    - img \"How Stylists are Maximizing their Income with Affiliate Programs\"\n    - text: Creator Insights How Stylists are Maximizing their Income with Affiliate Programs\n  - 'link \"Creator Spotlight: Shenea Walker Creator Spotlight Creator Spotlight: Shenea Walker\"':\n    - /url: /blog/post/creator-spotlight:-shenea-walker\n    - 'img \"Creator Spotlight: Shenea Walker\"'\n    - text: \"Creator Spotlight Creator Spotlight: Shenea Walker\"\n  - 'link \"The Future of Shopping is Human: Introducing 3 New Ways to Earn This Summer Product Launch The Future of Shopping is Human: Introducing 3 New Ways to Earn This Summer\"':\n    - /url: /blog/post/summer-launch\n    - 'img \"The Future of Shopping is Human: Introducing 3 New Ways to Earn This Summer\"'\n    - text: \"Product Launch The Future of Shopping is Human: Introducing 3 New Ways to Earn This Summer\"\n  - img \"background\"\n  - button \"Previous quote\"\n  - img \"quote\"\n  - paragraph: ShopMy is the best tool I've used since I started on social media. Anyone who is on social media, it provides you with direct exposure to brands whether you are interested in gifting, paid opps or simply sharing links with your audience. I can't tell you how many brands pay attention to your statistics just by linking.\n  - text: Olivia's Shopping Diary\n  - button \"Next quote\"\n  - heading \"FAQ\" [level=2]\n  - paragraph:\n    - text: If you have additional questions, our\n    - link \"creator onboarding team\":\n      - /url: mailto:creatorsupport@shopmy.us\n    - text: can help.\n  - heading \"How do I earn on ShopMy?\" [level=3]\n  - paragraph: \"ShopMy creators earn in two ways: performance-based commissions (10-30% on sales you drive) and paid brand partnerships through our Opportunities feature. Commissions work seamlessly—just add any product to your storefront and ShopMy automatically monetizes it through brand and retailer affiliate programs. Opportunities connects you directly with premium brands seeking authentic collaborations, making paid work reliable and plannable. All earnings are tracked in real-time, with payments every Friday via PayPal or Stripe.\"\n  - heading \"How many brands can I work with on ShopMy?\" [level=3]\n  - paragraph: The ShopMy network includes 47,000+ brands offering commission as well as over 1500+ brand partners that you can chat directly with in the ShopMy platform.\n  - heading \"What's special about ShopMy compared to other tools?\" [level=3]\n  - paragraph: The ShopMy platform was built specifically for the modern social media landscape. It offers the most comprehensive suite of tools for creators to monetize their influence with digital shops, easy affiliate linking and world-class brands to partner with.\n  - heading \"Why do I need to apply?\" [level=3]\n  - paragraph: ShopMy maintains a curated network of culture-driving tastemakers. Our application process ensures mutual fit—that you'll benefit from our premium brand partnerships and that brands can trust your authentic presence and content quality.\n  - img \"background\"\n  - heading \"Turn your influence into income.\" [level=2]\n  - button \"Apply to be a Creator\"\n  - text: For Creators\n  - list:\n    - listitem:\n      - link \"ShopMy For Creators\":\n        - /url: /home/creators\n    - listitem:\n      - link \"Digital Shops\":\n        - /url: /home/creators/shop\n    - listitem:\n      - link \"Affiliate Links\":\n        - /url: /home/creators/affiliates\n    - listitem:\n      - link \"Brand Partnerships\":\n        - /url: /home/creators/partnerships\n    - listitem:\n      - link \"Apply to be a Creator\":\n        - /url: /apply/creator\n    - listitem:\n      - link \"Webinars\":\n        - /url: /home/creators/webinars\n  - text: For Brands\n  - list:\n    - listitem:\n      - link \"ShopMy For Brands\":\n        - /url: /home/brands\n    - listitem:\n      - link \"Discover\":\n        - /url: /home/brands/discover\n    - listitem:\n      - link \"Engage\":\n        - /url: /home/brands/engage\n    - listitem:\n      - link \"Track\":\n        - /url: /home/brands/track\n    - listitem:\n      - link \"Amplify\":\n        - /url: /home/brands/amplify\n  - text: For Shoppers\n  - list:\n    - listitem:\n      - link \"Shop By Curator\":\n        - /url: /shop/discover/curators\n    - listitem:\n      - link \"Shop By Circle\":\n        - /url: /shop/discover/circles\n    - listitem:\n      - link \"Shop By Brand\":\n        - /url: /shop/discover/brands\n    - listitem:\n      - link \"Shop By Category\":\n        - /url: /shop/discover/categories\n    - listitem:\n      - link \"My Circles\":\n        - /url: /shop/my/circles\n    - listitem:\n      - link \"My Taste Profile\":\n        - /url: /shop/my/taste\n  - text: Explore\n  - list:\n    - listitem:\n      - link \"Blog\":\n        - /url: /blog\n    - listitem:\n      - link \"About Us\":\n        - /url: /about\n    - listitem:\n      - link \"Careers\":\n        - /url: /careers\n    - listitem:\n      - link \"Shop All Categories\":\n        - /url: /shop\n    - listitem:\n      - link \"Reports\":\n        - /url: /reports\n  - text: Support + Legal\n  - list:\n    - listitem:\n      - link \"Creator Guide\":\n        - /url: https://guide.shopmy.us\n    - listitem:\n      - link \"Brand Guide\":\n        - /url: https://brands.shopmy.us\n    - listitem:\n      - link \"Contact Us\":\n        - /url: /contact\n    - listitem:\n      - link \"Terms of Service\":\n        - /url: https://shopmy.us/legal/terms-of-service\n    - listitem:\n      - link \"Privacy\":\n        - /url: https://shopmy.us/legal/privacy-policy\n  - link \"ShopMy Logo\":\n    - /url: /home\n    - img \"ShopMy Logo\"\n  - text: © Copyright 2026 Shop My Shelf, Inc. All Rights Reserved. |\n  - link \"Do Not Sell or Share My Personal Information\":\n    - /url: /do-not-sell\n  - text: \"| Cookie Settings\""
+            }
+          },
+          "url": {
+            "state": "captured",
+            "value": {
+              "url": "https://shopmy.us/home/creators",
+              "origin": "https://shopmy.us",
+              "query_parameter_names": [],
+              "redacted": false
+            }
+          },
+          "history": {
+            "state": "not_requested"
+          },
+          "storage": {
+            "state": "not_requested"
+          }
+        },
+        "completeness": {
+          "status": "complete",
+          "equality_eligible": true,
+          "missing_sections": [],
+          "truncated_sections": []
+        },
+        "status": "completed",
+        "error": null
+      },
+      {
+        "step_index": 4,
+        "step_id": "brands",
+        "action": "goto",
+        "elapsed_ms": 5299,
+        "before_url": {
+          "url": "https://shopmy.us/home/creators",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "after_url": {
+          "url": "https://shopmy.us/home/brands",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "event_sequence_start": 1,
+        "event_sequence_end": 0,
+        "artifacts": {
+          "screenshot": {
+            "state": "not_requested"
+          },
+          "dom": {
+            "state": "not_requested"
+          },
+          "accessibility": {
+            "state": "captured",
+            "value": {
+              "sha256": "ad9943fa0e7bd9d39dd68ea04210817b7d5bd9e129f894746c2d7ec838d163b5",
+              "bytes": 9832,
+              "text": "- document:\n  - text: New\n  - paragraph: The Compounding Trust Effect\n  - link \"Read the Report\":\n    - /url: /reports/compoundingtrusteffect\n  - img \"ShopMy Logo\"\n  - navigation:\n    - link \"For Shoppers\":\n      - /url: /home/shoppers\n    - link \"For Creators\":\n      - /url: /home/creators\n    - link \"For Brands\":\n      - /url: /home/brands\n    - button \"Log In\"\n    - button \"Request Demo\"\n    - textbox \"What are you shopping for?\"\n    - button \"Menu Icon\":\n      - img \"Menu Icon\"\n  - img \"header\"\n  - img \"header\"\n  - img \"header\"\n  - img \"header\"\n  - heading \"No one moves your product like the people who love it.\" [level=1]\n  - paragraph: ShopMy connects you with the creators already championing and sharing your brand, turning genuine advocacy into measurable growth.\n  - button \"Get a Demo\"\n  - text: Trusted by brands that move culture.\n  - tablist \"Brand categories\":\n    - tab \"fashion\" [selected]\n    - tab \"home & decor\"\n    - tab \"beauty\"\n    - tab \"accessories\"\n    - tab \"health & wellness\"\n    - tab \"food & drink\"\n  - button \"Visit Toteme\":\n    - img \"Toteme\"\n  - button \"Visit Khaite\":\n    - img \"Khaite\"\n  - button \"Visit Prada\":\n    - img \"Prada\"\n  - button \"Visit Gucci\":\n    - img \"Gucci\"\n  - button \"Visit Jenni Kayne\":\n    - img \"Jenni Kayne\"\n  - button \"Visit Anine Bing\":\n    - img \"Anine Bing\"\n  - button \"Visit Frame\":\n    - img \"Frame\"\n  - button \"Visit Doen\":\n    - img \"Doen\"\n  - button \"Visit Set\":\n    - img \"Set\"\n  - button \"Scroll left\" [disabled]\n  - button \"Scroll right\"\n  - img \"background\"\n  - heading \"Everything you need to build, scale, and measure your creator marketing program\" [level=4]\n  - text: Creator Database Affiliate Tools Direct Connection to Talent Social Listening Performance + ROI Data Automated Gifting Campaign Management Talent Payment ShopMy’s full funnel approach\n  - heading \"Drive revenue and build brand capital with creators who already love your brand.\" [level=2]\n  - button \"Discover Creators who Convert, Instantly\" [expanded]:\n    - heading \"Discover Creators who Convert, Instantly\" [level=3]\n  - paragraph: Go beyond follower count. With real-time insights across region, category, and channel, ShopMy helps you connect with the creators who drive results.\n  - img \"Discover Creators who Convert, Instantly\"\n  - button \"Incentivize creators with commission and bonuses.\":\n    - heading \"Incentivize creators with commission and bonuses.\" [level=3]\n  - paragraph: Reward tastemakers who drive real sales. ShopMy’s performance-based commission and seamless gifting make investing in authentic advocacy easy.\n  - img \"Incentivize creators with commission and bonuses.\"\n  - button \"Amplify Top Performers with Opportunities and Spotlights\":\n    - heading \"Amplify Top Performers with Opportunities and Spotlights\" [level=3]\n  - paragraph: Invest in authentic partnerships without the back-and-forth through Opportunities, and turn proven content into scalable partnership ads with Spotlights.\n  - img \"Amplify Top Performers with Opportunities and Spotlights\"\n  - text: Brand Insights\n  - link \"View Insights\":\n    - /url: /blog/brand-insights\n  - link \"Introducing Monthly Bonus Opportunities. Brand Insights Introducing Monthly Bonus Opportunities.\":\n    - /url: /blog/post/monthly-bonus-opportunities\n    - img \"Introducing Monthly Bonus Opportunities.\"\n    - text: Brand Insights Introducing Monthly Bonus Opportunities.\n  - link \"Unlocking Growth at Scale with Opportunities. Brand Insights Unlocking Growth at Scale with Opportunities.\":\n    - /url: /blog/post/unlocking-growth-at-scale-with-opportunities\n    - img \"Unlocking Growth at Scale with Opportunities.\"\n    - text: Brand Insights Unlocking Growth at Scale with Opportunities.\n  - 'link \"Introducing Circles: Discovery, Reimagined. New Features Introducing Circles: Discovery, Reimagined.\"':\n    - /url: /blog/post/introducing-circles-discovery-reimagined\n    - 'img \"Introducing Circles: Discovery, Reimagined.\"'\n    - text: \"New Features Introducing Circles: Discovery, Reimagined.\"\n  - heading \"FAQ\" [level=2]\n  - paragraph:\n    - text: If you have additional questions, our\n    - link \"brand onboarding team\":\n      - /url: mailto:partners@shopmy.us\n    - text: can help.\n  - heading \"Why should I use ShopMy for my influencer program?\" [level=3]\n  - paragraph: ShopMy is the only creator commerce infrastructure built specifically for premium brands. Unlike platforms that prioritize volume, we connect you with curated tastemakers who drive actual sales through authentic recommendations (not algorithmic feeds or paid ads). You get performance data, professional tools, and access to culture-driving voices who build lasting brand equity, not just campaign impressions.\n  - heading \"How does ShopMy compare to other influencer marketing platforms?\" [level=3]\n  - paragraph: ShopMy isn't just an influencer marketing platform—it's the complete system for building lasting brands through word-of-mouth. While other platforms focus on campaign management or content creation, we've built professional tools for authentic curation backed by five years of performance data. You work with hand-selected tastemakers, not algorithm-driven feeds. You keep your margins, own your customers, and build real brand equity, not just short-term conversions.\n  - heading \"Does ShopMy guarantee ROI?\" [level=3]\n  - paragraph: ShopMy provides the infrastructure for measurable brand-building. Our platform delivers comprehensive tracking, performance analytics, and data-driven insights that help you optimize your program for maximum ROI. Our partners see an average 5x return by working with authentic tastemakers who drive sustained sales and advocacy, not just one-time clicks. Regular platform usage and strategic creator partnerships consistently deliver excellent results.\n  - heading \"Do you offer white-glove support?\" [level=3]\n  - paragraph: Yes. Premium brands receive dedicated strategic support to maximize their ShopMy infrastructure, from tastemaker discovery to program optimization, all built into the platform experience, not sold separately.\n  - heading \"What makes ShopMy different from social commerce platforms like Instagram Shopping or TikTok Shop?\" [level=3]\n  - paragraph: Social platforms optimize for entertainment and engagement—not sales or brand building. ShopMy is purpose-built for product discovery through trusted human curation. You're not competing with algorithm-driven feeds or ads. Instead, you reach high-intent shoppers through tastemakers they've specifically chosen to trust. You keep your margins, own the customer data, and build lasting relationships—not just fleeting impressions.\n  - heading \"What types of brands succeed on ShopMy?\" [level=3]\n  - paragraph: ShopMy serves premium brands building for the long term, from established luxury houses to emerging DTC companies, that value quality and cultural relevance. Our network includes brands like Rhode, Gucci, Net-a-Porter, West Elm, Therabody, and Kallmeyer. If you're focused on authentic brand building over performance marketing arbitrage, ShopMy is built for you.\n  - img \"background\"\n  - heading \"Let’s make creator marketing your brand’s most valuable channel.\" [level=2]\n  - button \"Get A Demo\"\n  - text: For Creators\n  - list:\n    - listitem:\n      - link \"ShopMy For Creators\":\n        - /url: /home/creators\n    - listitem:\n      - link \"Digital Shops\":\n        - /url: /home/creators/shop\n    - listitem:\n      - link \"Affiliate Links\":\n        - /url: /home/creators/affiliates\n    - listitem:\n      - link \"Brand Partnerships\":\n        - /url: /home/creators/partnerships\n    - listitem:\n      - link \"Apply to be a Creator\":\n        - /url: /apply/creator\n    - listitem:\n      - link \"Webinars\":\n        - /url: /home/creators/webinars\n  - text: For Brands\n  - list:\n    - listitem:\n      - link \"ShopMy For Brands\":\n        - /url: /home/brands\n    - listitem:\n      - link \"Discover\":\n        - /url: /home/brands/discover\n    - listitem:\n      - link \"Engage\":\n        - /url: /home/brands/engage\n    - listitem:\n      - link \"Track\":\n        - /url: /home/brands/track\n    - listitem:\n      - link \"Amplify\":\n        - /url: /home/brands/amplify\n  - text: For Shoppers\n  - list:\n    - listitem:\n      - link \"Shop By Curator\":\n        - /url: /shop/discover/curators\n    - listitem:\n      - link \"Shop By Circle\":\n        - /url: /shop/discover/circles\n    - listitem:\n      - link \"Shop By Brand\":\n        - /url: /shop/discover/brands\n    - listitem:\n      - link \"Shop By Category\":\n        - /url: /shop/discover/categories\n    - listitem:\n      - link \"My Circles\":\n        - /url: /shop/my/circles\n    - listitem:\n      - link \"My Taste Profile\":\n        - /url: /shop/my/taste\n  - text: Explore\n  - list:\n    - listitem:\n      - link \"Blog\":\n        - /url: /blog\n    - listitem:\n      - link \"About Us\":\n        - /url: /about\n    - listitem:\n      - link \"Careers\":\n        - /url: /careers\n    - listitem:\n      - link \"Shop All Categories\":\n        - /url: /shop\n    - listitem:\n      - link \"Reports\":\n        - /url: /reports\n  - text: Support + Legal\n  - list:\n    - listitem:\n      - link \"Creator Guide\":\n        - /url: https://guide.shopmy.us\n    - listitem:\n      - link \"Brand Guide\":\n        - /url: https://brands.shopmy.us\n    - listitem:\n      - link \"Contact Us\":\n        - /url: /contact\n    - listitem:\n      - link \"Terms of Service\":\n        - /url: https://shopmy.us/legal/terms-of-service\n    - listitem:\n      - link \"Privacy\":\n        - /url: https://shopmy.us/legal/privacy-policy\n  - link \"ShopMy Logo\":\n    - /url: /home\n    - img \"ShopMy Logo\"\n  - text: © Copyright 2026 Shop My Shelf, Inc. All Rights Reserved. |\n  - link \"Do Not Sell or Share My Personal Information\":\n    - /url: /do-not-sell\n  - text: \"| Cookie Settings\""
+            }
+          },
+          "url": {
+            "state": "captured",
+            "value": {
+              "url": "https://shopmy.us/home/brands",
+              "origin": "https://shopmy.us",
+              "query_parameter_names": [],
+              "redacted": false
+            }
+          },
+          "history": {
+            "state": "not_requested"
+          },
+          "storage": {
+            "state": "not_requested"
+          }
+        },
+        "completeness": {
+          "status": "complete",
+          "equality_eligible": true,
+          "missing_sections": [],
+          "truncated_sections": []
+        },
+        "status": "completed",
+        "error": null
+      },
+      {
+        "step_index": 5,
+        "step_id": "brand-ready",
+        "action": "wait_for_timeout",
+        "elapsed_ms": 2085,
+        "before_url": {
+          "url": "https://shopmy.us/home/brands",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "after_url": {
+          "url": "https://shopmy.us/home/brands",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "event_sequence_start": 1,
+        "event_sequence_end": 0,
+        "artifacts": {
+          "screenshot": {
+            "state": "not_requested"
+          },
+          "dom": {
+            "state": "not_requested"
+          },
+          "accessibility": {
+            "state": "captured",
+            "value": {
+              "sha256": "ad9943fa0e7bd9d39dd68ea04210817b7d5bd9e129f894746c2d7ec838d163b5",
+              "bytes": 9832,
+              "text": "- document:\n  - text: New\n  - paragraph: The Compounding Trust Effect\n  - link \"Read the Report\":\n    - /url: /reports/compoundingtrusteffect\n  - img \"ShopMy Logo\"\n  - navigation:\n    - link \"For Shoppers\":\n      - /url: /home/shoppers\n    - link \"For Creators\":\n      - /url: /home/creators\n    - link \"For Brands\":\n      - /url: /home/brands\n    - button \"Log In\"\n    - button \"Request Demo\"\n    - textbox \"What are you shopping for?\"\n    - button \"Menu Icon\":\n      - img \"Menu Icon\"\n  - img \"header\"\n  - img \"header\"\n  - img \"header\"\n  - img \"header\"\n  - heading \"No one moves your product like the people who love it.\" [level=1]\n  - paragraph: ShopMy connects you with the creators already championing and sharing your brand, turning genuine advocacy into measurable growth.\n  - button \"Get a Demo\"\n  - text: Trusted by brands that move culture.\n  - tablist \"Brand categories\":\n    - tab \"fashion\" [selected]\n    - tab \"home & decor\"\n    - tab \"beauty\"\n    - tab \"accessories\"\n    - tab \"health & wellness\"\n    - tab \"food & drink\"\n  - button \"Visit Toteme\":\n    - img \"Toteme\"\n  - button \"Visit Khaite\":\n    - img \"Khaite\"\n  - button \"Visit Prada\":\n    - img \"Prada\"\n  - button \"Visit Gucci\":\n    - img \"Gucci\"\n  - button \"Visit Jenni Kayne\":\n    - img \"Jenni Kayne\"\n  - button \"Visit Anine Bing\":\n    - img \"Anine Bing\"\n  - button \"Visit Frame\":\n    - img \"Frame\"\n  - button \"Visit Doen\":\n    - img \"Doen\"\n  - button \"Visit Set\":\n    - img \"Set\"\n  - button \"Scroll left\" [disabled]\n  - button \"Scroll right\"\n  - img \"background\"\n  - heading \"Everything you need to build, scale, and measure your creator marketing program\" [level=4]\n  - text: Creator Database Affiliate Tools Direct Connection to Talent Social Listening Performance + ROI Data Automated Gifting Campaign Management Talent Payment ShopMy’s full funnel approach\n  - heading \"Drive revenue and build brand capital with creators who already love your brand.\" [level=2]\n  - button \"Discover Creators who Convert, Instantly\" [expanded]:\n    - heading \"Discover Creators who Convert, Instantly\" [level=3]\n  - paragraph: Go beyond follower count. With real-time insights across region, category, and channel, ShopMy helps you connect with the creators who drive results.\n  - img \"Discover Creators who Convert, Instantly\"\n  - button \"Incentivize creators with commission and bonuses.\":\n    - heading \"Incentivize creators with commission and bonuses.\" [level=3]\n  - paragraph: Reward tastemakers who drive real sales. ShopMy’s performance-based commission and seamless gifting make investing in authentic advocacy easy.\n  - img \"Incentivize creators with commission and bonuses.\"\n  - button \"Amplify Top Performers with Opportunities and Spotlights\":\n    - heading \"Amplify Top Performers with Opportunities and Spotlights\" [level=3]\n  - paragraph: Invest in authentic partnerships without the back-and-forth through Opportunities, and turn proven content into scalable partnership ads with Spotlights.\n  - img \"Amplify Top Performers with Opportunities and Spotlights\"\n  - text: Brand Insights\n  - link \"View Insights\":\n    - /url: /blog/brand-insights\n  - link \"Introducing Monthly Bonus Opportunities. Brand Insights Introducing Monthly Bonus Opportunities.\":\n    - /url: /blog/post/monthly-bonus-opportunities\n    - img \"Introducing Monthly Bonus Opportunities.\"\n    - text: Brand Insights Introducing Monthly Bonus Opportunities.\n  - link \"Unlocking Growth at Scale with Opportunities. Brand Insights Unlocking Growth at Scale with Opportunities.\":\n    - /url: /blog/post/unlocking-growth-at-scale-with-opportunities\n    - img \"Unlocking Growth at Scale with Opportunities.\"\n    - text: Brand Insights Unlocking Growth at Scale with Opportunities.\n  - 'link \"Introducing Circles: Discovery, Reimagined. New Features Introducing Circles: Discovery, Reimagined.\"':\n    - /url: /blog/post/introducing-circles-discovery-reimagined\n    - 'img \"Introducing Circles: Discovery, Reimagined.\"'\n    - text: \"New Features Introducing Circles: Discovery, Reimagined.\"\n  - heading \"FAQ\" [level=2]\n  - paragraph:\n    - text: If you have additional questions, our\n    - link \"brand onboarding team\":\n      - /url: mailto:partners@shopmy.us\n    - text: can help.\n  - heading \"Why should I use ShopMy for my influencer program?\" [level=3]\n  - paragraph: ShopMy is the only creator commerce infrastructure built specifically for premium brands. Unlike platforms that prioritize volume, we connect you with curated tastemakers who drive actual sales through authentic recommendations (not algorithmic feeds or paid ads). You get performance data, professional tools, and access to culture-driving voices who build lasting brand equity, not just campaign impressions.\n  - heading \"How does ShopMy compare to other influencer marketing platforms?\" [level=3]\n  - paragraph: ShopMy isn't just an influencer marketing platform—it's the complete system for building lasting brands through word-of-mouth. While other platforms focus on campaign management or content creation, we've built professional tools for authentic curation backed by five years of performance data. You work with hand-selected tastemakers, not algorithm-driven feeds. You keep your margins, own your customers, and build real brand equity, not just short-term conversions.\n  - heading \"Does ShopMy guarantee ROI?\" [level=3]\n  - paragraph: ShopMy provides the infrastructure for measurable brand-building. Our platform delivers comprehensive tracking, performance analytics, and data-driven insights that help you optimize your program for maximum ROI. Our partners see an average 5x return by working with authentic tastemakers who drive sustained sales and advocacy, not just one-time clicks. Regular platform usage and strategic creator partnerships consistently deliver excellent results.\n  - heading \"Do you offer white-glove support?\" [level=3]\n  - paragraph: Yes. Premium brands receive dedicated strategic support to maximize their ShopMy infrastructure, from tastemaker discovery to program optimization, all built into the platform experience, not sold separately.\n  - heading \"What makes ShopMy different from social commerce platforms like Instagram Shopping or TikTok Shop?\" [level=3]\n  - paragraph: Social platforms optimize for entertainment and engagement—not sales or brand building. ShopMy is purpose-built for product discovery through trusted human curation. You're not competing with algorithm-driven feeds or ads. Instead, you reach high-intent shoppers through tastemakers they've specifically chosen to trust. You keep your margins, own the customer data, and build lasting relationships—not just fleeting impressions.\n  - heading \"What types of brands succeed on ShopMy?\" [level=3]\n  - paragraph: ShopMy serves premium brands building for the long term, from established luxury houses to emerging DTC companies, that value quality and cultural relevance. Our network includes brands like Rhode, Gucci, Net-a-Porter, West Elm, Therabody, and Kallmeyer. If you're focused on authentic brand building over performance marketing arbitrage, ShopMy is built for you.\n  - img \"background\"\n  - heading \"Let’s make creator marketing your brand’s most valuable channel.\" [level=2]\n  - button \"Get A Demo\"\n  - text: For Creators\n  - list:\n    - listitem:\n      - link \"ShopMy For Creators\":\n        - /url: /home/creators\n    - listitem:\n      - link \"Digital Shops\":\n        - /url: /home/creators/shop\n    - listitem:\n      - link \"Affiliate Links\":\n        - /url: /home/creators/affiliates\n    - listitem:\n      - link \"Brand Partnerships\":\n        - /url: /home/creators/partnerships\n    - listitem:\n      - link \"Apply to be a Creator\":\n        - /url: /apply/creator\n    - listitem:\n      - link \"Webinars\":\n        - /url: /home/creators/webinars\n  - text: For Brands\n  - list:\n    - listitem:\n      - link \"ShopMy For Brands\":\n        - /url: /home/brands\n    - listitem:\n      - link \"Discover\":\n        - /url: /home/brands/discover\n    - listitem:\n      - link \"Engage\":\n        - /url: /home/brands/engage\n    - listitem:\n      - link \"Track\":\n        - /url: /home/brands/track\n    - listitem:\n      - link \"Amplify\":\n        - /url: /home/brands/amplify\n  - text: For Shoppers\n  - list:\n    - listitem:\n      - link \"Shop By Curator\":\n        - /url: /shop/discover/curators\n    - listitem:\n      - link \"Shop By Circle\":\n        - /url: /shop/discover/circles\n    - listitem:\n      - link \"Shop By Brand\":\n        - /url: /shop/discover/brands\n    - listitem:\n      - link \"Shop By Category\":\n        - /url: /shop/discover/categories\n    - listitem:\n      - link \"My Circles\":\n        - /url: /shop/my/circles\n    - listitem:\n      - link \"My Taste Profile\":\n        - /url: /shop/my/taste\n  - text: Explore\n  - list:\n    - listitem:\n      - link \"Blog\":\n        - /url: /blog\n    - listitem:\n      - link \"About Us\":\n        - /url: /about\n    - listitem:\n      - link \"Careers\":\n        - /url: /careers\n    - listitem:\n      - link \"Shop All Categories\":\n        - /url: /shop\n    - listitem:\n      - link \"Reports\":\n        - /url: /reports\n  - text: Support + Legal\n  - list:\n    - listitem:\n      - link \"Creator Guide\":\n        - /url: https://guide.shopmy.us\n    - listitem:\n      - link \"Brand Guide\":\n        - /url: https://brands.shopmy.us\n    - listitem:\n      - link \"Contact Us\":\n        - /url: /contact\n    - listitem:\n      - link \"Terms of Service\":\n        - /url: https://shopmy.us/legal/terms-of-service\n    - listitem:\n      - link \"Privacy\":\n        - /url: https://shopmy.us/legal/privacy-policy\n  - link \"ShopMy Logo\":\n    - /url: /home\n    - img \"ShopMy Logo\"\n  - text: © Copyright 2026 Shop My Shelf, Inc. All Rights Reserved. |\n  - link \"Do Not Sell or Share My Personal Information\":\n    - /url: /do-not-sell\n  - text: \"| Cookie Settings\""
+            }
+          },
+          "url": {
+            "state": "captured",
+            "value": {
+              "url": "https://shopmy.us/home/brands",
+              "origin": "https://shopmy.us",
+              "query_parameter_names": [],
+              "redacted": false
+            }
+          },
+          "history": {
+            "state": "not_requested"
+          },
+          "storage": {
+            "state": "not_requested"
+          }
+        },
+        "completeness": {
+          "status": "complete",
+          "equality_eligible": true,
+          "missing_sections": [],
+          "truncated_sections": []
+        },
+        "status": "completed",
+        "error": null
+      },
+      {
+        "step_index": 6,
+        "step_id": "creator-apply",
+        "action": "goto",
+        "elapsed_ms": 6025,
+        "before_url": {
+          "url": "https://shopmy.us/home/brands",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "after_url": {
+          "url": "https://shopmy.us/apply/creator",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "event_sequence_start": 1,
+        "event_sequence_end": 0,
+        "artifacts": {
+          "screenshot": {
+            "state": "not_requested"
+          },
+          "dom": {
+            "state": "not_requested"
+          },
+          "accessibility": {
+            "state": "captured",
+            "value": {
+              "sha256": "0305259e64292d44fe12f7e70f8390e8ee72dc8f7b76df46bfb7090dfc20d547",
+              "bytes": 9616,
+              "text": "- document:\n  - img \"ShopMy Logo\"\n  - navigation:\n    - link \"For Shoppers\":\n      - /url: /home/shoppers\n    - link \"For Creators\":\n      - /url: /home/creators\n    - link \"For Brands\":\n      - /url: /home/brands\n    - button \"Log In\"\n    - button \"Sign Up\"\n    - textbox \"What are you shopping for?\"\n    - button \"Menu Icon\":\n      - img \"Menu Icon\"\n  - text: 1 2 3\n  - heading \"Apply to be a ShopMy Creator\" [level=1]\n  - heading \"Monetize your product recommendations and build meaningful relationships with the world’s best brands.\" [level=2]\n  - textbox \"Display Name*\"\n  - text: Displayed publicly on your ShopMy.\n  - textbox \"Legal First Name*\"\n  - textbox \"Legal Last Name*\"\n  - text: As it appears on your ID. Used for payment verification only, never shown publicly.\n  - textbox \"Email*\"\n  - combobox:\n    - option \"Ext.\"\n    - option \"US (+1)\" [selected]\n    - option \"AC (+247)\"\n    - option \"AD (+376)\"\n    - option \"AE (+971)\"\n    - option \"AF (+93)\"\n    - option \"AG (+1)\"\n    - option \"AI (+1)\"\n    - option \"AL (+355)\"\n    - option \"AM (+374)\"\n    - option \"AO (+244)\"\n    - option \"AR (+54)\"\n    - option \"AS (+1)\"\n    - option \"AT (+43)\"\n    - option \"AU (+61)\"\n    - option \"AW (+297)\"\n    - option \"AX (+358)\"\n    - option \"AZ (+994)\"\n    - option \"BA (+387)\"\n    - option \"BB (+1)\"\n    - option \"BD (+880)\"\n    - option \"BE (+32)\"\n    - option \"BF (+226)\"\n    - option \"BG (+359)\"\n    - option \"BH (+973)\"\n    - option \"BI (+257)\"\n    - option \"BJ (+229)\"\n    - option \"BL (+590)\"\n    - option \"BM (+1)\"\n    - option \"BN (+673)\"\n    - option \"BO (+591)\"\n    - option \"BQ (+599)\"\n    - option \"BR (+55)\"\n    - option \"BS (+1)\"\n    - option \"BT (+975)\"\n    - option \"BW (+267)\"\n    - option \"BY (+375)\"\n    - option \"BZ (+501)\"\n    - option \"CA (+1)\"\n    - option \"CC (+61)\"\n    - option \"CD (+243)\"\n    - option \"CF (+236)\"\n    - option \"CG (+242)\"\n    - option \"CH (+41)\"\n    - option \"CI (+225)\"\n    - option \"CK (+682)\"\n    - option \"CL (+56)\"\n    - option \"CM (+237)\"\n    - option \"CN (+86)\"\n    - option \"CO (+57)\"\n    - option \"CR (+506)\"\n    - option \"CU (+53)\"\n    - option \"CV (+238)\"\n    - option \"CW (+599)\"\n    - option \"CX (+61)\"\n    - option \"CY (+357)\"\n    - option \"CZ (+420)\"\n    - option \"DE (+49)\"\n    - option \"DJ (+253)\"\n    - option \"DK (+45)\"\n    - option \"DM (+1)\"\n    - option \"DO (+1)\"\n    - option \"DZ (+213)\"\n    - option \"EC (+593)\"\n    - option \"EE (+372)\"\n    - option \"EG (+20)\"\n    - option \"EH (+212)\"\n    - option \"ER (+291)\"\n    - option \"ES (+34)\"\n    - option \"ET (+251)\"\n    - option \"FI (+358)\"\n    - option \"FJ (+679)\"\n    - option \"FK (+500)\"\n    - option \"FM (+691)\"\n    - option \"FO (+298)\"\n    - option \"FR (+33)\"\n    - option \"GA (+241)\"\n    - option \"GB (+44)\"\n    - option \"GD (+1)\"\n    - option \"GE (+995)\"\n    - option \"GF (+594)\"\n    - option \"GG (+44)\"\n    - option \"GH (+233)\"\n    - option \"GI (+350)\"\n    - option \"GL (+299)\"\n    - option \"GM (+220)\"\n    - option \"GN (+224)\"\n    - option \"GP (+590)\"\n    - option \"GQ (+240)\"\n    - option \"GR (+30)\"\n    - option \"GT (+502)\"\n    - option \"GU (+1)\"\n    - option \"GW (+245)\"\n    - option \"GY (+592)\"\n    - option \"HK (+852)\"\n    - option \"HN (+504)\"\n    - option \"HR (+385)\"\n    - option \"HT (+509)\"\n    - option \"HU (+36)\"\n    - option \"ID (+62)\"\n    - option \"IE (+353)\"\n    - option \"IL (+972)\"\n    - option \"IM (+44)\"\n    - option \"IN (+91)\"\n    - option \"IO (+246)\"\n    - option \"IQ (+964)\"\n    - option \"IR (+98)\"\n    - option \"IS (+354)\"\n    - option \"IT (+39)\"\n    - option \"JE (+44)\"\n    - option \"JM (+1)\"\n    - option \"JO (+962)\"\n    - option \"JP (+81)\"\n    - option \"KE (+254)\"\n    - option \"KG (+996)\"\n    - option \"KH (+855)\"\n    - option \"KI (+686)\"\n    - option \"KM (+269)\"\n    - option \"KN (+1)\"\n    - option \"KP (+850)\"\n    - option \"KR (+82)\"\n    - option \"KW (+965)\"\n    - option \"KY (+1)\"\n    - option \"KZ (+7)\"\n    - option \"LA (+856)\"\n    - option \"LB (+961)\"\n    - option \"LC (+1)\"\n    - option \"LI (+423)\"\n    - option \"LK (+94)\"\n    - option \"LR (+231)\"\n    - option \"LS (+266)\"\n    - option \"LT (+370)\"\n    - option \"LU (+352)\"\n    - option \"LV (+371)\"\n    - option \"LY (+218)\"\n    - option \"MA (+212)\"\n    - option \"MC (+377)\"\n    - option \"MD (+373)\"\n    - option \"ME (+382)\"\n    - option \"MF (+590)\"\n    - option \"MG (+261)\"\n    - option \"MH (+692)\"\n    - option \"MK (+389)\"\n    - option \"ML (+223)\"\n    - option \"MM (+95)\"\n    - option \"MN (+976)\"\n    - option \"MO (+853)\"\n    - option \"MP (+1)\"\n    - option \"MQ (+596)\"\n    - option \"MR (+222)\"\n    - option \"MS (+1)\"\n    - option \"MT (+356)\"\n    - option \"MU (+230)\"\n    - option \"MV (+960)\"\n    - option \"MW (+265)\"\n    - option \"MX (+52)\"\n    - option \"MY (+60)\"\n    - option \"MZ (+258)\"\n    - option \"NA (+264)\"\n    - option \"NC (+687)\"\n    - option \"NE (+227)\"\n    - option \"NF (+672)\"\n    - option \"NG (+234)\"\n    - option \"NI (+505)\"\n    - option \"NL (+31)\"\n    - option \"NO (+47)\"\n    - option \"NP (+977)\"\n    - option \"NR (+674)\"\n    - option \"NU (+683)\"\n    - option \"NZ (+64)\"\n    - option \"OM (+968)\"\n    - option \"PA (+507)\"\n    - option \"PE (+51)\"\n    - option \"PF (+689)\"\n    - option \"PG (+675)\"\n    - option \"PH (+63)\"\n    - option \"PK (+92)\"\n    - option \"PL (+48)\"\n    - option \"PM (+508)\"\n    - option \"PR (+1)\"\n    - option \"PS (+970)\"\n    - option \"PT (+351)\"\n    - option \"PW (+680)\"\n    - option \"PY (+595)\"\n    - option \"QA (+974)\"\n    - option \"RE (+262)\"\n    - option \"RO (+40)\"\n    - option \"RS (+381)\"\n    - option \"RU (+7)\"\n    - option \"RW (+250)\"\n    - option \"SA (+966)\"\n    - option \"SB (+677)\"\n    - option \"SC (+248)\"\n    - option \"SD (+249)\"\n    - option \"SE (+46)\"\n    - option \"SG (+65)\"\n    - option \"SH (+290)\"\n    - option \"SI (+386)\"\n    - option \"SJ (+47)\"\n    - option \"SK (+421)\"\n    - option \"SL (+232)\"\n    - option \"SM (+378)\"\n    - option \"SN (+221)\"\n    - option \"SO (+252)\"\n    - option \"SR (+597)\"\n    - option \"SS (+211)\"\n    - option \"ST (+239)\"\n    - option \"SV (+503)\"\n    - option \"SX (+1)\"\n    - option \"SY (+963)\"\n    - option \"SZ (+268)\"\n    - option \"TA (+290)\"\n    - option \"TC (+1)\"\n    - option \"TD (+235)\"\n    - option \"TG (+228)\"\n    - option \"TH (+66)\"\n    - option \"TJ (+992)\"\n    - option \"TK (+690)\"\n    - option \"TL (+670)\"\n    - option \"TM (+993)\"\n    - option \"TN (+216)\"\n    - option \"TO (+676)\"\n    - option \"TR (+90)\"\n    - option \"TT (+1)\"\n    - option \"TV (+688)\"\n    - option \"TW (+886)\"\n    - option \"TZ (+255)\"\n    - option \"UA (+380)\"\n    - option \"UG (+256)\"\n    - option \"US (+1)\"\n    - option \"UY (+598)\"\n    - option \"UZ (+998)\"\n    - option \"VA (+39)\"\n    - option \"VC (+1)\"\n    - option \"VE (+58)\"\n    - option \"VG (+1)\"\n    - option \"VI (+1)\"\n    - option \"VN (+84)\"\n    - option \"VU (+678)\"\n    - option \"WF (+681)\"\n    - option \"WS (+685)\"\n    - option \"XK (+383)\"\n    - option \"YE (+967)\"\n    - option \"YT (+262)\"\n    - option \"ZA (+27)\"\n    - option \"ZM (+260)\"\n    - option \"ZW (+263)\"\n  - textbox \"Phone Number\"\n  - button \"Go To Home\"\n  - button \"Next\" [disabled]\n  - link \"I am a Brand\":\n    - /url: https://shopmy.us/home/brands\n  - text: For Creators\n  - list:\n    - listitem:\n      - link \"ShopMy For Creators\":\n        - /url: /home/creators\n    - listitem:\n      - link \"Digital Shops\":\n        - /url: /home/creators/shop\n    - listitem:\n      - link \"Affiliate Links\":\n        - /url: /home/creators/affiliates\n    - listitem:\n      - link \"Brand Partnerships\":\n        - /url: /home/creators/partnerships\n    - listitem:\n      - link \"Apply to be a Creator\":\n        - /url: /apply/creator\n    - listitem:\n      - link \"Webinars\":\n        - /url: /home/creators/webinars\n  - text: For Brands\n  - list:\n    - listitem:\n      - link \"ShopMy For Brands\":\n        - /url: /home/brands\n    - listitem:\n      - link \"Discover\":\n        - /url: /home/brands/discover\n    - listitem:\n      - link \"Engage\":\n        - /url: /home/brands/engage\n    - listitem:\n      - link \"Track\":\n        - /url: /home/brands/track\n    - listitem:\n      - link \"Amplify\":\n        - /url: /home/brands/amplify\n  - text: For Shoppers\n  - list:\n    - listitem:\n      - link \"Shop By Curator\":\n        - /url: /shop/discover/curators\n    - listitem:\n      - link \"Shop By Circle\":\n        - /url: /shop/discover/circles\n    - listitem:\n      - link \"Shop By Brand\":\n        - /url: /shop/discover/brands\n    - listitem:\n      - link \"Shop By Category\":\n        - /url: /shop/discover/categories\n    - listitem:\n      - link \"My Circles\":\n        - /url: /shop/my/circles\n    - listitem:\n      - link \"My Taste Profile\":\n        - /url: /shop/my/taste\n  - text: Explore\n  - list:\n    - listitem:\n      - link \"Blog\":\n        - /url: /blog\n    - listitem:\n      - link \"About Us\":\n        - /url: /about\n    - listitem:\n      - link \"Careers\":\n        - /url: /careers\n    - listitem:\n      - link \"Shop All Categories\":\n        - /url: /shop\n    - listitem:\n      - link \"Reports\":\n        - /url: /reports\n  - text: Support + Legal\n  - list:\n    - listitem:\n      - link \"Creator Guide\":\n        - /url: https://guide.shopmy.us\n    - listitem:\n      - link \"Brand Guide\":\n        - /url: https://brands.shopmy.us\n    - listitem:\n      - link \"Contact Us\":\n        - /url: /contact\n    - listitem:\n      - link \"Terms of Service\":\n        - /url: https://shopmy.us/legal/terms-of-service\n    - listitem:\n      - link \"Privacy\":\n        - /url: https://shopmy.us/legal/privacy-policy\n  - link \"ShopMy Logo\":\n    - /url: /home\n    - img \"ShopMy Logo\"\n  - text: © Copyright 2026 Shop My Shelf, Inc. All Rights Reserved. |\n  - link \"Do Not Sell or Share My Personal Information\":\n    - /url: /do-not-sell\n  - text: \"| Cookie Settings\""
+            }
+          },
+          "url": {
+            "state": "captured",
+            "value": {
+              "url": "https://shopmy.us/apply/creator",
+              "origin": "https://shopmy.us",
+              "query_parameter_names": [],
+              "redacted": false
+            }
+          },
+          "history": {
+            "state": "not_requested"
+          },
+          "storage": {
+            "state": "not_requested"
+          }
+        },
+        "completeness": {
+          "status": "complete",
+          "equality_eligible": true,
+          "missing_sections": [],
+          "truncated_sections": []
+        },
+        "status": "completed",
+        "error": null
+      },
+      {
+        "step_index": 7,
+        "step_id": "apply-ready",
+        "action": "wait_for_timeout",
+        "elapsed_ms": 2058,
+        "before_url": {
+          "url": "https://shopmy.us/apply/creator",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "after_url": {
+          "url": "https://shopmy.us/apply/creator",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "event_sequence_start": 1,
+        "event_sequence_end": 0,
+        "artifacts": {
+          "screenshot": {
+            "state": "not_requested"
+          },
+          "dom": {
+            "state": "not_requested"
+          },
+          "accessibility": {
+            "state": "captured",
+            "value": {
+              "sha256": "0305259e64292d44fe12f7e70f8390e8ee72dc8f7b76df46bfb7090dfc20d547",
+              "bytes": 9616,
+              "text": "- document:\n  - img \"ShopMy Logo\"\n  - navigation:\n    - link \"For Shoppers\":\n      - /url: /home/shoppers\n    - link \"For Creators\":\n      - /url: /home/creators\n    - link \"For Brands\":\n      - /url: /home/brands\n    - button \"Log In\"\n    - button \"Sign Up\"\n    - textbox \"What are you shopping for?\"\n    - button \"Menu Icon\":\n      - img \"Menu Icon\"\n  - text: 1 2 3\n  - heading \"Apply to be a ShopMy Creator\" [level=1]\n  - heading \"Monetize your product recommendations and build meaningful relationships with the world’s best brands.\" [level=2]\n  - textbox \"Display Name*\"\n  - text: Displayed publicly on your ShopMy.\n  - textbox \"Legal First Name*\"\n  - textbox \"Legal Last Name*\"\n  - text: As it appears on your ID. Used for payment verification only, never shown publicly.\n  - textbox \"Email*\"\n  - combobox:\n    - option \"Ext.\"\n    - option \"US (+1)\" [selected]\n    - option \"AC (+247)\"\n    - option \"AD (+376)\"\n    - option \"AE (+971)\"\n    - option \"AF (+93)\"\n    - option \"AG (+1)\"\n    - option \"AI (+1)\"\n    - option \"AL (+355)\"\n    - option \"AM (+374)\"\n    - option \"AO (+244)\"\n    - option \"AR (+54)\"\n    - option \"AS (+1)\"\n    - option \"AT (+43)\"\n    - option \"AU (+61)\"\n    - option \"AW (+297)\"\n    - option \"AX (+358)\"\n    - option \"AZ (+994)\"\n    - option \"BA (+387)\"\n    - option \"BB (+1)\"\n    - option \"BD (+880)\"\n    - option \"BE (+32)\"\n    - option \"BF (+226)\"\n    - option \"BG (+359)\"\n    - option \"BH (+973)\"\n    - option \"BI (+257)\"\n    - option \"BJ (+229)\"\n    - option \"BL (+590)\"\n    - option \"BM (+1)\"\n    - option \"BN (+673)\"\n    - option \"BO (+591)\"\n    - option \"BQ (+599)\"\n    - option \"BR (+55)\"\n    - option \"BS (+1)\"\n    - option \"BT (+975)\"\n    - option \"BW (+267)\"\n    - option \"BY (+375)\"\n    - option \"BZ (+501)\"\n    - option \"CA (+1)\"\n    - option \"CC (+61)\"\n    - option \"CD (+243)\"\n    - option \"CF (+236)\"\n    - option \"CG (+242)\"\n    - option \"CH (+41)\"\n    - option \"CI (+225)\"\n    - option \"CK (+682)\"\n    - option \"CL (+56)\"\n    - option \"CM (+237)\"\n    - option \"CN (+86)\"\n    - option \"CO (+57)\"\n    - option \"CR (+506)\"\n    - option \"CU (+53)\"\n    - option \"CV (+238)\"\n    - option \"CW (+599)\"\n    - option \"CX (+61)\"\n    - option \"CY (+357)\"\n    - option \"CZ (+420)\"\n    - option \"DE (+49)\"\n    - option \"DJ (+253)\"\n    - option \"DK (+45)\"\n    - option \"DM (+1)\"\n    - option \"DO (+1)\"\n    - option \"DZ (+213)\"\n    - option \"EC (+593)\"\n    - option \"EE (+372)\"\n    - option \"EG (+20)\"\n    - option \"EH (+212)\"\n    - option \"ER (+291)\"\n    - option \"ES (+34)\"\n    - option \"ET (+251)\"\n    - option \"FI (+358)\"\n    - option \"FJ (+679)\"\n    - option \"FK (+500)\"\n    - option \"FM (+691)\"\n    - option \"FO (+298)\"\n    - option \"FR (+33)\"\n    - option \"GA (+241)\"\n    - option \"GB (+44)\"\n    - option \"GD (+1)\"\n    - option \"GE (+995)\"\n    - option \"GF (+594)\"\n    - option \"GG (+44)\"\n    - option \"GH (+233)\"\n    - option \"GI (+350)\"\n    - option \"GL (+299)\"\n    - option \"GM (+220)\"\n    - option \"GN (+224)\"\n    - option \"GP (+590)\"\n    - option \"GQ (+240)\"\n    - option \"GR (+30)\"\n    - option \"GT (+502)\"\n    - option \"GU (+1)\"\n    - option \"GW (+245)\"\n    - option \"GY (+592)\"\n    - option \"HK (+852)\"\n    - option \"HN (+504)\"\n    - option \"HR (+385)\"\n    - option \"HT (+509)\"\n    - option \"HU (+36)\"\n    - option \"ID (+62)\"\n    - option \"IE (+353)\"\n    - option \"IL (+972)\"\n    - option \"IM (+44)\"\n    - option \"IN (+91)\"\n    - option \"IO (+246)\"\n    - option \"IQ (+964)\"\n    - option \"IR (+98)\"\n    - option \"IS (+354)\"\n    - option \"IT (+39)\"\n    - option \"JE (+44)\"\n    - option \"JM (+1)\"\n    - option \"JO (+962)\"\n    - option \"JP (+81)\"\n    - option \"KE (+254)\"\n    - option \"KG (+996)\"\n    - option \"KH (+855)\"\n    - option \"KI (+686)\"\n    - option \"KM (+269)\"\n    - option \"KN (+1)\"\n    - option \"KP (+850)\"\n    - option \"KR (+82)\"\n    - option \"KW (+965)\"\n    - option \"KY (+1)\"\n    - option \"KZ (+7)\"\n    - option \"LA (+856)\"\n    - option \"LB (+961)\"\n    - option \"LC (+1)\"\n    - option \"LI (+423)\"\n    - option \"LK (+94)\"\n    - option \"LR (+231)\"\n    - option \"LS (+266)\"\n    - option \"LT (+370)\"\n    - option \"LU (+352)\"\n    - option \"LV (+371)\"\n    - option \"LY (+218)\"\n    - option \"MA (+212)\"\n    - option \"MC (+377)\"\n    - option \"MD (+373)\"\n    - option \"ME (+382)\"\n    - option \"MF (+590)\"\n    - option \"MG (+261)\"\n    - option \"MH (+692)\"\n    - option \"MK (+389)\"\n    - option \"ML (+223)\"\n    - option \"MM (+95)\"\n    - option \"MN (+976)\"\n    - option \"MO (+853)\"\n    - option \"MP (+1)\"\n    - option \"MQ (+596)\"\n    - option \"MR (+222)\"\n    - option \"MS (+1)\"\n    - option \"MT (+356)\"\n    - option \"MU (+230)\"\n    - option \"MV (+960)\"\n    - option \"MW (+265)\"\n    - option \"MX (+52)\"\n    - option \"MY (+60)\"\n    - option \"MZ (+258)\"\n    - option \"NA (+264)\"\n    - option \"NC (+687)\"\n    - option \"NE (+227)\"\n    - option \"NF (+672)\"\n    - option \"NG (+234)\"\n    - option \"NI (+505)\"\n    - option \"NL (+31)\"\n    - option \"NO (+47)\"\n    - option \"NP (+977)\"\n    - option \"NR (+674)\"\n    - option \"NU (+683)\"\n    - option \"NZ (+64)\"\n    - option \"OM (+968)\"\n    - option \"PA (+507)\"\n    - option \"PE (+51)\"\n    - option \"PF (+689)\"\n    - option \"PG (+675)\"\n    - option \"PH (+63)\"\n    - option \"PK (+92)\"\n    - option \"PL (+48)\"\n    - option \"PM (+508)\"\n    - option \"PR (+1)\"\n    - option \"PS (+970)\"\n    - option \"PT (+351)\"\n    - option \"PW (+680)\"\n    - option \"PY (+595)\"\n    - option \"QA (+974)\"\n    - option \"RE (+262)\"\n    - option \"RO (+40)\"\n    - option \"RS (+381)\"\n    - option \"RU (+7)\"\n    - option \"RW (+250)\"\n    - option \"SA (+966)\"\n    - option \"SB (+677)\"\n    - option \"SC (+248)\"\n    - option \"SD (+249)\"\n    - option \"SE (+46)\"\n    - option \"SG (+65)\"\n    - option \"SH (+290)\"\n    - option \"SI (+386)\"\n    - option \"SJ (+47)\"\n    - option \"SK (+421)\"\n    - option \"SL (+232)\"\n    - option \"SM (+378)\"\n    - option \"SN (+221)\"\n    - option \"SO (+252)\"\n    - option \"SR (+597)\"\n    - option \"SS (+211)\"\n    - option \"ST (+239)\"\n    - option \"SV (+503)\"\n    - option \"SX (+1)\"\n    - option \"SY (+963)\"\n    - option \"SZ (+268)\"\n    - option \"TA (+290)\"\n    - option \"TC (+1)\"\n    - option \"TD (+235)\"\n    - option \"TG (+228)\"\n    - option \"TH (+66)\"\n    - option \"TJ (+992)\"\n    - option \"TK (+690)\"\n    - option \"TL (+670)\"\n    - option \"TM (+993)\"\n    - option \"TN (+216)\"\n    - option \"TO (+676)\"\n    - option \"TR (+90)\"\n    - option \"TT (+1)\"\n    - option \"TV (+688)\"\n    - option \"TW (+886)\"\n    - option \"TZ (+255)\"\n    - option \"UA (+380)\"\n    - option \"UG (+256)\"\n    - option \"US (+1)\"\n    - option \"UY (+598)\"\n    - option \"UZ (+998)\"\n    - option \"VA (+39)\"\n    - option \"VC (+1)\"\n    - option \"VE (+58)\"\n    - option \"VG (+1)\"\n    - option \"VI (+1)\"\n    - option \"VN (+84)\"\n    - option \"VU (+678)\"\n    - option \"WF (+681)\"\n    - option \"WS (+685)\"\n    - option \"XK (+383)\"\n    - option \"YE (+967)\"\n    - option \"YT (+262)\"\n    - option \"ZA (+27)\"\n    - option \"ZM (+260)\"\n    - option \"ZW (+263)\"\n  - textbox \"Phone Number\"\n  - button \"Go To Home\"\n  - button \"Next\" [disabled]\n  - link \"I am a Brand\":\n    - /url: https://shopmy.us/home/brands\n  - text: For Creators\n  - list:\n    - listitem:\n      - link \"ShopMy For Creators\":\n        - /url: /home/creators\n    - listitem:\n      - link \"Digital Shops\":\n        - /url: /home/creators/shop\n    - listitem:\n      - link \"Affiliate Links\":\n        - /url: /home/creators/affiliates\n    - listitem:\n      - link \"Brand Partnerships\":\n        - /url: /home/creators/partnerships\n    - listitem:\n      - link \"Apply to be a Creator\":\n        - /url: /apply/creator\n    - listitem:\n      - link \"Webinars\":\n        - /url: /home/creators/webinars\n  - text: For Brands\n  - list:\n    - listitem:\n      - link \"ShopMy For Brands\":\n        - /url: /home/brands\n    - listitem:\n      - link \"Discover\":\n        - /url: /home/brands/discover\n    - listitem:\n      - link \"Engage\":\n        - /url: /home/brands/engage\n    - listitem:\n      - link \"Track\":\n        - /url: /home/brands/track\n    - listitem:\n      - link \"Amplify\":\n        - /url: /home/brands/amplify\n  - text: For Shoppers\n  - list:\n    - listitem:\n      - link \"Shop By Curator\":\n        - /url: /shop/discover/curators\n    - listitem:\n      - link \"Shop By Circle\":\n        - /url: /shop/discover/circles\n    - listitem:\n      - link \"Shop By Brand\":\n        - /url: /shop/discover/brands\n    - listitem:\n      - link \"Shop By Category\":\n        - /url: /shop/discover/categories\n    - listitem:\n      - link \"My Circles\":\n        - /url: /shop/my/circles\n    - listitem:\n      - link \"My Taste Profile\":\n        - /url: /shop/my/taste\n  - text: Explore\n  - list:\n    - listitem:\n      - link \"Blog\":\n        - /url: /blog\n    - listitem:\n      - link \"About Us\":\n        - /url: /about\n    - listitem:\n      - link \"Careers\":\n        - /url: /careers\n    - listitem:\n      - link \"Shop All Categories\":\n        - /url: /shop\n    - listitem:\n      - link \"Reports\":\n        - /url: /reports\n  - text: Support + Legal\n  - list:\n    - listitem:\n      - link \"Creator Guide\":\n        - /url: https://guide.shopmy.us\n    - listitem:\n      - link \"Brand Guide\":\n        - /url: https://brands.shopmy.us\n    - listitem:\n      - link \"Contact Us\":\n        - /url: /contact\n    - listitem:\n      - link \"Terms of Service\":\n        - /url: https://shopmy.us/legal/terms-of-service\n    - listitem:\n      - link \"Privacy\":\n        - /url: https://shopmy.us/legal/privacy-policy\n  - link \"ShopMy Logo\":\n    - /url: /home\n    - img \"ShopMy Logo\"\n  - text: © Copyright 2026 Shop My Shelf, Inc. All Rights Reserved. |\n  - link \"Do Not Sell or Share My Personal Information\":\n    - /url: /do-not-sell\n  - text: \"| Cookie Settings\""
+            }
+          },
+          "url": {
+            "state": "captured",
+            "value": {
+              "url": "https://shopmy.us/apply/creator",
+              "origin": "https://shopmy.us",
+              "query_parameter_names": [],
+              "redacted": false
+            }
+          },
+          "history": {
+            "state": "not_requested"
+          },
+          "storage": {
+            "state": "not_requested"
+          }
+        },
+        "completeness": {
+          "status": "complete",
+          "equality_eligible": true,
+          "missing_sections": [],
+          "truncated_sections": []
+        },
+        "status": "completed",
+        "error": null
+      }
+    ],
+    "events": {
+      "retained": 0,
+      "dropped": 0,
+      "items": [],
+      "omissions": {
+        "by_kind": [],
+        "network_transactions": [],
+        "network_transaction_range": null
+      }
+    },
+    "completeness": {
+      "status": "complete",
+      "equality_eligible": true,
+      "missing_sections": [],
+      "truncated_sections": []
+    },
+    "limitations": [
+      "Event sequence records provider receipt order; simultaneous browser causality is not inferred.",
+      "Network content is retained only when selected; Playwright response-body bytes are API results and are not guaranteed to match wire bytes.",
+      "Request bytes are limited to what Playwright exposes; not_exposed does not establish body absence or multipart file coverage.",
+      "Network content reads settle within 5 seconds each and the observer does not request bodies from unfinished responses.",
+      "Playwright scenario events do not expose request initiator stacks; receipt order does not prove causality.",
+      "Storage values are hashed only after declared-secret redaction."
+    ]
+  },
+  "confidence": "observed",
+  "authority": "controlled-replay",
+  "environment": {
+    "id": "Chromium@157.0.8103.39",
+    "platform": "unknown",
+    "architecture": "unknown",
+    "isolation": "process"
+  },
+  "limitations": [
+    "Artifact identity is unavailable for this observation.",
+    "Event sequence records provider receipt order; simultaneous browser causality is not inferred.",
+    "Network content is retained only when selected; Playwright response-body bytes are API results and are not guaranteed to match wire bytes.",
+    "Request bytes are limited to what Playwright exposes; not_exposed does not establish body absence or multipart file coverage.",
+    "Network content reads settle within 5 seconds each and the observer does not request bodies from unfinished responses.",
+    "Playwright scenario events do not expose request initiator stacks; receipt order does not prove causality.",
+    "Storage values are hashed only after declared-secret redaction.",
+    "Browser host platform and architecture were not observed."
+  ],
+  "relationship_coverage": null,
+  "locations": [],
+  "evidence_links": []
+}

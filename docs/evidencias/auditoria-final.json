@@ -1,0 +1,1145 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--reporter=list,json"
+    ],
+    "configFile": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\playwright.config.ts",
+    "rootDir": "C:/Users/Andrea/Documents/Codex/2026-11-11/diderot/outputs/diderot/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/Andrea/Documents/Codex/2026-11-11/diderot/outputs/diderot/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "computador",
+        "name": "computador",
+        "testDir": "C:/Users/Andrea/Documents/Codex/2026-11-11/diderot/outputs/diderot/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/Andrea/Documents/Codex/2026-11-11/diderot/outputs/diderot/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "celular",
+        "name": "celular",
+        "testDir": "C:/Users/Andrea/Documents/Codex/2026-11-11/diderot/outputs/diderot/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "computador",
+        "testDir": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests",
+        "snapshotDir": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3101",
+          "launchOptions": {
+            "executablePath": "C:/Program Files/Google/Chrome/Application/chrome.exe"
+          },
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "computador"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "celular",
+        "testDir": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests",
+        "snapshotDir": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3101",
+          "launchOptions": {
+            "executablePath": "C:/Program Files/Google/Chrome/Application/chrome.exe"
+          },
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "celular"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.0",
+    "workers": 1,
+    "webServer": {
+      "command": "node node_modules/next/dist/bin/next start --hostname 127.0.0.1 --port 3101",
+      "url": "http://127.0.0.1:3101",
+      "reuseExistingServer": false,
+      "timeout": 30000
+    }
+  },
+  "suites": [
+    {
+      "title": "audit.spec.ts",
+      "file": "audit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "AUD-01 todas as rotas, âncoras, SVGs e recuperação de erro",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "computador",
+              "projectName": "computador",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9619,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:55:31.803Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "celular",
+              "projectName": "celular",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6138,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:56:19.395Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "45efdff6a4d2e1f7e786-83c0e50e6772234f1ae3",
+          "file": "audit.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "AUD-02 disponibilidade deve revelar informação, não apenas mudar o hash",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "computador",
+              "projectName": "computador",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2520,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:55:43.490Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "celular",
+              "projectName": "celular",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2266,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:56:26.322Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "45efdff6a4d2e1f7e786-3256faf403caa6ddae80",
+          "file": "audit.spec.ts",
+          "line": 24,
+          "column": 1
+        },
+        {
+          "title": "AUD-03 filtros, preços completos, remoção de favorito e isolamento da coleção",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "computador",
+              "projectName": "computador",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1763,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:55:46.032Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "celular",
+              "projectName": "celular",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1635,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:56:28.619Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "45efdff6a4d2e1f7e786-6f4b22f642328fb6a55e",
+          "file": "audit.spec.ts",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "AUD-04 busca tolera espaços, maiúsculas e acentos",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "computador",
+              "projectName": "computador",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 726,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:55:47.824Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "celular",
+              "projectName": "celular",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 835,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:56:30.279Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "45efdff6a4d2e1f7e786-791979c1e031355bcf58",
+          "file": "audit.spec.ts",
+          "line": 53,
+          "column": 1
+        },
+        {
+          "title": "AUD-05 celular estreito, tablet e teclado nos controles principais",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "computador",
+              "projectName": "computador",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3481,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:55:48.573Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "celular",
+              "projectName": "celular",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5323,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:56:31.136Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "45efdff6a4d2e1f7e786-f467111a5dcfa91ccad0",
+          "file": "audit.spec.ts",
+          "line": 61,
+          "column": 1
+        },
+        {
+          "title": "GAP-01 @pendente shopper mantém favorito depois de recarregar",
+          "ok": false,
+          "tags": [
+            "pendente"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "computador",
+              "projectName": "computador",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2573,
+                  "error": {
+                    "message": "Error: Favoritos não persistem; não há conta nem banco.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Remover Bolsa Oliva', exact: true })\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Favoritos não persistem; não há conta nem banco. getByRole('button', { name: 'Remover Bolsa Oliva', exact: true }) with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Remover Bolsa Oliva', exact: true })\u001b[22m\n",
+                    "stack": "Error: Favoritos não persistem; não há conta nem banco.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Remover Bolsa Oliva', exact: true })\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Favoritos não persistem; não há conta nem banco. getByRole('button', { name: 'Remover Bolsa Oliva', exact: true }) with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Remover Bolsa Oliva', exact: true })\u001b[22m\n\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:81:132",
+                    "location": {
+                      "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                      "column": 132,
+                      "line": 81
+                    },
+                    "snippet": " \u001b[90m 79 |\u001b[39m  \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39m\u001b[32m'Remover Bolsa Oliva'\u001b[39m\u001b[33m,\u001b[39mexact\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m}))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 80 |\u001b[39m  \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mreload()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 81 |\u001b[39m  \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39m\u001b[32m'Remover Bolsa Oliva'\u001b[39m\u001b[33m,\u001b[39mexact\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m})\u001b[33m,\u001b[39m\u001b[32m'Favoritos não persistem; não há conta nem banco.'\u001b[39m)\u001b[33m.\u001b[39mtoBeVisible({timeout\u001b[33m:\u001b[39m\u001b[35m1500\u001b[39m})\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                                                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 82 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 83 |\u001b[39m\n \u001b[90m 84 |\u001b[39m \u001b[36mfor\u001b[39m(\u001b[36mconst\u001b[39m role \u001b[36mof\u001b[39m ["
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                        "column": 132,
+                        "line": 81
+                      },
+                      "message": "Error: Favoritos não persistem; não há conta nem banco.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Remover Bolsa Oliva', exact: true })\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Favoritos não persistem; não há conta nem banco. getByRole('button', { name: 'Remover Bolsa Oliva', exact: true }) with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Remover Bolsa Oliva', exact: true })\u001b[22m\n\n\n  79 |  await expect(page.getByRole('button',{name:'Remover Bolsa Oliva',exact:true})).toBeVisible();\n  80 |  await page.reload();\n> 81 |  await expect(page.getByRole('button',{name:'Remover Bolsa Oliva',exact:true}),'Favoritos não persistem; não há conta nem banco.').toBeVisible({timeout:1500});\n     |                                                                                                                                    ^\n  82 | });\n  83 |\n  84 | for(const role of [\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:81:132"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:55:52.069Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\test-results\\audit-GAP-01-pendente-shop-54d53-vorito-depois-de-recarregar-computador\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\test-results\\audit-GAP-01-pendente-shop-54d53-vorito-depois-de-recarregar-computador\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                    "column": 132,
+                    "line": 81
+                  }
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "celular",
+              "projectName": "celular",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3467,
+                  "error": {
+                    "message": "Error: Favoritos não persistem; não há conta nem banco.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Remover Bolsa Oliva', exact: true })\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Favoritos não persistem; não há conta nem banco. getByRole('button', { name: 'Remover Bolsa Oliva', exact: true }) with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Remover Bolsa Oliva', exact: true })\u001b[22m\n",
+                    "stack": "Error: Favoritos não persistem; não há conta nem banco.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Remover Bolsa Oliva', exact: true })\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Favoritos não persistem; não há conta nem banco. getByRole('button', { name: 'Remover Bolsa Oliva', exact: true }) with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Remover Bolsa Oliva', exact: true })\u001b[22m\n\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:81:132",
+                    "location": {
+                      "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                      "column": 132,
+                      "line": 81
+                    },
+                    "snippet": " \u001b[90m 79 |\u001b[39m  \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39m\u001b[32m'Remover Bolsa Oliva'\u001b[39m\u001b[33m,\u001b[39mexact\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m}))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 80 |\u001b[39m  \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mreload()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 81 |\u001b[39m  \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39m\u001b[32m'Remover Bolsa Oliva'\u001b[39m\u001b[33m,\u001b[39mexact\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m})\u001b[33m,\u001b[39m\u001b[32m'Favoritos não persistem; não há conta nem banco.'\u001b[39m)\u001b[33m.\u001b[39mtoBeVisible({timeout\u001b[33m:\u001b[39m\u001b[35m1500\u001b[39m})\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                                                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 82 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 83 |\u001b[39m\n \u001b[90m 84 |\u001b[39m \u001b[36mfor\u001b[39m(\u001b[36mconst\u001b[39m role \u001b[36mof\u001b[39m ["
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                        "column": 132,
+                        "line": 81
+                      },
+                      "message": "Error: Favoritos não persistem; não há conta nem banco.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Remover Bolsa Oliva', exact: true })\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Favoritos não persistem; não há conta nem banco. getByRole('button', { name: 'Remover Bolsa Oliva', exact: true }) with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Remover Bolsa Oliva', exact: true })\u001b[22m\n\n\n  79 |  await expect(page.getByRole('button',{name:'Remover Bolsa Oliva',exact:true})).toBeVisible();\n  80 |  await page.reload();\n> 81 |  await expect(page.getByRole('button',{name:'Remover Bolsa Oliva',exact:true}),'Favoritos não persistem; não há conta nem banco.').toBeVisible({timeout:1500});\n     |                                                                                                                                    ^\n  82 | });\n  83 |\n  84 | for(const role of [\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:81:132"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:56:36.503Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\test-results\\audit-GAP-01-pendente-shop-54d53-vorito-depois-de-recarregar-celular\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\test-results\\audit-GAP-01-pendente-shop-54d53-vorito-depois-de-recarregar-celular\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                    "column": 132,
+                    "line": 81
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "45efdff6a4d2e1f7e786-6082c9982262ede178ae",
+          "file": "audit.spec.ts",
+          "line": 77,
+          "column": 1
+        },
+        {
+          "title": "GAP-02 @pendente jornada creator tem entrada de gestão",
+          "ok": false,
+          "tags": [
+            "pendente"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "computador",
+              "projectName": "computador",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3048,
+                  "error": {
+                    "message": "Error: Jornada creator bloqueada na entrada: nenhuma tela de gestão existe no código.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Jornada creator bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first() with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first()\u001b[22m\n",
+                    "stack": "Error: Jornada creator bloqueada na entrada: nenhuma tela de gestão existe no código.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Jornada creator bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first() with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first()\u001b[22m\n\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:91:116",
+                    "location": {
+                      "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                      "column": 116,
+                      "line": 91
+                    },
+                    "snippet": " \u001b[90m 89 |\u001b[39m  \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(role\u001b[33m.\u001b[39mpath)\u001b[33m;\u001b[39m\n \u001b[90m 90 |\u001b[39m  \u001b[36mconst\u001b[39m entry\u001b[33m=\u001b[39mpage\u001b[33m.\u001b[39mgetByRole(\u001b[32m'link'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39mrole\u001b[33m.\u001b[39mentry})\u001b[33m.\u001b[39mor(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39mrole\u001b[33m.\u001b[39mentry}))\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 91 |\u001b[39m  \u001b[36mawait\u001b[39m expect(entry\u001b[33m.\u001b[39mfirst()\u001b[33m,\u001b[39m\u001b[32m`Jornada ${role.name} bloqueada na entrada: nenhuma tela de gestão existe no código.`\u001b[39m)\u001b[33m.\u001b[39mtoBeVisible({timeout\u001b[33m:\u001b[39m\u001b[35m1500\u001b[39m})\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 92 |\u001b[39m  \u001b[90m// Sem entrada não é possível avançar, autenticar, gravar, reler e verificar permissões.\u001b[39m\n \u001b[90m 93 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 94 |\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                        "column": 116,
+                        "line": 91
+                      },
+                      "message": "Error: Jornada creator bloqueada na entrada: nenhuma tela de gestão existe no código.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Jornada creator bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first() with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first()\u001b[22m\n\n\n  89 |  await page.goto(role.path);\n  90 |  const entry=page.getByRole('link',{name:role.entry}).or(page.getByRole('button',{name:role.entry}));\n> 91 |  await expect(entry.first(),`Jornada ${role.name} bloqueada na entrada: nenhuma tela de gestão existe no código.`).toBeVisible({timeout:1500});\n     |                                                                                                                    ^\n  92 |  // Sem entrada não é possível avançar, autenticar, gravar, reler e verificar permissões.\n  93 | });\n  94 |\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:91:116"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:55:56.154Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\test-results\\audit-GAP-02-pendente-jornada-creator-tem-entrada-de-gestão-computador\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\test-results\\audit-GAP-02-pendente-jornada-creator-tem-entrada-de-gestão-computador\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                    "column": 116,
+                    "line": 91
+                  }
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "celular",
+              "projectName": "celular",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2742,
+                  "error": {
+                    "message": "Error: Jornada creator bloqueada na entrada: nenhuma tela de gestão existe no código.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Jornada creator bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first() with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first()\u001b[22m\n",
+                    "stack": "Error: Jornada creator bloqueada na entrada: nenhuma tela de gestão existe no código.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Jornada creator bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first() with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first()\u001b[22m\n\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:91:116",
+                    "location": {
+                      "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                      "column": 116,
+                      "line": 91
+                    },
+                    "snippet": " \u001b[90m 89 |\u001b[39m  \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(role\u001b[33m.\u001b[39mpath)\u001b[33m;\u001b[39m\n \u001b[90m 90 |\u001b[39m  \u001b[36mconst\u001b[39m entry\u001b[33m=\u001b[39mpage\u001b[33m.\u001b[39mgetByRole(\u001b[32m'link'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39mrole\u001b[33m.\u001b[39mentry})\u001b[33m.\u001b[39mor(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39mrole\u001b[33m.\u001b[39mentry}))\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 91 |\u001b[39m  \u001b[36mawait\u001b[39m expect(entry\u001b[33m.\u001b[39mfirst()\u001b[33m,\u001b[39m\u001b[32m`Jornada ${role.name} bloqueada na entrada: nenhuma tela de gestão existe no código.`\u001b[39m)\u001b[33m.\u001b[39mtoBeVisible({timeout\u001b[33m:\u001b[39m\u001b[35m1500\u001b[39m})\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 92 |\u001b[39m  \u001b[90m// Sem entrada não é possível avançar, autenticar, gravar, reler e verificar permissões.\u001b[39m\n \u001b[90m 93 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 94 |\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                        "column": 116,
+                        "line": 91
+                      },
+                      "message": "Error: Jornada creator bloqueada na entrada: nenhuma tela de gestão existe no código.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Jornada creator bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first() with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first()\u001b[22m\n\n\n  89 |  await page.goto(role.path);\n  90 |  const entry=page.getByRole('link',{name:role.entry}).or(page.getByRole('button',{name:role.entry}));\n> 91 |  await expect(entry.first(),`Jornada ${role.name} bloqueada na entrada: nenhuma tela de gestão existe no código.`).toBeVisible({timeout:1500});\n     |                                                                                                                    ^\n  92 |  // Sem entrada não é possível avançar, autenticar, gravar, reler e verificar permissões.\n  93 | });\n  94 |\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:91:116"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:56:41.375Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\test-results\\audit-GAP-02-pendente-jornada-creator-tem-entrada-de-gestão-celular\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\test-results\\audit-GAP-02-pendente-jornada-creator-tem-entrada-de-gestão-celular\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                    "column": 116,
+                    "line": 91
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "45efdff6a4d2e1f7e786-b17919d8d00df24c4144",
+          "file": "audit.spec.ts",
+          "line": 88,
+          "column": 3
+        },
+        {
+          "title": "GAP-03 @pendente jornada brand tem entrada de gestão",
+          "ok": false,
+          "tags": [
+            "pendente"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "computador",
+              "projectName": "computador",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2207,
+                  "error": {
+                    "message": "Error: Jornada brand bloqueada na entrada: nenhuma tela de gestão existe no código.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Jornada brand bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first() with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first()\u001b[22m\n",
+                    "stack": "Error: Jornada brand bloqueada na entrada: nenhuma tela de gestão existe no código.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Jornada brand bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first() with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first()\u001b[22m\n\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:91:116",
+                    "location": {
+                      "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                      "column": 116,
+                      "line": 91
+                    },
+                    "snippet": " \u001b[90m 89 |\u001b[39m  \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(role\u001b[33m.\u001b[39mpath)\u001b[33m;\u001b[39m\n \u001b[90m 90 |\u001b[39m  \u001b[36mconst\u001b[39m entry\u001b[33m=\u001b[39mpage\u001b[33m.\u001b[39mgetByRole(\u001b[32m'link'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39mrole\u001b[33m.\u001b[39mentry})\u001b[33m.\u001b[39mor(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39mrole\u001b[33m.\u001b[39mentry}))\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 91 |\u001b[39m  \u001b[36mawait\u001b[39m expect(entry\u001b[33m.\u001b[39mfirst()\u001b[33m,\u001b[39m\u001b[32m`Jornada ${role.name} bloqueada na entrada: nenhuma tela de gestão existe no código.`\u001b[39m)\u001b[33m.\u001b[39mtoBeVisible({timeout\u001b[33m:\u001b[39m\u001b[35m1500\u001b[39m})\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 92 |\u001b[39m  \u001b[90m// Sem entrada não é possível avançar, autenticar, gravar, reler e verificar permissões.\u001b[39m\n \u001b[90m 93 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 94 |\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                        "column": 116,
+                        "line": 91
+                      },
+                      "message": "Error: Jornada brand bloqueada na entrada: nenhuma tela de gestão existe no código.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Jornada brand bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first() with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first()\u001b[22m\n\n\n  89 |  await page.goto(role.path);\n  90 |  const entry=page.getByRole('link',{name:role.entry}).or(page.getByRole('button',{name:role.entry}));\n> 91 |  await expect(entry.first(),`Jornada ${role.name} bloqueada na entrada: nenhuma tela de gestão existe no código.`).toBeVisible({timeout:1500});\n     |                                                                                                                    ^\n  92 |  // Sem entrada não é possível avançar, autenticar, gravar, reler e verificar permissões.\n  93 | });\n  94 |\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:91:116"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:56:01.948Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\test-results\\audit-GAP-03-pendente-jornada-brand-tem-entrada-de-gestão-computador\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\test-results\\audit-GAP-03-pendente-jornada-brand-tem-entrada-de-gestão-computador\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                    "column": 116,
+                    "line": 91
+                  }
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "celular",
+              "projectName": "celular",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2477,
+                  "error": {
+                    "message": "Error: Jornada brand bloqueada na entrada: nenhuma tela de gestão existe no código.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Jornada brand bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first() with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first()\u001b[22m\n",
+                    "stack": "Error: Jornada brand bloqueada na entrada: nenhuma tela de gestão existe no código.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Jornada brand bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first() with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first()\u001b[22m\n\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:91:116",
+                    "location": {
+                      "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                      "column": 116,
+                      "line": 91
+                    },
+                    "snippet": " \u001b[90m 89 |\u001b[39m  \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(role\u001b[33m.\u001b[39mpath)\u001b[33m;\u001b[39m\n \u001b[90m 90 |\u001b[39m  \u001b[36mconst\u001b[39m entry\u001b[33m=\u001b[39mpage\u001b[33m.\u001b[39mgetByRole(\u001b[32m'link'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39mrole\u001b[33m.\u001b[39mentry})\u001b[33m.\u001b[39mor(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39mrole\u001b[33m.\u001b[39mentry}))\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 91 |\u001b[39m  \u001b[36mawait\u001b[39m expect(entry\u001b[33m.\u001b[39mfirst()\u001b[33m,\u001b[39m\u001b[32m`Jornada ${role.name} bloqueada na entrada: nenhuma tela de gestão existe no código.`\u001b[39m)\u001b[33m.\u001b[39mtoBeVisible({timeout\u001b[33m:\u001b[39m\u001b[35m1500\u001b[39m})\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 92 |\u001b[39m  \u001b[90m// Sem entrada não é possível avançar, autenticar, gravar, reler e verificar permissões.\u001b[39m\n \u001b[90m 93 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 94 |\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                        "column": 116,
+                        "line": 91
+                      },
+                      "message": "Error: Jornada brand bloqueada na entrada: nenhuma tela de gestão existe no código.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Jornada brand bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first() with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first()\u001b[22m\n\n\n  89 |  await page.goto(role.path);\n  90 |  const entry=page.getByRole('link',{name:role.entry}).or(page.getByRole('button',{name:role.entry}));\n> 91 |  await expect(entry.first(),`Jornada ${role.name} bloqueada na entrada: nenhuma tela de gestão existe no código.`).toBeVisible({timeout:1500});\n     |                                                                                                                    ^\n  92 |  // Sem entrada não é possível avançar, autenticar, gravar, reler e verificar permissões.\n  93 | });\n  94 |\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:91:116"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:56:46.857Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\test-results\\audit-GAP-03-pendente-jornada-brand-tem-entrada-de-gestão-celular\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\test-results\\audit-GAP-03-pendente-jornada-brand-tem-entrada-de-gestão-celular\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                    "column": 116,
+                    "line": 91
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "45efdff6a4d2e1f7e786-7818d086a04f13fc244d",
+          "file": "audit.spec.ts",
+          "line": 88,
+          "column": 3
+        },
+        {
+          "title": "GAP-04 @pendente jornada administrador tem entrada de gestão",
+          "ok": false,
+          "tags": [
+            "pendente"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "computador",
+              "projectName": "computador",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2406,
+                  "error": {
+                    "message": "Error: Jornada administrador bloqueada na entrada: nenhuma tela de gestão existe no código.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Jornada administrador bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first() with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first()\u001b[22m\n",
+                    "stack": "Error: Jornada administrador bloqueada na entrada: nenhuma tela de gestão existe no código.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Jornada administrador bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first() with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first()\u001b[22m\n\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:91:116",
+                    "location": {
+                      "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                      "column": 116,
+                      "line": 91
+                    },
+                    "snippet": " \u001b[90m 89 |\u001b[39m  \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(role\u001b[33m.\u001b[39mpath)\u001b[33m;\u001b[39m\n \u001b[90m 90 |\u001b[39m  \u001b[36mconst\u001b[39m entry\u001b[33m=\u001b[39mpage\u001b[33m.\u001b[39mgetByRole(\u001b[32m'link'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39mrole\u001b[33m.\u001b[39mentry})\u001b[33m.\u001b[39mor(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39mrole\u001b[33m.\u001b[39mentry}))\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 91 |\u001b[39m  \u001b[36mawait\u001b[39m expect(entry\u001b[33m.\u001b[39mfirst()\u001b[33m,\u001b[39m\u001b[32m`Jornada ${role.name} bloqueada na entrada: nenhuma tela de gestão existe no código.`\u001b[39m)\u001b[33m.\u001b[39mtoBeVisible({timeout\u001b[33m:\u001b[39m\u001b[35m1500\u001b[39m})\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 92 |\u001b[39m  \u001b[90m// Sem entrada não é possível avançar, autenticar, gravar, reler e verificar permissões.\u001b[39m\n \u001b[90m 93 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 94 |\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                        "column": 116,
+                        "line": 91
+                      },
+                      "message": "Error: Jornada administrador bloqueada na entrada: nenhuma tela de gestão existe no código.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Jornada administrador bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first() with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first()\u001b[22m\n\n\n  89 |  await page.goto(role.path);\n  90 |  const entry=page.getByRole('link',{name:role.entry}).or(page.getByRole('button',{name:role.entry}));\n> 91 |  await expect(entry.first(),`Jornada ${role.name} bloqueada na entrada: nenhuma tela de gestão existe no código.`).toBeVisible({timeout:1500});\n     |                                                                                                                    ^\n  92 |  // Sem entrada não é possível avançar, autenticar, gravar, reler e verificar permissões.\n  93 | });\n  94 |\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:91:116"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:56:05.885Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\test-results\\audit-GAP-04-pendente-jorn-b5e0d-rador-tem-entrada-de-gestão-computador\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\test-results\\audit-GAP-04-pendente-jorn-b5e0d-rador-tem-entrada-de-gestão-computador\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                    "column": 116,
+                    "line": 91
+                  }
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "celular",
+              "projectName": "celular",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2454,
+                  "error": {
+                    "message": "Error: Jornada administrador bloqueada na entrada: nenhuma tela de gestão existe no código.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Jornada administrador bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first() with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first()\u001b[22m\n",
+                    "stack": "Error: Jornada administrador bloqueada na entrada: nenhuma tela de gestão existe no código.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Jornada administrador bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first() with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first()\u001b[22m\n\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:91:116",
+                    "location": {
+                      "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                      "column": 116,
+                      "line": 91
+                    },
+                    "snippet": " \u001b[90m 89 |\u001b[39m  \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(role\u001b[33m.\u001b[39mpath)\u001b[33m;\u001b[39m\n \u001b[90m 90 |\u001b[39m  \u001b[36mconst\u001b[39m entry\u001b[33m=\u001b[39mpage\u001b[33m.\u001b[39mgetByRole(\u001b[32m'link'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39mrole\u001b[33m.\u001b[39mentry})\u001b[33m.\u001b[39mor(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39mrole\u001b[33m.\u001b[39mentry}))\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 91 |\u001b[39m  \u001b[36mawait\u001b[39m expect(entry\u001b[33m.\u001b[39mfirst()\u001b[33m,\u001b[39m\u001b[32m`Jornada ${role.name} bloqueada na entrada: nenhuma tela de gestão existe no código.`\u001b[39m)\u001b[33m.\u001b[39mtoBeVisible({timeout\u001b[33m:\u001b[39m\u001b[35m1500\u001b[39m})\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 92 |\u001b[39m  \u001b[90m// Sem entrada não é possível avançar, autenticar, gravar, reler e verificar permissões.\u001b[39m\n \u001b[90m 93 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 94 |\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                        "column": 116,
+                        "line": 91
+                      },
+                      "message": "Error: Jornada administrador bloqueada na entrada: nenhuma tela de gestão existe no código.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Jornada administrador bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first() with timeout 1500ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first()\u001b[22m\n\n\n  89 |  await page.goto(role.path);\n  90 |  const entry=page.getByRole('link',{name:role.entry}).or(page.getByRole('button',{name:role.entry}));\n> 91 |  await expect(entry.first(),`Jornada ${role.name} bloqueada na entrada: nenhuma tela de gestão existe no código.`).toBeVisible({timeout:1500});\n     |                                                                                                                    ^\n  92 |  // Sem entrada não é possível avançar, autenticar, gravar, reler e verificar permissões.\n  93 | });\n  94 |\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:91:116"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:56:51.030Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\test-results\\audit-GAP-04-pendente-jorn-b5e0d-rador-tem-entrada-de-gestão-celular\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\test-results\\audit-GAP-04-pendente-jorn-b5e0d-rador-tem-entrada-de-gestão-celular\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts",
+                    "column": 116,
+                    "line": 91
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "45efdff6a4d2e1f7e786-6ef8d988d9c1c876587d",
+          "file": "audit.spec.ts",
+          "line": 88,
+          "column": 3
+        }
+      ]
+    },
+    {
+      "title": "store.spec.ts",
+      "file": "store.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "início, perfil, coleção, produto e retorno",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "computador",
+              "projectName": "computador",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1678,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:56:09.694Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "celular",
+              "projectName": "celular",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2377,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:56:55.509Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "142cdf6a1adeb8604bd3-8b25f4ec2d6b9609ef9e",
+          "file": "store.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "busca, categoria, ordenação, favoritos e estado vazio",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "computador",
+              "projectName": "computador",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1650,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:56:12.009Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "celular",
+              "projectName": "celular",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1244,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:56:58.737Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "142cdf6a1adeb8604bd3-e8ba342dff69252eb456",
+          "file": "store.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "rotas, links internos, imagens e largura responsiva",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "computador",
+              "projectName": "computador",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4678,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:56:13.710Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "celular",
+              "projectName": "celular",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2547,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T20:57:00.018Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "142cdf6a1adeb8604bd3-9e877ad5dd74ae381d75",
+          "file": "store.spec.ts",
+          "line": 23,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-11T20:55:28.390Z",
+    "duration": 160227.557,
+    "expected": 16,
+    "skipped": 0,
+    "unexpected": 8,
+    "flaky": 0
+  }
+}

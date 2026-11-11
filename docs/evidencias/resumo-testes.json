@@ -1,0 +1,180 @@
+{
+  "execucao": {
+    "startTime": "2026-11-11T20:49:56.979Z",
+    "duration": 307582.523,
+    "expected": 16,
+    "skipped": 0,
+    "unexpected": 8,
+    "flaky": 0
+  },
+  "casos": [
+    {
+      "cenario": "AUD-01 todas as rotas, âncoras, SVGs e recuperação de erro",
+      "projeto": "computador",
+      "status": "passed",
+      "duracaoMs": 9103,
+      "erro": ""
+    },
+    {
+      "cenario": "AUD-01 todas as rotas, âncoras, SVGs e recuperação de erro",
+      "projeto": "celular",
+      "status": "passed",
+      "duracaoMs": 9166,
+      "erro": ""
+    },
+    {
+      "cenario": "AUD-02 disponibilidade deve revelar informação, não apenas mudar o hash",
+      "projeto": "computador",
+      "status": "passed",
+      "duracaoMs": 3632,
+      "erro": ""
+    },
+    {
+      "cenario": "AUD-02 disponibilidade deve revelar informação, não apenas mudar o hash",
+      "projeto": "celular",
+      "status": "passed",
+      "duracaoMs": 3049,
+      "erro": ""
+    },
+    {
+      "cenario": "AUD-03 filtros, preços completos, remoção de favorito e isolamento da coleção",
+      "projeto": "computador",
+      "status": "passed",
+      "duracaoMs": 1859,
+      "erro": ""
+    },
+    {
+      "cenario": "AUD-03 filtros, preços completos, remoção de favorito e isolamento da coleção",
+      "projeto": "celular",
+      "status": "passed",
+      "duracaoMs": 2560,
+      "erro": ""
+    },
+    {
+      "cenario": "AUD-04 busca tolera espaços, maiúsculas e acentos",
+      "projeto": "computador",
+      "status": "passed",
+      "duracaoMs": 955,
+      "erro": ""
+    },
+    {
+      "cenario": "AUD-04 busca tolera espaços, maiúsculas e acentos",
+      "projeto": "celular",
+      "status": "passed",
+      "duracaoMs": 1492,
+      "erro": ""
+    },
+    {
+      "cenario": "AUD-05 celular estreito, tablet e teclado nos controles principais",
+      "projeto": "computador",
+      "status": "passed",
+      "duracaoMs": 12812,
+      "erro": ""
+    },
+    {
+      "cenario": "AUD-05 celular estreito, tablet e teclado nos controles principais",
+      "projeto": "celular",
+      "status": "passed",
+      "duracaoMs": 7822,
+      "erro": ""
+    },
+    {
+      "cenario": "GAP-01 @pendente shopper mantém favorito depois de recarregar",
+      "projeto": "computador",
+      "status": "failed",
+      "duracaoMs": 2591,
+      "erro": "Error: Favoritos não persistem; não há conta nem banco.\n\nexpect(locator).toBeVisible() failed\n\nLocator: getByRole('button', { name: 'Remover Bolsa Oliva', exact: true })\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n  - Favoritos não persistem; não há conta nem banco. getByRole('button', { name: 'Remover Bolsa Oliva', exact: true }) with timeout 1500ms\n  - waiting for getByRole('button', { name: 'Remover Bolsa Oliva', exact: true })\n\n\n  79 |  await expect(page.getByRole('button',{name:'Remover Bolsa Oliva',exact:true})).toBeVisible();\n  80 |  await page.reload();\n> 81 |  await expect(page.getByRole('button',{name:'Remover Bolsa Oliva',exact:true}),'Favoritos não persistem; não há conta nem banco.').toBeVisible({timeout:1500});\n     |                                                                                                                                    ^\n  82 | });\n  83 |\n  84 | for(const role of [\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:81:132"
+    },
+    {
+      "cenario": "GAP-01 @pendente shopper mantém favorito depois de recarregar",
+      "projeto": "celular",
+      "status": "failed",
+      "duracaoMs": 4145,
+      "erro": "Error: Favoritos não persistem; não há conta nem banco.\n\nexpect(locator).toBeVisible() failed\n\nLocator: getByRole('button', { name: 'Remover Bolsa Oliva', exact: true })\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n  - Favoritos não persistem; não há conta nem banco. getByRole('button', { name: 'Remover Bolsa Oliva', exact: true }) with timeout 1500ms\n  - waiting for getByRole('button', { name: 'Remover Bolsa Oliva', exact: true })\n\n\n  79 |  await expect(page.getByRole('button',{name:'Remover Bolsa Oliva',exact:true})).toBeVisible();\n  80 |  await page.reload();\n> 81 |  await expect(page.getByRole('button',{name:'Remover Bolsa Oliva',exact:true}),'Favoritos não persistem; não há conta nem banco.').toBeVisible({timeout:1500});\n     |                                                                                                                                    ^\n  82 | });\n  83 |\n  84 | for(const role of [\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:81:132"
+    },
+    {
+      "cenario": "GAP-02 @pendente jornada creator tem entrada de gestão",
+      "projeto": "computador",
+      "status": "failed",
+      "duracaoMs": 2729,
+      "erro": "Error: Jornada creator bloqueada na entrada: nenhuma tela de gestão existe no código.\n\nexpect(locator).toBeVisible() failed\n\nLocator: getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n  - Jornada creator bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first() with timeout 1500ms\n  - waiting for getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first()\n\n\n  89 |  await page.goto(role.path);\n  90 |  const entry=page.getByRole('link',{name:role.entry}).or(page.getByRole('button',{name:role.entry}));\n> 91 |  await expect(entry.first(),`Jornada ${role.name} bloqueada na entrada: nenhuma tela de gestão existe no código.`).toBeVisible({timeout:1500});\n     |                                                                                                                    ^\n  92 |  // Sem entrada não é possível avançar, autenticar, gravar, reler e verificar permissões.\n  93 | });\n  94 |\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:91:116"
+    },
+    {
+      "cenario": "GAP-02 @pendente jornada creator tem entrada de gestão",
+      "projeto": "celular",
+      "status": "failed",
+      "duracaoMs": 3782,
+      "erro": "Error: Jornada creator bloqueada na entrada: nenhuma tela de gestão existe no código.\n\nexpect(locator).toBeVisible() failed\n\nLocator: getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n  - Jornada creator bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first() with timeout 1500ms\n  - waiting for getByRole('link', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i }).or(getByRole('button', { name: /painel do criador|área do criador|gerenciar loja|adicionar produto|novo produto/i })).first()\n\n\n  89 |  await page.goto(role.path);\n  90 |  const entry=page.getByRole('link',{name:role.entry}).or(page.getByRole('button',{name:role.entry}));\n> 91 |  await expect(entry.first(),`Jornada ${role.name} bloqueada na entrada: nenhuma tela de gestão existe no código.`).toBeVisible({timeout:1500});\n     |                                                                                                                    ^\n  92 |  // Sem entrada não é possível avançar, autenticar, gravar, reler e verificar permissões.\n  93 | });\n  94 |\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:91:116"
+    },
+    {
+      "cenario": "GAP-03 @pendente jornada brand tem entrada de gestão",
+      "projeto": "computador",
+      "status": "failed",
+      "duracaoMs": 2561,
+      "erro": "Error: Jornada brand bloqueada na entrada: nenhuma tela de gestão existe no código.\n\nexpect(locator).toBeVisible() failed\n\nLocator: getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n  - Jornada brand bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first() with timeout 1500ms\n  - waiting for getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first()\n\n\n  89 |  await page.goto(role.path);\n  90 |  const entry=page.getByRole('link',{name:role.entry}).or(page.getByRole('button',{name:role.entry}));\n> 91 |  await expect(entry.first(),`Jornada ${role.name} bloqueada na entrada: nenhuma tela de gestão existe no código.`).toBeVisible({timeout:1500});\n     |                                                                                                                    ^\n  92 |  // Sem entrada não é possível avançar, autenticar, gravar, reler e verificar permissões.\n  93 | });\n  94 |\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:91:116"
+    },
+    {
+      "cenario": "GAP-03 @pendente jornada brand tem entrada de gestão",
+      "projeto": "celular",
+      "status": "failed",
+      "duracaoMs": 2599,
+      "erro": "Error: Jornada brand bloqueada na entrada: nenhuma tela de gestão existe no código.\n\nexpect(locator).toBeVisible() failed\n\nLocator: getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n  - Jornada brand bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first() with timeout 1500ms\n  - waiting for getByRole('link', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i }).or(getByRole('button', { name: /área da marca|painel da marca|sou uma marca|criar campanha|cadastrar marca/i })).first()\n\n\n  89 |  await page.goto(role.path);\n  90 |  const entry=page.getByRole('link',{name:role.entry}).or(page.getByRole('button',{name:role.entry}));\n> 91 |  await expect(entry.first(),`Jornada ${role.name} bloqueada na entrada: nenhuma tela de gestão existe no código.`).toBeVisible({timeout:1500});\n     |                                                                                                                    ^\n  92 |  // Sem entrada não é possível avançar, autenticar, gravar, reler e verificar permissões.\n  93 | });\n  94 |\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:91:116"
+    },
+    {
+      "cenario": "GAP-04 @pendente jornada administrador tem entrada de gestão",
+      "projeto": "computador",
+      "status": "failed",
+      "duracaoMs": 3049,
+      "erro": "Error: Jornada administrador bloqueada na entrada: nenhuma tela de gestão existe no código.\n\nexpect(locator).toBeVisible() failed\n\nLocator: getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n  - Jornada administrador bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first() with timeout 1500ms\n  - waiting for getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first()\n\n\n  89 |  await page.goto(role.path);\n  90 |  const entry=page.getByRole('link',{name:role.entry}).or(page.getByRole('button',{name:role.entry}));\n> 91 |  await expect(entry.first(),`Jornada ${role.name} bloqueada na entrada: nenhuma tela de gestão existe no código.`).toBeVisible({timeout:1500});\n     |                                                                                                                    ^\n  92 |  // Sem entrada não é possível avançar, autenticar, gravar, reler e verificar permissões.\n  93 | });\n  94 |\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:91:116"
+    },
+    {
+      "cenario": "GAP-04 @pendente jornada administrador tem entrada de gestão",
+      "projeto": "celular",
+      "status": "failed",
+      "duracaoMs": 2404,
+      "erro": "Error: Jornada administrador bloqueada na entrada: nenhuma tela de gestão existe no código.\n\nexpect(locator).toBeVisible() failed\n\nLocator: getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n  - Jornada administrador bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first() with timeout 1500ms\n  - waiting for getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first()\n\n\n  89 |  await page.goto(role.path);\n  90 |  const entry=page.getByRole('link',{name:role.entry}).or(page.getByRole('button',{name:role.entry}));\n> 91 |  await expect(entry.first(),`Jornada ${role.name} bloqueada na entrada: nenhuma tela de gestão existe no código.`).toBeVisible({timeout:1500});\n     |                                                                                                                    ^\n  92 |  // Sem entrada não é possível avançar, autenticar, gravar, reler e verificar permissões.\n  93 | });\n  94 |\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:91:116"
+    },
+    {
+      "cenario": "início, perfil, coleção, produto e retorno",
+      "projeto": "computador",
+      "status": "passed",
+      "duracaoMs": 1673,
+      "erro": ""
+    },
+    {
+      "cenario": "início, perfil, coleção, produto e retorno",
+      "projeto": "celular",
+      "status": "passed",
+      "duracaoMs": 2110,
+      "erro": ""
+    },
+    {
+      "cenario": "busca, categoria, ordenação, favoritos e estado vazio",
+      "projeto": "computador",
+      "status": "passed",
+      "duracaoMs": 1036,
+      "erro": ""
+    },
+    {
+      "cenario": "busca, categoria, ordenação, favoritos e estado vazio",
+      "projeto": "celular",
+      "status": "passed",
+      "duracaoMs": 1017,
+      "erro": ""
+    },
+    {
+      "cenario": "rotas, links internos, imagens e largura responsiva",
+      "projeto": "computador",
+      "status": "passed",
+      "duracaoMs": 4510,
+      "erro": ""
+    },
+    {
+      "cenario": "rotas, links internos, imagens e largura responsiva",
+      "projeto": "celular",
+      "status": "passed",
+      "duracaoMs": 2692,
+      "erro": ""
+    }
+  ]
+}

@@ -1,0 +1,608 @@
+{
+  "evidence_id": "ev_01d6df81641982cc0ea2b74e16290043a874df082e7af0cbba8f978fce6efa3c",
+  "subject": null,
+  "provider": {
+    "id": "rea-playwright-browser-scenario",
+    "name": "REA Playwright browser scenario capture provider",
+    "version": "1"
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.browser-scenario-capture",
+  "operation": "capture_browser_scenario",
+  "parameters": {
+    "browser": {
+      "mode": "launch",
+      "executable_path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "headless": true
+    },
+    "start_url": {
+      "url": "https://shopmy.us/home/brands",
+      "query": []
+    },
+    "environment": {
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "device_scale_factor": 1
+      },
+      "locale": "en-US",
+      "timezone": "UTC",
+      "color_scheme": "light",
+      "reduced_motion": "reduce",
+      "service_workers": "block"
+    },
+    "actions": [
+      {
+        "step_id": "ready",
+        "action": "wait_for_timeout",
+        "duration_ms": 1500
+      },
+      {
+        "step_id": "demo-open",
+        "timeout_ms": 15000,
+        "action": "click",
+        "locator": {
+          "kind": "css",
+          "selector": "button:has-text(\"Request Demo\")"
+        },
+        "button": "left",
+        "click_count": 1
+      },
+      {
+        "step_id": "demo-form",
+        "action": "wait_for_timeout",
+        "duration_ms": 1500
+      },
+      {
+        "step_id": "home",
+        "timeout_ms": 20000,
+        "action": "goto",
+        "destination": {
+          "url": "https://shopmy.us/home",
+          "query": []
+        },
+        "wait_until": "load"
+      },
+      {
+        "step_id": "login-open",
+        "timeout_ms": 15000,
+        "action": "click",
+        "locator": {
+          "kind": "css",
+          "selector": "button:has-text(\"Log In\")"
+        },
+        "button": "left",
+        "click_count": 1
+      },
+      {
+        "step_id": "login-form",
+        "action": "wait_for_timeout",
+        "duration_ms": 1500
+      }
+    ],
+    "storage": {
+      "cookies": [],
+      "local_storage": [],
+      "session_storage": []
+    },
+    "secrets": [],
+    "capture": {
+      "after_each_step": [
+        "accessibility",
+        "url"
+      ],
+      "at_end": [
+        "url"
+      ],
+      "events": [],
+      "network": {
+        "request_body": false,
+        "response_body": false,
+        "header_values": false
+      },
+      "limits": {
+        "max_events": 10000,
+        "max_event_allocation_bytes": 4194304,
+        "max_total_event_allocation_bytes": 16777216,
+        "max_network_transactions": 1024,
+        "max_network_body_bytes": 65536,
+        "max_network_body_allocation_bytes": 1048576,
+        "max_network_header_allocation_bytes": 1048576,
+        "max_network_metadata_allocation_bytes": 1048576
+      }
+    },
+    "scenario_sha256": "2986f9b0c5aba5bcd169c75cae85468588d4651cc354e51875dabc6059598e85"
+  },
+  "raw_result": null,
+  "normalized_result": {
+    "browser": {
+      "mode": "launch",
+      "process_ownership": "provider-owned",
+      "cleanup": "terminated-owned-process",
+      "product": "Chromium",
+      "version": "157.0.8103.39"
+    },
+    "scenario": {
+      "start_origin": "https://shopmy.us",
+      "action_count": 6,
+      "secret_references": [],
+      "network_content": {
+        "request_body": false,
+        "response_body": false,
+        "header_values": false
+      },
+      "event_families": [],
+      "limits": {
+        "max_events": 10000,
+        "max_event_allocation_bytes": 4194304,
+        "max_total_event_allocation_bytes": 16777216,
+        "max_network_transactions": 1024,
+        "max_network_body_bytes": 65536,
+        "max_network_body_allocation_bytes": 1048576,
+        "max_network_header_allocation_bytes": 1048576,
+        "max_network_metadata_allocation_bytes": 1048576
+      }
+    },
+    "duration_ms": 23804,
+    "steps": [
+      {
+        "step_index": 0,
+        "step_id": "scenario_start",
+        "action": "goto_start",
+        "elapsed_ms": 14326,
+        "before_url": {
+          "url": "about:blank",
+          "origin": null,
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "after_url": {
+          "url": "https://shopmy.us/home/brands",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "event_sequence_start": 1,
+        "event_sequence_end": 0,
+        "artifacts": {
+          "screenshot": {
+            "state": "not_requested"
+          },
+          "dom": {
+            "state": "not_requested"
+          },
+          "accessibility": {
+            "state": "captured",
+            "value": {
+              "sha256": "ad9943fa0e7bd9d39dd68ea04210817b7d5bd9e129f894746c2d7ec838d163b5",
+              "bytes": 9832,
+              "text": "- document:\n  - text: New\n  - paragraph: The Compounding Trust Effect\n  - link \"Read the Report\":\n    - /url: /reports/compoundingtrusteffect\n  - img \"ShopMy Logo\"\n  - navigation:\n    - link \"For Shoppers\":\n      - /url: /home/shoppers\n    - link \"For Creators\":\n      - /url: /home/creators\n    - link \"For Brands\":\n      - /url: /home/brands\n    - button \"Log In\"\n    - button \"Request Demo\"\n    - textbox \"What are you shopping for?\"\n    - button \"Menu Icon\":\n      - img \"Menu Icon\"\n  - img \"header\"\n  - img \"header\"\n  - img \"header\"\n  - img \"header\"\n  - heading \"No one moves your product like the people who love it.\" [level=1]\n  - paragraph: ShopMy connects you with the creators already championing and sharing your brand, turning genuine advocacy into measurable growth.\n  - button \"Get a Demo\"\n  - text: Trusted by brands that move culture.\n  - tablist \"Brand categories\":\n    - tab \"fashion\" [selected]\n    - tab \"home & decor\"\n    - tab \"beauty\"\n    - tab \"accessories\"\n    - tab \"health & wellness\"\n    - tab \"food & drink\"\n  - button \"Visit Toteme\":\n    - img \"Toteme\"\n  - button \"Visit Khaite\":\n    - img \"Khaite\"\n  - button \"Visit Prada\":\n    - img \"Prada\"\n  - button \"Visit Gucci\":\n    - img \"Gucci\"\n  - button \"Visit Jenni Kayne\":\n    - img \"Jenni Kayne\"\n  - button \"Visit Anine Bing\":\n    - img \"Anine Bing\"\n  - button \"Visit Frame\":\n    - img \"Frame\"\n  - button \"Visit Doen\":\n    - img \"Doen\"\n  - button \"Visit Set\":\n    - img \"Set\"\n  - button \"Scroll left\" [disabled]\n  - button \"Scroll right\"\n  - img \"background\"\n  - heading \"Everything you need to build, scale, and measure your creator marketing program\" [level=4]\n  - text: Creator Database Affiliate Tools Direct Connection to Talent Social Listening Performance + ROI Data Automated Gifting Campaign Management Talent Payment ShopMy’s full funnel approach\n  - heading \"Drive revenue and build brand capital with creators who already love your brand.\" [level=2]\n  - button \"Discover Creators who Convert, Instantly\" [expanded]:\n    - heading \"Discover Creators who Convert, Instantly\" [level=3]\n  - paragraph: Go beyond follower count. With real-time insights across region, category, and channel, ShopMy helps you connect with the creators who drive results.\n  - img \"Discover Creators who Convert, Instantly\"\n  - button \"Incentivize creators with commission and bonuses.\":\n    - heading \"Incentivize creators with commission and bonuses.\" [level=3]\n  - paragraph: Reward tastemakers who drive real sales. ShopMy’s performance-based commission and seamless gifting make investing in authentic advocacy easy.\n  - img \"Incentivize creators with commission and bonuses.\"\n  - button \"Amplify Top Performers with Opportunities and Spotlights\":\n    - heading \"Amplify Top Performers with Opportunities and Spotlights\" [level=3]\n  - paragraph: Invest in authentic partnerships without the back-and-forth through Opportunities, and turn proven content into scalable partnership ads with Spotlights.\n  - img \"Amplify Top Performers with Opportunities and Spotlights\"\n  - text: Brand Insights\n  - link \"View Insights\":\n    - /url: /blog/brand-insights\n  - link \"Introducing Monthly Bonus Opportunities. Brand Insights Introducing Monthly Bonus Opportunities.\":\n    - /url: /blog/post/monthly-bonus-opportunities\n    - img \"Introducing Monthly Bonus Opportunities.\"\n    - text: Brand Insights Introducing Monthly Bonus Opportunities.\n  - link \"Unlocking Growth at Scale with Opportunities. Brand Insights Unlocking Growth at Scale with Opportunities.\":\n    - /url: /blog/post/unlocking-growth-at-scale-with-opportunities\n    - img \"Unlocking Growth at Scale with Opportunities.\"\n    - text: Brand Insights Unlocking Growth at Scale with Opportunities.\n  - 'link \"Introducing Circles: Discovery, Reimagined. New Features Introducing Circles: Discovery, Reimagined.\"':\n    - /url: /blog/post/introducing-circles-discovery-reimagined\n    - 'img \"Introducing Circles: Discovery, Reimagined.\"'\n    - text: \"New Features Introducing Circles: Discovery, Reimagined.\"\n  - heading \"FAQ\" [level=2]\n  - paragraph:\n    - text: If you have additional questions, our\n    - link \"brand onboarding team\":\n      - /url: mailto:partners@shopmy.us\n    - text: can help.\n  - heading \"Why should I use ShopMy for my influencer program?\" [level=3]\n  - paragraph: ShopMy is the only creator commerce infrastructure built specifically for premium brands. Unlike platforms that prioritize volume, we connect you with curated tastemakers who drive actual sales through authentic recommendations (not algorithmic feeds or paid ads). You get performance data, professional tools, and access to culture-driving voices who build lasting brand equity, not just campaign impressions.\n  - heading \"How does ShopMy compare to other influencer marketing platforms?\" [level=3]\n  - paragraph: ShopMy isn't just an influencer marketing platform—it's the complete system for building lasting brands through word-of-mouth. While other platforms focus on campaign management or content creation, we've built professional tools for authentic curation backed by five years of performance data. You work with hand-selected tastemakers, not algorithm-driven feeds. You keep your margins, own your customers, and build real brand equity, not just short-term conversions.\n  - heading \"Does ShopMy guarantee ROI?\" [level=3]\n  - paragraph: ShopMy provides the infrastructure for measurable brand-building. Our platform delivers comprehensive tracking, performance analytics, and data-driven insights that help you optimize your program for maximum ROI. Our partners see an average 5x return by working with authentic tastemakers who drive sustained sales and advocacy, not just one-time clicks. Regular platform usage and strategic creator partnerships consistently deliver excellent results.\n  - heading \"Do you offer white-glove support?\" [level=3]\n  - paragraph: Yes. Premium brands receive dedicated strategic support to maximize their ShopMy infrastructure, from tastemaker discovery to program optimization, all built into the platform experience, not sold separately.\n  - heading \"What makes ShopMy different from social commerce platforms like Instagram Shopping or TikTok Shop?\" [level=3]\n  - paragraph: Social platforms optimize for entertainment and engagement—not sales or brand building. ShopMy is purpose-built for product discovery through trusted human curation. You're not competing with algorithm-driven feeds or ads. Instead, you reach high-intent shoppers through tastemakers they've specifically chosen to trust. You keep your margins, own the customer data, and build lasting relationships—not just fleeting impressions.\n  - heading \"What types of brands succeed on ShopMy?\" [level=3]\n  - paragraph: ShopMy serves premium brands building for the long term, from established luxury houses to emerging DTC companies, that value quality and cultural relevance. Our network includes brands like Rhode, Gucci, Net-a-Porter, West Elm, Therabody, and Kallmeyer. If you're focused on authentic brand building over performance marketing arbitrage, ShopMy is built for you.\n  - img \"background\"\n  - heading \"Let’s make creator marketing your brand’s most valuable channel.\" [level=2]\n  - button \"Get A Demo\"\n  - text: For Creators\n  - list:\n    - listitem:\n      - link \"ShopMy For Creators\":\n        - /url: /home/creators\n    - listitem:\n      - link \"Digital Shops\":\n        - /url: /home/creators/shop\n    - listitem:\n      - link \"Affiliate Links\":\n        - /url: /home/creators/affiliates\n    - listitem:\n      - link \"Brand Partnerships\":\n        - /url: /home/creators/partnerships\n    - listitem:\n      - link \"Apply to be a Creator\":\n        - /url: /apply/creator\n    - listitem:\n      - link \"Webinars\":\n        - /url: /home/creators/webinars\n  - text: For Brands\n  - list:\n    - listitem:\n      - link \"ShopMy For Brands\":\n        - /url: /home/brands\n    - listitem:\n      - link \"Discover\":\n        - /url: /home/brands/discover\n    - listitem:\n      - link \"Engage\":\n        - /url: /home/brands/engage\n    - listitem:\n      - link \"Track\":\n        - /url: /home/brands/track\n    - listitem:\n      - link \"Amplify\":\n        - /url: /home/brands/amplify\n  - text: For Shoppers\n  - list:\n    - listitem:\n      - link \"Shop By Curator\":\n        - /url: /shop/discover/curators\n    - listitem:\n      - link \"Shop By Circle\":\n        - /url: /shop/discover/circles\n    - listitem:\n      - link \"Shop By Brand\":\n        - /url: /shop/discover/brands\n    - listitem:\n      - link \"Shop By Category\":\n        - /url: /shop/discover/categories\n    - listitem:\n      - link \"My Circles\":\n        - /url: /shop/my/circles\n    - listitem:\n      - link \"My Taste Profile\":\n        - /url: /shop/my/taste\n  - text: Explore\n  - list:\n    - listitem:\n      - link \"Blog\":\n        - /url: /blog\n    - listitem:\n      - link \"About Us\":\n        - /url: /about\n    - listitem:\n      - link \"Careers\":\n        - /url: /careers\n    - listitem:\n      - link \"Shop All Categories\":\n        - /url: /shop\n    - listitem:\n      - link \"Reports\":\n        - /url: /reports\n  - text: Support + Legal\n  - list:\n    - listitem:\n      - link \"Creator Guide\":\n        - /url: https://guide.shopmy.us\n    - listitem:\n      - link \"Brand Guide\":\n        - /url: https://brands.shopmy.us\n    - listitem:\n      - link \"Contact Us\":\n        - /url: /contact\n    - listitem:\n      - link \"Terms of Service\":\n        - /url: https://shopmy.us/legal/terms-of-service\n    - listitem:\n      - link \"Privacy\":\n        - /url: https://shopmy.us/legal/privacy-policy\n  - link \"ShopMy Logo\":\n    - /url: /home\n    - img \"ShopMy Logo\"\n  - text: © Copyright 2026 Shop My Shelf, Inc. All Rights Reserved. |\n  - link \"Do Not Sell or Share My Personal Information\":\n    - /url: /do-not-sell\n  - text: \"| Cookie Settings\""
+            }
+          },
+          "url": {
+            "state": "captured",
+            "value": {
+              "url": "https://shopmy.us/home/brands",
+              "origin": "https://shopmy.us",
+              "query_parameter_names": [],
+              "redacted": false
+            }
+          },
+          "history": {
+            "state": "not_requested"
+          },
+          "storage": {
+            "state": "not_requested"
+          }
+        },
+        "completeness": {
+          "status": "complete",
+          "equality_eligible": true,
+          "missing_sections": [],
+          "truncated_sections": []
+        },
+        "status": "completed",
+        "error": null
+      },
+      {
+        "step_index": 1,
+        "step_id": "ready",
+        "action": "wait_for_timeout",
+        "elapsed_ms": 1550,
+        "before_url": {
+          "url": "https://shopmy.us/home/brands",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "after_url": {
+          "url": "https://shopmy.us/home/brands",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "event_sequence_start": 1,
+        "event_sequence_end": 0,
+        "artifacts": {
+          "screenshot": {
+            "state": "not_requested"
+          },
+          "dom": {
+            "state": "not_requested"
+          },
+          "accessibility": {
+            "state": "captured",
+            "value": {
+              "sha256": "ad9943fa0e7bd9d39dd68ea04210817b7d5bd9e129f894746c2d7ec838d163b5",
+              "bytes": 9832,
+              "text": "- document:\n  - text: New\n  - paragraph: The Compounding Trust Effect\n  - link \"Read the Report\":\n    - /url: /reports/compoundingtrusteffect\n  - img \"ShopMy Logo\"\n  - navigation:\n    - link \"For Shoppers\":\n      - /url: /home/shoppers\n    - link \"For Creators\":\n      - /url: /home/creators\n    - link \"For Brands\":\n      - /url: /home/brands\n    - button \"Log In\"\n    - button \"Request Demo\"\n    - textbox \"What are you shopping for?\"\n    - button \"Menu Icon\":\n      - img \"Menu Icon\"\n  - img \"header\"\n  - img \"header\"\n  - img \"header\"\n  - img \"header\"\n  - heading \"No one moves your product like the people who love it.\" [level=1]\n  - paragraph: ShopMy connects you with the creators already championing and sharing your brand, turning genuine advocacy into measurable growth.\n  - button \"Get a Demo\"\n  - text: Trusted by brands that move culture.\n  - tablist \"Brand categories\":\n    - tab \"fashion\" [selected]\n    - tab \"home & decor\"\n    - tab \"beauty\"\n    - tab \"accessories\"\n    - tab \"health & wellness\"\n    - tab \"food & drink\"\n  - button \"Visit Toteme\":\n    - img \"Toteme\"\n  - button \"Visit Khaite\":\n    - img \"Khaite\"\n  - button \"Visit Prada\":\n    - img \"Prada\"\n  - button \"Visit Gucci\":\n    - img \"Gucci\"\n  - button \"Visit Jenni Kayne\":\n    - img \"Jenni Kayne\"\n  - button \"Visit Anine Bing\":\n    - img \"Anine Bing\"\n  - button \"Visit Frame\":\n    - img \"Frame\"\n  - button \"Visit Doen\":\n    - img \"Doen\"\n  - button \"Visit Set\":\n    - img \"Set\"\n  - button \"Scroll left\" [disabled]\n  - button \"Scroll right\"\n  - img \"background\"\n  - heading \"Everything you need to build, scale, and measure your creator marketing program\" [level=4]\n  - text: Creator Database Affiliate Tools Direct Connection to Talent Social Listening Performance + ROI Data Automated Gifting Campaign Management Talent Payment ShopMy’s full funnel approach\n  - heading \"Drive revenue and build brand capital with creators who already love your brand.\" [level=2]\n  - button \"Discover Creators who Convert, Instantly\" [expanded]:\n    - heading \"Discover Creators who Convert, Instantly\" [level=3]\n  - paragraph: Go beyond follower count. With real-time insights across region, category, and channel, ShopMy helps you connect with the creators who drive results.\n  - img \"Discover Creators who Convert, Instantly\"\n  - button \"Incentivize creators with commission and bonuses.\":\n    - heading \"Incentivize creators with commission and bonuses.\" [level=3]\n  - paragraph: Reward tastemakers who drive real sales. ShopMy’s performance-based commission and seamless gifting make investing in authentic advocacy easy.\n  - img \"Incentivize creators with commission and bonuses.\"\n  - button \"Amplify Top Performers with Opportunities and Spotlights\":\n    - heading \"Amplify Top Performers with Opportunities and Spotlights\" [level=3]\n  - paragraph: Invest in authentic partnerships without the back-and-forth through Opportunities, and turn proven content into scalable partnership ads with Spotlights.\n  - img \"Amplify Top Performers with Opportunities and Spotlights\"\n  - text: Brand Insights\n  - link \"View Insights\":\n    - /url: /blog/brand-insights\n  - link \"Introducing Monthly Bonus Opportunities. Brand Insights Introducing Monthly Bonus Opportunities.\":\n    - /url: /blog/post/monthly-bonus-opportunities\n    - img \"Introducing Monthly Bonus Opportunities.\"\n    - text: Brand Insights Introducing Monthly Bonus Opportunities.\n  - link \"Unlocking Growth at Scale with Opportunities. Brand Insights Unlocking Growth at Scale with Opportunities.\":\n    - /url: /blog/post/unlocking-growth-at-scale-with-opportunities\n    - img \"Unlocking Growth at Scale with Opportunities.\"\n    - text: Brand Insights Unlocking Growth at Scale with Opportunities.\n  - 'link \"Introducing Circles: Discovery, Reimagined. New Features Introducing Circles: Discovery, Reimagined.\"':\n    - /url: /blog/post/introducing-circles-discovery-reimagined\n    - 'img \"Introducing Circles: Discovery, Reimagined.\"'\n    - text: \"New Features Introducing Circles: Discovery, Reimagined.\"\n  - heading \"FAQ\" [level=2]\n  - paragraph:\n    - text: If you have additional questions, our\n    - link \"brand onboarding team\":\n      - /url: mailto:partners@shopmy.us\n    - text: can help.\n  - heading \"Why should I use ShopMy for my influencer program?\" [level=3]\n  - paragraph: ShopMy is the only creator commerce infrastructure built specifically for premium brands. Unlike platforms that prioritize volume, we connect you with curated tastemakers who drive actual sales through authentic recommendations (not algorithmic feeds or paid ads). You get performance data, professional tools, and access to culture-driving voices who build lasting brand equity, not just campaign impressions.\n  - heading \"How does ShopMy compare to other influencer marketing platforms?\" [level=3]\n  - paragraph: ShopMy isn't just an influencer marketing platform—it's the complete system for building lasting brands through word-of-mouth. While other platforms focus on campaign management or content creation, we've built professional tools for authentic curation backed by five years of performance data. You work with hand-selected tastemakers, not algorithm-driven feeds. You keep your margins, own your customers, and build real brand equity, not just short-term conversions.\n  - heading \"Does ShopMy guarantee ROI?\" [level=3]\n  - paragraph: ShopMy provides the infrastructure for measurable brand-building. Our platform delivers comprehensive tracking, performance analytics, and data-driven insights that help you optimize your program for maximum ROI. Our partners see an average 5x return by working with authentic tastemakers who drive sustained sales and advocacy, not just one-time clicks. Regular platform usage and strategic creator partnerships consistently deliver excellent results.\n  - heading \"Do you offer white-glove support?\" [level=3]\n  - paragraph: Yes. Premium brands receive dedicated strategic support to maximize their ShopMy infrastructure, from tastemaker discovery to program optimization, all built into the platform experience, not sold separately.\n  - heading \"What makes ShopMy different from social commerce platforms like Instagram Shopping or TikTok Shop?\" [level=3]\n  - paragraph: Social platforms optimize for entertainment and engagement—not sales or brand building. ShopMy is purpose-built for product discovery through trusted human curation. You're not competing with algorithm-driven feeds or ads. Instead, you reach high-intent shoppers through tastemakers they've specifically chosen to trust. You keep your margins, own the customer data, and build lasting relationships—not just fleeting impressions.\n  - heading \"What types of brands succeed on ShopMy?\" [level=3]\n  - paragraph: ShopMy serves premium brands building for the long term, from established luxury houses to emerging DTC companies, that value quality and cultural relevance. Our network includes brands like Rhode, Gucci, Net-a-Porter, West Elm, Therabody, and Kallmeyer. If you're focused on authentic brand building over performance marketing arbitrage, ShopMy is built for you.\n  - img \"background\"\n  - heading \"Let’s make creator marketing your brand’s most valuable channel.\" [level=2]\n  - button \"Get A Demo\"\n  - text: For Creators\n  - list:\n    - listitem:\n      - link \"ShopMy For Creators\":\n        - /url: /home/creators\n    - listitem:\n      - link \"Digital Shops\":\n        - /url: /home/creators/shop\n    - listitem:\n      - link \"Affiliate Links\":\n        - /url: /home/creators/affiliates\n    - listitem:\n      - link \"Brand Partnerships\":\n        - /url: /home/creators/partnerships\n    - listitem:\n      - link \"Apply to be a Creator\":\n        - /url: /apply/creator\n    - listitem:\n      - link \"Webinars\":\n        - /url: /home/creators/webinars\n  - text: For Brands\n  - list:\n    - listitem:\n      - link \"ShopMy For Brands\":\n        - /url: /home/brands\n    - listitem:\n      - link \"Discover\":\n        - /url: /home/brands/discover\n    - listitem:\n      - link \"Engage\":\n        - /url: /home/brands/engage\n    - listitem:\n      - link \"Track\":\n        - /url: /home/brands/track\n    - listitem:\n      - link \"Amplify\":\n        - /url: /home/brands/amplify\n  - text: For Shoppers\n  - list:\n    - listitem:\n      - link \"Shop By Curator\":\n        - /url: /shop/discover/curators\n    - listitem:\n      - link \"Shop By Circle\":\n        - /url: /shop/discover/circles\n    - listitem:\n      - link \"Shop By Brand\":\n        - /url: /shop/discover/brands\n    - listitem:\n      - link \"Shop By Category\":\n        - /url: /shop/discover/categories\n    - listitem:\n      - link \"My Circles\":\n        - /url: /shop/my/circles\n    - listitem:\n      - link \"My Taste Profile\":\n        - /url: /shop/my/taste\n  - text: Explore\n  - list:\n    - listitem:\n      - link \"Blog\":\n        - /url: /blog\n    - listitem:\n      - link \"About Us\":\n        - /url: /about\n    - listitem:\n      - link \"Careers\":\n        - /url: /careers\n    - listitem:\n      - link \"Shop All Categories\":\n        - /url: /shop\n    - listitem:\n      - link \"Reports\":\n        - /url: /reports\n  - text: Support + Legal\n  - list:\n    - listitem:\n      - link \"Creator Guide\":\n        - /url: https://guide.shopmy.us\n    - listitem:\n      - link \"Brand Guide\":\n        - /url: https://brands.shopmy.us\n    - listitem:\n      - link \"Contact Us\":\n        - /url: /contact\n    - listitem:\n      - link \"Terms of Service\":\n        - /url: https://shopmy.us/legal/terms-of-service\n    - listitem:\n      - link \"Privacy\":\n        - /url: https://shopmy.us/legal/privacy-policy\n  - link \"ShopMy Logo\":\n    - /url: /home\n    - img \"ShopMy Logo\"\n  - text: © Copyright 2026 Shop My Shelf, Inc. All Rights Reserved. |\n  - link \"Do Not Sell or Share My Personal Information\":\n    - /url: /do-not-sell\n  - text: \"| Cookie Settings\""
+            }
+          },
+          "url": {
+            "state": "captured",
+            "value": {
+              "url": "https://shopmy.us/home/brands",
+              "origin": "https://shopmy.us",
+              "query_parameter_names": [],
+              "redacted": false
+            }
+          },
+          "history": {
+            "state": "not_requested"
+          },
+          "storage": {
+            "state": "not_requested"
+          }
+        },
+        "completeness": {
+          "status": "complete",
+          "equality_eligible": true,
+          "missing_sections": [],
+          "truncated_sections": []
+        },
+        "status": "completed",
+        "error": null
+      },
+      {
+        "step_index": 2,
+        "step_id": "demo-open",
+        "action": "click",
+        "elapsed_ms": 609,
+        "before_url": {
+          "url": "https://shopmy.us/home/brands",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "after_url": {
+          "url": "https://shopmy.us/home/brands",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "event_sequence_start": 1,
+        "event_sequence_end": 0,
+        "artifacts": {
+          "screenshot": {
+            "state": "not_requested"
+          },
+          "dom": {
+            "state": "not_requested"
+          },
+          "accessibility": {
+            "state": "captured",
+            "value": {
+              "sha256": "ca98a6e6297a8f13b4035fa58c5e836d7947ee80ae03b0ad98def5d17a7b58c7",
+              "bytes": 10216,
+              "text": "- document:\n  - img \"Shopper\"\n  - text: Shopper A destination for shopping, not scrolling. Create an Account\n  - img \"Creator\"\n  - text: Creator Where great taste leads to great opportunities.\n  - link \"Apply\":\n    - /url: /apply/creator\n  - img \"Brand\"\n  - text: Brand No one pushes your product like the people who love them. Apply Already have an account? Log in Have an invitation code? Create Account New\n  - paragraph: The Compounding Trust Effect\n  - link \"Read the Report\":\n    - /url: /reports/compoundingtrusteffect\n  - img \"ShopMy Logo\"\n  - navigation:\n    - link \"For Shoppers\":\n      - /url: /home/shoppers\n    - link \"For Creators\":\n      - /url: /home/creators\n    - link \"For Brands\":\n      - /url: /home/brands\n    - button \"Log In\"\n    - button \"Request Demo\"\n    - textbox \"What are you shopping for?\"\n    - button \"Menu Icon\":\n      - img \"Menu Icon\"\n  - img \"header\"\n  - img \"header\"\n  - img \"header\"\n  - img \"header\"\n  - heading \"No one moves your product like the people who love it.\" [level=1]\n  - paragraph: ShopMy connects you with the creators already championing and sharing your brand, turning genuine advocacy into measurable growth.\n  - button \"Get a Demo\"\n  - text: Trusted by brands that move culture.\n  - tablist \"Brand categories\":\n    - tab \"fashion\" [selected]\n    - tab \"home & decor\"\n    - tab \"beauty\"\n    - tab \"accessories\"\n    - tab \"health & wellness\"\n    - tab \"food & drink\"\n  - button \"Visit Toteme\":\n    - img \"Toteme\"\n  - button \"Visit Khaite\":\n    - img \"Khaite\"\n  - button \"Visit Prada\":\n    - img \"Prada\"\n  - button \"Visit Gucci\":\n    - img \"Gucci\"\n  - button \"Visit Jenni Kayne\":\n    - img \"Jenni Kayne\"\n  - button \"Visit Anine Bing\":\n    - img \"Anine Bing\"\n  - button \"Visit Frame\":\n    - img \"Frame\"\n  - button \"Visit Doen\":\n    - img \"Doen\"\n  - button \"Visit Set\":\n    - img \"Set\"\n  - button \"Scroll left\" [disabled]\n  - button \"Scroll right\"\n  - img \"background\"\n  - heading \"Everything you need to build, scale, and measure your creator marketing program\" [level=4]\n  - text: Creator Database Affiliate Tools Direct Connection to Talent Social Listening Performance + ROI Data Automated Gifting Campaign Management Talent Payment ShopMy’s full funnel approach\n  - heading \"Drive revenue and build brand capital with creators who already love your brand.\" [level=2]\n  - button \"Discover Creators who Convert, Instantly\" [expanded]:\n    - heading \"Discover Creators who Convert, Instantly\" [level=3]\n  - paragraph: Go beyond follower count. With real-time insights across region, category, and channel, ShopMy helps you connect with the creators who drive results.\n  - img \"Discover Creators who Convert, Instantly\"\n  - button \"Incentivize creators with commission and bonuses.\":\n    - heading \"Incentivize creators with commission and bonuses.\" [level=3]\n  - paragraph: Reward tastemakers who drive real sales. ShopMy’s performance-based commission and seamless gifting make investing in authentic advocacy easy.\n  - img \"Incentivize creators with commission and bonuses.\"\n  - button \"Amplify Top Performers with Opportunities and Spotlights\":\n    - heading \"Amplify Top Performers with Opportunities and Spotlights\" [level=3]\n  - paragraph: Invest in authentic partnerships without the back-and-forth through Opportunities, and turn proven content into scalable partnership ads with Spotlights.\n  - img \"Amplify Top Performers with Opportunities and Spotlights\"\n  - text: Brand Insights\n  - link \"View Insights\":\n    - /url: /blog/brand-insights\n  - link \"Introducing Monthly Bonus Opportunities. Brand Insights Introducing Monthly Bonus Opportunities.\":\n    - /url: /blog/post/monthly-bonus-opportunities\n    - img \"Introducing Monthly Bonus Opportunities.\"\n    - text: Brand Insights Introducing Monthly Bonus Opportunities.\n  - link \"Unlocking Growth at Scale with Opportunities. Brand Insights Unlocking Growth at Scale with Opportunities.\":\n    - /url: /blog/post/unlocking-growth-at-scale-with-opportunities\n    - img \"Unlocking Growth at Scale with Opportunities.\"\n    - text: Brand Insights Unlocking Growth at Scale with Opportunities.\n  - 'link \"Introducing Circles: Discovery, Reimagined. New Features Introducing Circles: Discovery, Reimagined.\"':\n    - /url: /blog/post/introducing-circles-discovery-reimagined\n    - 'img \"Introducing Circles: Discovery, Reimagined.\"'\n    - text: \"New Features Introducing Circles: Discovery, Reimagined.\"\n  - heading \"FAQ\" [level=2]\n  - paragraph:\n    - text: If you have additional questions, our\n    - link \"brand onboarding team\":\n      - /url: mailto:partners@shopmy.us\n    - text: can help.\n  - heading \"Why should I use ShopMy for my influencer program?\" [level=3]\n  - paragraph: ShopMy is the only creator commerce infrastructure built specifically for premium brands. Unlike platforms that prioritize volume, we connect you with curated tastemakers who drive actual sales through authentic recommendations (not algorithmic feeds or paid ads). You get performance data, professional tools, and access to culture-driving voices who build lasting brand equity, not just campaign impressions.\n  - heading \"How does ShopMy compare to other influencer marketing platforms?\" [level=3]\n  - paragraph: ShopMy isn't just an influencer marketing platform—it's the complete system for building lasting brands through word-of-mouth. While other platforms focus on campaign management or content creation, we've built professional tools for authentic curation backed by five years of performance data. You work with hand-selected tastemakers, not algorithm-driven feeds. You keep your margins, own your customers, and build real brand equity, not just short-term conversions.\n  - heading \"Does ShopMy guarantee ROI?\" [level=3]\n  - paragraph: ShopMy provides the infrastructure for measurable brand-building. Our platform delivers comprehensive tracking, performance analytics, and data-driven insights that help you optimize your program for maximum ROI. Our partners see an average 5x return by working with authentic tastemakers who drive sustained sales and advocacy, not just one-time clicks. Regular platform usage and strategic creator partnerships consistently deliver excellent results.\n  - heading \"Do you offer white-glove support?\" [level=3]\n  - paragraph: Yes. Premium brands receive dedicated strategic support to maximize their ShopMy infrastructure, from tastemaker discovery to program optimization, all built into the platform experience, not sold separately.\n  - heading \"What makes ShopMy different from social commerce platforms like Instagram Shopping or TikTok Shop?\" [level=3]\n  - paragraph: Social platforms optimize for entertainment and engagement—not sales or brand building. ShopMy is purpose-built for product discovery through trusted human curation. You're not competing with algorithm-driven feeds or ads. Instead, you reach high-intent shoppers through tastemakers they've specifically chosen to trust. You keep your margins, own the customer data, and build lasting relationships—not just fleeting impressions.\n  - heading \"What types of brands succeed on ShopMy?\" [level=3]\n  - paragraph: ShopMy serves premium brands building for the long term, from established luxury houses to emerging DTC companies, that value quality and cultural relevance. Our network includes brands like Rhode, Gucci, Net-a-Porter, West Elm, Therabody, and Kallmeyer. If you're focused on authentic brand building over performance marketing arbitrage, ShopMy is built for you.\n  - img \"background\"\n  - heading \"Let’s make creator marketing your brand’s most valuable channel.\" [level=2]\n  - button \"Get A Demo\"\n  - text: For Creators\n  - list:\n    - listitem:\n      - link \"ShopMy For Creators\":\n        - /url: /home/creators\n    - listitem:\n      - link \"Digital Shops\":\n        - /url: /home/creators/shop\n    - listitem:\n      - link \"Affiliate Links\":\n        - /url: /home/creators/affiliates\n    - listitem:\n      - link \"Brand Partnerships\":\n        - /url: /home/creators/partnerships\n    - listitem:\n      - link \"Apply to be a Creator\":\n        - /url: /apply/creator\n    - listitem:\n      - link \"Webinars\":\n        - /url: /home/creators/webinars\n  - text: For Brands\n  - list:\n    - listitem:\n      - link \"ShopMy For Brands\":\n        - /url: /home/brands\n    - listitem:\n      - link \"Discover\":\n        - /url: /home/brands/discover\n    - listitem:\n      - link \"Engage\":\n        - /url: /home/brands/engage\n    - listitem:\n      - link \"Track\":\n        - /url: /home/brands/track\n    - listitem:\n      - link \"Amplify\":\n        - /url: /home/brands/amplify\n  - text: For Shoppers\n  - list:\n    - listitem:\n      - link \"Shop By Curator\":\n        - /url: /shop/discover/curators\n    - listitem:\n      - link \"Shop By Circle\":\n        - /url: /shop/discover/circles\n    - listitem:\n      - link \"Shop By Brand\":\n        - /url: /shop/discover/brands\n    - listitem:\n      - link \"Shop By Category\":\n        - /url: /shop/discover/categories\n    - listitem:\n      - link \"My Circles\":\n        - /url: /shop/my/circles\n    - listitem:\n      - link \"My Taste Profile\":\n        - /url: /shop/my/taste\n  - text: Explore\n  - list:\n    - listitem:\n      - link \"Blog\":\n        - /url: /blog\n    - listitem:\n      - link \"About Us\":\n        - /url: /about\n    - listitem:\n      - link \"Careers\":\n        - /url: /careers\n    - listitem:\n      - link \"Shop All Categories\":\n        - /url: /shop\n    - listitem:\n      - link \"Reports\":\n        - /url: /reports\n  - text: Support + Legal\n  - list:\n    - listitem:\n      - link \"Creator Guide\":\n        - /url: https://guide.shopmy.us\n    - listitem:\n      - link \"Brand Guide\":\n        - /url: https://brands.shopmy.us\n    - listitem:\n      - link \"Contact Us\":\n        - /url: /contact\n    - listitem:\n      - link \"Terms of Service\":\n        - /url: https://shopmy.us/legal/terms-of-service\n    - listitem:\n      - link \"Privacy\":\n        - /url: https://shopmy.us/legal/privacy-policy\n  - link \"ShopMy Logo\":\n    - /url: /home\n    - img \"ShopMy Logo\"\n  - text: © Copyright 2026 Shop My Shelf, Inc. All Rights Reserved. |\n  - link \"Do Not Sell or Share My Personal Information\":\n    - /url: /do-not-sell\n  - text: \"| Cookie Settings\""
+            }
+          },
+          "url": {
+            "state": "captured",
+            "value": {
+              "url": "https://shopmy.us/home/brands",
+              "origin": "https://shopmy.us",
+              "query_parameter_names": [],
+              "redacted": false
+            }
+          },
+          "history": {
+            "state": "not_requested"
+          },
+          "storage": {
+            "state": "not_requested"
+          }
+        },
+        "completeness": {
+          "status": "complete",
+          "equality_eligible": true,
+          "missing_sections": [],
+          "truncated_sections": []
+        },
+        "status": "completed",
+        "error": null
+      },
+      {
+        "step_index": 3,
+        "step_id": "demo-form",
+        "action": "wait_for_timeout",
+        "elapsed_ms": 1602,
+        "before_url": {
+          "url": "https://shopmy.us/home/brands",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "after_url": {
+          "url": "https://shopmy.us/home/brands",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "event_sequence_start": 1,
+        "event_sequence_end": 0,
+        "artifacts": {
+          "screenshot": {
+            "state": "not_requested"
+          },
+          "dom": {
+            "state": "not_requested"
+          },
+          "accessibility": {
+            "state": "captured",
+            "value": {
+              "sha256": "ca98a6e6297a8f13b4035fa58c5e836d7947ee80ae03b0ad98def5d17a7b58c7",
+              "bytes": 10216,
+              "text": "- document:\n  - img \"Shopper\"\n  - text: Shopper A destination for shopping, not scrolling. Create an Account\n  - img \"Creator\"\n  - text: Creator Where great taste leads to great opportunities.\n  - link \"Apply\":\n    - /url: /apply/creator\n  - img \"Brand\"\n  - text: Brand No one pushes your product like the people who love them. Apply Already have an account? Log in Have an invitation code? Create Account New\n  - paragraph: The Compounding Trust Effect\n  - link \"Read the Report\":\n    - /url: /reports/compoundingtrusteffect\n  - img \"ShopMy Logo\"\n  - navigation:\n    - link \"For Shoppers\":\n      - /url: /home/shoppers\n    - link \"For Creators\":\n      - /url: /home/creators\n    - link \"For Brands\":\n      - /url: /home/brands\n    - button \"Log In\"\n    - button \"Request Demo\"\n    - textbox \"What are you shopping for?\"\n    - button \"Menu Icon\":\n      - img \"Menu Icon\"\n  - img \"header\"\n  - img \"header\"\n  - img \"header\"\n  - img \"header\"\n  - heading \"No one moves your product like the people who love it.\" [level=1]\n  - paragraph: ShopMy connects you with the creators already championing and sharing your brand, turning genuine advocacy into measurable growth.\n  - button \"Get a Demo\"\n  - text: Trusted by brands that move culture.\n  - tablist \"Brand categories\":\n    - tab \"fashion\" [selected]\n    - tab \"home & decor\"\n    - tab \"beauty\"\n    - tab \"accessories\"\n    - tab \"health & wellness\"\n    - tab \"food & drink\"\n  - button \"Visit Toteme\":\n    - img \"Toteme\"\n  - button \"Visit Khaite\":\n    - img \"Khaite\"\n  - button \"Visit Prada\":\n    - img \"Prada\"\n  - button \"Visit Gucci\":\n    - img \"Gucci\"\n  - button \"Visit Jenni Kayne\":\n    - img \"Jenni Kayne\"\n  - button \"Visit Anine Bing\":\n    - img \"Anine Bing\"\n  - button \"Visit Frame\":\n    - img \"Frame\"\n  - button \"Visit Doen\":\n    - img \"Doen\"\n  - button \"Visit Set\":\n    - img \"Set\"\n  - button \"Scroll left\" [disabled]\n  - button \"Scroll right\"\n  - img \"background\"\n  - heading \"Everything you need to build, scale, and measure your creator marketing program\" [level=4]\n  - text: Creator Database Affiliate Tools Direct Connection to Talent Social Listening Performance + ROI Data Automated Gifting Campaign Management Talent Payment ShopMy’s full funnel approach\n  - heading \"Drive revenue and build brand capital with creators who already love your brand.\" [level=2]\n  - button \"Discover Creators who Convert, Instantly\" [expanded]:\n    - heading \"Discover Creators who Convert, Instantly\" [level=3]\n  - paragraph: Go beyond follower count. With real-time insights across region, category, and channel, ShopMy helps you connect with the creators who drive results.\n  - img \"Discover Creators who Convert, Instantly\"\n  - button \"Incentivize creators with commission and bonuses.\":\n    - heading \"Incentivize creators with commission and bonuses.\" [level=3]\n  - paragraph: Reward tastemakers who drive real sales. ShopMy’s performance-based commission and seamless gifting make investing in authentic advocacy easy.\n  - img \"Incentivize creators with commission and bonuses.\"\n  - button \"Amplify Top Performers with Opportunities and Spotlights\":\n    - heading \"Amplify Top Performers with Opportunities and Spotlights\" [level=3]\n  - paragraph: Invest in authentic partnerships without the back-and-forth through Opportunities, and turn proven content into scalable partnership ads with Spotlights.\n  - img \"Amplify Top Performers with Opportunities and Spotlights\"\n  - text: Brand Insights\n  - link \"View Insights\":\n    - /url: /blog/brand-insights\n  - link \"Introducing Monthly Bonus Opportunities. Brand Insights Introducing Monthly Bonus Opportunities.\":\n    - /url: /blog/post/monthly-bonus-opportunities\n    - img \"Introducing Monthly Bonus Opportunities.\"\n    - text: Brand Insights Introducing Monthly Bonus Opportunities.\n  - link \"Unlocking Growth at Scale with Opportunities. Brand Insights Unlocking Growth at Scale with Opportunities.\":\n    - /url: /blog/post/unlocking-growth-at-scale-with-opportunities\n    - img \"Unlocking Growth at Scale with Opportunities.\"\n    - text: Brand Insights Unlocking Growth at Scale with Opportunities.\n  - 'link \"Introducing Circles: Discovery, Reimagined. New Features Introducing Circles: Discovery, Reimagined.\"':\n    - /url: /blog/post/introducing-circles-discovery-reimagined\n    - 'img \"Introducing Circles: Discovery, Reimagined.\"'\n    - text: \"New Features Introducing Circles: Discovery, Reimagined.\"\n  - heading \"FAQ\" [level=2]\n  - paragraph:\n    - text: If you have additional questions, our\n    - link \"brand onboarding team\":\n      - /url: mailto:partners@shopmy.us\n    - text: can help.\n  - heading \"Why should I use ShopMy for my influencer program?\" [level=3]\n  - paragraph: ShopMy is the only creator commerce infrastructure built specifically for premium brands. Unlike platforms that prioritize volume, we connect you with curated tastemakers who drive actual sales through authentic recommendations (not algorithmic feeds or paid ads). You get performance data, professional tools, and access to culture-driving voices who build lasting brand equity, not just campaign impressions.\n  - heading \"How does ShopMy compare to other influencer marketing platforms?\" [level=3]\n  - paragraph: ShopMy isn't just an influencer marketing platform—it's the complete system for building lasting brands through word-of-mouth. While other platforms focus on campaign management or content creation, we've built professional tools for authentic curation backed by five years of performance data. You work with hand-selected tastemakers, not algorithm-driven feeds. You keep your margins, own your customers, and build real brand equity, not just short-term conversions.\n  - heading \"Does ShopMy guarantee ROI?\" [level=3]\n  - paragraph: ShopMy provides the infrastructure for measurable brand-building. Our platform delivers comprehensive tracking, performance analytics, and data-driven insights that help you optimize your program for maximum ROI. Our partners see an average 5x return by working with authentic tastemakers who drive sustained sales and advocacy, not just one-time clicks. Regular platform usage and strategic creator partnerships consistently deliver excellent results.\n  - heading \"Do you offer white-glove support?\" [level=3]\n  - paragraph: Yes. Premium brands receive dedicated strategic support to maximize their ShopMy infrastructure, from tastemaker discovery to program optimization, all built into the platform experience, not sold separately.\n  - heading \"What makes ShopMy different from social commerce platforms like Instagram Shopping or TikTok Shop?\" [level=3]\n  - paragraph: Social platforms optimize for entertainment and engagement—not sales or brand building. ShopMy is purpose-built for product discovery through trusted human curation. You're not competing with algorithm-driven feeds or ads. Instead, you reach high-intent shoppers through tastemakers they've specifically chosen to trust. You keep your margins, own the customer data, and build lasting relationships—not just fleeting impressions.\n  - heading \"What types of brands succeed on ShopMy?\" [level=3]\n  - paragraph: ShopMy serves premium brands building for the long term, from established luxury houses to emerging DTC companies, that value quality and cultural relevance. Our network includes brands like Rhode, Gucci, Net-a-Porter, West Elm, Therabody, and Kallmeyer. If you're focused on authentic brand building over performance marketing arbitrage, ShopMy is built for you.\n  - img \"background\"\n  - heading \"Let’s make creator marketing your brand’s most valuable channel.\" [level=2]\n  - button \"Get A Demo\"\n  - text: For Creators\n  - list:\n    - listitem:\n      - link \"ShopMy For Creators\":\n        - /url: /home/creators\n    - listitem:\n      - link \"Digital Shops\":\n        - /url: /home/creators/shop\n    - listitem:\n      - link \"Affiliate Links\":\n        - /url: /home/creators/affiliates\n    - listitem:\n      - link \"Brand Partnerships\":\n        - /url: /home/creators/partnerships\n    - listitem:\n      - link \"Apply to be a Creator\":\n        - /url: /apply/creator\n    - listitem:\n      - link \"Webinars\":\n        - /url: /home/creators/webinars\n  - text: For Brands\n  - list:\n    - listitem:\n      - link \"ShopMy For Brands\":\n        - /url: /home/brands\n    - listitem:\n      - link \"Discover\":\n        - /url: /home/brands/discover\n    - listitem:\n      - link \"Engage\":\n        - /url: /home/brands/engage\n    - listitem:\n      - link \"Track\":\n        - /url: /home/brands/track\n    - listitem:\n      - link \"Amplify\":\n        - /url: /home/brands/amplify\n  - text: For Shoppers\n  - list:\n    - listitem:\n      - link \"Shop By Curator\":\n        - /url: /shop/discover/curators\n    - listitem:\n      - link \"Shop By Circle\":\n        - /url: /shop/discover/circles\n    - listitem:\n      - link \"Shop By Brand\":\n        - /url: /shop/discover/brands\n    - listitem:\n      - link \"Shop By Category\":\n        - /url: /shop/discover/categories\n    - listitem:\n      - link \"My Circles\":\n        - /url: /shop/my/circles\n    - listitem:\n      - link \"My Taste Profile\":\n        - /url: /shop/my/taste\n  - text: Explore\n  - list:\n    - listitem:\n      - link \"Blog\":\n        - /url: /blog\n    - listitem:\n      - link \"About Us\":\n        - /url: /about\n    - listitem:\n      - link \"Careers\":\n        - /url: /careers\n    - listitem:\n      - link \"Shop All Categories\":\n        - /url: /shop\n    - listitem:\n      - link \"Reports\":\n        - /url: /reports\n  - text: Support + Legal\n  - list:\n    - listitem:\n      - link \"Creator Guide\":\n        - /url: https://guide.shopmy.us\n    - listitem:\n      - link \"Brand Guide\":\n        - /url: https://brands.shopmy.us\n    - listitem:\n      - link \"Contact Us\":\n        - /url: /contact\n    - listitem:\n      - link \"Terms of Service\":\n        - /url: https://shopmy.us/legal/terms-of-service\n    - listitem:\n      - link \"Privacy\":\n        - /url: https://shopmy.us/legal/privacy-policy\n  - link \"ShopMy Logo\":\n    - /url: /home\n    - img \"ShopMy Logo\"\n  - text: © Copyright 2026 Shop My Shelf, Inc. All Rights Reserved. |\n  - link \"Do Not Sell or Share My Personal Information\":\n    - /url: /do-not-sell\n  - text: \"| Cookie Settings\""
+            }
+          },
+          "url": {
+            "state": "captured",
+            "value": {
+              "url": "https://shopmy.us/home/brands",
+              "origin": "https://shopmy.us",
+              "query_parameter_names": [],
+              "redacted": false
+            }
+          },
+          "history": {
+            "state": "not_requested"
+          },
+          "storage": {
+            "state": "not_requested"
+          }
+        },
+        "completeness": {
+          "status": "complete",
+          "equality_eligible": true,
+          "missing_sections": [],
+          "truncated_sections": []
+        },
+        "status": "completed",
+        "error": null
+      },
+      {
+        "step_index": 4,
+        "step_id": "home",
+        "action": "goto",
+        "elapsed_ms": 3192,
+        "before_url": {
+          "url": "https://shopmy.us/home/brands",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "after_url": {
+          "url": "https://shopmy.us/home",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "event_sequence_start": 1,
+        "event_sequence_end": 0,
+        "artifacts": {
+          "screenshot": {
+            "state": "not_requested"
+          },
+          "dom": {
+            "state": "not_requested"
+          },
+          "accessibility": {
+            "state": "captured",
+            "value": {
+              "sha256": "399c7c20cdbe22e92342f5a84d799b5e4e52253369240c9ff3154136c2af768d",
+              "bytes": 7560,
+              "text": "- document:\n  - img \"ShopMy Logo\"\n  - navigation:\n    - link \"For Shoppers\":\n      - /url: /home/shoppers\n    - link \"For Creators\":\n      - /url: /home/creators\n    - link \"For Brands\":\n      - /url: /home/brands\n    - button \"Log In\"\n    - button \"Sign Up\"\n    - textbox \"What are you shopping for?\"\n    - button \"Menu Icon\":\n      - img \"Menu Icon\"\n  - heading \"Curated by the obsessed, not the algorithm.\" [level=1]\n  - heading \"Shop the recommendations of the world's most trusted curators.\" [level=2]\n  - text: It's better on mobile. Access to our newest feature, Noir, a 1:1 text-based concierge offering personalized recommendations from a real human.\n  - link \"App Store\":\n    - /url: https://apps.apple.com/us/app/shopmy/id6443850511\n    - img \"App Store\"\n  - text: Shop by Curator Insider access to your favorite tastemakers' most loved and trusted products.\n  - link \"Shop All Curators\":\n    - /url: /shop/discover/curators\n  - link \"Sofia Richie Grainge\":\n    - /url: /shop/sofiarichiegrainge\n    - img \"Sofia Richie Grainge\"\n  - link \"Alexandra Leclerc\":\n    - /url: /shop/alexandraleclerc\n    - img \"Alexandra Leclerc\"\n  - link \"Elsa Hosk\":\n    - /url: /shop/hoskelsa\n    - img \"Elsa Hosk\"\n  - link \"Lila Moss\":\n    - /url: /shop/lilamoss\n    - img \"Lila Moss\"\n  - link \"Nara Smith\":\n    - /url: /shop/naraaziza\n    - img \"Nara Smith\"\n  - link \"aurora\":\n    - /url: /shop/aurorajames\n    - img \"aurora\"\n  - link \"Marianna Hewitt\":\n    - /url: /shop/mariannahewitt\n    - img \"Marianna Hewitt\"\n  - link \"Hailee Steinfeld\":\n    - /url: /shop/haileesteinfeld\n    - img \"Hailee Steinfeld\"\n  - link \"Kelly Wearstler\":\n    - /url: /shop/kellywearstler\n    - img \"Kelly Wearstler\"\n  - text: Shop by Circle Create groups of curators who share your style and shop their top recommendations. Create Circle\n  - link \"Shop All Circles\":\n    - /url: /shop/discover/circles\n  - link \"The ShopMy Team\":\n    - /url: /shop?CuratorGroup_id=682&tab=popular-monthly\n    - img \"The ShopMy Team\"\n  - link \"Stylists\":\n    - /url: /shop?Industry_id=1&Department_id=44&CuratorGroup_id=1384&tab=popular-monthly\n    - img \"Stylists\"\n  - link \"Tastemakers in the Kitchen\":\n    - /url: /shop?Industry_id=5&CuratorGroup_id=2189&tab=popular-monthly\n    - img \"Tastemakers in the Kitchen\"\n  - link \"Professional Makeup Artists\":\n    - /url: /shop?Industry_id=2&Department_id=2&CuratorGroup_id=2191&tab=popular-monthly\n    - img \"Professional Makeup Artists\"\n  - link \"Interior Designers\":\n    - /url: /shop?Industry_id=5&CuratorGroup_id=616&tab=popular-monthly\n    - img \"Interior Designers\"\n  - link \"Fashion Industry Insiders\":\n    - /url: /shop?Industry_id=1&CuratorGroup_id=1383&tab=popular-monthly\n    - img \"Fashion Industry Insiders\"\n  - link \"Beauty Industry Insiders\":\n    - /url: /shop?Industry_id=2&CuratorGroup_id=2205&tab=popular-monthly\n    - img \"Beauty Industry Insiders\"\n  - link \"Designers & Founders\":\n    - /url: /shop?CuratorGroup_id=350644&tab=popular-monthly\n    - img \"Designers & Founders\"\n  - img\n  - text: The best things in life are worth sharing. Sign Up Create a Circle Shop by Category Confidently shop the best of every category.\n  - link \"Shop All Categories\":\n    - /url: /shop/discover/categories\n  - link \"Necklaces\":\n    - /url: /shop?Category_id=227&tab=popular-monthly\n    - img \"Necklaces\"\n  - link \"Jeans\":\n    - /url: /shop?Category_id=203&tab=popular-monthly\n    - img \"Jeans\"\n  - link \"Sandals\":\n    - /url: /shop?Category_id=183&tab=popular-monthly\n    - img \"Sandals\"\n  - link \"Dresses\":\n    - /url: /shop?Category_id=192&tab=popular-monthly\n    - img \"Dresses\"\n  - link \"Blazers\":\n    - /url: /shop?Category_id=243&tab=popular-monthly\n    - img \"Blazers\"\n  - link \"Sneakers\":\n    - /url: /shop?Category_id=184&tab=popular-monthly\n    - img \"Sneakers\"\n  - link \"Tote Bags\":\n    - /url: /shop?Category_id=211&tab=popular-monthly\n    - img \"Tote Bags\"\n  - link \"Flats\":\n    - /url: /shop?Category_id=186&tab=popular-monthly\n    - img \"Flats\"\n  - text: Shop by Brand Explore top-tier products from brands you know and discover new brands you'll love.\n  - link \"Shop All Brands\":\n    - /url: /shop/discover/brands\n  - link \"Call It By Your Name\":\n    - /url: /shop?AllBrand_id=8877&tab=popular-monthly\n    - img \"Call It By Your Name\"\n  - link \"Emme Parsons\":\n    - /url: /shop?AllBrand_id=713&tab=popular-monthly\n    - img \"Emme Parsons\"\n  - link \"ALÉMAIS\":\n    - /url: /shop?AllBrand_id=6249&tab=popular-monthly\n    - img \"ALÉMAIS\"\n  - link \"Sofie Pavitt Face\":\n    - /url: /shop?AllBrand_id=502&tab=popular-monthly\n    - img \"Sofie Pavitt Face\"\n  - link \"Olive Ateliers\":\n    - /url: /shop?AllBrand_id=837&tab=popular-monthly\n    - img \"Olive Ateliers\"\n  - link \"Liberowe\":\n    - /url: /shop?AllBrand_id=1206&tab=popular-monthly\n    - img \"Liberowe\"\n  - link \"Suzie Kondi\":\n    - /url: /shop?AllBrand_id=814&tab=popular-monthly\n    - img \"Suzie Kondi\"\n  - link \"Ceremonia\":\n    - /url: /shop?AllBrand_id=4915&tab=popular-monthly\n    - img \"Ceremonia\"\n  - text: For Creators\n  - list:\n    - listitem:\n      - link \"ShopMy For Creators\":\n        - /url: /home/creators\n    - listitem:\n      - link \"Digital Shops\":\n        - /url: /home/creators/shop\n    - listitem:\n      - link \"Affiliate Links\":\n        - /url: /home/creators/affiliates\n    - listitem:\n      - link \"Brand Partnerships\":\n        - /url: /home/creators/partnerships\n    - listitem:\n      - link \"Apply to be a Creator\":\n        - /url: /apply/creator\n    - listitem:\n      - link \"Webinars\":\n        - /url: /home/creators/webinars\n  - text: For Brands\n  - list:\n    - listitem:\n      - link \"ShopMy For Brands\":\n        - /url: /home/brands\n    - listitem:\n      - link \"Discover\":\n        - /url: /home/brands/discover\n    - listitem:\n      - link \"Engage\":\n        - /url: /home/brands/engage\n    - listitem:\n      - link \"Track\":\n        - /url: /home/brands/track\n    - listitem:\n      - link \"Amplify\":\n        - /url: /home/brands/amplify\n  - text: For Shoppers\n  - list:\n    - listitem:\n      - link \"Shop By Curator\":\n        - /url: /shop/discover/curators\n    - listitem:\n      - link \"Shop By Circle\":\n        - /url: /shop/discover/circles\n    - listitem:\n      - link \"Shop By Brand\":\n        - /url: /shop/discover/brands\n    - listitem:\n      - link \"Shop By Category\":\n        - /url: /shop/discover/categories\n    - listitem:\n      - link \"My Circles\":\n        - /url: /shop/my/circles\n    - listitem:\n      - link \"My Taste Profile\":\n        - /url: /shop/my/taste\n  - text: Explore\n  - list:\n    - listitem:\n      - link \"Blog\":\n        - /url: /blog\n    - listitem:\n      - link \"About Us\":\n        - /url: /about\n    - listitem:\n      - link \"Careers\":\n        - /url: /careers\n    - listitem:\n      - link \"Shop All Categories\":\n        - /url: /shop\n    - listitem:\n      - link \"Reports\":\n        - /url: /reports\n  - text: Support + Legal\n  - list:\n    - listitem:\n      - link \"Creator Guide\":\n        - /url: https://guide.shopmy.us\n    - listitem:\n      - link \"Brand Guide\":\n        - /url: https://brands.shopmy.us\n    - listitem:\n      - link \"Contact Us\":\n        - /url: /contact\n    - listitem:\n      - link \"Terms of Service\":\n        - /url: https://shopmy.us/legal/terms-of-service\n    - listitem:\n      - link \"Privacy\":\n        - /url: https://shopmy.us/legal/privacy-policy\n  - link \"ShopMy Logo\":\n    - /url: /home\n    - img \"ShopMy Logo\"\n  - text: © Copyright 2026 Shop My Shelf, Inc. All Rights Reserved. |\n  - link \"Do Not Sell or Share My Personal Information\":\n    - /url: /do-not-sell\n  - text: \"| Cookie Settings\""
+            }
+          },
+          "url": {
+            "state": "captured",
+            "value": {
+              "url": "https://shopmy.us/home",
+              "origin": "https://shopmy.us",
+              "query_parameter_names": [],
+              "redacted": false
+            }
+          },
+          "history": {
+            "state": "not_requested"
+          },
+          "storage": {
+            "state": "not_requested"
+          }
+        },
+        "completeness": {
+          "status": "complete",
+          "equality_eligible": true,
+          "missing_sections": [],
+          "truncated_sections": []
+        },
+        "status": "completed",
+        "error": null
+      },
+      {
+        "step_index": 5,
+        "step_id": "login-open",
+        "action": "click",
+        "elapsed_ms": 336,
+        "before_url": {
+          "url": "https://shopmy.us/home",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "after_url": {
+          "url": "https://shopmy.us/home",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "event_sequence_start": 1,
+        "event_sequence_end": 0,
+        "artifacts": {
+          "screenshot": {
+            "state": "not_requested"
+          },
+          "dom": {
+            "state": "not_requested"
+          },
+          "accessibility": {
+            "state": "captured",
+            "value": {
+              "sha256": "c8a70ce89a3030a62b4da3851727d1a1354743f531fd106e69e3203a4bc3f73c",
+              "bytes": 7856,
+              "text": "- document:\n  - text: Log in to continue.\n  - textbox \"Email\"\n  - textbox \"Password\"\n  - text: By clicking \"Log In\", you agree to the ShopMy Terms of Service and Privacy Policy.\n  - button \"Log in\" [disabled]\n  - text: Forgot Your Password? If you have an invitation code, click here to create your account.\n  - img \"ShopMy Logo\"\n  - navigation:\n    - link \"For Shoppers\":\n      - /url: /home/shoppers\n    - link \"For Creators\":\n      - /url: /home/creators\n    - link \"For Brands\":\n      - /url: /home/brands\n    - button \"Log In\"\n    - button \"Sign Up\"\n    - textbox \"What are you shopping for?\"\n    - button \"Menu Icon\":\n      - img \"Menu Icon\"\n  - heading \"Curated by the obsessed, not the algorithm.\" [level=1]\n  - heading \"Shop the recommendations of the world's most trusted curators.\" [level=2]\n  - text: It's better on mobile. Access to our newest feature, Noir, a 1:1 text-based concierge offering personalized recommendations from a real human.\n  - link \"App Store\":\n    - /url: https://apps.apple.com/us/app/shopmy/id6443850511\n    - img \"App Store\"\n  - text: Shop by Curator Insider access to your favorite tastemakers' most loved and trusted products.\n  - link \"Shop All Curators\":\n    - /url: /shop/discover/curators\n  - link \"Sofia Richie Grainge\":\n    - /url: /shop/sofiarichiegrainge\n    - img \"Sofia Richie Grainge\"\n  - link \"Alexandra Leclerc\":\n    - /url: /shop/alexandraleclerc\n    - img \"Alexandra Leclerc\"\n  - link \"Elsa Hosk\":\n    - /url: /shop/hoskelsa\n    - img \"Elsa Hosk\"\n  - link \"Lila Moss\":\n    - /url: /shop/lilamoss\n    - img \"Lila Moss\"\n  - link \"Nara Smith\":\n    - /url: /shop/naraaziza\n    - img \"Nara Smith\"\n  - link \"aurora\":\n    - /url: /shop/aurorajames\n    - img \"aurora\"\n  - link \"Marianna Hewitt\":\n    - /url: /shop/mariannahewitt\n    - img \"Marianna Hewitt\"\n  - link \"Hailee Steinfeld\":\n    - /url: /shop/haileesteinfeld\n    - img \"Hailee Steinfeld\"\n  - link \"Kelly Wearstler\":\n    - /url: /shop/kellywearstler\n    - img \"Kelly Wearstler\"\n  - text: Shop by Circle Create groups of curators who share your style and shop their top recommendations. Create Circle\n  - link \"Shop All Circles\":\n    - /url: /shop/discover/circles\n  - link \"The ShopMy Team\":\n    - /url: /shop?CuratorGroup_id=682&tab=popular-monthly\n    - img \"The ShopMy Team\"\n  - link \"Stylists\":\n    - /url: /shop?Industry_id=1&Department_id=44&CuratorGroup_id=1384&tab=popular-monthly\n    - img \"Stylists\"\n  - link \"Tastemakers in the Kitchen\":\n    - /url: /shop?Industry_id=5&CuratorGroup_id=2189&tab=popular-monthly\n    - img \"Tastemakers in the Kitchen\"\n  - link \"Professional Makeup Artists\":\n    - /url: /shop?Industry_id=2&Department_id=2&CuratorGroup_id=2191&tab=popular-monthly\n    - img \"Professional Makeup Artists\"\n  - link \"Interior Designers\":\n    - /url: /shop?Industry_id=5&CuratorGroup_id=616&tab=popular-monthly\n    - img \"Interior Designers\"\n  - link \"Fashion Industry Insiders\":\n    - /url: /shop?Industry_id=1&CuratorGroup_id=1383&tab=popular-monthly\n    - img \"Fashion Industry Insiders\"\n  - link \"Beauty Industry Insiders\":\n    - /url: /shop?Industry_id=2&CuratorGroup_id=2205&tab=popular-monthly\n    - img \"Beauty Industry Insiders\"\n  - link \"Designers & Founders\":\n    - /url: /shop?CuratorGroup_id=350644&tab=popular-monthly\n    - img \"Designers & Founders\"\n  - img\n  - text: The best things in life are worth sharing. Sign Up Create a Circle Shop by Category Confidently shop the best of every category.\n  - link \"Shop All Categories\":\n    - /url: /shop/discover/categories\n  - link \"Necklaces\":\n    - /url: /shop?Category_id=227&tab=popular-monthly\n    - img \"Necklaces\"\n  - link \"Jeans\":\n    - /url: /shop?Category_id=203&tab=popular-monthly\n    - img \"Jeans\"\n  - link \"Sandals\":\n    - /url: /shop?Category_id=183&tab=popular-monthly\n    - img \"Sandals\"\n  - link \"Dresses\":\n    - /url: /shop?Category_id=192&tab=popular-monthly\n    - img \"Dresses\"\n  - link \"Blazers\":\n    - /url: /shop?Category_id=243&tab=popular-monthly\n    - img \"Blazers\"\n  - link \"Sneakers\":\n    - /url: /shop?Category_id=184&tab=popular-monthly\n    - img \"Sneakers\"\n  - link \"Tote Bags\":\n    - /url: /shop?Category_id=211&tab=popular-monthly\n    - img \"Tote Bags\"\n  - link \"Flats\":\n    - /url: /shop?Category_id=186&tab=popular-monthly\n    - img \"Flats\"\n  - text: Shop by Brand Explore top-tier products from brands you know and discover new brands you'll love.\n  - link \"Shop All Brands\":\n    - /url: /shop/discover/brands\n  - link \"Call It By Your Name\":\n    - /url: /shop?AllBrand_id=8877&tab=popular-monthly\n    - img \"Call It By Your Name\"\n  - link \"Emme Parsons\":\n    - /url: /shop?AllBrand_id=713&tab=popular-monthly\n    - img \"Emme Parsons\"\n  - link \"ALÉMAIS\":\n    - /url: /shop?AllBrand_id=6249&tab=popular-monthly\n    - img \"ALÉMAIS\"\n  - link \"Sofie Pavitt Face\":\n    - /url: /shop?AllBrand_id=502&tab=popular-monthly\n    - img \"Sofie Pavitt Face\"\n  - link \"Olive Ateliers\":\n    - /url: /shop?AllBrand_id=837&tab=popular-monthly\n    - img \"Olive Ateliers\"\n  - link \"Liberowe\":\n    - /url: /shop?AllBrand_id=1206&tab=popular-monthly\n    - img \"Liberowe\"\n  - link \"Suzie Kondi\":\n    - /url: /shop?AllBrand_id=814&tab=popular-monthly\n    - img \"Suzie Kondi\"\n  - link \"Ceremonia\":\n    - /url: /shop?AllBrand_id=4915&tab=popular-monthly\n    - img \"Ceremonia\"\n  - text: For Creators\n  - list:\n    - listitem:\n      - link \"ShopMy For Creators\":\n        - /url: /home/creators\n    - listitem:\n      - link \"Digital Shops\":\n        - /url: /home/creators/shop\n    - listitem:\n      - link \"Affiliate Links\":\n        - /url: /home/creators/affiliates\n    - listitem:\n      - link \"Brand Partnerships\":\n        - /url: /home/creators/partnerships\n    - listitem:\n      - link \"Apply to be a Creator\":\n        - /url: /apply/creator\n    - listitem:\n      - link \"Webinars\":\n        - /url: /home/creators/webinars\n  - text: For Brands\n  - list:\n    - listitem:\n      - link \"ShopMy For Brands\":\n        - /url: /home/brands\n    - listitem:\n      - link \"Discover\":\n        - /url: /home/brands/discover\n    - listitem:\n      - link \"Engage\":\n        - /url: /home/brands/engage\n    - listitem:\n      - link \"Track\":\n        - /url: /home/brands/track\n    - listitem:\n      - link \"Amplify\":\n        - /url: /home/brands/amplify\n  - text: For Shoppers\n  - list:\n    - listitem:\n      - link \"Shop By Curator\":\n        - /url: /shop/discover/curators\n    - listitem:\n      - link \"Shop By Circle\":\n        - /url: /shop/discover/circles\n    - listitem:\n      - link \"Shop By Brand\":\n        - /url: /shop/discover/brands\n    - listitem:\n      - link \"Shop By Category\":\n        - /url: /shop/discover/categories\n    - listitem:\n      - link \"My Circles\":\n        - /url: /shop/my/circles\n    - listitem:\n      - link \"My Taste Profile\":\n        - /url: /shop/my/taste\n  - text: Explore\n  - list:\n    - listitem:\n      - link \"Blog\":\n        - /url: /blog\n    - listitem:\n      - link \"About Us\":\n        - /url: /about\n    - listitem:\n      - link \"Careers\":\n        - /url: /careers\n    - listitem:\n      - link \"Shop All Categories\":\n        - /url: /shop\n    - listitem:\n      - link \"Reports\":\n        - /url: /reports\n  - text: Support + Legal\n  - list:\n    - listitem:\n      - link \"Creator Guide\":\n        - /url: https://guide.shopmy.us\n    - listitem:\n      - link \"Brand Guide\":\n        - /url: https://brands.shopmy.us\n    - listitem:\n      - link \"Contact Us\":\n        - /url: /contact\n    - listitem:\n      - link \"Terms of Service\":\n        - /url: https://shopmy.us/legal/terms-of-service\n    - listitem:\n      - link \"Privacy\":\n        - /url: https://shopmy.us/legal/privacy-policy\n  - link \"ShopMy Logo\":\n    - /url: /home\n    - img \"ShopMy Logo\"\n  - text: © Copyright 2026 Shop My Shelf, Inc. All Rights Reserved. |\n  - link \"Do Not Sell or Share My Personal Information\":\n    - /url: /do-not-sell\n  - text: \"| Cookie Settings\""
+            }
+          },
+          "url": {
+            "state": "captured",
+            "value": {
+              "url": "https://shopmy.us/home",
+              "origin": "https://shopmy.us",
+              "query_parameter_names": [],
+              "redacted": false
+            }
+          },
+          "history": {
+            "state": "not_requested"
+          },
+          "storage": {
+            "state": "not_requested"
+          }
+        },
+        "completeness": {
+          "status": "complete",
+          "equality_eligible": true,
+          "missing_sections": [],
+          "truncated_sections": []
+        },
+        "status": "completed",
+        "error": null
+      },
+      {
+        "step_index": 6,
+        "step_id": "login-form",
+        "action": "wait_for_timeout",
+        "elapsed_ms": 1522,
+        "before_url": {
+          "url": "https://shopmy.us/home",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "after_url": {
+          "url": "https://shopmy.us/home",
+          "origin": "https://shopmy.us",
+          "query_parameter_names": [],
+          "redacted": false
+        },
+        "event_sequence_start": 1,
+        "event_sequence_end": 0,
+        "artifacts": {
+          "screenshot": {
+            "state": "not_requested"
+          },
+          "dom": {
+            "state": "not_requested"
+          },
+          "accessibility": {
+            "state": "captured",
+            "value": {
+              "sha256": "c8a70ce89a3030a62b4da3851727d1a1354743f531fd106e69e3203a4bc3f73c",
+              "bytes": 7856,
+              "text": "- document:\n  - text: Log in to continue.\n  - textbox \"Email\"\n  - textbox \"Password\"\n  - text: By clicking \"Log In\", you agree to the ShopMy Terms of Service and Privacy Policy.\n  - button \"Log in\" [disabled]\n  - text: Forgot Your Password? If you have an invitation code, click here to create your account.\n  - img \"ShopMy Logo\"\n  - navigation:\n    - link \"For Shoppers\":\n      - /url: /home/shoppers\n    - link \"For Creators\":\n      - /url: /home/creators\n    - link \"For Brands\":\n      - /url: /home/brands\n    - button \"Log In\"\n    - button \"Sign Up\"\n    - textbox \"What are you shopping for?\"\n    - button \"Menu Icon\":\n      - img \"Menu Icon\"\n  - heading \"Curated by the obsessed, not the algorithm.\" [level=1]\n  - heading \"Shop the recommendations of the world's most trusted curators.\" [level=2]\n  - text: It's better on mobile. Access to our newest feature, Noir, a 1:1 text-based concierge offering personalized recommendations from a real human.\n  - link \"App Store\":\n    - /url: https://apps.apple.com/us/app/shopmy/id6443850511\n    - img \"App Store\"\n  - text: Shop by Curator Insider access to your favorite tastemakers' most loved and trusted products.\n  - link \"Shop All Curators\":\n    - /url: /shop/discover/curators\n  - link \"Sofia Richie Grainge\":\n    - /url: /shop/sofiarichiegrainge\n    - img \"Sofia Richie Grainge\"\n  - link \"Alexandra Leclerc\":\n    - /url: /shop/alexandraleclerc\n    - img \"Alexandra Leclerc\"\n  - link \"Elsa Hosk\":\n    - /url: /shop/hoskelsa\n    - img \"Elsa Hosk\"\n  - link \"Lila Moss\":\n    - /url: /shop/lilamoss\n    - img \"Lila Moss\"\n  - link \"Nara Smith\":\n    - /url: /shop/naraaziza\n    - img \"Nara Smith\"\n  - link \"aurora\":\n    - /url: /shop/aurorajames\n    - img \"aurora\"\n  - link \"Marianna Hewitt\":\n    - /url: /shop/mariannahewitt\n    - img \"Marianna Hewitt\"\n  - link \"Hailee Steinfeld\":\n    - /url: /shop/haileesteinfeld\n    - img \"Hailee Steinfeld\"\n  - link \"Kelly Wearstler\":\n    - /url: /shop/kellywearstler\n    - img \"Kelly Wearstler\"\n  - text: Shop by Circle Create groups of curators who share your style and shop their top recommendations. Create Circle\n  - link \"Shop All Circles\":\n    - /url: /shop/discover/circles\n  - link \"The ShopMy Team\":\n    - /url: /shop?CuratorGroup_id=682&tab=popular-monthly\n    - img \"The ShopMy Team\"\n  - link \"Stylists\":\n    - /url: /shop?Industry_id=1&Department_id=44&CuratorGroup_id=1384&tab=popular-monthly\n    - img \"Stylists\"\n  - link \"Tastemakers in the Kitchen\":\n    - /url: /shop?Industry_id=5&CuratorGroup_id=2189&tab=popular-monthly\n    - img \"Tastemakers in the Kitchen\"\n  - link \"Professional Makeup Artists\":\n    - /url: /shop?Industry_id=2&Department_id=2&CuratorGroup_id=2191&tab=popular-monthly\n    - img \"Professional Makeup Artists\"\n  - link \"Interior Designers\":\n    - /url: /shop?Industry_id=5&CuratorGroup_id=616&tab=popular-monthly\n    - img \"Interior Designers\"\n  - link \"Fashion Industry Insiders\":\n    - /url: /shop?Industry_id=1&CuratorGroup_id=1383&tab=popular-monthly\n    - img \"Fashion Industry Insiders\"\n  - link \"Beauty Industry Insiders\":\n    - /url: /shop?Industry_id=2&CuratorGroup_id=2205&tab=popular-monthly\n    - img \"Beauty Industry Insiders\"\n  - link \"Designers & Founders\":\n    - /url: /shop?CuratorGroup_id=350644&tab=popular-monthly\n    - img \"Designers & Founders\"\n  - img\n  - text: The best things in life are worth sharing. Sign Up Create a Circle Shop by Category Confidently shop the best of every category.\n  - link \"Shop All Categories\":\n    - /url: /shop/discover/categories\n  - link \"Necklaces\":\n    - /url: /shop?Category_id=227&tab=popular-monthly\n    - img \"Necklaces\"\n  - link \"Jeans\":\n    - /url: /shop?Category_id=203&tab=popular-monthly\n    - img \"Jeans\"\n  - link \"Sandals\":\n    - /url: /shop?Category_id=183&tab=popular-monthly\n    - img \"Sandals\"\n  - link \"Dresses\":\n    - /url: /shop?Category_id=192&tab=popular-monthly\n    - img \"Dresses\"\n  - link \"Blazers\":\n    - /url: /shop?Category_id=243&tab=popular-monthly\n    - img \"Blazers\"\n  - link \"Sneakers\":\n    - /url: /shop?Category_id=184&tab=popular-monthly\n    - img \"Sneakers\"\n  - link \"Tote Bags\":\n    - /url: /shop?Category_id=211&tab=popular-monthly\n    - img \"Tote Bags\"\n  - link \"Flats\":\n    - /url: /shop?Category_id=186&tab=popular-monthly\n    - img \"Flats\"\n  - text: Shop by Brand Explore top-tier products from brands you know and discover new brands you'll love.\n  - link \"Shop All Brands\":\n    - /url: /shop/discover/brands\n  - link \"Call It By Your Name\":\n    - /url: /shop?AllBrand_id=8877&tab=popular-monthly\n    - img \"Call It By Your Name\"\n  - link \"Emme Parsons\":\n    - /url: /shop?AllBrand_id=713&tab=popular-monthly\n    - img \"Emme Parsons\"\n  - link \"ALÉMAIS\":\n    - /url: /shop?AllBrand_id=6249&tab=popular-monthly\n    - img \"ALÉMAIS\"\n  - link \"Sofie Pavitt Face\":\n    - /url: /shop?AllBrand_id=502&tab=popular-monthly\n    - img \"Sofie Pavitt Face\"\n  - link \"Olive Ateliers\":\n    - /url: /shop?AllBrand_id=837&tab=popular-monthly\n    - img \"Olive Ateliers\"\n  - link \"Liberowe\":\n    - /url: /shop?AllBrand_id=1206&tab=popular-monthly\n    - img \"Liberowe\"\n  - link \"Suzie Kondi\":\n    - /url: /shop?AllBrand_id=814&tab=popular-monthly\n    - img \"Suzie Kondi\"\n  - link \"Ceremonia\":\n    - /url: /shop?AllBrand_id=4915&tab=popular-monthly\n    - img \"Ceremonia\"\n  - text: For Creators\n  - list:\n    - listitem:\n      - link \"ShopMy For Creators\":\n        - /url: /home/creators\n    - listitem:\n      - link \"Digital Shops\":\n        - /url: /home/creators/shop\n    - listitem:\n      - link \"Affiliate Links\":\n        - /url: /home/creators/affiliates\n    - listitem:\n      - link \"Brand Partnerships\":\n        - /url: /home/creators/partnerships\n    - listitem:\n      - link \"Apply to be a Creator\":\n        - /url: /apply/creator\n    - listitem:\n      - link \"Webinars\":\n        - /url: /home/creators/webinars\n  - text: For Brands\n  - list:\n    - listitem:\n      - link \"ShopMy For Brands\":\n        - /url: /home/brands\n    - listitem:\n      - link \"Discover\":\n        - /url: /home/brands/discover\n    - listitem:\n      - link \"Engage\":\n        - /url: /home/brands/engage\n    - listitem:\n      - link \"Track\":\n        - /url: /home/brands/track\n    - listitem:\n      - link \"Amplify\":\n        - /url: /home/brands/amplify\n  - text: For Shoppers\n  - list:\n    - listitem:\n      - link \"Shop By Curator\":\n        - /url: /shop/discover/curators\n    - listitem:\n      - link \"Shop By Circle\":\n        - /url: /shop/discover/circles\n    - listitem:\n      - link \"Shop By Brand\":\n        - /url: /shop/discover/brands\n    - listitem:\n      - link \"Shop By Category\":\n        - /url: /shop/discover/categories\n    - listitem:\n      - link \"My Circles\":\n        - /url: /shop/my/circles\n    - listitem:\n      - link \"My Taste Profile\":\n        - /url: /shop/my/taste\n  - text: Explore\n  - list:\n    - listitem:\n      - link \"Blog\":\n        - /url: /blog\n    - listitem:\n      - link \"About Us\":\n        - /url: /about\n    - listitem:\n      - link \"Careers\":\n        - /url: /careers\n    - listitem:\n      - link \"Shop All Categories\":\n        - /url: /shop\n    - listitem:\n      - link \"Reports\":\n        - /url: /reports\n  - text: Support + Legal\n  - list:\n    - listitem:\n      - link \"Creator Guide\":\n        - /url: https://guide.shopmy.us\n    - listitem:\n      - link \"Brand Guide\":\n        - /url: https://brands.shopmy.us\n    - listitem:\n      - link \"Contact Us\":\n        - /url: /contact\n    - listitem:\n      - link \"Terms of Service\":\n        - /url: https://shopmy.us/legal/terms-of-service\n    - listitem:\n      - link \"Privacy\":\n        - /url: https://shopmy.us/legal/privacy-policy\n  - link \"ShopMy Logo\":\n    - /url: /home\n    - img \"ShopMy Logo\"\n  - text: © Copyright 2026 Shop My Shelf, Inc. All Rights Reserved. |\n  - link \"Do Not Sell or Share My Personal Information\":\n    - /url: /do-not-sell\n  - text: \"| Cookie Settings\""
+            }
+          },
+          "url": {
+            "state": "captured",
+            "value": {
+              "url": "https://shopmy.us/home",
+              "origin": "https://shopmy.us",
+              "query_parameter_names": [],
+              "redacted": false
+            }
+          },
+          "history": {
+            "state": "not_requested"
+          },
+          "storage": {
+            "state": "not_requested"
+          }
+        },
+        "completeness": {
+          "status": "complete",
+          "equality_eligible": true,
+          "missing_sections": [],
+          "truncated_sections": []
+        },
+        "status": "completed",
+        "error": null
+      }
+    ],
+    "events": {
+      "retained": 0,
+      "dropped": 0,
+      "items": [],
+      "omissions": {
+        "by_kind": [],
+        "network_transactions": [],
+        "network_transaction_range": null
+      }
+    },
+    "completeness": {
+      "status": "complete",
+      "equality_eligible": true,
+      "missing_sections": [],
+      "truncated_sections": []
+    },
+    "limitations": [
+      "Event sequence records provider receipt order; simultaneous browser causality is not inferred.",
+      "Network content is retained only when selected; Playwright response-body bytes are API results and are not guaranteed to match wire bytes.",
+      "Request bytes are limited to what Playwright exposes; not_exposed does not establish body absence or multipart file coverage.",
+      "Network content reads settle within 5 seconds each and the observer does not request bodies from unfinished responses.",
+      "Playwright scenario events do not expose request initiator stacks; receipt order does not prove causality.",
+      "Storage values are hashed only after declared-secret redaction."
+    ]
+  },
+  "confidence": "observed",
+  "authority": "controlled-replay",
+  "environment": {
+    "id": "Chromium@157.0.8103.39",
+    "platform": "unknown",
+    "architecture": "unknown",
+    "isolation": "process"
+  },
+  "limitations": [
+    "Artifact identity is unavailable for this observation.",
+    "Event sequence records provider receipt order; simultaneous browser causality is not inferred.",
+    "Network content is retained only when selected; Playwright response-body bytes are API results and are not guaranteed to match wire bytes.",
+    "Request bytes are limited to what Playwright exposes; not_exposed does not establish body absence or multipart file coverage.",
+    "Network content reads settle within 5 seconds each and the observer does not request bodies from unfinished responses.",
+    "Playwright scenario events do not expose request initiator stacks; receipt order does not prove causality.",
+    "Storage values are hashed only after declared-secret redaction.",
+    "Browser host platform and architecture were not observed."
+  ],
+  "relationship_coverage": null,
+  "locations": [],
+  "evidence_links": []
+}

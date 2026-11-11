@@ -1,9 +1,9 @@
 'use client';
 import {useState} from 'react';
 import Link from 'next/link';
-import {money,products} from '../lib/catalog';
+import {money,type Product} from '../lib/catalog';
 import Art from './Art';
-export default function Catalog({collection}:{collection?:string}){
+export default function Catalog({collection,products}:{collection?:string,products:Product[]}){
  const [query,setQuery]=useState(''),[category,setCategory]=useState('Todos'),[sort,setSort]=useState('recentes'),[saved,setSaved]=useState<string[]>([]);
  const normalize=(text:string)=>text.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('pt-BR').trim();
  const list=products.filter(p=>(!collection||p.collection===collection)&&(category==='Todos'||p.category===category)&&normalize(`${p.name} ${p.brand}`).includes(normalize(query))).sort((a,b)=>sort==='menor'?a.price-b.price:sort==='maior'?b.price-a.price:0);

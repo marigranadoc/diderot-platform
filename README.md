@@ -25,3 +25,7 @@ Para abrir a versão compilada: `npm.cmd run build` e `npm.cmd start`. Não exec
 - `/produto/bolsa-oliva` e outros itens do catálogo: detalhes.
 
 Favoritos existem apenas na instância da tela: desaparecem ao recarregar ou remontar o catálogo ao navegar. A disponibilidade abre uma explicação demonstrativa; não leva a uma loja real. Esta etapa não inclui toda a plataforma ShopMy.
+
+## Catálogo conectado
+
+A vitrine consulta o Supabase no servidor. Antes de iniciar, configure `.env.local` conforme [docs/INTEGRACOES.md](docs/INTEGRACOES.md). Para a demonstração offline, defina explicitamente `DIDEROT_DATA_SOURCE=demo`. O modo conectado não usa fallback silencioso. `node scripts/check-database.mjs` verifica o catálogo demonstrativo remoto e o bloqueio de escrita pública. Login, favoritos persistentes e gestão permanecem pendentes.

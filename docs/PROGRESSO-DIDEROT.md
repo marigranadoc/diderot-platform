@@ -6,7 +6,7 @@ Auditoria: **11/11/2026**, horário de referência America/Sao_Paulo. Pasta do p
 
 A Diderot implementa uma **vitrine pública demonstrativa**. Não implementa a plataforma completa de shopper, creator, brand e administrador. O caminho `/criador` é o perfil público de uma criadora fictícia, não um painel de gestão.
 
-Existem 13 endereços de conteúdo: início, perfil público, três coleções e oito produtos. Também existe uma página 404. Os dados vêm de `lib/catalog.ts`; os filtros e favoritos usam estado React em `components/Catalog.tsx`. Não há banco, migração, API de negócio, login, sessão autenticada, verificação de papel/proprietário ou gravação persistente. Não há integração financeira nem alteração de dados reais nesta auditoria.
+Existem 13 endereços de conteúdo: início, perfil público, três coleções e oito produtos. Também existe uma página 404. O catálogo agora é lido de duas tabelas Supabase por `lib/catalog-store.ts`, com migração e dados demonstrativos persistidos. `lib/catalog.ts` permanece como fixture do modo offline explícito. Os filtros e favoritos ainda usam estado React em `components/Catalog.tsx`. Não há login, sessão autenticada, verificação de papel/proprietário ou gravação persistente de favoritos. Não há integração financeira nem alteração de dados reais nesta auditoria.
 
 O usuário confirmou que não havia PRD. Foi criado [PRD-DIDEROT-REFERENCIA.md](PRD-DIDEROT-REFERENCIA.md), separando requisitos observados via REA, declarações comerciais da ShopMy, exigências desta auditoria e escopo anterior do protótipo. Esse documento é uma referência derivada, não um PRD oficial da ShopMy nem prova de acesso a áreas privadas.
 
@@ -22,7 +22,11 @@ Evidência primária: [REA público](evidencias/rea-publico.json), [REA formulá
 
 Testes: `tests/store.spec.ts` contém os três cenários anteriores, executados em dois tamanhos; `tests/audit.spec.ts` contém cinco cenários de validação e quatro cenários de lacunas, também executados nos dois tamanhos. Identificadores AUD e GAP abaixo correspondem aos nomes desses testes. Provar a ausência de uma entrada não equivale a executar etapas internas inexistentes.
 
-## Tabela funcional: requisito, código, teste e correção
+## Matriz original da auditoria (antes da integração Supabase)
+
+A matriz abaixo preserva o diagnóstico inicial. A atualização de integração ao final deste documento substitui especificamente as conclusões sobre a origem e persistência do catálogo; não conclui contas, favoritos ou gestão.
+
+### Tabela funcional: requisito, código, teste e correção
 
 **Status:** DEMO = executa de verdade sobre dados fictícios locais; PARCIAL = parte da jornada existe; AUSENTE = não implementado; CORRIGIDO = falha reproduzida e corrigida; NÃO VERIFICADO = evidência insuficiente. Um status DEMO não implica banco, autenticação ou persistência.
 
@@ -146,3 +150,18 @@ O teste novo de busca teve sua expectativa de dados corrigida: existem **dois**,
 ## Limites da conclusão
 
 Testes móveis são em Chromium com viewports, não aparelhos físicos. A suíte não comprova banco, permissões, segurança de contas, entrega de mensagens, transações ou o comportamento de áreas privadas externas. Acessibilidade recebeu verificações pontuais de rótulos, teclado, âncoras e largura; não houve auditoria WCAG completa. Não foram executados testes de carga, compatibilidade multibrowser, recuperação de banco ou integrações ausentes. Não há justificativa para anunciar a plataforma como pronta para produção.
+
+## Atualização: integração Supabase em 11/11/2026
+
+| Módulo | Rota | Funcionalidade | Status real | Evidência de teste | Problemas | Correção necessária |
+|---|---|---|---|---|---|---|
+| Catálogo T01/S01/S04/S06 | `/`, `/criador`, `/colecoes/[slug]`, `/produto/[slug]` | Leitura persistente de coleções/produtos | INTEGRADO ao Supabase; 3 coleções/8 produtos fictícios | `scripts/check-database.mjs`; consultas SQL e API | Ainda sem CRUD de gestão | Implementar identidade, propriedade e gestão antes de conceder escrita |
+| Permissões T02 | API de collections/products | Apenas leitura dos publicados | RLS ativa e escrita negada a anon/authenticated | API UPDATE retorna 42501; teste SQL com ROLLBACK oculta itens não publicados | Ainda não há autorização por creator | Implementar junto ao modelo de contas, sem liberar escrita global |
+| Erros T03 | Quatro páginas conectadas | Falha de banco apresenta erro/repetição | Implementado em `app/error.tsx`; sem fallback silencioso | Build e revisão; falha de rede visual ainda não automatizada | Cobertura negativa de interface pendente | Testar indisponibilidade e recuperação |
+| Automação T04 | Suíte | Encerramento no Windows | Corrigido com processos Node diretos | `auditoria-encerramento.json`: 16 aprovados/8 falhas; processo encerrou sozinho com código 1; porta liberada | Chromium apenas | Ampliar navegadores quando houver jornadas autenticadas |
+
+A integração usa somente chave publicável local, com pacote @supabase/supabase-js fixado em 2.119.0 e lockfile. Os registros temporários dos testes RLS foram revertidos. Nenhum usuário Auth foi criado, nenhum dado real foi alterado e nenhuma integração financeira foi usada.
+
+A prioridade seguinte permanece A01/T02: identidade e autorização por proprietário. A persistência do catálogo resolve parte de T01, mas GAP-01/02/03/04 continuam abertos. Não há justificativa para declarar as jornadas de shopper, creator, brand ou administrador completas.
+
+Resultado conectado: **16 aprovados / 8 falhas**, 24 casos, zero pulados, aproximadamente 2,4 minutos, em `evidencias/auditoria-supabase.json`. Build e TypeScript aprovados. O processo encerrou sozinho com código 1, preservando as falhas reais. A mensagem antiga de GAP-01 no relatório diz que não há banco; essa descrição foi corrigida no teste após a execução: há banco para catálogo, mas não para favoritos. A asserção e a falha permanecem as mesmas.

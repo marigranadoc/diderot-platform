@@ -6,12 +6,13 @@
     "dev": "next dev --hostname 127.0.0.1",
     "build": "next build",
     "start": "next start --hostname 127.0.0.1",
-    "test": "playwright test",
+    "test": "node scripts/test.mjs",
     "typecheck": "tsc --noEmit",
-    "test:vitrine": "playwright test --grep-invert @pendente",
-    "test:audit": "playwright test"
+    "test:vitrine": "node scripts/test.mjs --grep-invert @pendente",
+    "test:audit": "node scripts/test.mjs"
   },
   "dependencies": {
+    "@supabase/supabase-js": "2.119.0",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"

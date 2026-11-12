@@ -1,0 +1,32 @@
+import assert from 'node:assert/strict';
+import {chromium,expect} from '@playwright/test';
+const email=process.env.DIDEROT_TEST_EMAIL,password=process.env.DIDEROT_TEST_PASSWORD;
+assert.ok(email&&password,'Informe as credenciais da conta demonstrativa em variáveis de ambiente.');
+const base=new URL(process.env.DIDEROT_TEST_BASE_URL??'http://127.0.0.1:3002');
+assert.ok(['127.0.0.1','localhost'].includes(base.hostname),'O teste com credenciais demonstrativas só permite a prévia local.');
+const browser=await chromium.launch({executablePath:process.env.DIDEROT_CHROME_PATH??'C:/Program Files/Google/Chrome/Application/chrome.exe'});
+const checks=[];
+try{
+ const page=await browser.newPage({viewport:{width:390,height:844}});
+ await page.goto(new URL('/conta',base).href);
+ await page.getByLabel('E-mail',{exact:true}).fill(email);
+ await page.getByLabel('Senha',{exact:true}).fill(password);
+ await page.getByRole('button',{name:'Entrar',exact:true}).click();
+ await page.getByRole('link',{name:'Abrir painel do criador'}).click();
+ await expect(page.getByRole('heading',{name:'Painel do criador',exact:true})).toBeVisible();
+ await expect(page.getByRole('heading',{name:/\d+ serviços? cadastrado/})).toBeVisible();
+ await expect(page.getByRole('heading',{name:/\d+ trabalhos? cadastrado/})).toBeVisible();
+ assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+ checks.push('login_e_painel_real_mobile','contagens_lidas_do_banco');
+ await page.getByRole('link',{name:'Gerenciar serviços',exact:true}).click();
+ await expect(page.getByRole('button',{name:'Salvar serviço'})).toBeVisible();checks.push('servicos_autenticados');
+ await page.goto(new URL('/painel/criador',base).href);
+ await page.getByRole('link',{name:'Gerenciar portfólio',exact:true}).click();
+ await expect(page.getByRole('button',{name:'Salvar trabalho'})).toBeVisible();checks.push('portfolio_autenticado');
+ await page.goto(new URL('/conta',base).href);
+ await page.getByRole('button',{name:'Sair da conta'}).click();
+ await expect(page.getByRole('button',{name:'Entrar',exact:true})).toBeVisible();
+ await page.goto(new URL('/painel/criador',base).href);
+ await expect(page.getByRole('link',{name:'Entrar na minha conta'})).toBeVisible();checks.push('logout_bloqueia_painel');
+ console.log(JSON.stringify({date:new Date().toISOString(),status:'passed',checks,limits:'Uma conta demonstrativa em Chrome móvel simulado; não valida entrega de e-mail, outros navegadores ou dispositivos físicos.'}));
+}finally{await browser.close();}

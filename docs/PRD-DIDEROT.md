@@ -652,3 +652,9 @@ U04 agora possui gestão privada em `/conta/criador/servicos`: criar/listar/edit
 ## 28. Portfólio por links — incremento de 12/11/2026
 
 U03 agora tem gestão privada em `/conta/criador/portfolio`, com título, tipo, categoria, descrição, participação e URL HTTPS. Criar, editar, reler e excluir possuem controles e retorno confirmado do banco; exclusão não apaga o arquivo externo. Migração `20261112162722_creator_portfolio.sql` aplicada. Estado PARCIAL: upload de mídia, miniaturas, publicação, vínculo autorizado com marcas e métricas ainda ausentes; não declarar U03 completo. [Evidências e limites](PORTFOLIO-CREATOR.md). A privacidade na Diderot não altera a configuração do site de origem do link.
+
+## 29. Painel e validação real — incremento de 12/11/2026
+
+Disponível `/painel/criador` com perfil, serviços e portfólio, contagens remotas e estado de falha sem números fictícios. Login real e navegação móvel foram verificados com a conta demonstrativa solicitada. Persistência de serviços, portfólio e favorito foi confirmada em duas sessões da mesma conta; somente fixtures identificadas foram criadas/removidas. Testes RLS de favoritos/perfil/conteúdo com duas identidades temporárias e claims controladas passaram no banco remoto e foram revertidos. [Evidências e limites](PAINEL-CREATOR.md).
+
+Essas evidências atualizam as afirmações históricas de Auth real/isolamento não testados. Ainda não comprovam dois logins reais distintos, entrega de e-mail, gestão de loja ou módulos brand/admin. A entrada de creator de GAP-02 existe agora; C02 continua parcial/ausente no que se refere a catálogo editável. Nenhuma migração adicional foi necessária.

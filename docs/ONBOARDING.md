@@ -40,3 +40,5 @@ O Turbopack falhou duas vezes ao iniciar o processo de transformação de CSS. A
 Validar Auth real/URLs e executar os testes SQL de isolamento; então evoluir o perfil privado para portfólio, serviços e diretório com políticas próprias. Não existe ainda painel de gestão de loja, brand ou administrador. Selecionar UGC não concede aprovação, contrato, campanha ou remuneração.
 
 A tela limpa os campos na saída ou troca de usuário em outra aba e consulta novamente a sessão antes de carregar o próximo perfil. O teste ONB-07 cobre esse contrato com duas abas e identidades simuladas.
+
+Atualização de validação: testes de sessão real e isolamento remoto foram executados em 12/11/2026. Consulte [PAINEL-CREATOR.md](PAINEL-CREATOR.md) para resultados e limites; as pendências históricas de isolamento desses módulos foram superadas no escopo dos testes documentados. Entrega de e-mail e duas sessões Auth de identidades distintas continuam pendentes.

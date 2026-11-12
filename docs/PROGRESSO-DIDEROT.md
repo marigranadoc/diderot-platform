@@ -216,3 +216,15 @@ Reexecução direcionada: **4/4 testes de serviços aprovados**, 18,7 s, em `evi
 Implementada `/conta/criador/portfolio` com CRUD de trabalhos por link HTTPS, tipo, título, descrição, categoria e participação; exclusão confirmada e falha sem falso sucesso. Migração `20261112162722_creator_portfolio.sql` aplicada com RLS por proprietário e UPDATE de user_id negado. A API real negou leitura anônima (42501); zero itens na inspeção. U03 permanece PARCIAL: upload, miniaturas, publicação e validação remota entre usuários ainda pendentes. [Detalhes](PORTFOLIO-CREATOR.md). Nenhum dado real, mensagem ou operação financeira foi usado. O alerta Auth de proteção contra senhas vazadas permanece registrado.
 
 Validação: build e TypeScript aprovados; **24/24 testes direcionados aprovados**, computador/celular, em `docs/evidencias/portfolio-creator.json`. Cobertura: onboarding, serviços e portfólio; Auth/itens de interface simulados. A API anônima remota foi testada separadamente e negou acesso. As oito lacunas da auditoria integral permanecem abertas; isolamento entre usuários autenticados reais e envio de e-mail ainda não foram validados.
+
+## Painel e validação real — 12/11/2026
+
+Implementado `/painel/criador`, com resumo privado, contagens exatas de serviços/portfólio e acesso aos três módulos. Falha de consulta não vira número zero. Entrada no rodapé e na conta. [Evidências detalhadas](PAINEL-CREATOR.md).
+
+Os testes antes pendentes `supabase/tests/favorites.sql` e `supabase/tests/creator-profiles.sql` foram executados e passaram; adicionado/executado `supabase/tests/creator-content.sql`, também aprovado. Usam duas identidades temporárias, papel/claims controlados no banco e ROLLBACK. A API real da conta demonstrativa passou por criação, releitura, edição e limpeza de fixtures em duas sessões. Chrome móvel simulado passou por login real, painel, acessos de gestão e logout. Nenhuma senha ou token foi salvo no repositório. Não houve envio de mensagem nem operação financeira.
+
+GAP-02 passa a encontrar a entrada da área de creator; isso não conclui gestão de produtos/coleções C02. As lacunas de visitante, marca e administração continuam explícitas. Confirmação/recuperação por e-mail real e duas identidades Auth end-to-end ainda não foram validadas.
+
+A auditoria integral registrou **48 aprovados/8 falhas** em 56 casos (`evidencias/auditoria-painel.json`): seis falhas GAP (visitante, brand e administrador em dois tamanhos) e duas falhas do mock de contagem. Corrigida a exposição do cabeçalho Content-Range no mock. O navegador com backend real já havia passado. GAP-02 passou a verificar a entrada existente, sem comprovar gestão de catálogo. A inspeção após os testes confirmou zero fixtures identificadas de serviços/portfólio remanescentes; dados preexistentes não foram limpos.
+
+Reexecução direcionada do painel: **4/4 aprovados**, 26,3 s, em `evidencias/painel-revalidado.json`. Build e TypeScript aprovados. Não foi repetida a suíte integral após a alteração exclusiva do mock; não anunciar uma execução única 50/56. As verificações API, navegador real e SQL estão em evidências separadas.

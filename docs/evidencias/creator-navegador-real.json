@@ -1,0 +1,1 @@
+{"date":"2026-11-12T16:46:34.571Z","status":"passed","checks":["login_e_painel_real_mobile","contagens_lidas_do_banco","servicos_autenticados","portfolio_autenticado","logout_bloqueia_painel"],"limits":"Uma conta demonstrativa em Chrome móvel simulado; não valida entrega de e-mail, outros navegadores ou dispositivos físicos."}

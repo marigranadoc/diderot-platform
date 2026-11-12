@@ -27,3 +27,5 @@ O advisor retornou um alerta de Auth: proteção contra senhas vazadas desabilit
 Portfólio e serviços públicos exigem regras de publicação/privacidade e autorização de mídia. Contratação direta, campanhas, pagamentos e licença continuam não implementados. Não confundir uma oferta cadastrada com contrato ou receita.
 
 Verificação remota adicional: `node scripts/check-services.mjs` passou; leitura anônima negada pela API com código 42501. Isso não comprova isolamento entre usuários autenticados. O alerta de senhas vazadas do advisor permanece pendente de configuração.
+
+Atualização de validação: testes de sessão real e isolamento remoto foram executados em 12/11/2026. Consulte [PAINEL-CREATOR.md](PAINEL-CREATOR.md) para resultados e limites; as pendências históricas de isolamento desses módulos foram superadas no escopo dos testes documentados. Entrega de e-mail e duas sessões Auth de identidades distintas continuam pendentes.

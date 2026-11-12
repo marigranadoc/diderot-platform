@@ -1,0 +1,7 @@
+{
+  "chunk_id": "e8b766",
+  "wall_time_seconds": 3.7231646,
+  "exit_code": 0,
+  "original_token_count": 60,
+  "output": "{\"status\":\"passed\",\"checks\":[\"real_demo_auth_login\",\"authenticated_inbox_rpc\",\"recipient_scope\"],\"limits\":\"Read-only inbox API check; authenticated mutations and two-person workflow tested separately in PostgreSQL with rollback fixtures.\"}\n"
+}

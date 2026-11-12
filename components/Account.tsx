@@ -10,6 +10,12 @@ export default function Account() {
   const [busy, setBusy] = useState(true);
   const [message, setMessage] = useState('');
   useEffect(() => {
+    const hash = new URLSearchParams(window.location.hash.slice(1));
+    const query = new URLSearchParams(window.location.search);
+    if (hash.has('error') || query.has('error')) {
+      setMessage('O link de confirmação não é válido ou expirou. Tente entrar ou recuperar seu acesso.');
+      window.history.replaceState(null,'',window.location.pathname);
+    }
     const client = getBrowserClient();
     if (!client) {setMessage('O acesso por conta ainda não está configurado.'); setBusy(false); return;}
     let active = true;
@@ -41,12 +47,12 @@ export default function Account() {
     finally {setBusy(false);}
   }
   return <section className="account-card"><span className="eyebrow">SUAS DESCOBERTAS</span><h1>Minha conta</h1>
-    {signedIn ? <><p>Você está conectado. Os favoritos salvos na loja ficam vinculados à sua conta.</p><Link className="dark-button" href="/criador#catalogo">Explorar e salvar produtos</Link><p><button onClick={logout} disabled={busy}>Sair da conta</button></p></> : <>
+    {signedIn ? <><p>Você está conectado. Os favoritos salvos na loja ficam vinculados à sua conta.</p><Link className="dark-button" href="/criador#catalogo">Explorar e salvar produtos</Link><Link href="/conta/criador">Configurar perfil de creator</Link><p><button onClick={logout} disabled={busy}>Sair da conta</button></p></> : <>
       <p>Entre para guardar suas escolhas entre visitas.</p><form onSubmit={login}>
         <label>E-mail<input type="email" autoComplete="email" required value={email} onChange={e=>setEmail(e.target.value)}/></label>
         <label>Senha<input type="password" autoComplete="current-password" required value={password} onChange={e=>setPassword(e.target.value)}/></label>
         <button className="dark-button" disabled={busy}>{busy?'Aguarde…':'Entrar'}</button>
-      </form><p>O acesso está disponível para contas já cadastradas. O cadastro público ainda não foi liberado.</p>
+      </form><Link href="/cadastro">Criar uma conta</Link><Link href="/recuperar-acesso">Esqueci minha senha</Link>
     </>}
     {message&&<p role="alert">{message}</p>}
   </section>;

@@ -12,7 +12,7 @@ test('AUTH-01 acesso rejeitado apresenta erro sem simular login', async ({page})
 });
 
 test('AUTH-02 contrato simulado: login, favorito, reload, remoção e logout', async ({page}) => {
-  // Browser contract only. Real database authorization is tested in supabase/tests/favorites.sql.
+  // Browser contract only. The real database test is prepared in supabase/tests/favorites.sql and remains pending execution.
   const id='11111111-1111-4111-8111-111111111111';
   const user={id,aud:'authenticated',role:'authenticated',email:'teste@example.invalid',app_metadata:{},user_metadata:{},created_at:new Date().toISOString()};
   const exp=Math.floor(Date.now()/1000)+3600;

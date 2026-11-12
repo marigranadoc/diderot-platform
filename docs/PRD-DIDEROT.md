@@ -1,6 +1,6 @@
 # PRD Diderot — produto, implementação e próximos passos
 
-**Versão:** 1.1 — Creator Commerce + Marketplace UGC · **Atualizado em:** 12/11/2026 · **Base de implementação:** inspeções e execuções de 11/11/2026.
+**Versão:** 1.2 — primeiro incremento de contas e onboarding UGC · **Atualizado em:** 12/11/2026 · **Base de implementação:** histórico de 11/11/2026 e incremento de 12/11/2026, detalhado na seção 26.
 
 **Estado:** documento de referência para desenvolvimento. O estado implementado está documentado; as decisões de produto propostas estão identificadas e ainda precisam ser validadas. Não representa aprovação para lançamento.
 
@@ -78,7 +78,7 @@ Esta consolidação reutiliza as capturas existentes. Não apresenta uma nova in
 
 ### 3.4 O que não está concluído
 
-Não há cadastro público, recuperação de senha, papéis de creator/brand/admin, gestão de catálogo, candidatura, campanhas, moderação, diretórios de múltiplos creators, grupos, perfil de gosto, recomendações, afiliados ou relatórios. Não houve publicação do site, uso de pagamentos, envio de mensagens, compra ou alteração de dados reais. A implementação de login e favoritos não comprova uma jornada autenticada remota concluída.
+Cadastro e recuperação agora têm formulários integrados, mas a jornada com e-mail/Auth real permanece sem validação. Há perfil inicial privado e modalidades profissionais; não há papéis operacionais de creator/brand/admin, gestão de catálogo, candidatura, campanhas, moderação, diretórios de múltiplos creators, grupos, perfil de gosto, recomendações, afiliados ou relatórios. Não houve publicação do site, uso de pagamentos, envio de mensagens, compra ou alteração de dados reais. A implementação de login e favoritos não comprova uma jornada autenticada remota concluída.
 
 ## 4. Escopo, fases e prioridades
 
@@ -129,9 +129,9 @@ O convite ao aplicativo visto na referência é registrado como observação, n�
 
 | ID | Requisito e origem | Estado atual | Critério de aceite / pendência | Prioridade |
 |---|---|---|---|---|
-| A01 | Login, logout e recuperação — observado E2 | Parcial: login/logout por senha, teste simulado; recuperação ausente | Sessão real, credenciais inválidas, expiração, retorno após reload e saída verificados; recuperação com token expirado/reutilizado tratada em ambiente de teste | P1 |
+| A01 | Login, logout e recuperação — observado E2 | Parcial: login/logout e recuperação implementados; contratos simulados | Sessão real, credenciais inválidas, expiração, retorno após reload e saída verificados; recuperação com token expirado/reutilizado tratada em ambiente de teste | P1 |
 | A02 | Papéis shopper/creator/brand e isolamento — observado E2 e exigência local | Ausente para papéis; favoritos têm política por usuário | Papel e propriedade validados no servidor/banco; selecionar perfil na tela não concede privilégio; usuário não promove a si mesmo | P1 |
-| A03 | Cadastro e confirmação de conta — proposta para completar jornada | Ausente | Criar conta em ambiente de teste, confirmar quando exigido, tratar duplicidade e erros; definir reenvio e retorno após confirmação | P1 |
+| A03 | Cadastro e confirmação de conta — proposta para completar jornada | Parcial: formulário e resposta de confirmação implementados; e-mail real pendente | Criar conta em ambiente de teste, confirmar quando exigido, tratar duplicidade e erros; definir reenvio e retorno após confirmação | P1 |
 
 A diretriz U0 define que uma conta creator pode reunir UGC, influencer e afiliado, sem cadastros separados. Essas modalidades profissionais são diferentes de papéis de segurança. Continua pendente a política de acumulação entre shopper, creator, membro de marca e administrador. Proposta inicial: shopper pode habilitar atuação creator; marcas têm vínculo organizacional; administrador nunca é autoatribuível. A seleção de modalidades não concede acesso a recursos de terceiros.
 
@@ -180,7 +180,7 @@ Nenhuma tela administrativa da ShopMy foi inspecionada. Os requisitos M01/M02 s�
 
 **Alvo:** cadastrar/confirmar → entrar → salvar → recarregar → sair → entrar novamente → reencontrar → remover. Repetir em outra sessão e com segunda conta sem acesso ao primeiro conjunto.
 
-**Atual:** cliente de login/logout e operações de favoritos implementados; contrato de interface simulado passou. Não há conta real de teste registrada nem cadastro público. A transferência de favoritos temporários para a conta é uma decisão pendente, não um comportamento implementado.
+**Atual:** cliente de login/logout e operações de favoritos implementados; contrato de interface simulado passou. Não há conta real de teste registrada; o formulário de cadastro está implementado, sem validação da entrega/retorno do e-mail. A transferência de favoritos temporários para a conta é uma decisão pendente, não um comportamento implementado.
 
 **Estados obrigatórios:** conta não confirmada, credenciais inválidas, envio em andamento, sessão expirada, falha de salvar/remover, confirmação de resultado e logout. Não mostrar sucesso antes de confirmar a operação.
 
@@ -218,14 +218,17 @@ Nenhuma tela administrativa da ShopMy foi inspecionada. Os requisitos M01/M02 s�
 | `/colecoes/rituais` | Dois produtos fictícios | Sem gestão |
 | `/colecoes/casa` | Dois produtos fictícios | Sem gestão |
 | `/produto/[slug]` | Oito detalhes do catálogo | Sem varejista, estoque ou oferta comercial real |
-| `/conta` | Cliente Supabase Auth para conta existente | Login remoto, cadastro e recuperação ainda não concluídos |
+| `/conta` | Login/logout e links de conta | Validação remota completa pendente |
+| `/cadastro` | Criação por e-mail/senha | Confirmação real e destinos do Auth não validados |
+| `/recuperar-acesso` | Solicitação de link e atualização de senha | Entrega de e-mail real não validada |
+| `/conta/criador` | Perfil privado e modalidades UGC/influencer/afiliado | Sem seguidores; testes de contrato simulados; isolamento SQL pendente |
 | URLs inválidas | Página 404 e recuperação | Não equivale a proteção de área privada |
 
-São 14 endereços de conteúdo existentes: 13 da vitrine mais `/conta`, além do comportamento 404. Slugs dos produtos: `bolsa-oliva`, `camisa-linho`, `serum-botanico`, `vaso-organico`, `sandalia-trama`, `creme-essencial`, `bolsa-areia`, `vaso-calcario`.
+São 17 endereços de conteúdo existentes: 13 da vitrine, `/conta`, `/cadastro`, `/recuperar-acesso` e `/conta/criador`, além do comportamento 404. Slugs dos produtos: `bolsa-oliva`, `camisa-linho`, `serum-botanico`, `vaso-organico`, `sandalia-trama`, `creme-essencial`, `bolsa-areia`, `vaso-calcario`.
 
 ### Propostas, ainda não implementadas
 
-`/explorar`, `/criadores`, `/marcas`, `/criadores/[slug]`, `/favoritos`, `/grupos`, `/meu-gosto`, `/cadastro`, `/recuperar-acesso`, `/candidatura/criador`, `/candidatura/marca`, `/painel/criador`, `/painel/marca` e `/admin` são uma proposta de organização. Não devem ser apresentadas como rotas existentes. A migração do perfil público `/criador` para múltiplos creators deve manter redirecionamento ou compatibilidade dos links atuais.
+`/explorar`, `/criadores`, `/marcas`, `/criadores/[slug]`, `/favoritos`, `/grupos`, `/meu-gosto`, `/candidatura/criador`, `/candidatura/marca`, `/painel/criador`, `/painel/marca` e `/admin` são uma proposta de organização. Não devem ser apresentadas como rotas existentes. A migração do perfil público `/criador` para múltiplos creators deve manter redirecionamento ou compatibilidade dos links atuais.
 
 ## 8. Identidade visual e fidelidade à referência
 
@@ -372,7 +375,7 @@ Cada mudança de status deve incluir data, commit, ambiente, teste executado e l
 
 ## 16. Expansão nativa: UGC Marketplace + Creator Commerce
 
-**Origem:** U0, diretriz do usuário. **Estado de implementação:** os módulos novos abaixo não estão implementados. A identidade visual, a vitrine, o catálogo e a base de contas devem ser reutilizados conforme sua validação atual, sem reconstrução indiscriminada.
+**Origem:** U0, diretriz do usuário. **Estado de implementação:** U01 e o início de U02 foram implementados parcialmente em 12/11/2026; os demais módulos novos abaixo permanecem não implementados. A identidade visual, a vitrine, o catálogo e a base de contas devem ser reutilizados conforme sua validação atual, sem reconstrução indiscriminada.
 
 O marketplace deve atender criação de conteúdo, divulgação para audiência própria e comércio por afiliação. Uma contratação pode combinar essas atividades, mas não pode confundir seus requisitos, entregáveis, direitos ou remuneração.
 
@@ -527,11 +530,11 @@ Inventário proposto de componentes: `CampaignCard`, `CampaignTypeSelector`, `Ca
 
 ## 22. Modelo de dados incremental e autorização
 
-Os nomes a seguir são sugestões lógicas da diretriz, **não migrations executadas**. Inspecionar o schema antes de criar tabelas e não duplicar `auth.users` com uma segunda fonte de identidade sem justificativa. As três tabelas existentes permanecem `collections`, `products` e `favorites`.
+Os nomes a seguir são sugestões lógicas da diretriz, **não migrations executadas**. Inspecionar o schema antes de criar tabelas e não duplicar `auth.users` com uma segunda fonte de identidade sem justificativa. As tabelas existentes são `collections`, `products`, `favorites` e, desde 12/11/2026, `creator_profiles` com campos iniciais e modalidades em array. Não criar outra tabela de perfis sem avaliar essa estrutura.
 
 | Domínio | Entidades propostas |
 |---|---|
-| Identidade/perfil | Referência à identidade Auth; `creator_profiles`, `creator_modalities`, `creator_services`, `creator_portfolio_items`, `brand_profiles`, `brand_memberships` |
+| Identidade/perfil | `creator_profiles` inicial já existe; evoluir sem duplicar. Referência à identidade Auth; `creator_profiles`, `creator_modalities`, `creator_services`, `creator_portfolio_items`, `brand_profiles`, `brand_memberships` |
 | Campanhas | `campaigns`, `campaign_slots`, `campaign_requirements`, `campaign_deliverables`, `campaign_products`, `campaign_applications`, `campaign_invitations` |
 | Contratação/produção | `proposals`, `contracts`, `contract_deliverables`, `content_licenses`, `project_assignments`, `project_milestones`, `project_submissions`, `submission_files`, `revision_requests` |
 | Comunicação | `conversations`, `conversation_participants`, `messages`, `message_attachments`, `notifications` |
@@ -627,3 +630,17 @@ O [anexo integral U0](REFERENCIA-EXPANSAO-UGC.md) preserva o texto original, exe
 | 25: diretriz final | Visão integrada, UGC nativo e preservação da identidade própria |
 
 **Histórico da versão 1.1:** incorporação documental da expansão solicitada, preservando requisitos REA e estado auditado. Nenhuma capacidade UGC foi reclassificada como entregue por ter sido incluída neste documento.
+
+
+## 26. Incremento implementado em 12/11/2026
+
+Esta seção atualiza o estado de implementação registrado antes da expansão; requisitos e critérios de aceite continuam válidos.
+
+| Requisito | Implementação atual | Evidência / limite |
+|---|---|---|
+| A01/A03 | Cadastro, recuperação, atualização de senha e tratamento de link inválido; URLs `/cadastro` e `/recuperar-acesso` | Contratos de interface automatizados; nenhuma mensagem real enviada, retorno e configuração das URLs do Auth não validados |
+| U01 | Seleção múltipla UGC/influencer/afiliado na mesma conta, editável e sem campo de seguidores | Migração aplicada e interface `/conta/criador`; não concede acesso administrativo/de marca |
+| U02, início | Nome profissional, bio, cidade/UF; perfil privado do proprietário | Inserção/edição/releitura de interface com mocks; foto, nichos, idiomas, disponibilidade, portfólio e publicação ainda pendentes |
+| T02 | RLS e grants de `creator_profiles`; sem leitura anônima nem UPDATE de user_id | Inspeção remota confirmada; script de isolamento entre dois usuários preparado, não executado |
+
+Migração aplicada: `20261112101450_creator_onboarding.sql`. Testes novos: `tests/onboarding.spec.ts`. Detalhes de configuração e limites: [ONBOARDING.md](ONBOARDING.md). A versão 1.1 foi documental; esta versão acrescenta código e migração. Os demais módulos UGC continuam pendentes.

@@ -78,7 +78,7 @@ test('GAP-01 @pendente shopper mantém favorito depois de recarregar',async({pag
  await page.goto('/criador');await page.getByRole('button',{name:'Salvar Bolsa Oliva',exact:true}).click();
  await expect(page.getByRole('button',{name:'Remover Bolsa Oliva',exact:true})).toBeVisible();
  await page.reload();
- await expect(page.getByRole('button',{name:'Remover Bolsa Oliva',exact:true}),'Favoritos não persistem; o catálogo tem banco, mas ainda não há conta nem gravação de favoritos.').toBeVisible({timeout:1500});
+ await expect(page.getByRole('button',{name:'Remover Bolsa Oliva',exact:true}),'Neste cenário sem autenticação, favoritos de visitante não persistem após recarregar.').toBeVisible({timeout:1500});
 });
 
 for(const role of [

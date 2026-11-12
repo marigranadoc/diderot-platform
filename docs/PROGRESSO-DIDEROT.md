@@ -188,3 +188,15 @@ Reexecução após corrigir os seletores: **4/4 contratos de conta aprovados**, 
 |---|---|---|---|---|---|---|
 | Conta A01 | `/conta` | Login/logout com e-mail/senha | Implementado; contrato simulado aprovado | AUTH-01/02 em computador/celular; build/typecheck | Zero usuários; cadastro e recuperação ausentes; login remoto não validado | Preparar contas/ambiente de teste e validar Auth real |
 | Favoritos S07 | `/criador`, coleções | Salvar/reler/remover por usuário | Implementado no cliente e banco; validação completa pendente | AUTH-02 simulado; inspeção de políticas e grants remotos | Teste SQL entre usuários aguardando execução; visitantes temporários | Executar `supabase/tests/favorites.sql` em ambiente autorizado e jornada real com duas sessões |
+
+## Incremento de contas e modalidades — 12/11/2026
+
+Foram implementadas as rotas `/cadastro`, `/recuperar-acesso` e `/conta/criador`, conectadas ao cliente Supabase, e aplicada a migração `20261112101450_creator_onboarding.sql`. O perfil inicial aceita UGC/influencer/afiliado na mesma conta sem solicitar seguidores. Nome, bio e localização são privados do proprietário. Estado: IMPLEMENTADO COM VALIDAÇÃO PARCIAL; Auth real, entrega/retorno de e-mail e isolamento entre dois usuários continuam pendentes. Consulte [ONBOARDING.md](ONBOARDING.md) para evidências, limites e configuração de URLs.
+
+A checagem remota confirmou cadastro por e-mail habilitado com confirmação obrigatória; zero usuários e zero perfis. A autorização adicional do serviço expirou novamente ao solicitar o teste SQL de favoritos. Não foi feita nova tentativa equivalente para contornar a confirmação. O novo teste SQL de perfil também permanece não executado. Nenhum dado real, mensagem ou serviço financeiro foi utilizado.
+
+O build Turbopack falhou internamente duas vezes no subprocesso CSS; Webpack compilou. O comando padrão de build foi ajustado para a opção suportada `--webpack`.
+
+Validação deste incremento: auditoria integral de 40 casos registrou **32 aprovados e 8 falhas GAP** em `evidencias/auditoria-onboarding.json`. Em seguida, o novo teste de troca de conta entre abas encontrou uma corrida (13 aprovados/1 falha em `evidencias/onboarding-final.json`); a tela passou a revalidar a sessão também após o evento de saída. O build final com Webpack e TypeScript passou. A revisão automática bloqueou uma tentativa intermediária por limite de uso, sem avaliação de segurança; após a retomada pelo usuário, a compilação foi autorizada e executada. A confirmação adicional para os testes SQL continua pendente.
+
+Revalidação final: **14/14 testes de onboarding aprovados**, 27,5 s, em `evidencias/onboarding-revalidado.json`, incluindo troca de conta entre abas. São contratos simulados; não comprovam Auth/e-mail reais nem isolamento remoto. Não houve nova execução integral após essa correção específica.

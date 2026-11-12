@@ -33,3 +33,7 @@ Favoritos existem apenas na instância da tela: desaparecem ao recarregar ou rem
 A vitrine consulta o Supabase no servidor. Antes de iniciar, configure `.env.local` conforme [docs/INTEGRACOES.md](docs/INTEGRACOES.md). Para a demonstração offline, defina explicitamente `DIDEROT_DATA_SOURCE=demo`. O modo conectado não usa fallback silencioso. `node scripts/check-database.mjs` verifica o catálogo demonstrativo remoto e o bloqueio de escrita pública. Login, favoritos persistentes e gestão permanecem pendentes.
 
 A rota `/conta` permite login/logout para contas existentes; visitantes mantêm favoritos temporários. Favoritos de contas usam a tabela `favorites` com regras por usuário, mas a jornada com Auth real ainda aguarda validação. Testes simulados de interface não comprovam persistência remota. Cadastro público e recuperação de senha ainda não estão disponíveis.
+
+## Cadastro, recuperação e perfil inicial
+
+As rotas `/cadastro`, `/recuperar-acesso` e `/conta/criador` foram implementadas; UGC, influencer e afiliado podem ser selecionados na mesma conta. Veja [configuração e limites de validação](docs/ONBOARDING.md). As afirmações históricas de ausência desses formulários foram superadas por este incremento; a validação com Auth/e-mail reais continua pendente. Build utiliza Webpack após falha interna do Turbopack neste ambiente.

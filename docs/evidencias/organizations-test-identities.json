@@ -1,0 +1,18 @@
+{
+  "status": "completed",
+  "reason": "Final scoped deletion completed after explicit approval; verification found no fixture users, sessions, organizations or memberships.",
+  "fixtureAccounts": [
+    {
+      "id": "a2fdd55d-f36c-4b04-b84a-7a71f2edb26b",
+      "email": "a2fdd55d-f36c-4b04-b84a-7a71f2edb26b@example.invalid"
+    },
+    {
+      "id": "b436743a-f1a4-45e6-8463-c83717a04f89",
+      "email": "b436743a-f1a4-45e6-8463-c83717a04f89@example.invalid"
+    }
+  ],
+  "scope": "Only these generated Auth accounts and their cascading organizations/memberships; no pre-existing account or data.",
+  "sessionsRevoked": true,
+  "userExplicitlyAuthorized": true,
+  "remainingFixtures": 0
+}

@@ -1,0 +1,30 @@
+import assert from 'node:assert/strict';
+import {chromium,expect} from '@playwright/test';
+const accounts=JSON.parse(process.env.DIDEROT_ORG_TEST_ACCOUNTS??'null');
+assert.ok(Array.isArray(accounts)&&accounts.length===2);
+const fixture=accounts[1];assert.equal(fixture.email,`${fixture.id}@example.invalid`);
+const base=new URL(process.env.DIDEROT_TEST_BASE_URL??'http://127.0.0.1:3002');
+assert.ok(['127.0.0.1','localhost'].includes(base.hostname),'Only the local preview is allowed.');
+const browser=await chromium.launch({executablePath:process.env.DIDEROT_CHROME_PATH??'C:/Program Files/Google/Chrome/Application/chrome.exe'});
+const checks=[];
+try{
+ const page=await browser.newPage({viewport:{width:390,height:844}});
+ await page.goto(new URL('/conta',base).href);
+ await page.getByLabel('E-mail',{exact:true}).fill(fixture.email);await page.getByLabel('Senha',{exact:true}).fill(fixture.password);
+ await page.getByRole('button',{name:'Entrar',exact:true}).click();
+ await page.getByRole('link',{name:'Abrir painel da marca',exact:true}).click();
+ await expect(page.getByRole('heading',{name:new RegExp(`^(Test organization |Browser fixture )${fixture.id}$`)})).toBeVisible();checks.push('real_login_and_private_organization');
+ await page.getByRole('button',{name:'Editar organização',exact:true}).click();
+ await page.getByLabel('Nome da organização',{exact:true}).fill(`Browser fixture ${fixture.id}`);
+ await page.getByLabel('Site (opcional)',{exact:true}).fill('https://example.com');
+ await page.getByRole('button',{name:'Salvar organização',exact:true}).click();
+ await expect(page.getByRole('main').getByRole('status')).toContainText('vínculo de responsável foi confirmado');
+ await page.reload();await expect(page.getByRole('heading',{name:`Browser fixture ${fixture.id}`,exact:true})).toBeVisible();
+ checks.push('real_browser_api_database_edit_and_reload');assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+ await page.screenshot({path:'../../work/screenshots/marca-banco-real-mobile.png',fullPage:true});
+ await page.goto(new URL('/conta',base).href);await page.getByRole('button',{name:'Sair da conta',exact:true}).click();
+ await expect(page.getByRole('button',{name:'Entrar',exact:true})).toBeVisible();
+ await page.goto(new URL('/painel/marca',base).href);await expect(page.getByRole('link',{name:'Entrar na minha conta',exact:true})).toBeVisible();
+ await expect(page.getByRole('heading',{name:`Browser fixture ${fixture.id}`,exact:true})).toHaveCount(0);checks.push('logout_blocks_private_organization');
+ console.log(JSON.stringify({date:new Date().toISOString(),status:'passed',checks,limits:'Generated temporary fixture organization in Chrome mobile viewport; not a physical device, campaign, approval or payment.'}));
+}finally{await browser.close();}

@@ -5,7 +5,7 @@ import {usePathname,useRouter} from 'next/navigation';
 const groups=[
  {label:'Para shoppers',items:[['Curadoria','As escolhas da Clara','/#curadoria'],['Círculos','Seleções por tema','/#circulos'],['Categorias','Encontre seu próximo favorito','/#categorias'],['Marcas','Marcas demonstrativas','/#marcas']]},
  {label:'Para creators',items:[['Seu espaço','Perfil, serviços e portfólio','/painel/criador'],['Criar uma conta','Sem exigência de seguidores','/cadastro'],['Minha vitrine','Explore a loja demonstrativa','/criador']]},
- {label:'Para marcas',items:[['Marcas do catálogo','Explore produtos por marca','/#marcas'],['Conheça a curadoria','Moda, beleza e casa','/#curadoria'],['Como funciona','O que está disponível hoje','/#como-funciona']]},
+ {label:'Para marcas',items:[['Painel da marca','Sua organização e seus dados','/painel/marca'],['Marcas do catálogo','Explore produtos por marca','/#marcas'],['Conheça a curadoria','Moda, beleza e casa','/#curadoria'],['Como funciona','O que está disponível hoje','/#como-funciona']]},
 ];
 export default function SiteHeader(){
  const home=usePathname()==='/',router=useRouter();

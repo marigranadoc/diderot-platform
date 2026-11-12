@@ -1,7 +1,7 @@
 import Link from 'next/link';
 const columns=[
  ['Para creators',[['Área do criador','/painel/criador'],['Meu perfil','/conta/criador'],['Meus serviços','/conta/criador/servicos'],['Meu portfólio','/conta/criador/portfolio']]],
- ['Para marcas',[['Marcas do catálogo','/#marcas'],['Conheça a curadoria','/#curadoria'],['Como funciona','/#como-funciona']]],
+ ['Para marcas',[['Painel da marca','/painel/marca'],['Marcas do catálogo','/#marcas'],['Conheça a curadoria','/#curadoria'],['Como funciona','/#como-funciona']]],
  ['Para shoppers',[['Loja da Clara','/criador'],['Círculos e seleções','/#circulos'],['Categorias','/#categorias'],['Minha conta','/conta']]],
  ['Explore',[['Todas as escolhas','/criador#catalogo'],['Essenciais','/colecoes/essenciais'],['Pequenos rituais','/colecoes/rituais'],['Uma casa com alma','/colecoes/casa']]],
  ['Ajuda',[['Sobre esta demonstração','/#sobre-demonstracao'],['Criar conta','/cadastro'],['Entrar','/conta'],['Recuperar acesso','/recuperar-acesso']]],

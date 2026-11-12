@@ -148,7 +148,7 @@ A diretriz U0 define que uma conta creator pode reunir UGC, influencer e afiliad
 
 | ID | Requisito e origem | Estado atual | Critério de aceite / pendência | Prioridade |
 |---|---|---|---|---|
-| B01 | Entrada/candidatura brand — seleção observada E2 | Ausente | Definir formulário próprio, dados, status, aprovação e identidade da organização; seleção de perfil não conclui cadastro | P1 |
+| B01 | Entrada/candidatura brand — seleção observada E2 | Parcial: organização privada e vínculo responsável; aprovação pendente | Definir formulário próprio, dados, status, aprovação e identidade da organização; seleção de perfil não conclui cadastro | P1 |
 | B02 | Descoberta e seleção de creators — declarado E1 | Ausente | Diretório com filtros definidos, perfil correto e lista de seleção persistente; não expor dados privados da candidatura | P2 |
 | B03 | Campanhas, gifting e oportunidades — declarado E1 | Ausente | Criar rascunho, publicar para destinatários autorizados, aceitar/recusar, encerrar e reler; falhas e transições inválidas tratadas; sem bens ou mensagens reais nos testes | P1 para MVP brand |
 | B04 | Métricas de desempenho — declarado E1 | Ausente | Fonte, janela, fórmula e acesso por organização explicitados; ausência de dados distinta de zero; dados simulados rotulados | P2 |
@@ -671,3 +671,9 @@ Home reorganizada conforme estrutura e captura ShopMy fornecidas: hero, faixa m�
 S07/GAP-01: seleção local versionada mantém favoritos em reloads, navegação e nova aba da mesma origem. Inclusão/remoção e limpeza acompanham outras abas; falha de armazenamento não confirma sucesso. Dados inválidos são identificados e podem ser substituídos por ação explícita. Entrar e sair preserva a separação entre seleção local e favoritos privados; não há migração automática para a conta. Nenhuma alteração de schema/RLS ou dado real. [Comportamento, tabela funcional e limites](FAVORITOS.md). Painéis brand/admin e fundação de organizações continuam pendentes; esta correção não conclui o marketplace.
 
 Também foi corrigida a atualização de sessão no perfil de creator: assinatura mantida durante a permanência na tela e releitura por `getUser` quando outra aba altera a sessão salva. Identificadores locais não concedem acesso. ONB-07/ONB-08 verificam troca de conta com e sem BroadcastChannel; diagnósticos e limites em FAVORITOS.md.
+
+## 31. Organizações e painel da marca — 12/11/2026
+
+B01 passa de ausente a PARCIAL: `/painel/marca` permite cadastrar, reler e editar uma organização privada por conta, com proprietário derivado da sessão e vínculo owner criado atomicamente pelo banco. Leitura somente pelo responsável ou membro vinculado; edição somente pelo responsável; não há escrita pública de membros nem transferência de proprietário. Migração `20261112213155_brand_organizations.sql` aplicada. [Regras e evidências](ORGANIZACOES.md).
+
+SQL remoto com três identidades, API com duas contas temporárias/três sessões e navegador móvel com backend real exercitaram persistência e isolamento. Contratos da interface cobrem falha de leitura/escrita e retorno tardio após sair. Cadastrar a organização não significa aprovação comercial e não concede administração. Convites/equipe, aprovação, múltiplas organizações próprias, diretório, campanhas, métricas e administração continuam pendentes. Não altera as marcas fictícias da vitrine nem cria pagamento/contratação.

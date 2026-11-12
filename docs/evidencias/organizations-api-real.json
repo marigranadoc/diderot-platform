@@ -1,0 +1,7 @@
+{
+  "chunk_id": "fbc5f3",
+  "wall_time_seconds": 6.7357415,
+  "exit_code": 0,
+  "original_token_count": 111,
+  "output": "{\"date\":\"2026-11-12T21:39:57.503Z\",\"status\":\"passed\",\"checks\":[\"two_real_auth_identities_and_three_sessions\",\"organization_and_owner_membership_created\",\"reread_and_edit_between_real_sessions\",\"cross_organization_read_write_and_escalation_denied\",\"anonymous_api_denied\"],\"limits\":\"Temporary generated Auth accounts, real API and database. Fixture cleanup must follow through the controlled database harness. No emails or financial services.\"}\n"
+}

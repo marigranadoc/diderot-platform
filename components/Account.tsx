@@ -47,7 +47,7 @@ export default function Account() {
     finally {setBusy(false);}
   }
   return <section className="account-card"><span className="eyebrow">SUAS DESCOBERTAS</span><h1>Minha conta</h1>
-    {signedIn ? <><p>Você está conectado. Os favoritos salvos na loja ficam vinculados à sua conta.</p><Link className="dark-button" href="/criador#catalogo">Explorar e salvar produtos</Link><Link className="dark-button" href="/painel/criador">Abrir painel do criador</Link><Link href="/conta/criador">Configurar perfil de creator</Link><p><button onClick={logout} disabled={busy}>Sair da conta</button></p></> : <>
+    {signedIn ? <><p>Você está conectado. Os favoritos salvos na loja ficam vinculados à sua conta.</p><Link className="dark-button" href="/criador#catalogo">Explorar e salvar produtos</Link><Link className="dark-button" href="/painel/criador">Abrir painel do criador</Link><Link className="dark-button" href="/painel/marca">Abrir painel da marca</Link><Link href="/conta/criador">Configurar perfil de creator</Link><p><button onClick={logout} disabled={busy}>Sair da conta</button></p></> : <>
       <p>Entre para guardar suas escolhas entre visitas.</p><form onSubmit={login}>
         <label>E-mail<input type="email" autoComplete="email" required value={email} onChange={e=>setEmail(e.target.value)}/></label>
         <label>Senha<input type="password" autoComplete="current-password" required value={password} onChange={e=>setPassword(e.target.value)}/></label>

@@ -1,0 +1,7 @@
+{
+  "chunk_id": "236991",
+  "wall_time_seconds": 0.0033787,
+  "exit_code": 0,
+  "original_token_count": 80,
+  "output": "{\"date\":\"2026-11-12T21:41:24.913Z\",\"status\":\"passed\",\"checks\":[\"real_login_and_private_organization\",\"real_browser_api_database_edit_and_reload\",\"logout_blocks_private_organization\"],\"limits\":\"Generated temporary fixture organization in Chrome mobile viewport; not a physical device, campaign, approval or payment.\"}\n"
+}

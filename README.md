@@ -19,7 +19,7 @@ Para a versão compilada, execute `npm.cmd run build` e `npm.cmd start`. Não us
 - `/painel/criador`, `/conta/criador`: painel e perfil profissional privado, UGC/influencer/afiliado na mesma conta, sem requisito de seguidores para UGC.
 - `/conta/criador/servicos`, `/conta/criador/portfolio`: gestão privada de serviços e trabalhos por link. Publicação e upload continuam pendentes.
 
-Login real, duas sessões da conta demonstrativa e isolamento de banco têm [evidências anteriores](docs/PAINEL-CREATOR.md). Não equivalem a todas as jornadas concluídas. Brand/admin, organizações, campanhas, candidaturas, contratos, entregas, financeiro, aplicativo nativo e círculos pessoais seguem no backlog.
+Login real, duas sessões da conta demonstrativa e isolamento de banco têm [evidências anteriores](docs/PAINEL-CREATOR.md). Não equivalem a todas as jornadas concluídas. Administração, convites de equipe, aprovação de marca, campanhas, candidaturas, contratos, entregas, financeiro, aplicativo nativo e círculos pessoais seguem no backlog. Organizações privadas têm o escopo descrito abaixo.
 
 ## Verificar
 
@@ -33,3 +33,7 @@ Chrome deve estar instalado; outro executável pode ser informado em `DIDEROT_CH
 ## Identidade visual
 
 [Design system e home](docs/DESIGN-SYSTEM-DIDEROT.md) seguem os arquivos fornecidos pela usuária. Reckless TRIAL fica somente na prévia local, fora do repositório; sem os arquivos, os títulos usam Georgia. Publicação com Reckless depende da fonte licenciada definitiva. DM Sans e fotografias incluem fontes/licenças. Não publicar credenciais ou fontes de avaliação.
+
+## Organizações de marca
+
+`/painel/marca` oferece cadastro e edição privados de uma organização por conta, com vínculo de responsável confirmado no banco e leitura restrita a participantes autorizados. Acesso pela home e Minha conta. SQL remoto, duas contas Auth temporárias e navegador móvel com backend real foram verificados; [escopo, evidências e limites](docs/ORGANIZACOES.md). Aprovação comercial, convites de equipe, campanhas e administração continuam pendentes.

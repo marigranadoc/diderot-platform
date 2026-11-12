@@ -1,0 +1,13 @@
+{
+  "status": "fulfilled",
+  "value": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"result\":{\"lints\":[{\"name\":\"unused_index\",\"title\":\"Unused Index\",\"level\":\"INFO\",\"facing\":\"EXTERNAL\",\"categories\":[\"PERFORMANCE\"],\"description\":\"Detects if an index has never been used and may be a candidate for removal.\",\"remediation\":\"https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index\",\"count\":2,\"findings\":[{\"detail\":\"Index \\\\`products_collection_idx\\\\` on table \\\\`public.products\\\\` has not been used\",\"metadata\":{\"name\":\"products\",\"type\":\"table\",\"schema\":\"public\"},\"observed_at\":\"2026-11-12T21:35:59.664Z\"},{\"detail\":\"Index \\\\`favorites_product_idx\\\\` on table \\\\`public.favorites\\\\` has not been used\",\"metadata\":{\"name\":\"favorites\",\"type\":\"table\",\"schema\":\"public\"},\"observed_at\":\"2026-11-12T21:35:59.664Z\"}]}]}}"
+      }
+    ],
+    "structuredContent": null,
+    "isError": false
+  }
+}

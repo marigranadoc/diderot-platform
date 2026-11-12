@@ -1,0 +1,15 @@
+{
+  "status": "fulfilled",
+  "value": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"error\":{\"name\":\"HttpException\",\"message\":\"Failed to run sql query: ERROR:  42501: permission denied for schema diderot_private\\nCONTEXT:  PL/pgSQL function inline_code_block line 11 at IF\\n\"}}"
+      }
+    ],
+    "structuredContent": {
+      "error_code": "INVALID_ARGUMENT"
+    },
+    "isError": true
+  }
+}

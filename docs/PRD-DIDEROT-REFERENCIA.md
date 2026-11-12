@@ -1,5 +1,7 @@
 # Diderot — requisitos de referência para auditoria
 
+O [PRD consolidado da Diderot](PRD-DIDEROT.md), de 12/11/2026, reúne estes requisitos com a implementação atual e o backlog. Este documento permanece como registro da origem dos requisitos.
+
 Data: 11/11/2026. Documento criado nesta auditoria porque o usuário confirmou que não havia PRD. Não é um PRD original recuperado da ShopMy nem uma descrição do seu backend. É uma base rastreável para comparar o protótipo Diderot com comportamentos públicos observados pelo REA.
 
 ## Autoridade da evidência

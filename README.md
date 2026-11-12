@@ -1,5 +1,7 @@
 # Diderot — primeiro módulo
 
+Documento consolidado do produto: [PRD Diderot — escopo, estado atual e backlog](docs/PRD-DIDEROT.md), versão 1.0 de 12/11/2026. Inclui evidências REA, requisitos, jornadas, critérios de aceite e limites de validação.
+
 Loja pública demonstrativa feita com Next.js, TypeScript e Tailwind CSS. Todo o conteúdo comercial é fictício; as ilustrações são originais em SVG. Não há pagamentos, cadastro ou rastreamento.
 
 ## Abrir no Windows

@@ -1,5 +1,7 @@
 # Progresso e auditoria funcional da Diderot
 
+**Referência consolidada em 12/11/2026:** [PRD-DIDEROT.md](PRD-DIDEROT.md). O novo PRD distingue estado atual, histórico, funcionalidades observadas pelo REA, declarações públicas e propostas Diderot. Esta atualização foi documental: não alterou aplicação ou banco e não executou novamente as suítes. Foram conferidos os 27 IDs originais, os links locais e as contagens dos relatórios existentes. GAP-01 executa como visitante; não comprova falha com uma conta autenticada real.
+
 Auditoria: **11/11/2026**, horário de referência America/Sao_Paulo. Pasta do projeto: `C:\Users\Andrea\Documents\Codex\2026-11-11\diderot\outputs\diderot`.
 
 ## Diagnóstico

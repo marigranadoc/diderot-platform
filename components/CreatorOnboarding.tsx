@@ -76,10 +76,10 @@ export default function CreatorOnboarding() {
       <label>Bio<textarea maxLength={1000} value={profile.bio} onChange={e=>setProfile(p=>({...p,bio:e.target.value}))}/></label>
       <div className="form-row"><label>Cidade<input maxLength={100} autoComplete="address-level2" value={profile.city} onChange={e=>setProfile(p=>({...p,city:e.target.value}))}/></label><label>Estado (UF)<input maxLength={2} pattern="[A-Za-z]{2}" autoComplete="address-level1" value={profile.state} onChange={e=>setProfile(p=>({...p,state:e.target.value.toUpperCase()}))}/></label></div>
       <fieldset><legend>Modalidades de atuação</legend>{choices.map(choice=><label className="modality-option" key={choice.value}><input type="checkbox" checked={profile.modalities.includes(choice.value)} onChange={e=>setProfile(p=>({...p,modalities:e.target.checked?[...p.modalities,choice.value]:p.modalities.filter(x=>x!==choice.value)}))}/><span><strong>{choice.label}</strong><small>{choice.detail}</small></span></label>)}</fieldset>
-      <p>Seu perfil está privado nesta etapa. Portfólio, serviços e campanhas serão disponibilizados nas próximas etapas.</p>
+      <p>Seu perfil está privado nesta etapa. Portfólio e campanhas serão disponibilizados nas próximas etapas.</p>
       <button className="dark-button" disabled={saving}>{saving?'Salvando…':'Salvar perfil'}</button>
     </form>}
     {message&&<p role={success?'status':'alert'}>{message}</p>}
-    <Link href="/conta">Voltar para minha conta</Link>
+    {userId&&exists&&<Link className="dark-button" href="/conta/criador/servicos">Gerenciar meus serviços</Link>}<Link href="/conta">Voltar para minha conta</Link>
   </section>;
 }

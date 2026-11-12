@@ -200,3 +200,13 @@ O build Turbopack falhou internamente duas vezes no subprocesso CSS; Webpack com
 Validação deste incremento: auditoria integral de 40 casos registrou **32 aprovados e 8 falhas GAP** em `evidencias/auditoria-onboarding.json`. Em seguida, o novo teste de troca de conta entre abas encontrou uma corrida (13 aprovados/1 falha em `evidencias/onboarding-final.json`); a tela passou a revalidar a sessão também após o evento de saída. O build final com Webpack e TypeScript passou. A revisão automática bloqueou uma tentativa intermediária por limite de uso, sem avaliação de segurança; após a retomada pelo usuário, a compilação foi autorizada e executada. A confirmação adicional para os testes SQL continua pendente.
 
 Revalidação final: **14/14 testes de onboarding aprovados**, 27,5 s, em `evidencias/onboarding-revalidado.json`, incluindo troca de conta entre abas. São contratos simulados; não comprovam Auth/e-mail reais nem isolamento remoto. Não houve nova execução integral após essa correção específica.
+
+## Serviços do creator — 12/11/2026
+
+Implementado CRUD privado em `/conta/criador/servicos`, com título, descrição, dez tipos, preço inicial em centavos ou sob orçamento. Migração aplicada: `20261112161824_creator_services.sql`. RLS e grants limitam operações ao proprietário; nenhuma permissão de alteração de user_id. Visitantes precisam entrar; conta sem perfil precisa configurá-lo. Operações só mostram sucesso após retorno confirmado; exclusão tem confirmação/cancelamento. [Detalhes e limites](SERVICOS-CREATOR.md).
+
+Estado de U04: PARCIAL — gestão privada implementada; exibição pública, uso em pedidos e validação com duas contas reais ainda pendentes. O advisor registrou um alerta de proteção contra senhas vazadas desabilitada no Auth, com referência de correção no documento do módulo. Nenhuma mudança financeira, mensagem ou dado real foi utilizada.
+
+A execução inicial de regressão teve 22 casos: 20 aprovados e 2 falhas no seletor de preço dos novos testes, preservadas em `evidencias/servicos-creator.json`. O campo foi localizado pelo papel acessível combobox na reexecução. A API remota bloqueou leitura anônima (42501). Build e TypeScript aprovados; isolamento entre usuários autenticados continua pendente de teste real.
+
+Reexecução direcionada: **4/4 testes de serviços aprovados**, 18,7 s, em `evidencias/servicos-revalidado.json`. São contratos com mocks; nenhuma contratação ou transação foi criada.

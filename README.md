@@ -37,3 +37,5 @@ A rota `/conta` permite login/logout para contas existentes; visitantes mantêm 
 ## Cadastro, recuperação e perfil inicial
 
 As rotas `/cadastro`, `/recuperar-acesso` e `/conta/criador` foram implementadas; UGC, influencer e afiliado podem ser selecionados na mesma conta. Veja [configuração e limites de validação](docs/ONBOARDING.md). As afirmações históricas de ausência desses formulários foram superadas por este incremento; a validação com Auth/e-mail reais continua pendente. Build utiliza Webpack após falha interna do Turbopack neste ambiente.
+
+Serviços do creator: `/conta/criador/servicos` oferece cadastro, edição e exclusão privados, com preço inicial ou sob orçamento. Consulte [estado e limites](docs/SERVICOS-CREATOR.md).

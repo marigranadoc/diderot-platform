@@ -644,3 +644,7 @@ Esta seção atualiza o estado de implementação registrado antes da expansão;
 | T02 | RLS e grants de `creator_profiles`; sem leitura anônima nem UPDATE de user_id | Inspeção remota confirmada; script de isolamento entre dois usuários preparado, não executado |
 
 Migração aplicada: `20261112101450_creator_onboarding.sql`. Testes novos: `tests/onboarding.spec.ts`. Detalhes de configuração e limites: [ONBOARDING.md](ONBOARDING.md). A versão 1.1 foi documental; esta versão acrescenta código e migração. Os demais módulos UGC continuam pendentes.
+
+## 27. Serviços do creator — incremento de 12/11/2026
+
+U04 agora possui gestão privada em `/conta/criador/servicos`: criar/listar/editar/excluir, dez tipos de serviço, preço inicial BRL ou sob orçamento e confirmação de exclusão. Migração `20261112161824_creator_services.sql` aplicada com RLS por proprietário e proteção de user_id. A oferta não cria contrato nem pagamento. Estado: PARCIAL; publicação no perfil, uso em contratação e validação remota entre usuários continuam pendentes. Evidências e aviso de segurança Auth: [SERVICOS-CREATOR.md](SERVICOS-CREATOR.md). Este incremento sucede as descrições anteriores de U04 como não implementado.

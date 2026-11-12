@@ -648,3 +648,7 @@ Migração aplicada: `20261112101450_creator_onboarding.sql`. Testes novos: `tes
 ## 27. Serviços do creator — incremento de 12/11/2026
 
 U04 agora possui gestão privada em `/conta/criador/servicos`: criar/listar/editar/excluir, dez tipos de serviço, preço inicial BRL ou sob orçamento e confirmação de exclusão. Migração `20261112161824_creator_services.sql` aplicada com RLS por proprietário e proteção de user_id. A oferta não cria contrato nem pagamento. Estado: PARCIAL; publicação no perfil, uso em contratação e validação remota entre usuários continuam pendentes. Evidências e aviso de segurança Auth: [SERVICOS-CREATOR.md](SERVICOS-CREATOR.md). Este incremento sucede as descrições anteriores de U04 como não implementado.
+
+## 28. Portfólio por links — incremento de 12/11/2026
+
+U03 agora tem gestão privada em `/conta/criador/portfolio`, com título, tipo, categoria, descrição, participação e URL HTTPS. Criar, editar, reler e excluir possuem controles e retorno confirmado do banco; exclusão não apaga o arquivo externo. Migração `20261112162722_creator_portfolio.sql` aplicada. Estado PARCIAL: upload de mídia, miniaturas, publicação, vínculo autorizado com marcas e métricas ainda ausentes; não declarar U03 completo. [Evidências e limites](PORTFOLIO-CREATOR.md). A privacidade na Diderot não altera a configuração do site de origem do link.

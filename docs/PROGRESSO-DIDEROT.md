@@ -210,3 +210,9 @@ Estado de U04: PARCIAL — gestão privada implementada; exibição pública, us
 A execução inicial de regressão teve 22 casos: 20 aprovados e 2 falhas no seletor de preço dos novos testes, preservadas em `evidencias/servicos-creator.json`. O campo foi localizado pelo papel acessível combobox na reexecução. A API remota bloqueou leitura anônima (42501). Build e TypeScript aprovados; isolamento entre usuários autenticados continua pendente de teste real.
 
 Reexecução direcionada: **4/4 testes de serviços aprovados**, 18,7 s, em `evidencias/servicos-revalidado.json`. São contratos com mocks; nenhuma contratação ou transação foi criada.
+
+## Portfólio privado — 12/11/2026
+
+Implementada `/conta/criador/portfolio` com CRUD de trabalhos por link HTTPS, tipo, título, descrição, categoria e participação; exclusão confirmada e falha sem falso sucesso. Migração `20261112162722_creator_portfolio.sql` aplicada com RLS por proprietário e UPDATE de user_id negado. A API real negou leitura anônima (42501); zero itens na inspeção. U03 permanece PARCIAL: upload, miniaturas, publicação e validação remota entre usuários ainda pendentes. [Detalhes](PORTFOLIO-CREATOR.md). Nenhum dado real, mensagem ou operação financeira foi usado. O alerta Auth de proteção contra senhas vazadas permanece registrado.
+
+Validação: build e TypeScript aprovados; **24/24 testes direcionados aprovados**, computador/celular, em `docs/evidencias/portfolio-creator.json`. Cobertura: onboarding, serviços e portfólio; Auth/itens de interface simulados. A API anônima remota foi testada separadamente e negou acesso. As oito lacunas da auditoria integral permanecem abertas; isolamento entre usuários autenticados reais e envio de e-mail ainda não foram validados.

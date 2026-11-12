@@ -1,0 +1,301 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--grep",
+      "ONB-07",
+      "--project",
+      "celular",
+      "--repeat-each",
+      "5",
+      "--reporter=list,json"
+    ],
+    "configFile": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\playwright.config.ts",
+    "rootDir": "C:/Users/Andrea/Documents/Codex/2026-11-11/diderot/outputs/diderot/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/Andrea/Documents/Codex/2026-11-11/diderot/outputs/diderot/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "computador",
+        "name": "computador",
+        "testDir": "C:/Users/Andrea/Documents/Codex/2026-11-11/diderot/outputs/diderot/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/Andrea/Documents/Codex/2026-11-11/diderot/outputs/diderot/test-results",
+        "repeatEach": 5,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "celular",
+        "name": "celular",
+        "testDir": "C:/Users/Andrea/Documents/Codex/2026-11-11/diderot/outputs/diderot/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\test-results",
+        "repeatEach": 5,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "celular",
+        "testDir": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests",
+        "snapshotDir": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3101",
+          "launchOptions": {
+            "executablePath": "C:/Program Files/Google/Chrome/Application/chrome.exe"
+          },
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "celular"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "onboarding.spec.ts",
+      "file": "onboarding.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "ONB-07 troca de conta em outra aba remove o perfil anterior",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "celular",
+              "projectName": "celular",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4550,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-12T18:12:33.333Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "celular",
+              "projectName": "celular",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3498,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-12T18:12:41.752Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "celular",
+              "projectName": "celular",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 14435,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByLabel('Nome profissional', { exact: true })\nExpected: \u001b[32m\"Outro perfil\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" getByLabel('Nome profissional', { exact: true }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Nome profissional', { exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByLabel('Nome profissional', { exact: true })\nExpected: \u001b[32m\"Outro perfil\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" getByLabel('Nome profissional', { exact: true }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Nome profissional', { exact: true })\u001b[22m\n\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\onboarding.spec.ts:128:71",
+                    "location": {
+                      "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\onboarding.spec.ts",
+                      "column": 71,
+                      "line": 128
+                    },
+                    "snippet": " \u001b[90m 126 |\u001b[39m   \u001b[36mawait\u001b[39m account\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39m\u001b[32m'Entrar'\u001b[39m\u001b[33m,\u001b[39mexact\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m})\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 127 |\u001b[39m   \u001b[36mawait\u001b[39m expect(account\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39m\u001b[32m'Sair da conta'\u001b[39m\u001b[33m,\u001b[39mexact\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m}))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 128 |\u001b[39m   \u001b[36mtry\u001b[39m{\u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'Nome profissional'\u001b[39m\u001b[33m,\u001b[39m{exact\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m}))\u001b[33m.\u001b[39mtoHaveValue(\u001b[32m'Outro perfil'\u001b[39m)\u001b[33m;\u001b[39m}\n \u001b[90m     |\u001b[39m                                                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 129 |\u001b[39m   \u001b[36mcatch\u001b[39m(error){console\u001b[33m.\u001b[39mlog(\u001b[32m'AUTH_STATE_DIAGNOSTIC'\u001b[39m\u001b[33m,\u001b[39m\u001b[33mJSON\u001b[39m\u001b[33m.\u001b[39mstringify(\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(()\u001b[33m=>\u001b[39m({events\u001b[33m:\u001b[39m\u001b[33mReflect\u001b[39m\u001b[33m.\u001b[39mget(window\u001b[33m,\u001b[39m\u001b[32m'diderotAuthProbe'\u001b[39m)\u001b[33m,\u001b[39mstoredId\u001b[33m:\u001b[39m\u001b[33mJSON\u001b[39m\u001b[33m.\u001b[39mparse(localStorage\u001b[33m.\u001b[39mgetItem(\u001b[32m'sb-mbxpwrgfujnjonyxzvfw-auth-token'\u001b[39m)\u001b[33m??\u001b[39m\u001b[32m'null'\u001b[39m)\u001b[33m?.\u001b[39muser\u001b[33m?.\u001b[39mid}))))\u001b[33m;\u001b[39m\u001b[36mthrow\u001b[39m error\u001b[33m;\u001b[39m}\n \u001b[90m 130 |\u001b[39m   \u001b[36mawait\u001b[39m account\u001b[33m.\u001b[39mclose()\u001b[33m;\u001b[39m\n \u001b[90m 131 |\u001b[39m })\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\onboarding.spec.ts",
+                        "column": 71,
+                        "line": 128
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByLabel('Nome profissional', { exact: true })\nExpected: \u001b[32m\"Outro perfil\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" getByLabel('Nome profissional', { exact: true }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Nome profissional', { exact: true })\u001b[22m\n\n\n  126 |   await account.getByRole('button',{name:'Entrar',exact:true}).click();\n  127 |   await expect(account.getByRole('button',{name:'Sair da conta',exact:true})).toBeVisible();\n> 128 |   try{await expect(page.getByLabel('Nome profissional',{exact:true})).toHaveValue('Outro perfil');}\n      |                                                                       ^\n  129 |   catch(error){console.log('AUTH_STATE_DIAGNOSTIC',JSON.stringify(await page.evaluate(()=>({events:Reflect.get(window,'diderotAuthProbe'),storedId:JSON.parse(localStorage.getItem('sb-mbxpwrgfujnjonyxzvfw-auth-token')??'null')?.user?.id}))));throw error;}\n  130 |   await account.close();\n  131 | });\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\onboarding.spec.ts:128:71"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "AUTH_STATE_DIAGNOSTIC {\"events\":[{\"type\":\"load-start\",\"detail\":{\"token\":1},\"time\":1794507168746},{\"type\":\"auth\",\"detail\":{\"event\":\"SIGNED_IN\",\"id\":\"22222222-2222-4222-8222-222222222222\",\"generation\":1},\"time\":1794507168752},{\"type\":\"auth\",\"detail\":{\"event\":\"INITIAL_SESSION\",\"id\":\"22222222-2222-4222-8222-222222222222\",\"owner\":\"22222222-2222-4222-8222-222222222222\",\"generation\":2},\"time\":1794507168753},{\"type\":\"load-start\",\"detail\":{\"token\":4},\"time\":1794507168777},{\"type\":\"load-user\",\"detail\":{\"token\":1,\"generation\":4,\"id\":\"22222222-2222-4222-8222-222222222222\"},\"time\":1794507168782},{\"type\":\"load-user\",\"detail\":{\"token\":4,\"generation\":4,\"id\":\"22222222-2222-4222-8222-222222222222\"},\"time\":1794507168862},{\"type\":\"auth\",\"detail\":{\"event\":\"SIGNED_IN\",\"id\":\"22222222-2222-4222-8222-222222222222\",\"owner\":\"22222222-2222-4222-8222-222222222222\",\"generation\":4},\"time\":1794507169933},{\"type\":\"storage\",\"detail\":{\"hintedOwner\":null,\"owner\":\"22222222-2222-4222-8222-222222222222\",\"generation\":4},\"time\":1794507170241},{\"type\":\"auth\",\"detail\":{\"event\":\"SIGNED_OUT\",\"owner\":\"22222222-2222-4222-8222-222222222222\",\"generation\":5},\"time\":1794507170250},{\"type\":\"load-start\",\"detail\":{\"token\":8},\"time\":1794507170250},{\"type\":\"load-user\",\"detail\":{\"token\":8,\"generation\":8,\"error\":\"AuthSessionMissingError\"},\"time\":1794507170252},{\"type\":\"load-start\",\"detail\":{\"token\":10},\"time\":1794507170258},{\"type\":\"load-user\",\"detail\":{\"token\":10,\"generation\":10,\"error\":\"AuthSessionMissingError\"},\"time\":1794507170259},{\"type\":\"auth\",\"detail\":{\"event\":\"SIGNED_IN\",\"id\":\"33333333-3333-4333-8333-333333333333\",\"owner\":null,\"generation\":10},\"time\":1794507170718},{\"type\":\"load-start\",\"detail\":{\"token\":13},\"time\":1794507170722},{\"type\":\"load-user\",\"detail\":{\"token\":13,\"generation\":13,\"error\":\"AuthSessionMissingError\"},\"time\":1794507170722},{\"type\":\"storage\",\"detail\":{\"hintedOwner\":\"33333333-3333-4333-8333-333333333333\",\"owner\":\"33333333-3333-4333-8333-333333333333\",\"generation\":13},\"time\":1794507170740}],\"storedId\":\"33333333-3333-4333-8333-333333333333\"}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-12T18:12:47.130Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\test-results\\onboarding-ONB-07-troca-de-91efe-ba-remove-o-perfil-anterior-celular-repeat2\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\test-results\\onboarding-ONB-07-troca-de-91efe-ba-remove-o-perfil-anterior-celular-repeat2\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\onboarding.spec.ts",
+                    "column": 71,
+                    "line": 128
+                  }
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "celular",
+              "projectName": "celular",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5457,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-12T18:13:04.974Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "celular",
+              "projectName": "celular",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4683,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-12T18:13:14.101Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fe534f0825407f213faa-8cf46a84af32ce99fe98",
+          "file": "onboarding.spec.ts",
+          "line": 108,
+          "column": 44
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-12T18:12:31.368Z",
+    "duration": 49108.231,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

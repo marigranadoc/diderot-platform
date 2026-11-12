@@ -105,7 +105,8 @@ test('ONB-06 contrato simulado: UGC sem seguidores, reload, atuação híbrida e
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
 
-test('ONB-07 troca de conta em outra aba remove o perfil anterior',async({page,context})=>{
+for(const mode of ['normal','without-broadcast','delayed-storage'] as const)test(`${mode==='normal'?'ONB-07':mode==='without-broadcast'?'ONB-08':'ONB-09'} troca de conta em outra aba (${mode}) remove o perfil anterior`,async({page,context})=>{
+  if(mode==='without-broadcast')await context.addInitScript(()=>{Reflect.set(window,'BroadcastChannel',undefined);});
   await seedSession(page);
   const other={...user,id:'33333333-3333-4333-8333-333333333333',email:'outra@example.invalid'};
   let identity=user;
@@ -119,9 +120,25 @@ test('ONB-07 troca de conta em outra aba remove o perfil anterior',async({page,c
   await account.goto('/conta');
   await account.getByRole('button',{name:'Sair da conta'}).click();
   await expect(page.getByLabel('Nome profissional',{exact:true})).toHaveCount(0);
-  await account.getByLabel('E-mail',{exact:true}).fill(other.email);
-  await account.getByLabel('Senha',{exact:true}).fill('test-other-password');
-  await account.getByRole('button',{name:'Entrar',exact:true}).click();
+  if(mode==='delayed-storage'){
+    identity=other;
+    // Exercise the observed ordering explicitly: the sign-in notification is
+    // delivered while getUser still has no saved session to verify.
+    await page.evaluate(()=>{
+      Reflect.set(window,'testSignInNotificationSeen',false);
+      const channel=new BroadcastChannel('sb-mbxpwrgfujnjonyxzvfw-auth-token');
+      channel.onmessage=event=>{if(event.data.event==='SIGNED_IN'){channel.close();requestAnimationFrame(()=>requestAnimationFrame(()=>Reflect.set(window,'testSignInNotificationSeen',true)));}};
+    });
+    await account.evaluate(value=>{const channel=new BroadcastChannel('sb-mbxpwrgfujnjonyxzvfw-auth-token');channel.postMessage({event:'SIGNED_IN',session:value});channel.close();},session(other));
+    await page.waitForFunction(()=>Reflect.get(window,'testSignInNotificationSeen')===true);
+    await expect(page.getByLabel('Nome profissional',{exact:true})).toHaveCount(0);
+    await account.evaluate(value=>localStorage.setItem('sb-mbxpwrgfujnjonyxzvfw-auth-token',JSON.stringify(value)),session(other));
+  }else{
+    await account.getByLabel('E-mail',{exact:true}).fill(other.email);
+    await account.getByLabel('Senha',{exact:true}).fill('test-other-password');
+    await account.getByRole('button',{name:'Entrar',exact:true}).click();
+    await expect(account.getByRole('button',{name:'Sair da conta',exact:true})).toBeVisible();
+  }
   await expect(page.getByLabel('Nome profissional',{exact:true})).toHaveValue('Outro perfil');
   await account.close();
 });

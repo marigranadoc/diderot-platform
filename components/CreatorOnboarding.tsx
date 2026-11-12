@@ -17,25 +17,48 @@ export default function CreatorOnboarding() {
   const [retry,setRetry] = useState(0);
   const generation = useRef(0);
   const sessionOwner = useRef<string|null|undefined>(undefined);
+  const verifiedOwner = useRef<string|null>(null);
+  useEffect(()=>{
+    const client=getBrowserClient();
+    if(!client)return;
+    // Keep this subscription for the component's lifetime. Recreating it while
+    // reloading after logout can miss a quick sign-in from another tab.
+    const {data:subscription}=client.auth.onAuthStateChange((event,session)=>{
+      if(event==='INITIAL_SESSION') sessionOwner.current=session?.user.id??null;
+      if(event==='SIGNED_OUT') {sessionOwner.current=null;verifiedOwner.current=null;generation.current++;setUserId(null);setProfile(blank);setExists(false);setSaving(false);setLoading(false);setMessage('');setRetry(n=>n+1);}
+      if(event==='SIGNED_IN' && (session?.user.id!==sessionOwner.current||session?.user.id!==verifiedOwner.current)) {
+        sessionOwner.current=session?.user.id??null;verifiedOwner.current=null;generation.current++;
+        setUserId(null);setProfile(blank);setExists(false);setSaving(false);setLoading(true);setMessage('');
+        setRetry(n=>n+1);
+      }
+    });
+    const authStorageKey=`sb-${new URL(process.env.NEXT_PUBLIC_SUPABASE_URL!).hostname.split('.')[0]}-auth-token`;
+    const onStorage=(event:StorageEvent)=>{
+      if(event.key!==authStorageKey&&event.key!==null)return;
+      let hintedOwner:unknown=null;
+      try {hintedOwner=event.newValue?JSON.parse(event.newValue)?.user?.id??null:null;} catch {hintedOwner=undefined;}
+      // Storage is only a change signal, never an authenticated identity.
+      // A token refresh for the same person must not discard unsaved edits.
+      // A broadcast can arrive before this tab can read the saved session.
+      // Skip only when getUser has actually confirmed this identity.
+      if(hintedOwner===verifiedOwner.current)return;
+      verifiedOwner.current=null;generation.current++;setUserId(null);setProfile(blank);setExists(false);
+      setSaving(false);setLoading(true);setMessage('');setRetry(n=>n+1);
+    };
+    window.addEventListener('storage',onStorage);
+    return ()=>{generation.current++;subscription.subscription.unsubscribe();window.removeEventListener('storage',onStorage);};
+  },[]);
   useEffect(()=>{
     const token=++generation.current;
     const client=getBrowserClient();
     setLoading(true);setFailed(false);setMessage('');setSuccess(false);
     if(!client){setFailed(true);setLoading(false);setMessage('O acesso por conta não está configurado.');return;}
-    const {data:subscription}=client.auth.onAuthStateChange((event,session)=>{
-      if(event==='INITIAL_SESSION') sessionOwner.current=session?.user.id??null;
-      if(event==='SIGNED_OUT') {sessionOwner.current=null;generation.current++;setUserId(null);setProfile(blank);setExists(false);setSaving(false);setLoading(false);setMessage('');setRetry(n=>n+1);}
-      if(event==='SIGNED_IN' && session?.user.id!==sessionOwner.current) {
-        sessionOwner.current=session?.user.id??null;generation.current++;
-        setUserId(null);setProfile(blank);setExists(false);setSaving(false);setLoading(true);setMessage('');
-        setRetry(n=>n+1);
-      }
-    });
     async function load(){
       try {
         const {data,error}=await client!.auth.getUser();
         if(generation.current!==token)return;
-        if(error||!data.user){setUserId(null);return;}
+        if(error||!data.user){verifiedOwner.current=null;setUserId(null);return;}
+        verifiedOwner.current=data.user.id;
         sessionOwner.current=data.user.id;
         setUserId(data.user.id);
         const result=await client!.from('creator_profiles').select('professional_name,bio,city,state,modalities').eq('user_id',data.user.id).maybeSingle();
@@ -46,7 +69,7 @@ export default function CreatorOnboarding() {
       finally {if(generation.current===token)setLoading(false);}
     }
     void load();
-    return ()=>{generation.current++;subscription.subscription.unsubscribe();};
+    return ()=>{generation.current++;};
   },[retry]);
   async function save(event:FormEvent<HTMLFormElement>){
     event.preventDefault();

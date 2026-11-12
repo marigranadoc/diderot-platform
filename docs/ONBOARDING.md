@@ -42,3 +42,7 @@ Validar Auth real/URLs e executar os testes SQL de isolamento; então evoluir o 
 A tela limpa os campos na saída ou troca de usuário em outra aba e consulta novamente a sessão antes de carregar o próximo perfil. O teste ONB-07 cobre esse contrato com duas abas e identidades simuladas.
 
 Atualização de validação: testes de sessão real e isolamento remoto foram executados em 12/11/2026. Consulte [PAINEL-CREATOR.md](PAINEL-CREATOR.md) para resultados e limites; as pendências históricas de isolamento desses módulos foram superadas no escopo dos testes documentados. Entrega de e-mail e duas sessões Auth de identidades distintas continuam pendentes.
+
+Atualização de sessão em 12/11/2026: a auditoria de favoritos reproduziu uma falha intermitente de ONB-07 no celular. A escuta de Auth foi separada da recarga de dados para permanecer ativa durante logout/login em outra aba. Leituras antigas continuam invalidadas e o perfil anterior é limpo. Evidências de diagnóstico e revalidação estão em [FAVORITOS.md](FAVORITOS.md) e PROGRESSO-DIDEROT.md. Os testes usam identidades simuladas; não concedem privilégios nem comprovam entrega de e-mail.
+
+Causa confirmada por rastreamento: notificação SIGNED_IN podia anteceder a disponibilidade da sessão no armazenamento. A identidade notificada agora é separada da identidade confirmada por getUser; storage posterior não é ignorado enquanto faltar confirmação. ONB-09 reproduz essa ordem de entrega deliberadamente. A UI nunca usa o ID do armazenamento como autorização.

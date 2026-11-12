@@ -1,6 +1,7 @@
 'use client';
 import {useEffect, useRef, useState} from 'react';
 import {getBrowserClient} from '../lib/supabase-browser';
+import {GUEST_FAVORITES_KEY, GUEST_FAVORITES_CHANGED, readGuestFavorites, toggleGuestFavorite} from '../lib/guest-favorites';
 
 export function useFavorites() {
   const [saved, setSaved] = useState<string[]>([]);
@@ -10,11 +11,18 @@ export function useFavorites() {
   const [ready, setReady] = useState(false);
   const generation = useRef(0);
   const writing = useRef(false);
+  const owner = useRef<string | null | undefined>(undefined);
   useEffect(() => {
     const client = getBrowserClient();
     if (!client) {setBusy(false); setReady(true); return;}
     const {data} = client.auth.onAuthStateChange((_event, session) => {
-      setUserId(session?.user.id ?? null);
+      const nextOwner = session?.user.id ?? null;
+      if (owner.current !== nextOwner) {
+        owner.current = nextOwner;
+        generation.current++;
+        setSaved([]); setError(''); setBusy(true);
+      }
+      setUserId(nextOwner);
       setReady(true);
     });
     return () => {data.subscription.unsubscribe(); generation.current++;};
@@ -24,7 +32,31 @@ export function useFavorites() {
     const token = ++generation.current;
     setSaved([]); setError('');
     const client = getBrowserClient();
-    if (!userId || !client) {setBusy(false); return;}
+    if (!userId || !client) {
+      const syncGuest = () => {
+        try {
+          const {slugs, damaged} = readGuestFavorites();
+          setSaved(slugs);
+          setError(damaged ? 'Não foi possível recuperar os favoritos deste navegador. Salve suas escolhas novamente.' : '');
+        } catch {
+          setSaved([]);
+          setError('O navegador não permite acessar seus favoritos salvos. Verifique as configurações de armazenamento.');
+        }
+      };
+      const onStorage = (event: StorageEvent) => {
+        if (event.key === GUEST_FAVORITES_KEY || event.key === null) syncGuest();
+      };
+      syncGuest(); setBusy(false);
+      window.addEventListener('storage', onStorage);
+      window.addEventListener(GUEST_FAVORITES_CHANGED, syncGuest);
+      window.addEventListener('pageshow', syncGuest);
+      return () => {
+        generation.current++;
+        window.removeEventListener('storage', onStorage);
+        window.removeEventListener(GUEST_FAVORITES_CHANGED, syncGuest);
+        window.removeEventListener('pageshow', syncGuest);
+      };
+    }
     setBusy(true);
     client.from('favorites').select('product_slug').eq('user_id', userId).then(({data,error}) => {
       if (generation.current !== token) return;
@@ -36,7 +68,15 @@ export function useFavorites() {
   }, [ready,userId]);
   async function toggle(slug: string) {
     if (busy || writing.current) return;
-    if (!userId) {setSaved(previous=>previous.includes(slug)?previous.filter(item=>item!==slug):[...previous,slug]); return;}
+    if (!userId) {
+      try {
+        const next = toggleGuestFavorite(slug);
+        setSaved(next); setError('');
+      } catch {
+        setError('Não foi possível salvar a alteração neste navegador. Verifique o armazenamento e tente novamente.');
+      }
+      return;
+    }
     const client = getBrowserClient();
     if (!client) return;
     const token = generation.current;

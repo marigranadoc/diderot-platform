@@ -15,7 +15,7 @@ test('busca, categoria, ordenação, favoritos e estado vazio',async({page})=>{
  await page.getByRole('button',{name:'Beleza',exact:true}).click();await expect(page.locator('.product-card')).toHaveCount(2);
  await page.getByRole('combobox',{name:'Ordenar'}).selectOption('menor');await expect(page.locator('.product-card').first()).toContainText('Creme essencial');
  await page.getByRole('button',{name:'Salvar Creme essencial',exact:true}).click();await expect(page.getByRole('button',{name:'Remover Creme essencial'})).toHaveAttribute('aria-pressed','true');
- await expect(page.getByText('1 favorito nesta visita')).toBeVisible();
+ await expect(page.getByText('1 favorito neste navegador')).toBeVisible();
  await page.getByRole('searchbox',{name:'Buscar na loja'}).fill('inexistente');await expect(page.locator('.product-card')).toHaveCount(0);await expect(page.getByRole('heading',{name:'Nenhuma descoberta por aqui.'})).toBeVisible();
  await page.getByRole('button',{name:'Limpar filtros'}).click();await expect(page.locator('.product-card')).toHaveCount(8);
  await page.getByRole('searchbox',{name:'Buscar na loja'}).fill('Bolsa');await expect(page.locator('.product-card')).toHaveCount(2);

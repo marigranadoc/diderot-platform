@@ -54,7 +54,7 @@ Esta consolidação reutiliza as capturas existentes. Não apresenta uma nova in
 - Detalhe com ilustração SVG original, marca, preço fictício, nota da criadora, navegação e informação de disponibilidade demonstrativa.
 - Estado vazio com limpeza de filtros, página 404 com retorno, foco visível e verificações pontuais de teclado.
 - Tela `/conta` com login/logout para contas existentes, mensagens de erro e indicação de que cadastro público ainda não está disponível.
-- Favoritos temporários para visitantes e operações de favoritos por conta implementadas, aguardando validação remota completa.
+- Favoritos de visitante persistidos neste navegador e separados dos favoritos de conta. Favoritos de conta têm evidências remotas anteriores; limites em FAVORITOS.md e PAINEL-CREATOR.md.
 - Tratamento de falha de catálogo com nova tentativa; o modo conectado não substitui falhas silenciosamente por dados locais.
 
 ### 3.2 Dados, integração e operação
@@ -170,17 +170,17 @@ Nenhuma tela administrativa da ShopMy foi inspecionada. Os requisitos M01/M02 s�
 
 ### J1 — Shopper visitante
 
-**Atual:** inicial → perfil público → coleção/busca/filtro → produto → explicação de disponibilidade → retorno. O visitante pode marcar favoritos temporários e recebe convite para entrar. Essa seleção não é retida entre sessões.
+**Atual:** inicial → perfil público → coleção/busca/filtro → produto → explicação de disponibilidade → retorno. O visitante pode salvar favoritos neste navegador, navegar e recarregar sem perder a seleção quando o armazenamento está disponível. Escolhas locais e da conta permanecem separadas; entrar não importa escolhas automaticamente.
 
 **Alvo:** descobrir vários curadores → produto → salvar com conta ou acessar varejista. A compra acontece fora da Diderot nesta proposta; checkout próprio não é requisito aprovado.
 
-**Estados obrigatórios:** carregamento, lista com resultados, vazio recuperável, produto inexistente, falha de catálogo, favorito temporário, pedido de login e destino indisponível.
+**Estados obrigatórios:** carregamento, lista com resultados, vazio recuperável, produto inexistente, falha de catálogo, favorito local persistido, erro de armazenamento, pedido de login e destino indisponível.
 
 ### J2 — Shopper com conta
 
 **Alvo:** cadastrar/confirmar → entrar → salvar → recarregar → sair → entrar novamente → reencontrar → remover. Repetir em outra sessão e com segunda conta sem acesso ao primeiro conjunto.
 
-**Atual:** cliente de login/logout e operações de favoritos implementados; contrato de interface simulado passou. Não há conta real de teste registrada; o formulário de cadastro está implementado, sem validação da entrega/retorno do e-mail. A transferência de favoritos temporários para a conta é uma decisão pendente, não um comportamento implementado.
+**Atual:** cliente de login/logout e operações de favoritos implementados; contrato de interface simulado passou. Não há conta real de teste registrada; o formulário de cadastro está implementado, sem validação da entrega/retorno do e-mail. Não há transferência automática de favoritos locais para a conta. Entrar exibe os favoritos privados; sair restaura a seleção anterior deste navegador.
 
 **Estados obrigatórios:** conta não confirmada, credenciais inválidas, envio em andamento, sessão expirada, falha de salvar/remover, confirmação de resultado e logout. Não mostrar sucesso antes de confirmar a operação.
 
@@ -268,7 +268,7 @@ Perfis, habilitações de papel, lojas, organizações/membros, candidaturas, re
 
 | Ator | Leitura prevista | Escrita prevista | Proibições obrigatórias |
 |---|---|---|---|
-| Visitante | Conteúdo público | Nenhuma escrita persistente pessoal | Dados privados, rascunhos e favoritos de contas |
+| Visitante | Conteúdo público e favoritos locais | Somente armazenamento deste navegador; nenhuma escrita pessoal remota | Dados privados, rascunhos e favoritos de contas |
 | Shopper | Público + próprios favoritos/grupos | Próprias preferências/grupos | Alterar outro usuário ou atribuir papel |
 | Creator habilitado | Público + sua gestão/propostas | Sua loja/coleções e respostas autorizadas | Catálogo privado alheio; aprovação da própria candidatura |
 | Membro brand habilitado | Dados da organização e creators públicos | Campanhas e seleções da organização conforme permissão | Organização alheia e dados privados de candidatura |
@@ -664,3 +664,10 @@ Essas evidências atualizam as afirmações históricas de Auth real/isolamento 
 Home reorganizada conforme estrutura e captura ShopMy fornecidas: hero, faixa móvel, Curadoria, Círculos/seleções, CTA, Categorias e Marcas; navegação por público, busca e rodapé. Reckless local substitui Tobias/ShopMy Plain; DM Sans permanece no corpo. Aplicados tokens neutros às telas existentes e oito fotografias reais ilustrativas em lugar de vetores. Filtros de categoria/marca/busca abrem resultados reais no catálogo.
 
 [Implementação, origem das imagens e restrição da fonte TRIAL](DESIGN-SYSTEM-DIDEROT.md). Arquivos Reckless não publicados no GitHub: licença fornecida permite somente uso pessoal. Círculos pessoais, aplicativo nativo, concierge, campanhas, compras e gestão completa de marca/admin continuam pendentes. O visual da referência não altera esse estado funcional. Sem migrações nem dados reais nesta etapa.
+
+
+## 30. Favoritos de visitante — incremento de 12/11/2026
+
+S07/GAP-01: seleção local versionada mantém favoritos em reloads, navegação e nova aba da mesma origem. Inclusão/remoção e limpeza acompanham outras abas; falha de armazenamento não confirma sucesso. Dados inválidos são identificados e podem ser substituídos por ação explícita. Entrar e sair preserva a separação entre seleção local e favoritos privados; não há migração automática para a conta. Nenhuma alteração de schema/RLS ou dado real. [Comportamento, tabela funcional e limites](FAVORITOS.md). Painéis brand/admin e fundação de organizações continuam pendentes; esta correção não conclui o marketplace.
+
+Também foi corrigida a atualização de sessão no perfil de creator: assinatura mantida durante a permanência na tela e releitura por `getUser` quando outra aba altera a sessão salva. Identificadores locais não concedem acesso. ONB-07/ONB-08 verificam troca de conta com e sem BroadcastChannel; diagnósticos e limites em FAVORITOS.md.

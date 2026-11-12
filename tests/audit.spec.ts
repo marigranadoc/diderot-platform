@@ -48,9 +48,9 @@ test('AUD-03 filtros, preços completos, remoção de favorito e isolamento da c
   expect(names).toEqual(expected);
  }
  await page.getByRole('button',{name:'Salvar Bolsa Oliva',exact:true}).click();
- await expect(page.getByText('1 favorito nesta visita')).toBeVisible();
+ await expect(page.getByText('1 favorito neste navegador')).toBeVisible();
  await page.getByRole('button',{name:'Remover Bolsa Oliva',exact:true}).click();
- await expect(page.getByText('0 favoritos nesta visita')).toBeVisible();
+ await expect(page.getByText('0 favoritos neste navegador')).toBeVisible();
  for(const c of collections){await page.goto(`/colecoes/${c.slug}`);await expect(page.locator('.product-card')).toHaveCount(products.filter(p=>p.collection===c.slug).length)}
 });
 
@@ -75,14 +75,14 @@ test('AUD-05 celular estreito, tablet e teclado nos controles principais',async(
  const summary=page.locator('#disponibilidade summary');await summary.focus();await page.keyboard.press('Enter');
  await expect(page.getByText('Não está à venda.',{exact:false})).toBeVisible();
  await page.goto('/criador');const favorite=page.getByRole('button',{name:'Salvar Bolsa Oliva',exact:true});
- await favorite.focus();await page.keyboard.press('Space');await expect(page.getByText('1 favorito nesta visita')).toBeVisible();
+ await favorite.focus();await page.keyboard.press('Space');await expect(page.getByText('1 favorito neste navegador')).toBeVisible();
 });
 
-test('GAP-01 @pendente shopper mantém favorito depois de recarregar',async({page})=>{
+test('GAP-01 resolvido: shopper mantém favorito depois de recarregar',async({page})=>{
  await page.goto('/criador');await page.getByRole('button',{name:'Salvar Bolsa Oliva',exact:true}).click();
  await expect(page.getByRole('button',{name:'Remover Bolsa Oliva',exact:true})).toBeVisible();
  await page.reload();
- await expect(page.getByRole('button',{name:'Remover Bolsa Oliva',exact:true}),'Neste cenário sem autenticação, favoritos de visitante não persistem após recarregar.').toBeVisible({timeout:1500});
+ await expect(page.getByRole('button',{name:'Remover Bolsa Oliva',exact:true}),'O favorito de visitante deve persistir neste navegador após recarregar.').toBeVisible({timeout:1500});
 });
 
 for(const role of [

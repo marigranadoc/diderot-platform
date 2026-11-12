@@ -1,47 +1,35 @@
-# Diderot — primeiro módulo
+# Diderot — Creator Commerce + UGC
 
-Documento consolidado do produto: [PRD Diderot — escopo, estado atual e backlog](docs/PRD-DIDEROT.md), versão 1.1 de 12/11/2026. Inclui evidências REA e a expansão nativa UGC Marketplace + Creator Commerce, com modalidades profissionais, campanhas por vaga, contratação, produção, direitos, financeiro e critérios de aceite. O escopo futuro não representa funcionalidades já implementadas.
+Plataforma em implementação com Next.js, TypeScript e Supabase. O catálogo público é demonstrativo: uma criadora fictícia, oito produtos e quatro marcas fictícias; fotografias reais ilustrativas. Não há compras, comissões ou pagamentos ativos.
 
-Loja pública demonstrativa feita com Next.js, TypeScript e Tailwind CSS. Todo o conteúdo comercial é fictício; as ilustrações são originais em SVG. Não há pagamentos, cadastro ou rastreamento.
+O [PRD](docs/PRD-DIDEROT.md) reúne a referência investigada na ShopMy e a expansão UGC. O [progresso funcional](docs/PROGRESSO-DIDEROT.md) distingue o que foi implementado, testado e ainda falta. Aparência e botões não comprovam conclusão de um fluxo.
 
-## Abrir no Windows
+## Rodar no Windows
 
-Na pasta deste projeto, execute `npm.cmd install` e depois `npm.cmd run dev`. Abra o endereço local informado no terminal. Para encerrar, use Ctrl+C.
+Execute `npm.cmd install`. Configure `.env.local` conforme [integrações](docs/INTEGRACOES.md), depois `npm.cmd run dev` e abra o endereço informado. O catálogo conectado falha explicitamente quando indisponível. Para usar os exemplos sem banco, configure `DIDEROT_DATA_SOURCE=demo`; não há fallback silencioso.
+
+Para a versão compilada, execute `npm.cmd run build` e `npm.cmd start`. Não use dev e start simultaneamente na mesma porta. Ctrl+C encerra o servidor.
+
+## Disponível
+
+- `/`: home editorial com busca, curadoria, seleções temáticas, categorias e marcas; filtros levam a resultados reais do catálogo.
+- `/criador`, `/colecoes/[slug]` e `/produto/[slug]`: catálogo, filtros, ordenação e detalhe demonstrativo; sem checkout.
+- Favoritos de visitante ficam neste navegador entre páginas e reloads. Favoritos de conta usam Supabase e RLS, separados da seleção local. [Comportamento, testes e limites](docs/FAVORITOS.md).
+- `/conta`, `/cadastro`, `/recuperar-acesso`: entrada/saída, cadastro e recuperação; entrega de e-mails reais continua pendente de validação.
+- `/painel/criador`, `/conta/criador`: painel e perfil profissional privado, UGC/influencer/afiliado na mesma conta, sem requisito de seguidores para UGC.
+- `/conta/criador/servicos`, `/conta/criador/portfolio`: gestão privada de serviços e trabalhos por link. Publicação e upload continuam pendentes.
+
+Login real, duas sessões da conta demonstrativa e isolamento de banco têm [evidências anteriores](docs/PAINEL-CREATOR.md). Não equivalem a todas as jornadas concluídas. Brand/admin, organizações, campanhas, candidaturas, contratos, entregas, financeiro, aplicativo nativo e círculos pessoais seguem no backlog.
 
 ## Verificar
 
 - `npm.cmd run typecheck`
 - `npm.cmd run build`
-- Depois do build, `npm.cmd test` executa a auditoria completa, iniciando seu próprio servidor em `http://127.0.0.1:3101`. Retorna falha enquanto faltarem persistência e áreas de gestão. A porta 3101 precisa estar livre. Os testes usam o Chrome instalado; informe outro executável pela variável `DIDEROT_CHROME_PATH`.
-- `npm.cmd run test:vitrine` verifica somente o escopo demonstrativo implementado. Exclui explicitamente os testes `@pendente` e não aprova a plataforma completa.
+- `npm.cmd test`: auditoria integral em Chrome, computador/celular, com servidor próprio na porta 3101. Falha enquanto persistirem testes de requisitos não implementados; não usar para afirmar plataforma completa.
+- `npm.cmd run test:vitrine`: exclui explicitamente `@pendente`; verifica o escopo implementado e não aprova as jornadas ainda ausentes.
 
-Histórico da primeira construção: build, TypeScript e seis testes da vitrine aprovados. Esses testes não verificavam banco, autenticação ou áreas de gestão. A auditoria posterior ampliou a cobertura e registrou falhas reais; consulte [docs/PROGRESSO-DIDEROT.md](docs/PROGRESSO-DIDEROT.md) e [a referência derivada via REA](docs/PRD-DIDEROT-REFERENCIA.md).
+Chrome deve estar instalado; outro executável pode ser informado em `DIDEROT_CHROME_PATH`. A porta 3101 precisa estar livre. Testes de Auth com mocks são identificados; não comprovam banco real. Testes SQL remotos anteriores usam fixtures e ROLLBACK.
 
-Para abrir a versão compilada: `npm.cmd run build` e `npm.cmd start`. Não execute `dev` e `start` na mesma porta ao mesmo tempo.
+## Identidade visual
 
-## Páginas
-
-- `/`: apresentação e descoberta de coleções.
-- `/criador`: perfil, coleções, busca, filtros, ordenação e favoritos durante a visita.
-- `/colecoes/essenciais`, `/colecoes/rituais`, `/colecoes/casa`: coleções.
-- `/produto/bolsa-oliva` e outros itens do catálogo: detalhes.
-
-Favoritos existem apenas na instância da tela: desaparecem ao recarregar ou remontar o catálogo ao navegar. A disponibilidade abre uma explicação demonstrativa; não leva a uma loja real. Esta etapa não inclui toda a plataforma ShopMy.
-
-## Catálogo conectado
-
-A vitrine consulta o Supabase no servidor. Antes de iniciar, configure `.env.local` conforme [docs/INTEGRACOES.md](docs/INTEGRACOES.md). Para a demonstração offline, defina explicitamente `DIDEROT_DATA_SOURCE=demo`. O modo conectado não usa fallback silencioso. `node scripts/check-database.mjs` verifica o catálogo demonstrativo remoto e o bloqueio de escrita pública. Login, favoritos persistentes e gestão permanecem pendentes.
-
-A rota `/conta` permite login/logout para contas existentes; visitantes mantêm favoritos temporários. Favoritos de contas usam a tabela `favorites` com regras por usuário, mas a jornada com Auth real ainda aguarda validação. Testes simulados de interface não comprovam persistência remota. Cadastro público e recuperação de senha ainda não estão disponíveis.
-
-## Cadastro, recuperação e perfil inicial
-
-As rotas `/cadastro`, `/recuperar-acesso` e `/conta/criador` foram implementadas; UGC, influencer e afiliado podem ser selecionados na mesma conta. Veja [configuração e limites de validação](docs/ONBOARDING.md). As afirmações históricas de ausência desses formulários foram superadas por este incremento; a validação com Auth/e-mail reais continua pendente. Build utiliza Webpack após falha interna do Turbopack neste ambiente.
-
-Serviços do creator: `/conta/criador/servicos` oferece cadastro, edição e exclusão privados, com preço inicial ou sob orçamento. Consulte [estado e limites](docs/SERVICOS-CREATOR.md).
-
-Portfólio privado por links: `/conta/criador/portfolio` permite organizar e editar trabalhos, com validação HTTPS e exclusão confirmada. [Estado e limites](docs/PORTFOLIO-CREATOR.md). Upload de arquivos e publicação ainda pendentes.
-
-Painel do creator: `/painel/criador` reúne perfil, serviços e portfólio com contagens remotas. Login real, duas sessões API e testes RLS agora têm [evidências registradas](docs/PAINEL-CREATOR.md); entrega de e-mail e módulos de marca/admin permanecem pendentes.
-
-Identidade visual: veja [design system e home](docs/DESIGN-SYSTEM-DIDEROT.md). A Reckless enviada é TRIAL e fica somente na prévia local; o repositório usa fallback quando não instalada. DM Sans e fotografias incluem suas fontes e licenças.
+[Design system e home](docs/DESIGN-SYSTEM-DIDEROT.md) seguem os arquivos fornecidos pela usuária. Reckless TRIAL fica somente na prévia local, fora do repositório; sem os arquivos, os títulos usam Georgia. Publicação com Reckless depende da fonte licenciada definitiva. DM Sans e fotografias incluem fontes/licenças. Não publicar credenciais ou fontes de avaliação.

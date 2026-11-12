@@ -33,12 +33,17 @@ test('AUTH-02 contrato simulado: login, favorito, reload, remoção e logout', a
     }
     return route.abort();
   });
+  await page.goto('/criador');
+  await page.getByRole('button',{name:'Salvar Bolsa Areia',exact:true}).click();
+  await expect(page.getByText('1 favorito neste navegador',{exact:true})).toBeVisible();
   await page.goto('/conta');
   await page.getByLabel('E-mail',{exact:true}).fill('teste@example.invalid');
   await page.getByLabel('Senha',{exact:true}).fill('test-only-password');
   await page.getByRole('button',{name:'Entrar',exact:true}).click();
   await expect(page.getByRole('button',{name:'Sair da conta'})).toBeVisible();
   await page.getByRole('link',{name:'Explorar e salvar produtos'}).click();
+  await expect(page.getByRole('button',{name:'Salvar Bolsa Areia',exact:true})).toBeVisible();
+  expect(favorites).toEqual([]);
   await page.getByRole('button',{name:'Salvar Bolsa Oliva',exact:true}).click();
   await expect(page.getByText('1 favorito na sua conta',{exact:true})).toBeVisible();
   await page.reload();
@@ -56,5 +61,8 @@ test('AUTH-02 contrato simulado: login, favorito, reload, remoção e logout', a
   await page.getByRole('button',{name:'Sair da conta'}).click();
   await expect(page.getByRole('button',{name:'Entrar',exact:true})).toBeVisible();
   await page.goto('/criador');
-  await expect(page.getByText('0 favoritos nesta visita',{exact:true})).toBeVisible();
+  await expect(page.getByText('1 favorito neste navegador',{exact:true})).toBeVisible();
+  await expect(page.getByRole('button',{name:'Remover Bolsa Areia',exact:true})).toBeVisible();
+  await expect(page.getByRole('button',{name:'Salvar Bolsa Oliva',exact:true})).toBeVisible();
+  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('diderot:guest-favorites:v1')!))).toEqual({version:1,slugs:['bolsa-areia']});
 });

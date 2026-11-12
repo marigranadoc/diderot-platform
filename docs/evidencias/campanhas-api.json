@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "checks": ["anonymous_table_read_denied", "anonymous_rpc_denied", "real_demo_auth_login", "authenticated_nested_draft_read", "organization_scope"],
+  "limits": "Read-only HTTP probe with an existing demo account. Mutations and cross-user isolation verified in PostgreSQL with rollback fixtures, not two HTTP logins.",
+  "environment": "Supabase remoto; nenhum registro criado ou alterado. A primeira tentativa local não obteve resposta de rede; a repetição autorizada passou. Sessão de verificação encerrada com escopo local."
+}

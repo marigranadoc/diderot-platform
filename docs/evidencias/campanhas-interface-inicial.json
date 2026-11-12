@@ -1,0 +1,399 @@
+{
+  "format": "diderot-playwright-evidence-v1",
+  "source": "Completed Playwright JSON report; raw original retained in local work/raw-campaign-reports.",
+  "projects": [
+    {
+      "name": "computador"
+    },
+    {
+      "name": "celular"
+    }
+  ],
+  "summary": {
+    "startTime": "2026-11-12T23:01:33.520Z",
+    "duration": 234159.663,
+    "expected": 12,
+    "skipped": 0,
+    "unexpected": 10,
+    "flaky": 0
+  },
+  "runner_errors": [],
+  "cases": [
+    {
+      "file": "brand.spec.ts",
+      "line": 9,
+      "title": "BR-01 visitante encontra a área da marca sem acessar dados privados",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3705,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 9,
+      "title": "BR-01 visitante encontra a área da marca sem acessar dados privados",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4898,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 17,
+      "title": "BR-02 contrato: criar, reler, editar e cancelar sem simular aprovação",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 6559,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 17,
+      "title": "BR-02 contrato: criar, reler, editar e cancelar sem simular aprovação",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4845,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 44,
+      "title": "BR-03 falha de consulta ou gravação não confirma cadastro ou edição",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 9998,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 44,
+      "title": "BR-03 falha de consulta ou gravação não confirma cadastro ou edição",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 9327,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 66,
+      "title": "BR-04 membro não edita organização alheia nem ganha acesso por metadata",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1066,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 66,
+      "title": "BR-04 membro não edita organização alheia nem ganha acesso por metadata",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1175,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 77,
+      "title": "BR-05 saída em outra aba impede retorno tardio de dados privados",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2647,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 77,
+      "title": "BR-05 saída em outra aba impede retorno tardio de dados privados",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2160,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 36,
+      "title": "CAMP-01 contrato: salvar híbrida, reler após reload, editar e descartar",
+      "project": "computador",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "timedOut",
+          "duration_ms": 60444,
+          "retry": 0,
+          "errors": [
+            "Test timeout of 60000ms exceeded.",
+            "Error: locator.selectOption: Test timeout of 60000ms exceeded.\nCall log:\n  - waiting for getByLabel('Tipo de campanha', { exact: true })\n\n\n  36 | test('CAMP-01 contrato: salvar híbrida, reler após reload, editar e descartar',async({page},info)=>{\n  37 |  const state=await setup(page);await create(page);\n> 38 |  await page.getByLabel('Tipo de campanha',{exact:true}).selectOption('hybrid');\n     |                                                         ^\n  39 |  await page.getByLabel('Planejar vagas UGC',{exact:true}).check();await page.getByLabel('Quantidade UGC',{exact:true}).fill('2');await page.getByLabel('Estimativa por creator UGC (R$, opcional)',{exact:true}).fill('150,50');\n  40 |  await page.getByLabel('Planejar vagas Influencer',{exact:true}).check();\n  41 |  await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\campaigns.spec.ts:38:57"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 36,
+      "title": "CAMP-01 contrato: salvar híbrida, reler após reload, editar e descartar",
+      "project": "celular",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "timedOut",
+          "duration_ms": 60748,
+          "retry": 0,
+          "errors": [
+            "Test timeout of 60000ms exceeded.",
+            "Error: browserContext._wrapApiCall: file data stream has unexpected number of bytes",
+            "Error: locator.selectOption: Test ended.\nCall log:\n  - waiting for getByLabel('Tipo de campanha', { exact: true })\n\n\n  36 | test('CAMP-01 contrato: salvar híbrida, reler após reload, editar e descartar',async({page},info)=>{\n  37 |  const state=await setup(page);await create(page);\n> 38 |  await page.getByRole('combobox',{name:'Tipo de campanha',exact:true}).selectOption('hybrid');\n     |                                                         ^\n  39 |  await page.getByLabel('Planejar vagas UGC',{exact:true}).check();await page.getByLabel('Quantidade UGC',{exact:true}).fill('2');await page.getByLabel('Estimativa por creator UGC (R$, opcional)',{exact:true}).fill('150,50');\n  40 |  await page.getByLabel('Planejar vagas Influencer',{exact:true}).check();\n  41 |  await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\campaigns.spec.ts:38:57",
+            "Error: End of central directory record signature not found. Either not a zip file, or file is truncated."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 53,
+      "title": "CAMP-02 contrato: datas e estimativas inválidas bloqueiam gravação, UGC sem seguidores",
+      "project": "computador",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 3656,
+          "retry": 0,
+          "errors": [
+            "Error: expect(locator).toContainText(expected) failed\n\nLocator: getByRole('alert')\nExpected substring: \"término deve\"\nError: strict mode violation: getByRole('alert') resolved to 2 elements:\n    1) <p role=\"alert\">O término deve ser igual ou posterior ao início.</p> aka getByText('O término deve ser igual ou')\n    2) <div role=\"alert\" aria-live=\"assertive\" id=\"__next-route-announcer__\"></div> aka locator('[id=\"__next-route-announcer__\"]')\n\nCall log:\n  - Expect \"toContainText\" getByRole('alert') with timeout 10000ms\n  - waiting for getByRole('alert')\n\n\n  53 | test('CAMP-02 contrato: datas e estimativas inválidas bloqueiam gravação, UGC sem seguidores',async({page})=>{\n  54 |  const state=await setup(page);await create(page);\n> 55 |  await page.getByLabel('Início (opcional)',{exact:true}).fill('2027-02-10');await page.getByLabel('Término (opcional)',{exact:true}).fill('2027-02-01');await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('alert')).toContainText('término deve');expect(state.requests).toHaveLength(0);\n     |                                                                                                                                                                                                                                                                          ^\n  56 |  await page.getByLabel('Término (opcional)',{exact:true}).fill('2027-02-20');await page.getByLabel('Planejar vagas UGC',{exact:true}).check();await page.getByLabel('Estimativa por creator UGC (R$, opcional)',{exact:true}).fill('1,234');await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('alert')).toContainText('duas casas decimais');expect(state.requests).toHaveLength(0);\n  57 |  await page.getByLabel('Estimativa por creator UGC (R$, opcional)',{exact:true}).fill('');await expect(page.getByLabel(/mínimo de seguidores/i)).toHaveCount(0);await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('status')).toContainText('salvo e relido');expect(state.requests[0].p_document.slots[0].budget_per_creator_cents).toBeNull();\n  58 | });\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\campaigns.spec.ts:55:266"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 53,
+      "title": "CAMP-02 contrato: datas e estimativas inválidas bloqueiam gravação, UGC sem seguidores",
+      "project": "celular",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 4640,
+          "retry": 0,
+          "errors": [
+            "Error: expect(locator).toContainText(expected) failed\n\nLocator: getByRole('alert')\nExpected substring: \"término deve\"\nError: strict mode violation: getByRole('alert') resolved to 2 elements:\n    1) <p role=\"alert\">O término deve ser igual ou posterior ao início.</p> aka getByText('O término deve ser igual ou')\n    2) <div role=\"alert\" aria-live=\"assertive\" id=\"__next-route-announcer__\"></div> aka locator('[id=\"__next-route-announcer__\"]')\n\nCall log:\n  - Expect \"toContainText\" getByRole('alert') with timeout 10000ms\n  - waiting for getByRole('alert')\n\n\n  53 | test('CAMP-02 contrato: datas e estimativas inválidas bloqueiam gravação, UGC sem seguidores',async({page})=>{\n  54 |  const state=await setup(page);await create(page);\n> 55 |  await page.getByLabel('Início (opcional)',{exact:true}).fill('2027-02-10');await page.getByLabel('Término (opcional)',{exact:true}).fill('2027-02-01');await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('main').getByRole('alert')).toContainText('término deve');expect(state.requests).toHaveLength(0);\n     |                                                                                                                                                                                                                                                                          ^\n  56 |  await page.getByLabel('Término (opcional)',{exact:true}).fill('2027-02-20');await page.getByLabel('Planejar vagas UGC',{exact:true}).check();await page.getByLabel('Estimativa por creator UGC (R$, opcional)',{exact:true}).fill('1,234');await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('main').getByRole('alert')).toContainText('duas casas decimais');expect(state.requests).toHaveLength(0);\n  57 |  await page.getByLabel('Estimativa por creator UGC (R$, opcional)',{exact:true}).fill('');await expect(page.getByLabel(/mínimo de seguidores/i)).toHaveCount(0);await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('status')).toContainText('salvo e relido');expect(state.requests[0].p_document.slots[0].budget_per_creator_cents).toBeNull();\n  58 | });\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\campaigns.spec.ts:55:266"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 60,
+      "title": "CAMP-03 contrato: resposta perdida preserva campos e usa a mesma tentativa sem duplicar",
+      "project": "computador",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 2488,
+          "retry": 0,
+          "errors": [
+            "Error: expect(locator).toContainText(expected) failed\n\nLocator: getByRole('alert')\nExpected substring: \"Não foi possível confirmar\"\nError: strict mode violation: getByRole('alert') resolved to 2 elements:\n    1) <p role=\"alert\">Não foi possível confirmar o salvamento. Seus cam…</p> aka getByText('Não foi possível confirmar o')\n    2) <div role=\"alert\" aria-live=\"assertive\" id=\"__next-route-announcer__\"></div> aka locator('[id=\"__next-route-announcer__\"]')\n\nCall log:\n  - Expect \"toContainText\" getByRole('alert') with timeout 10000ms\n  - waiting for getByRole('alert')\n\n\n  59 |\n  60 | test('CAMP-03 contrato: resposta perdida preserva campos e usa a mesma tentativa sem duplicar',async({page})=>{\n> 61 |  const state=await setup(page);await create(page);state.loseResponse=true;await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('alert')).toContainText('Não foi possível confirmar');await expect(page.getByRole('status')).toHaveCount(0);await expect(page.getByLabel('Título da campanha',{exact:true})).toHaveValue('Lançamento demonstrativo');\n     |                                                                                                                                                                                            ^\n  62 |  await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('status')).toContainText('salvo e relido');expect(state.requests).toHaveLength(2);expect(state.requests[0].p_request).toBe(state.requests[1].p_request);expect(state.requests[0].p_id).toBe(state.requests[1].p_id);expect(state.rows).toHaveLength(1);\n  63 | });\n  64 |\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\campaigns.spec.ts:61:188"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 60,
+      "title": "CAMP-03 contrato: resposta perdida preserva campos e usa a mesma tentativa sem duplicar",
+      "project": "celular",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 3170,
+          "retry": 0,
+          "errors": [
+            "Error: expect(locator).toContainText(expected) failed\n\nLocator: getByRole('alert')\nExpected substring: \"Não foi possível confirmar\"\nError: strict mode violation: getByRole('alert') resolved to 2 elements:\n    1) <p role=\"alert\">Não foi possível confirmar o salvamento. Seus cam…</p> aka getByText('Não foi possível confirmar o')\n    2) <div role=\"alert\" aria-live=\"assertive\" id=\"__next-route-announcer__\"></div> aka locator('[id=\"__next-route-announcer__\"]')\n\nCall log:\n  - Expect \"toContainText\" getByRole('alert') with timeout 10000ms\n  - waiting for getByRole('alert')\n\n\n  59 |\n  60 | test('CAMP-03 contrato: resposta perdida preserva campos e usa a mesma tentativa sem duplicar',async({page})=>{\n> 61 |  const state=await setup(page);await create(page);state.loseResponse=true;await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('main').getByRole('alert')).toContainText('Não foi possível confirmar');await expect(page.getByRole('status')).toHaveCount(0);await expect(page.getByLabel('Título da campanha',{exact:true})).toHaveValue('Lançamento demonstrativo');\n     |                                                                                                                                                                                            ^\n  62 |  await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('status')).toContainText('salvo e relido');expect(state.requests).toHaveLength(2);expect(state.requests[0].p_request).toBe(state.requests[1].p_request);expect(state.requests[0].p_id).toBe(state.requests[1].p_id);expect(state.rows).toHaveLength(1);\n  63 | });\n  64 |\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\campaigns.spec.ts:61:188"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 65,
+      "title": "CAMP-04 contrato: conflito e erro de releitura não anunciam sucesso",
+      "project": "computador",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 2676,
+          "retry": 0,
+          "errors": [
+            "Error: expect(locator).toContainText(expected) failed\n\nLocator: getByRole('alert')\nExpected substring: \"outra sessão\"\nError: strict mode violation: getByRole('alert') resolved to 2 elements:\n    1) <p role=\"alert\">Este rascunho foi alterado em outra sessão. Cance…</p> aka getByText('Este rascunho foi alterado em')\n    2) <div role=\"alert\" aria-live=\"assertive\" id=\"__next-route-announcer__\"></div> aka locator('[id=\"__next-route-announcer__\"]')\n\nCall log:\n  - Expect \"toContainText\" getByRole('alert') with timeout 10000ms\n  - waiting for getByRole('alert')\n\n\n  64 |\n  65 | test('CAMP-04 contrato: conflito e erro de releitura não anunciam sucesso',async({page})=>{\n> 66 |  const state=await setup(page);await create(page);state.conflict=true;await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('alert')).toContainText('outra sessão');await expect(page.getByLabel('Título da campanha',{exact:true})).toHaveValue('Lançamento demonstrativo');\n     |                                                                                                                                                                                        ^\n  67 |  state.conflict=false;state.failRead=true;await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('alert')).toContainText('Não foi possível confirmar');await expect(page.getByRole('status')).toHaveCount(0);\n  68 |  state.failRead=false;await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('status')).toContainText('salvo e relido');expect(state.rows).toHaveLength(1);\n  69 | });\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\campaigns.spec.ts:66:184"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 65,
+      "title": "CAMP-04 contrato: conflito e erro de releitura não anunciam sucesso",
+      "project": "celular",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 3636,
+          "retry": 0,
+          "errors": [
+            "Error: expect(locator).toContainText(expected) failed\n\nLocator: getByRole('alert')\nExpected substring: \"outra sessão\"\nError: strict mode violation: getByRole('alert') resolved to 2 elements:\n    1) <p role=\"alert\">Este rascunho foi alterado em outra sessão. Cance…</p> aka getByText('Este rascunho foi alterado em')\n    2) <div role=\"alert\" aria-live=\"assertive\" id=\"__next-route-announcer__\"></div> aka locator('[id=\"__next-route-announcer__\"]')\n\nCall log:\n  - Expect \"toContainText\" getByRole('alert') with timeout 10000ms\n  - waiting for getByRole('alert')\n\n\n  64 |\n  65 | test('CAMP-04 contrato: conflito e erro de releitura não anunciam sucesso',async({page})=>{\n> 66 |  const state=await setup(page);await create(page);state.conflict=true;await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('main').getByRole('alert')).toContainText('outra sessão');await expect(page.getByLabel('Título da campanha',{exact:true})).toHaveValue('Lançamento demonstrativo');\n     |                                                                                                                                                                                        ^\n  67 |  state.conflict=false;state.failRead=true;await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('main').getByRole('alert')).toContainText('Não foi possível confirmar');await expect(page.getByRole('status')).toHaveCount(0);\n  68 |  state.failRead=false;await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('status')).toContainText('salvo e relido');expect(state.rows).toHaveLength(1);\n  69 | });\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\campaigns.spec.ts:66:184"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 71,
+      "title": "CAMP-05 contrato: membro consulta sem editar, metadata não promove papel",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2090,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 71,
+      "title": "CAMP-05 contrato: membro consulta sem editar, metadata não promove papel",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2385,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 76,
+      "title": "CAMP-06 contrato: falha de listagem não aparece como organização sem rascunhos",
+      "project": "computador",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 9388,
+          "retry": 0,
+          "errors": [
+            "Error: expect(locator).toContainText(expected) failed\n\nLocator: getByRole('alert')\nExpected substring: \"confirmar seu acesso\"\nError: strict mode violation: getByRole('alert') resolved to 2 elements:\n    1) <p role=\"alert\">Não foi possível carregar os rascunhos ou confirm…</p> aka getByText('Não foi possível carregar os')\n    2) <div role=\"alert\" aria-live=\"assertive\" id=\"__next-route-announcer__\"></div> aka locator('[id=\"__next-route-announcer__\"]')\n\nCall log:\n  - Expect \"toContainText\" getByRole('alert') with timeout 10000ms\n  - waiting for getByRole('alert')\n    18 × locator resolved to <div role=\"alert\" aria-live=\"assertive\" id=\"__next-route-announcer__\"></div>\n       - unexpected value \"\"\n\n\n  75 |\n  76 | test('CAMP-06 contrato: falha de listagem não aparece como organização sem rascunhos',async({page})=>{\n> 77 |  const state=await setup(page);state.failRead=true;await page.getByRole('button',{name:'Atualizar rascunhos',exact:true}).click();await expect(page.getByRole('alert')).toContainText('confirmar seu acesso');await expect(page.getByText('Nenhum rascunho nesta organização.',{exact:true})).toHaveCount(0);await expect(page.getByRole('button',{name:'Novo rascunho',exact:true})).toBeDisabled();\n     |                                                                                                                                                                         ^\n  78 |  state.failRead=false;await page.getByRole('button',{name:'Atualizar rascunhos',exact:true}).click();await expect(page.getByText('Nenhum rascunho nesta organização.',{exact:true})).toBeVisible();\n  79 | });\n  80 |\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\campaigns.spec.ts:77:169"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 76,
+      "title": "CAMP-06 contrato: falha de listagem não aparece como organização sem rascunhos",
+      "project": "celular",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 9240,
+          "retry": 0,
+          "errors": [
+            "Error: expect(locator).toContainText(expected) failed\n\nLocator: getByRole('alert')\nExpected substring: \"confirmar seu acesso\"\nError: strict mode violation: getByRole('alert') resolved to 2 elements:\n    1) <p role=\"alert\">Não foi possível carregar os rascunhos ou confirm…</p> aka getByText('Não foi possível carregar os')\n    2) <div role=\"alert\" aria-live=\"assertive\" id=\"__next-route-announcer__\"></div> aka locator('[id=\"__next-route-announcer__\"]')\n\nCall log:\n  - Expect \"toContainText\" getByRole('alert') with timeout 10000ms\n  - waiting for getByRole('alert')\n    18 × locator resolved to <div role=\"alert\" aria-live=\"assertive\" id=\"__next-route-announcer__\"></div>\n       - unexpected value \"\"\n\n\n  75 |\n  76 | test('CAMP-06 contrato: falha de listagem não aparece como organização sem rascunhos',async({page})=>{\n> 77 |  const state=await setup(page);state.failRead=true;await page.getByRole('button',{name:'Atualizar rascunhos',exact:true}).click();await expect(page.getByRole('main').getByRole('alert')).toContainText('confirmar seu acesso');await expect(page.getByText('Nenhum rascunho nesta organização.',{exact:true})).toHaveCount(0);await expect(page.getByRole('button',{name:'Novo rascunho',exact:true})).toBeDisabled();\n     |                                                                                                                                                                         ^\n  78 |  state.failRead=false;await page.getByRole('button',{name:'Atualizar rascunhos',exact:true}).click();await expect(page.getByText('Nenhum rascunho nesta organização.',{exact:true})).toBeVisible();\n  79 | });\n  80 |\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\campaigns.spec.ts:77:169"
+          ]
+        }
+      ]
+    }
+  ]
+}

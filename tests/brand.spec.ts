@@ -36,7 +36,7 @@ test('BR-02 contrato: criar, reler, editar e cancelar sem simular aprovação',a
  await page.getByRole('button',{name:'Editar organização',exact:true}).click();await page.getByLabel('Nome da organização',{exact:true}).fill('Marca editada');
  await page.getByRole('button',{name:'Salvar organização',exact:true}).click();await page.reload();
  await expect(page.getByRole('heading',{name:'Marca editada',exact:true})).toBeVisible();
- await expect(page.getByText('aprovação comercial, campanhas e contratação ainda não estão disponíveis.',{exact:false})).toBeVisible();
+ await expect(page.getByText('Aprovação comercial, publicação de campanhas e contratação ainda não estão disponíveis.',{exact:false})).toBeVisible();
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  await page.screenshot({path:`../../work/screenshots/${info.project.name}-marca.png`,fullPage:true});
 });

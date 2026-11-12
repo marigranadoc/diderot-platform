@@ -1,0 +1,599 @@
+{
+  "format": "diderot-playwright-evidence-v1",
+  "source": "Completed Playwright JSON report; raw original retained in local work/raw-campaign-reports.",
+  "projects": [
+    {
+      "name": "computador"
+    },
+    {
+      "name": "celular"
+    }
+  ],
+  "summary": {
+    "startTime": "2026-11-12T23:06:07.679Z",
+    "duration": 146674.491,
+    "expected": 36,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "runner_errors": [],
+  "cases": [
+    {
+      "file": "brand.spec.ts",
+      "line": 9,
+      "title": "BR-01 visitante encontra a área da marca sem acessar dados privados",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4260,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 9,
+      "title": "BR-01 visitante encontra a área da marca sem acessar dados privados",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2569,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 17,
+      "title": "BR-02 contrato: criar, reler, editar e cancelar sem simular aprovação",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 7483,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 17,
+      "title": "BR-02 contrato: criar, reler, editar e cancelar sem simular aprovação",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2935,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 44,
+      "title": "BR-03 falha de consulta ou gravação não confirma cadastro ou edição",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 13133,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 44,
+      "title": "BR-03 falha de consulta ou gravação não confirma cadastro ou edição",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 9282,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 66,
+      "title": "BR-04 membro não edita organização alheia nem ganha acesso por metadata",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3586,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 66,
+      "title": "BR-04 membro não edita organização alheia nem ganha acesso por metadata",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1427,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 77,
+      "title": "BR-05 saída em outra aba impede retorno tardio de dados privados",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4513,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 77,
+      "title": "BR-05 saída em outra aba impede retorno tardio de dados privados",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2282,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 36,
+      "title": "CAMP-01 contrato: salvar híbrida, reler após reload, editar e descartar",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 7351,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 36,
+      "title": "CAMP-01 contrato: salvar híbrida, reler após reload, editar e descartar",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3425,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 53,
+      "title": "CAMP-02 contrato: datas e estimativas inválidas bloqueiam gravação, UGC sem seguidores",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2273,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 53,
+      "title": "CAMP-02 contrato: datas e estimativas inválidas bloqueiam gravação, UGC sem seguidores",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2396,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 60,
+      "title": "CAMP-03 contrato: resposta perdida preserva campos e usa a mesma tentativa sem duplicar",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2772,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 60,
+      "title": "CAMP-03 contrato: resposta perdida preserva campos e usa a mesma tentativa sem duplicar",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2071,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 65,
+      "title": "CAMP-04 contrato: conflito e erro de releitura não anunciam sucesso",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 9334,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 65,
+      "title": "CAMP-04 contrato: conflito e erro de releitura não anunciam sucesso",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 9400,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 71,
+      "title": "CAMP-05 contrato: membro consulta sem editar, metadata não promove papel",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1711,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 71,
+      "title": "CAMP-05 contrato: membro consulta sem editar, metadata não promove papel",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1034,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 76,
+      "title": "CAMP-06 contrato: falha de listagem não aparece como organização sem rascunhos",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8714,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 76,
+      "title": "CAMP-06 contrato: falha de listagem não aparece como organização sem rascunhos",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8215,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 81,
+      "title": "CAMP-07 saída em outra aba descarta resposta pendente de campanhas",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3011,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 81,
+      "title": "CAMP-07 saída em outra aba descarta resposta pendente de campanhas",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1612,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 94,
+      "title": "CAMP-08 conta sem organização recebe orientação sem liberar criação",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1195,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 94,
+      "title": "CAMP-08 conta sem organização recebe orientação sem liberar criação",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 934,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "team.spec.ts",
+      "line": 13,
+      "title": "TEAM-01 responsável registra e cancela convite, com releitura e sem e-mail",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2449,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "team.spec.ts",
+      "line": 13,
+      "title": "TEAM-01 responsável registra e cancela convite, com releitura e sem e-mail",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2659,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "team.spec.ts",
+      "line": 34,
+      "title": "TEAM-02 destinatário aceita e passa a ler a organização sem poder editar",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1777,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "team.spec.ts",
+      "line": 34,
+      "title": "TEAM-02 destinatário aceita e passa a ler a organização sem poder editar",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1738,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "team.spec.ts",
+      "line": 51,
+      "title": "TEAM-03 recusa persiste; erro ou convite expirado não concede acesso",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2081,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "team.spec.ts",
+      "line": 51,
+      "title": "TEAM-03 recusa persiste; erro ou convite expirado não concede acesso",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1834,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "team.spec.ts",
+      "line": 66,
+      "title": "TEAM-05 saída descarta uma resposta tardia dos convites privados",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2140,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "team.spec.ts",
+      "line": 66,
+      "title": "TEAM-05 saída descarta uma resposta tardia dos convites privados",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2452,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "team.spec.ts",
+      "line": 85,
+      "title": "TEAM-04 revogação exige confirmação e trata falha de consulta",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1917,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "team.spec.ts",
+      "line": 85,
+      "title": "TEAM-04 revogação exige confirmação e trata falha de consulta",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2204,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

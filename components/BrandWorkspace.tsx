@@ -3,6 +3,7 @@ import {useEffect,useRef,useState,type FormEvent} from 'react';
 import Link from 'next/link';
 import {getBrowserClient} from '../lib/supabase-browser';
 import OrganizationTeam from './OrganizationTeam';
+import CampaignDrafts from './CampaignDrafts';
 
 type Organization={id:string;owner_user_id:string;name:string;website:string;description:string;created_at:string;role:'owner'|'member'};
 const columns='id,owner_user_id,name,website,description,created_at';
@@ -14,13 +15,16 @@ export default function BrandWorkspace(){
  const [editing,setEditing]=useState<string|null>(null),[form,setForm]=useState(blank),[saving,setSaving]=useState(false);
  const [message,setMessage]=useState(''),[success,setSuccess]=useState(false);
  const [teamOpen,setTeamOpen]=useState(false),[teamNotice,setTeamNotice]=useState('');
+ const [campaignOpen,setCampaignOpen]=useState(false),[campaignDirty,setCampaignDirty]=useState(false);
  const generation=useRef(0),verifiedOwner=useRef<string|null>(null),writing=useRef(false);
  function invalidate(){
+  setCampaignOpen(false);setCampaignDirty(false);
   generation.current++;verifiedOwner.current=null;setUserId(null);setOrganizations(null);
   setTeamOpen(false);setTeamNotice('');
   setEditing(null);setForm(blank);setMessage('');setSaving(false);setLoading(true);setRevision(n=>n+1);
  }
  function clearSession(){
+  setCampaignOpen(false);setCampaignDirty(false);
   setTeamOpen(false);setTeamNotice('');
   generation.current++;verifiedOwner.current=null;setUserId(null);setOrganizations(null);
   setEditing(null);setForm(blank);setMessage('');setLoadError('');setSaving(false);setLoading(false);
@@ -107,8 +111,11 @@ export default function BrandWorkspace(){
  return <section className="creator-dashboard brand-workspace"><span className="eyebrow">SEU ESPAÇO DE MARCA</span><h1>Painel da marca</h1>
  <p>Cadastre sua organização e mantenha suas informações em um espaço privado.</p>
  {loading?<p role="status">Carregando suas organizações…</p>:loadError?<><p role="alert">{loadError}</p><button className="dark-button" onClick={()=>setRevision(n=>n+1)}>Tentar novamente</button></>:!userId?<><p>Entre para acessar ou cadastrar sua organização.</p><Link className="dark-button" href="/conta">Entrar na minha conta</Link><Link href="/cadastro">Criar conta</Link></>:organizations&&<>
- <div className="brand-toolbar"><p>{organizations.length===0?'Você ainda não possui uma organização vinculada.':`${organizations.length} ${organizations.length===1?'organização vinculada':'organizações vinculadas'}`}</p><button disabled={saving} onClick={()=>setRevision(n=>n+1)}>Atualizar organizações</button></div>
- <button className="dark-button" aria-expanded={teamOpen} onClick={()=>setTeamOpen(value=>!value)}>{teamOpen?'Fechar equipe e convites':'Equipe e convites'}</button>
+ <div className="brand-toolbar"><p>{organizations.length===0?'Você ainda não possui uma organização vinculada.':`${organizations.length} ${organizations.length===1?'organização vinculada':'organizações vinculadas'}`}</p><button disabled={saving||campaignDirty} onClick={()=>setRevision(n=>n+1)}>Atualizar organizações</button></div>
+ <div className="campaign-actions"><button className="dark-button" disabled={campaignDirty} aria-expanded={teamOpen} onClick={()=>{setCampaignOpen(false);setTeamOpen(value=>!value);}}>{teamOpen?'Fechar equipe e convites':'Equipe e convites'}</button>
+ <button className="dark-button" disabled={campaignDirty||saving} aria-expanded={campaignOpen} onClick={()=>{setTeamOpen(false);setCampaignOpen(value=>!value);}}>{campaignOpen?'Fechar campanhas':'Campanhas em rascunho'}</button></div>
+ {campaignDirty&&<p>Salve ou cancele a edição da campanha antes de trocar de seção ou atualizar organizações.</p>}
+ {campaignOpen&&<CampaignDrafts key={userId} userId={userId} organizations={organizations} onDirtyChange={setCampaignDirty}/>}
  {teamNotice&&<p role="status">{teamNotice}</p>}
  {teamOpen&&<OrganizationTeam key={userId} userId={userId} organizationId={owned?.id??null} onActionStart={()=>setTeamNotice('')} onMembershipChange={notice=>{setTeamNotice(notice);setRevision(n=>n+1);}}/>}
  <div className="brand-organization-list">{organizations.map(org=><article className="service-card" key={org.id} aria-label={org.name}><span className="eyebrow">{org.owner_user_id===userId&&org.role==='owner'?'RESPONSÁVEL':'MEMBRO · SOMENTE LEITURA'}</span><h2>{org.name}</h2>{org.description&&<p>{org.description}</p>}{org.website&&<a href={org.website} target="_blank" rel="noopener noreferrer">Visitar site da organização ↗</a>}{org.owner_user_id===userId&&org.role==='owner'&&<button disabled={saving} onClick={()=>edit(org)}>Editar organização</button>}</article>)}</div>
@@ -117,7 +124,7 @@ export default function BrandWorkspace(){
  
  
  
- <p className="brand-limits">Organizações e vínculos ficam privados. Aprovação comercial, campanhas e contratação ainda não estão disponíveis.</p>
+ <p className="brand-limits">Organizações, vínculos e rascunhos ficam privados. Aprovação comercial, publicação de campanhas e contratação ainda não estão disponíveis.</p>
  </>}
  <Link className="text-link" href="/conta">Minha conta e saída</Link></section>;
 }

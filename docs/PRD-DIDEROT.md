@@ -355,13 +355,13 @@ Comissão, vendas atribuídas e retorno financeiro só podem existir após contr
 |---|---|---|
 | Cadastro público e confirmação | Sem fluxo ou configuração verificados end-to-end | Antes de concluir F1 |
 | Uma pessoa com vários papéis | Modalidades UGC/influencer/afiliado na mesma conta definidas por U0; acúmulo de papéis organizacionais ainda pendente | Antes de migrar A02 |
-| Favoritos de visitante e migração para conta | Temporários hoje; transferência não implementada | Antes de reespecificar GAP-01 |
+| Favoritos de visitante e migração para conta | Persistência local implementada; transferência para conta não implementada | Definir importação explícita antes de migrar dados |
 | Produto compartilhado entre creators/coleções | Esquema atual é insuficiente para múltiplas relações | Antes do CRUD multi-creator |
 | Aprovação e suspensão | Estados deste PRD são propostas | Antes de C01/B01/M02 |
 | Privacidade de grupos e candidaturas | Política ainda não definida | Antes de coletar dados novos |
 | Perfil de gosto e recomendações | Somente estados públicos observados, algoritmo desconhecido | Antes de S11/S13 |
 | Afiliados e métricas | Sem provedor, fonte ou regra aprovada | Antes de C03/B04 |
-| Imagens/fotografia e tipografia final | SVGs/Georgia/Arial atuais; assets da referência não incorporados | Na consolidação visual |
+| Imagens/fotografia e tipografia final | Fotografias locais e DM Sans; Reckless TRIAL somente na prévia local | Fonte licenciada definitiva antes de publicar Reckless |
 | Cobertura da referência | Áreas privadas não inspecionadas | Registrar novos requisitos como proposta até haver evidência |
 | Prontidão operacional | Sem deploy validado, carga, recuperação e monitoramento completos | Antes de lançamento |
 
@@ -375,7 +375,7 @@ Cada mudança de status deve incluir data, commit, ambiente, teste executado e l
 
 ## 16. Expansão nativa: UGC Marketplace + Creator Commerce
 
-**Origem:** U0, diretriz do usuário. **Estado de implementação:** U01 e o início de U02 foram implementados parcialmente em 12/11/2026; os demais módulos novos abaixo permanecem não implementados. A identidade visual, a vitrine, o catálogo e a base de contas devem ser reutilizados conforme sua validação atual, sem reconstrução indiscriminada.
+**Origem:** U0, diretriz do usuário. **Estado de implementação em 12/11/2026:** U01/U02, portfólio U03, serviços U04 e rascunhos de campanhas U07/U08 estão parcialmente implementados, nos limites dos incrementos 26–33. Organizações e equipe possuem permissões próprias; não há aprovação comercial. Diretório profissional, publicação, candidaturas, contratação, produção, financeiro e administração continuam pendentes. A identidade visual, a vitrine, o catálogo e a base de contas devem ser reutilizados conforme sua validação atual, sem reconstrução indiscriminada.
 
 O marketplace deve atender criação de conteúdo, divulgação para audiência própria e comércio por afiliação. Uma contratação pode combinar essas atividades, mas não pode confundir seus requisitos, entregáveis, direitos ou remuneração.
 
@@ -412,8 +412,8 @@ Não há exigência global de seguidores mínimos para participar da Diderot. Qu
 | Contratos de teste Auth/favoritos | EXISTENTE APENAS COMO MOCK de teste; não são backend de produção | Manter para interface e acrescentar testes reais |
 | Perfil Clara | EXISTENTE, MAS INCOMPLETO como perfil profissional | Substituir dados fixos por autoria/perfil editável; não criar uma segunda identidade UGC |
 | Catálogo com uma coleção por produto e marca textual | NECESSITA REFATORAÇÃO para múltiplos creators/campanhas | Planejar relações e migração incremental, preservando slugs e registros |
-| Modalidades, portfólio, serviços, diretório profissional | NÃO IMPLEMENTADA | Criar após identidade/propriedade |
-| Campanhas, vagas, candidaturas e contratações | NÃO IMPLEMENTADA | Não há módulo de campanhas a reconstruir; implementar núcleo unificado |
+| Modalidades, portfólio, serviços, diretório profissional | PARCIAL | Modalidades e gestão privada de portfólio/serviços disponíveis; diretório/publicação pendentes |
+| Campanhas, vagas, candidaturas e contratações | PARCIAL | Contexto e grupos de vagas em rascunho privado disponíveis; briefing completo, publicação, candidaturas e contratação pendentes |
 | Workspace, arquivos privados, mensagens e revisões | NÃO IMPLEMENTADA | Definir Storage, autorização e versões antes de disponibilizar upload |
 | Financeiro, gateway, rastreamento, conversões e comissões | NÃO IMPLEMENTADA | Vitrine não significa afiliação operacional; construir contratos e estados, sem finanças de produção |
 | Administração, disputas, moderação e reputação | NÃO IMPLEMENTADA | Definir papéis, transições, auditoria e critérios de elegibilidade |
@@ -685,3 +685,9 @@ Disponível `/painel/marca` → Equipe e convites. O responsável pode registrar
 Verificação real de mutações por SQL remoto com quatro identidades e ROLLBACK; API HTTP verificou bloqueio anônimo e caixa autenticada de leitura. A troca completa entre duas sessões Auth por HTTP, envio de e-mail, cargos de edição, saída voluntária e transferência continuam pendentes. B01 permanece parcial quanto à aprovação comercial; campanhas e administração não foram concluídas.
 
 A revisão final de revogação foi reforçada pela migração `20261112223445_organization_team_remove_scope.sql`: UUID sem vínculo de membro na própria organização não altera convites nem consulta associações de e-mail. Suíte SQL com esse caso e 20/20 testes finais de marca/equipe aprovados; resultados integrais e limites preservados no progresso.
+
+## 33. Rascunhos de campanhas por organização — 12/11/2026
+
+U07/U08 passam a **PARCIAL**: `/painel/marca` → Campanhas em rascunho permite salvar/reler/editar contexto privado UGC, influencer ou híbrido e um grupo de vagas por modalidade, com quantidade e estimativa BRL por creator. UGC não exige seguidores. Responsável escreve; membro somente consulta. RLS, RPC transacional, versão esperada e repetição idempotente protegem isolamento e persistência. Migração `20261112225023_campaign_drafts.sql` aplicada. [Regras, tabela funcional, evidências e limites](CAMPANHAS-RASCUNHOS.md).
+
+Este incremento substitui as descrições anteriores de campanhas totalmente ausentes apenas no escopo de rascunhos. Não conclui as sete etapas de U08, habilitação da marca, direitos/entregáveis/condições por vaga, produtos/referências, publicação, descoberta U09, candidatura U10, contratação ou financeiro. Próximo bloco: briefing completo e condições por vaga, antes de publicar oportunidades. Mutações reais e isolamento foram testados em PostgreSQL com fixtures revertidas; HTTP real verificou leitura autenticada e bloqueio anônimo; Chrome computador/celular usa contratos simulados. Não afirmar duas sessões Auth reais editando campanhas.

@@ -1,5 +1,7 @@
 # Progresso e auditoria funcional da Diderot
 
+**Expansão documental — 12/11/2026:** PRD atualizado para a versão 1.1 com UGC Marketplace + Creator Commerce. Acrescentados U01–U23, as 17 regras obrigatórias do usuário, jornadas UAT-A–H e plano E1–E7. O [material original](REFERENCIA-EXPANSAO-UGC.md) foi preservado integralmente e mapeado para as seções 16–25 do [PRD](PRD-DIDEROT.md). UGC, influencer e afiliado coexistem na mesma conta creator; campanhas híbridas possuem vagas independentes. Nenhuma funcionalidade, migração, operação financeira ou teste da aplicação foi executado nesta alteração. Verificação documental: requisitos presentes, links locais válidos e anexo idêntico ao arquivo fornecido. O estado funcional e os bloqueios da auditoria permanecem os registrados abaixo.
+
 **Referência consolidada em 12/11/2026:** [PRD-DIDEROT.md](PRD-DIDEROT.md). O novo PRD distingue estado atual, histórico, funcionalidades observadas pelo REA, declarações públicas e propostas Diderot. Esta atualização foi documental: não alterou aplicação ou banco e não executou novamente as suítes. Foram conferidos os 27 IDs originais, os links locais e as contagens dos relatórios existentes. GAP-01 executa como visitante; não comprova falha com uma conta autenticada real.
 
 Auditoria: **11/11/2026**, horário de referência America/Sao_Paulo. Pasta do projeto: `C:\Users\Andrea\Documents\Codex\2026-11-11\diderot\outputs\diderot`.

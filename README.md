@@ -1,6 +1,6 @@
 # Diderot — primeiro módulo
 
-Documento consolidado do produto: [PRD Diderot — escopo, estado atual e backlog](docs/PRD-DIDEROT.md), versão 1.0 de 12/11/2026. Inclui evidências REA, requisitos, jornadas, critérios de aceite e limites de validação.
+Documento consolidado do produto: [PRD Diderot — escopo, estado atual e backlog](docs/PRD-DIDEROT.md), versão 1.1 de 12/11/2026. Inclui evidências REA e a expansão nativa UGC Marketplace + Creator Commerce, com modalidades profissionais, campanhas por vaga, contratação, produção, direitos, financeiro e critérios de aceite. O escopo futuro não representa funcionalidades já implementadas.
 
 Loja pública demonstrativa feita com Next.js, TypeScript e Tailwind CSS. Todo o conteúdo comercial é fictício; as ilustrações são originais em SVG. Não há pagamentos, cadastro ou rastreamento.
 

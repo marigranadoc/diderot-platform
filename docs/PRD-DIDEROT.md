@@ -1,14 +1,18 @@
 # PRD Diderot — produto, implementação e próximos passos
 
-**Versão:** 1.0 · **Consolidado em:** 12/11/2026 · **Base de evidências:** inspeções e execuções de 11/11/2026.
+**Versão:** 1.1 — Creator Commerce + Marketplace UGC · **Atualizado em:** 12/11/2026 · **Base de implementação:** inspeções e execuções de 11/11/2026.
 
 **Estado:** documento de referência para desenvolvimento. O estado implementado está documentado; as decisões de produto propostas estão identificadas e ainda precisam ser validadas. Não representa aprovação para lançamento.
+
+**Diretriz incorporada nesta versão:** expansão fornecida pelo usuário em [Prompt Master — UGC Marketplace + Creator Commerce](REFERENCIA-EXPANSAO-UGC.md), preservado integralmente como fonte. As seções 16–25 convertem essa diretriz em requisitos, estados, critérios de aceite e plano incremental. UGC é um módulo nativo e obrigatório do escopo-alvo, não uma capacidade comprovada pelo REA nem já implementada. Esta atualização é documental; não executa as instruções de implementação contidas no anexo.
 
 **Código-base desta versão:** [eb8639a](https://github.com/marigranadoc/diderot-platform/commit/eb8639a0973b5552df360cd9bb9404eaf8be89af). Este PRD consolida o estado atual; matrizes antigas em outros documentos permanecem como histórico.
 
 ## 1. Visão e objetivo
 
 A Diderot será uma plataforma de descoberta de produtos por curadoria de pessoas, conectando shoppers, creators e marcas. O shopper deve encontrar escolhas relevantes, conhecer quem recomenda, organizar favoritos e acessar o varejista. O creator deve administrar sua presença e suas seleções. A marca deve encontrar creators e acompanhar parcerias. A administração deve controlar acesso, aprovações e moderação.
+
+A plataforma também será um marketplace de produção UGC: marcas poderão contratar conteúdo para seus próprios canais, sem exigir audiência ou publicação nas redes do criador. Produção, divulgação e afiliação coexistirão na mesma conta e arquitetura, com contratos, entregas, direitos de uso e remunerações discriminados. UGC não é sinônimo de influencer marketing.
 
 A referência de experiência é a ShopMy, conforme evidências públicas coletadas pelo REA. A intenção é aproximar linguagem visual, organização da informação e fluxos observados, preservando a identidade Diderot. O levantamento não acessou áreas privadas nem comprovou todos os processos internos da referência. Não há base para afirmar clonagem integral ou equivalência funcional de 100%.
 
@@ -36,6 +40,7 @@ Neste documento, **observado** significa que um elemento ou estado foi visto. N�
 | D1 — [referência de requisitos](PRD-DIDEROT-REFERENCIA.md) | IDs S/A/C/B/M/T e critérios originais | Rastreabilidade dos requisitos desta auditoria | É documento derivado, não PRD oficial da ShopMy |
 | D2 — [progresso e auditoria](PROGRESSO-DIDEROT.md) | Código, testes, falhas e correções | Histórico de implementação e verificação | As tabelas iniciais precedem as integrações posteriores |
 | D3 — [integrações](INTEGRACOES.md) | GitHub, Supabase, migrações e permissões | Configuração realizada e limites dos testes | Não comprova prontidão de produção |
+| U0 — [diretriz UGC do usuário](REFERENCIA-EXPANSAO-UGC.md) | Marketplace, modalidades, campanhas/vagas, contratação, produção, direitos, financeiro e reputação | Requisitos obrigatórios do escopo-alvo Diderot | Não é inspeção da ShopMy nem evidência de implementação; exemplos monetários são ilustrativos |
 
 Esta consolidação reutiliza as capturas existentes. Não apresenta uma nova inspeção da ShopMy em 12/11/2026. Evidência pública capturada não revela código privado, algoritmo de recomendação, cálculo de comissão, políticas internas ou telas administrativas.
 
@@ -90,6 +95,8 @@ Não há cadastro público, recuperação de senha, papéis de creator/brand/adm
 
 As fases são uma proposta de sequência, não um cronograma contratado. Não há estimativas de prazo, orçamento ou metas comerciais aprovadas.
 
+Com a expansão UGC, F3 deixa de significar apenas campanhas genéricas: deve atender campanhas UGC, influencer e híbridas por vaga, contratação direta e produção. O plano integrado das seções 24–25 detalha e amplia esta sequência; um lançamento limitado à vitrine não conclui o escopo UGC.
+
 Ficam fora da implementação imediata: pagamentos ou comissões de produção, envio real de gifting, disparos de mensagens, aplicativo nativo, acesso a áreas privadas não autorizadas e reprodução de código/ativos proprietários da referência. Destinos comerciais e integrações financeiras exigem escopo e ambiente próprios antes de ativação.
 
 ## 5. Requisitos funcionais e status atual
@@ -126,7 +133,7 @@ O convite ao aplicativo visto na referência é registrado como observação, n�
 | A02 | Papéis shopper/creator/brand e isolamento — observado E2 e exigência local | Ausente para papéis; favoritos têm política por usuário | Papel e propriedade validados no servidor/banco; selecionar perfil na tela não concede privilégio; usuário não promove a si mesmo | P1 |
 | A03 | Cadastro e confirmação de conta — proposta para completar jornada | Ausente | Criar conta em ambiente de teste, confirmar quando exigido, tratar duplicidade e erros; definir reenvio e retorno após confirmação | P1 |
 
-Não existe aprovação de estratégia de múltiplos papéis por conta. Proposta inicial: todo usuário pode atuar como shopper; creator e brand exigem habilitação; administrador nunca é papel autoatribuível. A decisão final deve anteceder a migração de papéis.
+A diretriz U0 define que uma conta creator pode reunir UGC, influencer e afiliado, sem cadastros separados. Essas modalidades profissionais são diferentes de papéis de segurança. Continua pendente a política de acumulação entre shopper, creator, membro de marca e administrador. Proposta inicial: shopper pode habilitar atuação creator; marcas têm vínculo organizacional; administrador nunca é autoatribuível. A seleção de modalidades não concede acesso a recursos de terceiros.
 
 ### 5.3 Creator
 
@@ -344,7 +351,7 @@ Comissão, vendas atribuídas e retorno financeiro só podem existir após contr
 | Decisão / risco | Situação | Quando resolver |
 |---|---|---|
 | Cadastro público e confirmação | Sem fluxo ou configuração verificados end-to-end | Antes de concluir F1 |
-| Uma pessoa com vários papéis | Política não definida | Antes de migrar A02 |
+| Uma pessoa com vários papéis | Modalidades UGC/influencer/afiliado na mesma conta definidas por U0; acúmulo de papéis organizacionais ainda pendente | Antes de migrar A02 |
 | Favoritos de visitante e migração para conta | Temporários hoje; transferência não implementada | Antes de reespecificar GAP-01 |
 | Produto compartilhado entre creators/coleções | Esquema atual é insuficiente para múltiplas relações | Antes do CRUD multi-creator |
 | Aprovação e suspensão | Estados deste PRD são propostas | Antes de C01/B01/M02 |
@@ -362,3 +369,261 @@ O MVP só pode ser tratado como concluído quando todas as jornadas escolhidas p
 Cada mudança de status deve incluir data, commit, ambiente, teste executado e limite da evidência. Manter [PROGRESSO-DIDEROT.md](PROGRESSO-DIDEROT.md) como registro de execução e este PRD como referência de requisitos/estado consolidado. Não calcular percentual global de conclusão a partir da quantidade de telas ou de testes simulados.
 
 **Próxima entrega recomendada:** concluir a fundação de identidade e a validação real de favoritos antes de ampliar os painéis. O catálogo remoto já fornece uma base concreta; as jornadas de shopper autenticado, creator, marca e administrador ainda não estão concluídas.
+
+## 16. Expansão nativa: UGC Marketplace + Creator Commerce
+
+**Origem:** U0, diretriz do usuário. **Estado de implementação:** os módulos novos abaixo não estão implementados. A identidade visual, a vitrine, o catálogo e a base de contas devem ser reutilizados conforme sua validação atual, sem reconstrução indiscriminada.
+
+O marketplace deve atender criação de conteúdo, divulgação para audiência própria e comércio por afiliação. Uma contratação pode combinar essas atividades, mas não pode confundir seus requisitos, entregáveis, direitos ou remuneração.
+
+### 16.1 Regras de produto obrigatórias
+
+| Regra U0 | Requisito consolidado | Aceite mínimo |
+|---|---|---|
+| R01 | Creator UGC pode ter zero seguidores | Cadastro e candidatura UGC sem campo obrigatório de audiência nem rejeição por ausência desse dado |
+| R02 | Publicação pessoal não é obrigatória por padrão em UGC | Vaga UGC nasce sem obrigação de postagem; eventual exigência é explícita no briefing/contrato e visível antes da candidatura |
+| R03 | Influencer pode ter requisitos de audiência | Validação de canais/métricas é configurada por vaga de divulgação, sem contaminar vagas UGC |
+| R04 | Uma conta suporta UGC, influencer e afiliado | Seleção múltipla no onboarding e edição posterior sem duplicar identidade ou perder histórico |
+| R05 | Uma campanha pode conter modalidades e remunerações distintas | Campanha híbrida admite vagas exclusivamente UGC, exclusivamente influencer e híbridas |
+| R06 | A vaga possui requisitos, entregáveis, orçamento e capacidade próprios | A candidatura seleciona uma vaga e usa suas condições, não um conjunto genérico de regras da campanha |
+| R07 | Produção é remunerada separadamente da comissão | Demonstrativo distingue produção, publicação, comissão, bônus e benefício em produto |
+| R08 | Conteúdo não transfere direitos ilimitados automaticamente | Contrato exige licença expressa; nenhum padrão de cessão irrestrita/perpétua |
+| R09 | Entregas possuem versões e revisão | Reenvio cria nova versão; anterior permanece acessível aos autorizados |
+| R10 | Arquivos privados exigem vínculo autorizado | Usuário externo não acessa nem por URL direta; verificar autorização e validade do acesso |
+| R11 | Recebido exige confirmação correspondente | Sem confirmação verificável, estado é pendente/em processamento/externo não confirmado, nunca recebido |
+| R12 | Aprovar candidatura não gera obrigação financeira automaticamente | Obrigação depende de condições aceitas pelas partes e regra de vencimento definida |
+| R13 | Marca contrata dentro das permissões e limites da conta | Membro sem poder de contratação ou orçamento autorizado não confirma acordo |
+| R14 | A última vaga é protegida contra concorrência | Duas aprovações simultâneas não ultrapassam capacidade; validação atômica no backend |
+| R15 | Organizações são isoladas | Marca A não lê nem altera propostas, projetos ou arquivos privados da marca B |
+| R16 | Mudança contratual exige nova concordância | Valor, prazo, escopo ou licença alterados geram versão/aditivo com novo aceite, sem sobrescrever o acordo anterior |
+| R17 | UGC não degrada descoberta e comércio existentes | Reexecutar testes da vitrine/contas; shopper não é forçado a navegar por ferramentas profissionais |
+
+Não há exigência global de seguidores mínimos para participar da Diderot. Qualidade de portfólio, adequação ao briefing, competências e histórico são os critérios relevantes para UGC. Métricas declaradas devem ser identificadas como declaradas; não inventar seguidores, desempenho, avaliações ou receitas.
+
+### 16.2 Diagnóstico e reaproveitamento obrigatório
+
+| Área existente | Classificação no escopo atual | Reutilização / trabalho necessário |
+|---|---|---|
+| Vitrine, busca, filtros, detalhe e leitura do catálogo | EXISTENTE E FUNCIONAL no escopo demonstrativo verificado | Preservar; evolução multi-creator depende de propriedade e relações |
+| Login/logout e favoritos por conta | EXISTENTE, MAS INCOMPLETA | Concluir Auth real e isolamento antes de conectar recursos profissionais |
+| Contratos de teste Auth/favoritos | EXISTENTE APENAS COMO MOCK de teste; não são backend de produção | Manter para interface e acrescentar testes reais |
+| Perfil Clara | EXISTENTE, MAS INCOMPLETO como perfil profissional | Substituir dados fixos por autoria/perfil editável; não criar uma segunda identidade UGC |
+| Catálogo com uma coleção por produto e marca textual | NECESSITA REFATORAÇÃO para múltiplos creators/campanhas | Planejar relações e migração incremental, preservando slugs e registros |
+| Modalidades, portfólio, serviços, diretório profissional | NÃO IMPLEMENTADA | Criar após identidade/propriedade |
+| Campanhas, vagas, candidaturas e contratações | NÃO IMPLEMENTADA | Não há módulo de campanhas a reconstruir; implementar núcleo unificado |
+| Workspace, arquivos privados, mensagens e revisões | NÃO IMPLEMENTADA | Definir Storage, autorização e versões antes de disponibilizar upload |
+| Financeiro, gateway, rastreamento, conversões e comissões | NÃO IMPLEMENTADA | Vitrine não significa afiliação operacional; construir contratos e estados, sem finanças de produção |
+| Administração, disputas, moderação e reputação | NÃO IMPLEMENTADA | Definir papéis, transições, auditoria e critérios de elegibilidade |
+
+Antes de cada etapa de implementação, atualizar o inventário do repositório, dependências, rotas, schema/migrações, identidade, campanhas, afiliação, componentes, Auth, Storage e financeiro. Este PRD incorpora o diagnóstico já registrado; não afirma que uma nova inspeção remota foi executada nesta atualização documental.
+
+## 17. Perfis profissionais, serviços e descoberta
+
+| ID | Requisito UGC — não implementado | Critério de aceite | Dependência |
+|---|---|---|---|
+| U01 | Modalidades de creator | UGC/influencer/afiliado selecionáveis em uma única conta; combinação representa atuação híbrida; edição mantém acordos anteriores | A01/A02/A03 |
+| U02 | Perfil profissional | Foto, nome profissional, bio, cidade/estado, nichos, idiomas, categorias, habilidades, disponibilidade e modalidades persistem e respeitam privacidade | U01/C02 |
+| U03 | Portfólio | Vídeos, fotos, cases, demonstrações, projetos e links; cada item tem título, categoria, tipo, descrição, miniatura, mídia e participação; marca somente com autorização e métricas com origem | U02, arquivos autorizados |
+| U04 | Serviços | Vídeo/pacote UGC, fotografia, unboxing, demonstração, depoimento, roteiro, anúncios, edição e produção bilíngue; preço inicial ou sob orçamento, exibidos no perfil e na contratação | U02/U03 |
+| U05 | Diretório profissional para marcas | Filtrar modalidade, nicho, cidade, idioma, estilo, faixa de preço, disponibilidade, experiência e serviço; audiência somente onde aplicável | B02/U02/U04 |
+| U06 | Listas e seleção de creators | Marca favorita, organiza listas, abre perfil, convida para campanha ou solicita orçamento; lista privada isolada por organização | U05/A02 |
+
+No diretório UGC, priorizar portfólio, briefing, competências, estilo, idioma, histórico de entrega e avaliações verificadas. O ranking exato permanece decisão de produto; não inferir desempenho a partir do número de seguidores. Dados opcionais ausentes devem aparecer como não informados, sem zeros ou indicadores fictícios de sucesso.
+
+## 18. Campanhas unificadas por vaga
+
+**U07 — Núcleo de campanhas:** campanha define contexto e objetivos; vaga define modalidade, requisitos, entregáveis, capacidade e remuneração. Campanha UGC e influencer têm vagas compatíveis; campanha híbrida pode misturar vagas UGC, influencer e híbridas, cada qual com quantidade e orçamento independentes. Produtos são associados explicitamente à campanha.
+
+**U08 — Criação em sete etapas**, com rascunho persistente, validação contextual e possibilidade de revisar antes de publicar:
+
+| Etapa | Campos e regras |
+|---|---|
+| 1. Informações gerais | Nome, marca, descrição, objetivo comercial, categoria, produtos, referências visuais, início/fim e prazo de candidatura; validar coerência de datas |
+| 2. Modalidades/vagas | UGC, influencer ou híbrida; configurar vagas, quantidades e orçamentos; adaptar os campos por modalidade |
+| 3. Requisitos | UGC: nichos, idiomas, localização, experiência desejável, portfólio, estilo e habilidades. Influencer: redes, nicho, audiência, demografia e métricas disponíveis; não exigir seguidores em vaga exclusivamente UGC |
+| 4. Entregáveis | Quantidades de vídeos/fotos, formato, resolução, duração, captação, roteiro, prazo, revisões e brutos; postagem e comprovação só quando aplicáveis |
+| 5. Direitos de uso | Orgânico/mídia paga, canais, prazo, território, imagem/voz, exclusividade, brutos e renovação; termos devem compor a licença aceita |
+| 6. Remuneração | Fixo por conteúdo/pacote/publicação, comissão por venda, bônus e produto como benefício; separar dinheiro, gifting e comissão |
+| 7. Revisão/publicação | Resumo completo com vagas, orçamento e condições; salvar, publicar, pausar, encerrar inscrições e arquivar; backend rejeita publicação incompleta |
+
+**U09 — Marketplace de campanhas:** navegação Creator → Descobrir → Campanhas. Filtros Todas/UGC/Influencer/Híbridas, pagas/gifting/afiliação, nicho, remuneração, localização, idioma e entregável. Card exibe logo, nome, modalidades, categoria, remuneração divulgada, entregável, prazo e status. Detalhe apresenta briefing e condições de cada vaga, indicando expressamente quando não exige audiência ou postagem.
+
+**U10 — Candidatura por vaga:** abrir campanha → selecionar vaga/modalidade → escolher portfólio → escrever apresentação → informar orçamento/proposta se permitido → confirmar condições → enviar → marca avaliar, aprovar/rejeitar ou pedir informações. Persistir rascunho, data, autor e histórico. Impedir duplicidade por creator/vaga, salvo reaplicação explicitamente permitida.
+
+### Estados e invariantes
+
+| Recurso | Estados previstos | Regra obrigatória |
+|---|---|---|
+| Campanha | Rascunho, publicada, pausada, inscrições encerradas, arquivada | Publicar exige validação; pausar/arquivar não apaga contratos existentes nem cancela trabalhos silenciosamente |
+| Candidatura | Rascunho, enviada, em análise, informações solicitadas, pré-selecionada, aprovada, rejeitada, retirada | Permissão de transição por ator no backend; histórico append-only; aprovação não equivale a aceite contratual |
+| Vaga | Capacidade, ocupação e eventual reserva | Limite verificado atomicamente; definir quando reserva/ocupação é criada, expira ou é liberada antes da implementação |
+
+Os estados desta seção detalham e substituem, para o escopo UGC, as propostas genéricas de campanha/participação da seção 6. Não são estados observados no produto privado da ShopMy.
+
+## 19. Contratação, produção e direitos de uso
+
+**U11 — Contratação direta:** marca descobre creator → seleciona serviço/convite → envia briefing, orçamento e prazo → creator aceita, recusa ou contrapropõe → partes confirmam condições → sistema registra acordo → cria projeto → inicia produção. Deve funcionar sem campanha pública. Uma proposta pode referenciar campanha/vaga, mas essa associação não é obrigatória na contratação direta.
+
+**U12 — Propostas, contratos e licenças:** condições comerciais, entregáveis, cronograma, revisões, remuneração e direitos são versionados. Guardar identidade dos concordantes, versão aceita e data. Alteração relevante exige nova concordância; mensagem informal não substitui aceite. O mecanismo de formalização e os modelos contratuais ainda dependem de definição e revisão jurídica antes do uso comercial; este PRD define requisitos de produto, não fornece conclusão jurídica.
+
+**Licença obrigatória:** usos orgânico/pago, canais, prazo, território, imagem/voz, exclusividade, arquivos brutos e condições de renovação. Não presumir direito de anúncio, exclusividade ou duração ilimitada pelo upload/aprovação. Registrar expiração e histórico; renovação deve produzir novo registro aceito. Definir a relação entre início da licença, entrega, aprovação e pagamento antes de ativar contratos reais.
+
+**U13 — Workspace de produção:** Creator → Trabalhos → Projetos ativos; Marca → Campanhas → Produções. Cada projeto reúne identificação, partes, briefing, entregáveis, cronograma, referências, conversas, proposta aprovada, contrato/licença, status financeiro, revisões e entrega final.
+
+**U14 — Upload e versões:** vídeos, imagens, documentos e brutos conforme contrato. Arquivos privados com autorização por vínculo, validação de tipo/tamanho e feedback de falha. Não sobrescrever entrega anterior; registrar autor, data, versão e relação com entregável. Limites de upload, quotas, retenção, processamento e análise de arquivos ainda devem ser definidos. URLs diretas não podem contornar autorização.
+
+**U15 — Revisão e aprovação:** marca visualiza versão, comenta, aprova ou pede ajustes; creator reenvia nova versão; manter histórico. Aplicar o número de revisões contratado no servidor. Ajuste fora do limite exige acordo complementar, não alteração silenciosa de escopo.
+
+**U16 — Cancelamento e disputa:** fluxos próprios com motivo, participantes, evidências, estado e auditoria; definir responsáveis e efeito sobre orçamento, prazos, licença e obrigações. Cancelar projeto não comprova estorno nem autoriza apagar histórico.
+
+### Fluxo de produção exigido
+
+Contratação confirmada → aguardando produto/materiais, quando aplicável → em produção → conteúdo enviado → em revisão pela marca → ajustes solicitados → reenviado → em revisão → aprovado → concluído. O ciclo de ajustes respeita o contrato. Estados de produção, contrato, licença e pagamento são separados; aprovar conteúdo não marca pagamento como recebido.
+
+## 20. Comunicação, financeiro, afiliação e reputação
+
+### U17 — Conversas e negociação
+
+Conversas vinculadas a campanha ou projeto, participantes autorizados, texto, anexos, notificações e histórico. Suportar negociação de preço, prazo e contraproposta. Mensagem não altera contrato por si só: gerar proposta/aditivo e aceite quando necessário. Definir canais de notificação e preferências; testes usam destinatários sintéticos, sem disparos reais nesta etapa documental.
+
+### U18 — Financeiro unificado, com naturezas separadas
+
+| Visão | Informações obrigatórias |
+|---|---|
+| Creator | Receitas de produção UGC, publicação patrocinada, comissão de afiliado, bônus e outros serviços; contratado, recebido, pendente, em processamento, comissões aprovadas/estornadas e histórico |
+| Marca | Orçamento total e comprometido, pagamentos UGC/influencer, comissões, gastos por campanha, custo por creator e retorno atribuível quando mensurável |
+| Administrador | Supervisão de transações, obrigações, disputas e regras comerciais; acesso condicionado a papel e trilha de auditoria |
+
+Produção UGC não depende de vendas; publicação tem cachê próprio, salvo pacote único expressamente acordado; comissão depende de qualificação e atribuição. Valores de produção/publicação/comissão/bônus não devem ser contados duas vezes. Produto recebido é benefício não monetário, nunca dinheiro recebido. As quantias e percentuais do anexo são exemplos, não preços, taxas ou política comercial aprovados.
+
+**U19 — Obrigações e pagamentos:** obrigação nasce somente após condições aceitas e evento contratual definido. Transação, obrigação e receita exibida são registros distintos. Guardar origem, confirmação, identificador e histórico; operações financeiras e webhooks são idempotentes. Repetir evento não duplica saldo. Não afirmar recebimento sem confirmação correspondente; revisão de conteúdo não substitui confirmação financeira.
+
+Sem gateway integrado, manter estados e registros identificados como pagamento externo ou integração pendente. Evidência externa deve ser rotulada e ter procedimento de verificação definido; não apresentar registro manual como confirmação automática de provedor. Nesta fase não usar serviços financeiros de produção. Provedor, taxas, impostos, repasses, reembolsos, conciliação e autorização operacional permanecem dependências a resolver antes de operações reais.
+
+### U20 — Afiliação integrada
+
+Preservar o que já funciona: vitrine, catálogo, busca, coleções e detalhes. Hoje não existem redes de afiliação, links rastreáveis, conversões, comissões ou histórico financeiro operacionais a preservar. Esses itens são pendências, não funcionalidades existentes.
+
+Campanha pode associar produtos e comissão; creator elegível recebe identificador próprio. Documentar atribuição, janela, qualificação, duplicidade, estorno e fonte de confirmação. Clique, conversão observada e venda confirmada são eventos diferentes. Sem integração confiável, marcar conversão como não verificada e não gerar comissão confirmada. Não misturar comissão com remuneração fixa do projeto.
+
+### U21 — Avaliações verificadas
+
+Após projeto elegível concluído, somente participantes efetivos podem avaliar. Marca avalia conteúdo, comunicação, prazo e adequação; creator avalia briefing, comunicação, condições e colaboração. Impedir avaliação sem vínculo/antes da conclusão, duplicidade indevida e autoavaliação. Denúncias/moderação precisam de histórico e autorização. Não gerar avaliações automaticamente nem preencher perfis com notas fictícias. Política de publicação, contestação e edição permanece a definir.
+
+## 21. Navegação e componentes da expansão
+
+As áreas abaixo são **propostas de navegação**, não rotas já disponíveis.
+
+| Área | Organização exigida |
+|---|---|
+| Creator | Visão geral; Descobrir (produtos, marcas, campanhas UGC/influencer/híbridas); Minha vitrine; Meu portfólio; Meus serviços; Candidaturas; Trabalhos (convites, negociações, ativos, entregas, concluídos); Mensagens; Analytics; Financeiro; Perfil/configurações |
+| Marca | Visão geral; Descobrir creators; Favoritos/listas; Campanhas (todas, criar, rascunhos, publicadas, candidaturas, encerradas); Contratações diretas; Produções (em andamento, revisão, aprovadas, concluídas); Produtos/afiliação; Mensagens; Analytics; Financeiro; Equipe/configurações |
+| Administração | Visão geral; Usuários; Creators; Marcas; Campanhas; Candidaturas; Contratações; Projetos UGC; Transações; Disputas; Moderação; Configurações |
+| Consumidor | Descoberta, vitrines, busca, coleções, ofertas e saída para varejistas quando implementada; sem imposição de ferramentas de produção |
+
+**U22 — Experiência integrada:** desktop/mobile, URLs diretas, carregamento, vazio, erro recuperável, validação, feedback de gravação e confirmação de ações irreversíveis. Preservar identidade Diderot. Não copiar código, identidade visual ou conteúdos proprietários da ShopMy; manter apenas padrões gerais de produto como referência.
+
+Inventário proposto de componentes: `CampaignCard`, `CampaignTypeSelector`, `CampaignCreationWizard`, `CampaignDetail`, `ApplicationForm`, `ApplicationStatus`, `CreatorPortfolio`, `CreatorServiceCard`, `CreatorDiscoveryFilters`, `BrandCreatorCard`, `ProposalComposer`, `ContractSummary`, `ProjectWorkspace`, `DeliverableChecklist`, `ContentUploader`, `RevisionTimeline`, `PaymentBreakdown` e `EarningsDashboard`. Reutilizar primitives e tokens existentes quando adequados; esses componentes ainda não existem.
+
+## 22. Modelo de dados incremental e autorização
+
+Os nomes a seguir são sugestões lógicas da diretriz, **não migrations executadas**. Inspecionar o schema antes de criar tabelas e não duplicar `auth.users` com uma segunda fonte de identidade sem justificativa. As três tabelas existentes permanecem `collections`, `products` e `favorites`.
+
+| Domínio | Entidades propostas |
+|---|---|
+| Identidade/perfil | Referência à identidade Auth; `creator_profiles`, `creator_modalities`, `creator_services`, `creator_portfolio_items`, `brand_profiles`, `brand_memberships` |
+| Campanhas | `campaigns`, `campaign_slots`, `campaign_requirements`, `campaign_deliverables`, `campaign_products`, `campaign_applications`, `campaign_invitations` |
+| Contratação/produção | `proposals`, `contracts`, `contract_deliverables`, `content_licenses`, `project_assignments`, `project_milestones`, `project_submissions`, `submission_files`, `revision_requests` |
+| Comunicação | `conversations`, `conversation_participants`, `messages`, `message_attachments`, `notifications` |
+| Financeiro | `payment_obligations`, `payment_transactions`, `creator_earnings`, `affiliate_commissions`, `bonus_awards`, `payout_requests` |
+| Reputação/auditoria | `reviews`, `review_reports`, `audit_events` |
+
+**Relações essenciais:** organização possui campanhas; campanha possui vagas; candidatura pertence a creator e vaga; proposta/contrato pode vir de candidatura ou contratação direta; projeto deriva de acordo aceito; submissão versiona entregável; arquivo pertence a submissão/projeto; licença aponta para a versão contratual aceita; obrigação discrimina natureza financeira. Agregados como ganhos podem ser derivados, evitando duplicar a fonte financeira de verdade.
+
+**U23 — Integridade e segurança:** FKs e índices, unicidade de candidatura por vaga conforme política, limite de vagas atômico, timestamps/autoria, transições verificadas no backend, RLS onde aplicável, isolamento organizacional e autorização de arquivos. Migrações incrementais e reversíveis quando viável; preservar dados existentes e planejar mudanças de cardinalidade. Registro de auditoria não deve ser editável por quem está sendo auditado.
+
+| Operação | Creator | Marca | Administrador |
+|---|---|---|---|
+| Editar portfólio/serviço | Próprio perfil | Não | Moderação conforme política, auditada |
+| Criar/editar campanha | Não como creator | Membro autorizado da organização | Supervisão/moderação autorizada |
+| Ver candidatura privada | Própria | Organização responsável pela vaga | Acesso operacional justificado |
+| Aceitar contrato | Sua parte | Representante autorizado | Não aceitar por outra parte sem regra explícita |
+| Enviar entrega | Projeto em que foi contratado | Referências/comentários autorizados | Acesso de suporte/moderação definido |
+| Aprovar ou pedir revisão | Não aprova sua entrega como marca | Responsável pelo projeto | Mediação conforme política |
+| Ler arquivo/mensagem privada | Vínculo com recurso | Vínculo com organização e recurso | Permissão específica; nenhuma exposição pública |
+| Marcar pagamento confirmado | Nunca por alteração livre de saldo | Não por simples clique sem evidência | Procedimento auditável, respeitando origem da confirmação |
+
+Modalidade profissional não é permissão administrativa. Um creator híbrido continua sem acesso a dados de outra pessoa ou organização.
+
+## 23. Jornadas e testes obrigatórios da expansão
+
+Todos os cenários abaixo estão **não executados**. São critérios de aceite futuros, com dados sintéticos e ambientes autorizados. Testes de financeiro usam sandbox ou confirmação externa verificável e rotulada, sem operar produção financeira.
+
+| Cenário | Jornada a executar | Resultado exigido |
+|---|---|---|
+| UAT-A — UGC iniciante | Cadastrar → escolher UGC sem seguidores → adicionar dois vídeos → descobrir campanha UGC → candidatar → marca aprovar → ambas as partes aceitar → criar projeto → enviar → pedir revisão → reenviar → aprovar → registrar pagamento conforme confirmação | Jornada não exige perfil influencer, postagem pessoal ou venda; dados persistem e direitos constam do acordo |
+| UAT-B — Influencer | Informar/conectar canais conforme integração → candidatar → aprovar/contratar → publicar → comprovar → associar link rastreável → registrar conversão verificada → calcular comissão | Fonte de métricas explícita; clique não confirma venda; cachê e comissão separados |
+| UAT-C — Campanha híbrida | Criar vagas UGC, influencer e híbrida com limites próprios → candidaturas de cada modalidade → contratar → registrar entregas e pagamentos por natureza | Requisitos de audiência não vazam para UGC; capacidade e orçamento independentes; relatórios sem dupla contagem |
+| UAT-D — Segurança/concorrência | Acessar candidatura alheia; marca acessar projeto de outra; creator alterar valores aceitos; abrir arquivo privado sem vínculo; duas aprovações para última vaga | Backend nega acessos/mutações e mantém limite de vagas; resultados auditáveis |
+| UAT-E — Contratação direta | Solicitar serviço sem campanha → contraproposta → aceite de ambas as partes → projeto → entrega/revisão → conclusão | Campanha pública não é dependência obrigatória; contrato versionado |
+| UAT-F — Direitos/revisões | Aceitar licença limitada → solicitar revisão além do contratado → alterar prazo/uso → renovar licença | Limite respeitado; mudança exige novo aceite; versões/licença anterior preservadas |
+| UAT-G — Financeiro idempotente | Repetir confirmação/webhook, falhar processamento, registrar estorno e benefício em produto | Não duplica obrigação/transação/ganho; não marca pendente como recebido; gifting separado de dinheiro |
+| UAT-H — Reputação e regressão | Participante concluído avalia; estranho tenta avaliar; denúncia/moderação; repetir jornadas públicas | Apenas avaliação elegível; histórico preservado; vitrine e contas não regridem |
+
+Além dos fluxos felizes, testar dados inválidos, rascunho/reload, sessão expirada, falha de rede, upload interrompido, proposta recusada, campanha pausada, prazo encerrado, candidatura duplicada e cancelamento/disputa. Cada caso precisa de rota/ação, efeito no banco, releitura, permissão, erro, teste automatizado e uso móvel, como definido na seção 10.
+
+## 24. Plano integrado de implementação e dependências
+
+O plano abaixo amplia o backlog anterior; UGC não deve ser adiado como acessório depois de um marketplace exclusivamente influencer.
+
+| Etapa | Escopo | Reutilização | Gate / dependência |
+|---|---|---|---|
+| E1 — Auditoria atualizada | Repositório, schema, rotas, Auth, campanhas, afiliação, Storage, financeiro e componentes; classificar nas cinco categorias | Documentos, testes e diagnóstico existentes | Inventário com evidência; não presumir integrações ausentes como funcionais |
+| E2 — Fundação/modelagem | Concluir Auth real e favoritos; papéis/vínculos, modalidades, esquema incremental, estados e políticas | Supabase, migrações, cliente de conta | Duas contas e duas organizações isoladas; nenhum privilégio por seleção de UI |
+| E3 — Onboarding/portfólio | U01–U06: UGC sem seguidores, perfil, serviços, mídia e diretório | Identidade visual e perfil público adaptado | Upload autorizado, releitura, acesso cruzado negado |
+| E4 — Campanhas | U07–U10: sete etapas, vagas, marketplace e candidaturas | Catálogo e padrões de formulário | Campanhas UGC/influencer/híbrida; unicidade e concorrência verificadas |
+| E5 — Contratação/produção | U11–U17: convite, proposta, acordo/licença, projeto, entregas, revisão, mensagens e disputa | Contas, organizações e armazenamento autorizado | UAT-A/E/F e permissões; aprovação não equivale a pagamento |
+| E6 — Financeiro/afiliação | U18–U20: naturezas, obrigações, transações, comissões e relatórios | Catálogo; não há integração financeira existente | Sandbox/confirmações verificáveis, idempotência e atribuição; produção permanece desativada |
+| E7 — Qualidade/reputação | U21–U23, acessibilidade, mobile, segurança, reputação e regressão integral | Suítes existentes | UAT-A–H e critérios de conclusão sem gaps críticos |
+
+Qualidade é contínua em todas as etapas; E7 não autoriza adiar testes de segurança até o fim. Priorização: identidade/isolamento e integridade como P1; onboarding, campanhas por vaga, acordos e produção como P1 do marketplace UGC; afiliação analítica avançada e recomendações dependem dos contratos/fontes definidos. Datas e custos ainda não estão estimados.
+
+**Dependências externas/comerciais a definir:** armazenamento e processamento de mídia; limites/retenção; templates e formalização contratual; início/expiração de licença; termos de exclusividade; gateway e sandbox; fonte confiável de conversões; regras de comissão/estorno; autorização de membros de marca; política de reserva de vagas; cancelamento/disputa; reputação e canais de notificação. Não preencher lacunas com métricas ou operações simuladas sem identificação.
+
+## 25. Conclusão, relatórios e rastreabilidade da expansão
+
+### Gate adicional de conclusão UGC
+
+A expansão só está concluída quando um creator sem seguidores consegue cadastrar-se e produzir UGC; a marca cria campanhas UGC, influencer e híbridas com vagas distintas; candidaturas são persistidas e avaliadas; acordo registra condições/aceites/licença; projetos recebem arquivos reais de teste com versões; revisões e aprovação funcionam; financeiro discrimina produção, publicação e afiliação sem falsos recebimentos; todos os perfis têm navegação e autorização no backend; dados sobrevivem a nova sessão; os fluxos públicos existentes continuam funcionais; e os testes críticos passam.
+
+Interface isolada, mock, política não testada, ausência de confirmação financeira e teste crítico não executado não satisfazem o gate. Se houver uma entrega parcial sem gateway ou com pagamentos externos, nomear explicitamente esse escopo e suas limitações; não declarar o marketplace completo. Nenhuma migração, rota, integração ou teste UGC foi executado por esta atualização do PRD.
+
+### Relatório obrigatório por etapa
+
+Registrar funcionalidades encontradas, reutilizadas e implementadas; arquivos criados/alterados; migrations executadas/pendentes; rotas adicionadas; integrações efetivamente funcionais; testes/resultados; pendências e bloqueios técnicos reais. Vincular commit, ambiente e evidência. Dependências de serviço, segredo ou decisão comercial devem permanecer explícitas.
+
+### Cobertura do material fornecido
+
+O [anexo integral U0](REFERENCIA-EXPANSAO-UGC.md) preserva o texto original, exemplos e instruções de implementação para as etapas futuras. A consolidação abaixo evita perder requisitos e distingue a diretriz do estado já implementado.
+
+| Seções do Prompt Master U0 | Cobertura neste PRD |
+|---|---|
+| 1–2: contexto e regra fundamental | Visão, seção 16 e R01–R08 |
+| 3: investigação existente | 16.2 e E1 |
+| 4: usuários | A02, U01, seção 22 e matriz de permissões |
+| 5–8: campanhas, criação, marketplace e candidaturas | U07–U10, seção 18 |
+| 9–10: perfil, serviços e diretório | U01–U06, seção 17 |
+| 11–12: contratação direta e produção | U11–U16, seção 19 |
+| 13: propostas e mensagens | U12/U17 |
+| 14–15: financeiro e afiliação | U18–U20 |
+| 16: avaliações | U21 |
+| 17: navegação | Seção 21 |
+| 18: modelo de dados | Seção 22 |
+| 19: componentes e UX | U22 e seção 21 |
+| 20: dezessete regras críticas | R01–R17, seção 16 |
+| 21: cenários A–D | UAT-A–D, ampliados por UAT-E–H |
+| 22: plano de implementação | E1–E7, seção 24 |
+| 23–24: conclusão e relatório | Seção 25 |
+| 25: diretriz final | Visão integrada, UGC nativo e preservação da identidade própria |
+
+**Histórico da versão 1.1:** incorporação documental da expansão solicitada, preservando requisitos REA e estado auditado. Nenhuma capacidade UGC foi reclassificada como entregue por ter sido incluída neste documento.

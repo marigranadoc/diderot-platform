@@ -658,3 +658,9 @@ U03 agora tem gestão privada em `/conta/criador/portfolio`, com título, tipo, 
 Disponível `/painel/criador` com perfil, serviços e portfólio, contagens remotas e estado de falha sem números fictícios. Login real e navegação móvel foram verificados com a conta demonstrativa solicitada. Persistência de serviços, portfólio e favorito foi confirmada em duas sessões da mesma conta; somente fixtures identificadas foram criadas/removidas. Testes RLS de favoritos/perfil/conteúdo com duas identidades temporárias e claims controladas passaram no banco remoto e foram revertidos. [Evidências e limites](PAINEL-CREATOR.md).
 
 Essas evidências atualizam as afirmações históricas de Auth real/isolamento não testados. Ainda não comprovam dois logins reais distintos, entrega de e-mail, gestão de loja ou módulos brand/admin. A entrada de creator de GAP-02 existe agora; C02 continua parcial/ausente no que se refere a catálogo editável. Nenhuma migração adicional foi necessária.
+
+## Atualização visual — 12/11/2026
+
+Home reorganizada conforme estrutura e captura ShopMy fornecidas: hero, faixa móvel, Curadoria, Círculos/seleções, CTA, Categorias e Marcas; navegação por público, busca e rodapé. Reckless local substitui Tobias/ShopMy Plain; DM Sans permanece no corpo. Aplicados tokens neutros às telas existentes e oito fotografias reais ilustrativas em lugar de vetores. Filtros de categoria/marca/busca abrem resultados reais no catálogo.
+
+[Implementação, origem das imagens e restrição da fonte TRIAL](DESIGN-SYSTEM-DIDEROT.md). Arquivos Reckless não publicados no GitHub: licença fornecida permite somente uso pessoal. Círculos pessoais, aplicativo nativo, concierge, campanhas, compras e gestão completa de marca/admin continuam pendentes. O visual da referência não altera esse estado funcional. Sem migrações nem dados reais nesta etapa.

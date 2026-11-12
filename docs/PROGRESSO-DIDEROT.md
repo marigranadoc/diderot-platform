@@ -228,3 +228,28 @@ GAP-02 passa a encontrar a entrada da área de creator; isso não conclui gestã
 A auditoria integral registrou **48 aprovados/8 falhas** em 56 casos (`evidencias/auditoria-painel.json`): seis falhas GAP (visitante, brand e administrador em dois tamanhos) e duas falhas do mock de contagem. Corrigida a exposição do cabeçalho Content-Range no mock. O navegador com backend real já havia passado. GAP-02 passou a verificar a entrada existente, sem comprovar gestão de catálogo. A inspeção após os testes confirmou zero fixtures identificadas de serviços/portfólio remanescentes; dados preexistentes não foram limpos.
 
 Reexecução direcionada do painel: **4/4 aprovados**, 26,3 s, em `evidencias/painel-revalidado.json`. Build e TypeScript aprovados. Não foi repetida a suíte integral após a alteração exclusiva do mock; não anunciar uma execução única 50/56. As verificações API, navegador real e SQL estão em evidências separadas.
+
+## Design system, imagens e home — 12/11/2026
+
+Aplicada referência enviada pela usuária: tokens originais preservados, neutros, tipografia, botões/campos e espaçamentos. Oito fotos reais locais e otimizadas substituem os vetores. Home segue hero → faixa móvel → Curadoria → Círculos → CTA → Categorias → Marcas, com menus por público, busca e rodapé de cinco colunas. Categorias/marcas/busca passam filtros reais à vitrine. Build final aprovado; composição inspecionada em 1440px e 390px, sem rolagem horizontal nos testes já executados. [Detalhes](DESIGN-SYSTEM-DIDEROT.md).
+
+A Reckless recebida substitui Tobias/ShopMy Plain somente na prévia local: o ZIP é TRIAL, Personal Use Only. Binários excluídos do repositório; DM Sans permanece nos textos/controles com licença OFL incluída. As imagens são ilustrativas e não correspondência comprovada aos produtos fictícios. Não houve migração ou alteração de dados reais.
+
+| Área | Evidência implementada | Estado e limite |
+|---|---|---|
+| Home `/` | Seções, grids, cabeçalho, busca, menu com teclado | Disponível; adaptada ao catálogo demonstrativo |
+| Curadoria | Uma criadora e oito produtos existentes | Sem perfis ou endossos de terceiros inventados |
+| Círculos | Oito seleções levam a coleções reais | Demonstração; criação de grupos pessoais pendente |
+| Categorias/Marcas | Filtros via URL aplicados no catálogo | Oito categorias de navegação; quatro marcas em oito cartões |
+| Fotos | WebP locais, alt, carregamento e fontes documentadas | Ilustrativas; sem garantia de SKU/cor |
+| Fontes | Reckless local; DM Sans redistribuível | Fonte comercial Reckless definitiva pendente |
+| Conta e creator | Fluxos existentes preservados | Contratos simulados reexecutados; sem novas afirmações sobre e-mails |
+| Brand/Admin | Nenhum painel criado nesta etapa visual | Pendências da auditoria mantidas |
+
+A primeira execução desta home foi interrompida: continha um seletor de categoria incorreto no teste e coincidiu com recompilação. Não conta como auditoria concluída. A execução integral anterior do design system (antes da home) teve 56 aprovados/6 falhas em `evidencias/auditoria-design-system.json`; as falhas eram favorito de visitante, marca e administrador, nos dois tamanhos. A auditoria final da home é registrada separadamente em `evidencias/auditoria-home-final.json`.
+
+Resultado da auditoria integral da home: **62 aprovados, 6 falhas conhecidas, 68 casos, 277,2 segundos**, computador e celular, sem casos ignorados. Os seis testes novos HOME e seis DS passaram. Falhas: GAP-01 favoritos sem autenticação após reload, GAP-03 entrada de gestão de marca e GAP-04 entrada administrativa, cada um nos dois tamanhos. Evidência integral em `evidencias/auditoria-home-final.json`. Não se trata de 100% de funcionalidades concluídas.
+
+Após essa execução, removida uma regra antiga que sobrepunha o posicionamento inicial do cabeçalho. Recompilação e revalidação visual direcionada são registradas separadamente, sem somar resultados de execuções diferentes como uma auditoria única.
+
+Revalidação após o ajuste do cabeçalho: **12/12 aprovados**, 46 segundos, computador/celular, em `evidencias/home-revalidada.json`. Inclui posicionamento fixo, Reckless, carregamento das fotos, ordem das seções, busca, filtros, menu e responsividade. Build aprovado. A auditoria integral não foi repetida após esse ajuste exclusivo de CSS; seus seis bloqueios permanecem abertos. Prévia local atualizada em http://127.0.0.1:3002.

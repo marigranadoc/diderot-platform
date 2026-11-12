@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test';
 import {products,collections} from '../lib/catalog';
 
-test('AUD-01 todas as rotas, âncoras, SVGs e recuperação de erro',async({page})=>{
+test('AUD-01 todas as rotas, âncoras, fotografias e recuperação de erro',async({page})=>{
  const paths=['/','/criador',...collections.map(c=>`/colecoes/${c.slug}`),...products.map(p=>`/produto/${p.slug}`)];
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
  for(const path of paths){
@@ -11,8 +11,12 @@ test('AUD-01 todas as rotas, âncoras, SVGs e recuperação de erro',async({page
   for(const href of await page.locator('a[href*="#"]').evaluateAll(els=>els.map(e=>e.getAttribute('href')!).filter(h=>h.startsWith('#')||h.split('#')[0]===location.pathname))){
    await expect(page.locator(`[id="${href.split('#')[1]}"]`),`${path}: ${href}`).toHaveCount(1);
   }
-  for(const art of await page.getByRole('img').all()){await expect(art).toHaveAttribute('aria-label',/\S+/)}
-  expect(await page.locator('svg').evaluateAll(els=>els.every(e=>e.querySelectorAll('path,rect,ellipse').length>0))).toBe(true);
+  for(const photo of await page.getByRole('img').all()){expect((await photo.getAttribute('alt'))??(await photo.getAttribute('aria-label'))??'').toMatch(/\S+/)}
+  for(const photo of await page.locator('.product-photo img').all()){
+   await photo.scrollIntoViewIfNeeded();
+   await expect.poll(()=>photo.evaluate(e=>(e as HTMLImageElement).complete&&(e as HTMLImageElement).naturalWidth>0)).toBe(true);
+  }
+  await expect(page.locator('.product-photo svg')).toHaveCount(0);
  }
  for(const path of ['/produto/inexistente','/colecoes/inexistente','/rota-inexistente']){
   expect((await page.goto(path))?.status()).toBe(404);

@@ -1,0 +1,112 @@
+/* ShopMy design tokens — extraídos de main.a43051f7.css (valores reais, sem estimativas) */
+:root {
+  /* Cores — foreground */
+  --foreground-primary: #000;
+  --foreground-secondary: #525252;
+  --foreground-tertiary: #757575;
+  --foreground-quaternary: #8f8f8f;
+  --foreground-disabled: #b8b8b8;
+  --foreground-inverse: #fff;
+  --foreground-inverse-secondary: #b8b8b8;
+  --foreground-danger: #da0e3f;
+  --foreground-success: #11835a;
+  --foreground-success-light: #61be91;
+  --foreground-warning: #ffa000;
+
+  /* Cores — background */
+  --background-primary: #fff;
+  --background-secondary: #f7f7f7;
+  --background-tertiary: #f7f7f5;
+  --background-quaternary: #e0e0e0;
+  --background-inverse: #292929;
+  --background-success: #dcf6ea;
+  --background-danger: #ffebeb;
+  --background-warning: #fff3e0;
+  --background-scrim: rgba(0,0,0,.1);
+  --background-scrim-modal: rgba(0,0,0,.28);
+  --background-hero-scrim: linear-gradient(90deg, rgba(0,0,0,.65), rgba(0,0,0,.35));
+
+  /* Cores — stroke */
+  --stroke-light: #ebebeb;
+  --stroke-regular: #e0e0e0;
+  --stroke-hover: #ccc;
+  --stroke-success: #9fdabd;
+
+  /* Marca / tema */
+  --brand-ink: #1f1f1f;          /* theme-color, títulos, preto suave */
+  --brand-ink-pro: #333;
+  --chart-green: #11835a;
+  --chart-green-light: #61be91;
+  --chart-blue: #00a3ff;
+
+  /* Tipografia — famílias */
+  --font-serif: Tobias, "Para Supreme Normal", serif;
+  --font-body: "DM Sans", Karla, sans-serif;
+  --font-plain: "ShopMy Plain", "DM Sans", Karla, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-display-alt: Fraunces, Georgia, "Playfair Display", serif;
+
+  /* Tipografia — escala */
+  --text-title-1-size: 52px; --text-title-1-size--mobile: 30px; --text-title-1-lh: 1.15;
+  --text-title-2-size: 36px; --text-title-2-size--mobile: 24px; --text-title-2-lh: 1.05;
+  --text-title-3-size: 24px; --text-title-3-size--mobile: 18px; --text-title-3-lh: 1.17;
+  --text-title-4-size: 16px; --text-title-4-lh: 1.17;
+  --text-title-weight: 200;       /* Tobias variável, 100–900 */
+  --text-headline-size: 18px; --text-headline-lh: 1.2; --text-headline-weight: 400;
+  --text-body-size: 14px; --text-body-size--small: 12px; --text-body-lh: 1.7; --text-body-lh--small: 1.4;
+  --text-body-weight: 400; --text-body-weight--bold: 500; --text-body-weight--extra-bold: 700;
+  --text-label-size: 12px; --text-label-size--small: 10px;
+  --text-label-weight: 700; --text-label-weight--small: 600;
+  --text-label-tracking: .1em; --text-label-tracking--small: 1px;
+  /* labels: sempre uppercase */
+
+  /* Raios */
+  --radius-card: 4px;
+  --radius-button: 4px;
+  --radius-control: 4px;          /* também 2px */
+  --radius-field: 8px;
+  --radius-popover: 12px;
+  --radius-image: 0px;
+  --radius-pill: 999px;
+
+  /* Sombras */
+  --shadow-tile: 0 1px 4px rgba(0,0,0,.04), 0 3.6px 3.6px rgba(0,0,0,.03), 0 6px 4px rgba(0,0,0,.03);
+  --shadow-section: 0 24px 32px 0 rgba(0,0,0,.04);
+  --shadow-partner-header: 0 22px 14.95px 0 rgba(0,0,0,.04);
+  --shadow-floating: 0 26px 58px rgba(0,0,0,.1), 0 106px 106px rgba(0,0,0,.09);
+  --shadow-band: 0 9.5px 6.5px rgba(0,0,0,.008), 0 19px 5.5px rgba(0,0,0,.008), 0 42.75px 8.875px rgba(0,0,0,.008), 0 76.25px 11.25px rgba(0,0,0,.008);
+
+  /* Movimento */
+  --duration-fast: .2s;
+  --image-fade-duration: 400ms;
+  --image-transform-duration: 250ms;
+  --slide-duration: 1s;
+  --slide-easing: cubic-bezier(.45,0,.25,1);
+
+  /* Breakpoints (media queries usadas) */
+  /* 400 · 576 · 640 · 768 · 992 · 1240 · 1600 */
+  --container-max: 1240px;
+  --content-inset: max(24px, calc(50% - 608px));
+}
+
+/* Botões — .shopmy-shared-button */
+.shopmy-shared-button { display:flex; align-items:center; justify-content:center; width:fit-content;
+  border:none; border-radius:4px; font:700 normal/normal var(--font-body); text-transform:uppercase;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease; }
+.button--small  { font-size:10px; height:34px; padding:12px;      letter-spacing:1px;   gap:4px; }
+.button--medium { font-size:10px; height:37px; padding:12px 18px; letter-spacing:1px;   gap:6px; }
+.button--large  { font-size:12px; height:48px; padding:16px 32px; letter-spacing:1.2px; gap:8px; }
+.mode-light.button--primary   { background:#000; color:#fff; }
+.mode-light.button--primary:hover { background:#525252; }
+.mode-light.button--primary:disabled { background:#f7f7f7; color:#b8b8b8; }
+.mode-light.button--secondary { background:#fff; color:#000; border:1px solid var(--stroke-regular); }
+.mode-light.button--secondary:hover { background:#f7f7f7; }
+.mode-light.button--ghost     { background:#fff; color:#000; }
+.mode-dark.button--primary    { background:#fff; color:#000; }
+.mode-dark.button--primary:hover { background:hsla(0,0%,100%,.8); backdrop-filter:blur(22.5px); }
+.mode-dark.button--secondary  { background:hsla(0,0%,100%,.05); color:#fff; border:1px solid #fff; backdrop-filter:blur(22.5px); }
+.mode-dark.button--secondary:hover { background:hsla(0,0%,100%,.15); }
+.mode-dark.button--ghost      { background:transparent; color:#fff; }
+.mode-dark.button--ghost:hover { background:hsla(0,0%,100%,.2); backdrop-filter:blur(22.5px); }
+.mode-dark.button--blur       { background:hsla(0,0%,100%,.05); color:#fff; border:1px solid #fff; backdrop-filter:blur(40px); }
+.mode-dark.button--blur:hover { background:hsla(0,0%,100%,.1); }

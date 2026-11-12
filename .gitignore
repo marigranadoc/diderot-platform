@@ -8,3 +8,4 @@ playwright-report/
 !.env.example
 .supabase/
 supabase/.temp/
+public/fonts/reckless/

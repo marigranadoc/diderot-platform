@@ -43,3 +43,5 @@ Serviços do creator: `/conta/criador/servicos` oferece cadastro, edição e exc
 Portfólio privado por links: `/conta/criador/portfolio` permite organizar e editar trabalhos, com validação HTTPS e exclusão confirmada. [Estado e limites](docs/PORTFOLIO-CREATOR.md). Upload de arquivos e publicação ainda pendentes.
 
 Painel do creator: `/painel/criador` reúne perfil, serviços e portfólio com contagens remotas. Login real, duas sessões API e testes RLS agora têm [evidências registradas](docs/PAINEL-CREATOR.md); entrega de e-mail e módulos de marca/admin permanecem pendentes.
+
+Identidade visual: veja [design system e home](docs/DESIGN-SYSTEM-DIDEROT.md). A Reckless enviada é TRIAL e fica somente na prévia local; o repositório usa fallback quando não instalada. DM Sans e fotografias incluem suas fontes e licenças.

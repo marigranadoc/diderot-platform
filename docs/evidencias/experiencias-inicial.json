@@ -1,0 +1,639 @@
+{
+  "format": "diderot-playwright-evidence-v1",
+  "source": "Completed Playwright JSON report; raw original retained in local work/raw-campaign-reports.",
+  "projects": [
+    {
+      "name": "computador"
+    },
+    {
+      "name": "celular"
+    }
+  ],
+  "summary": {
+    "startTime": "2026-11-13T00:39:35.002Z",
+    "duration": 139194.669,
+    "expected": 34,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  },
+  "runner_errors": [],
+  "cases": [
+    {
+      "file": "account.spec.ts",
+      "line": 3,
+      "title": "AUTH-01 acesso rejeitado apresenta erro sem simular login",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2731,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "account.spec.ts",
+      "line": 3,
+      "title": "AUTH-01 acesso rejeitado apresenta erro sem simular login",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1576,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "account.spec.ts",
+      "line": 14,
+      "title": "AUTH-02 contrato simulado: login, favorito, reload, remoção e logout",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 10268,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "account.spec.ts",
+      "line": 14,
+      "title": "AUTH-02 contrato simulado: login, favorito, reload, remoção e logout",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8415,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 21,
+      "title": "EXP-01 shopper: escolha, perfil, revisão e destino corretos",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3033,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 21,
+      "title": "EXP-01 shopper: escolha, perfil, revisão e destino corretos",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1781,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 21,
+      "title": "EXP-01 creator: escolha, perfil, revisão e destino corretos",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2395,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 21,
+      "title": "EXP-01 creator: escolha, perfil, revisão e destino corretos",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1595,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 21,
+      "title": "EXP-01 brand: escolha, perfil, revisão e destino corretos",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2397,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 21,
+      "title": "EXP-01 brand: escolha, perfil, revisão e destino corretos",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1696,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 33,
+      "title": "EXP-02 erro ao salvar ou reler preserva a revisão sem falso sucesso",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 11071,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 33,
+      "title": "EXP-02 erro ao salvar ou reler preserva a revisão sem falso sucesso",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 9962,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 40,
+      "title": "EXP-03 cadastro envia o tipo escolhido e explica a confirmação de e-mail",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2034,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 40,
+      "title": "EXP-03 cadastro envia o tipo escolhido e explica a confirmação de e-mail",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1057,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 46,
+      "title": "EXP-04 visitantes encontram os três caminhos e os briefings fictícios",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2750,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 46,
+      "title": "EXP-04 visitantes encontram os três caminhos e os briefings fictícios",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1884,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 54,
+      "title": "EXP-05 API demonstrativa rejeita origem externa e tipo inexistente",
+      "project": "computador",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 211,
+          "retry": 0,
+          "errors": [
+            "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n\n  54 | test('EXP-05 API demonstrativa rejeita origem externa e tipo inexistente',async({request})=>{\n  55 |  const denied=await request.post('/api/demo/session',{headers:{Origin:'https://example.invalid'},data:{type:'brand'}});expect(denied.status()).toBe(403);\n> 56 |  const invalid=await request.post('/api/demo/session',{headers:{Origin:'http://127.0.0.1:3101'},data:{type:'admin'}});expect(invalid.status()).toBe(400);\n     |                                                                                                                                                ^\n  57 | });\n  58 |\n  59 | test('EXP-06 backend real: alternar shopper, creator e marca com os dados fictícios',async({page},info)=>{\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\experiences.spec.ts:56:144"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 54,
+      "title": "EXP-05 API demonstrativa rejeita origem externa e tipo inexistente",
+      "project": "celular",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 106,
+          "retry": 0,
+          "errors": [
+            "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n\n  54 | test('EXP-05 API demonstrativa rejeita origem externa e tipo inexistente',async({request})=>{\n  55 |  const denied=await request.post('/api/demo/session',{headers:{Origin:'https://example.invalid'},data:{type:'brand'}});expect(denied.status()).toBe(403);\n> 56 |  const invalid=await request.post('/api/demo/session',{headers:{Origin:'http://127.0.0.1:3101'},data:{type:'admin'}});expect(invalid.status()).toBe(400);\n     |                                                                                                                                                ^\n  57 | });\n  58 |\n  59 | test('EXP-06 backend real: alternar shopper, creator e marca com os dados fictícios',async({page},info)=>{\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\experiences.spec.ts:56:144"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 59,
+      "title": "EXP-06 backend real: alternar shopper, creator e marca com os dados fictícios",
+      "project": "computador",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 11944,
+          "retry": 0,
+          "errors": [
+            "Error: expect(page).toHaveURL(expected) failed\n\nExpected pattern: /\\/painel\\/shopper$/\nReceived string:  \"http://127.0.0.1:3101/demo\"\nTimeout: 10000ms\n\nCall log:\n  - Expect \"toHaveURL\" with timeout 10000ms\n    23 × locator resolved to <html lang=\"pt-BR\" data-scroll-behavior=\"smooth\">…</html>\n       - unexpected value \"http://127.0.0.1:3101/demo\"\n\n\n  59 | test('EXP-06 backend real: alternar shopper, creator e marca com os dados fictícios',async({page},info)=>{\n  60 |  test.setTimeout(120000);\n> 61 |  await page.goto('/demo');await page.getByRole('button',{name:'Entrar como shopper',exact:true}).click();await expect(page).toHaveURL(/\\/painel\\/shopper$/);await expect(page.getByRole('heading',{name:'Olá, Ana · demonstração.',exact:true})).toBeVisible();await expect(page.getByRole('heading',{name:'Bolsa Oliva',exact:true})).toBeVisible();\n     |                                                                                                                             ^\n  62 |  await page.getByRole('link',{name:'Editar meu perfil',exact:true}).click();await page.getByRole('button',{name:'Continuar',exact:true}).click();await expect(page.getByLabel('Seu nome',{exact:true})).toHaveValue('Ana · demonstração');\n  63 |  await page.goto('/demo');await page.getByRole('button',{name:'Entrar como creator',exact:true}).click();await expect(page).toHaveURL(/\\/painel\\/criador$/);await expect(page.getByRole('heading',{name:'2 serviços cadastrados',exact:true})).toBeVisible();await expect(page.getByRole('heading',{name:'1 trabalho cadastrado',exact:true})).toBeVisible();await page.getByRole('link',{name:'Gerenciar portfólio',exact:true}).click();await expect(page.getByText('Estudo de conteúdo de beleza · demonstração',{exact:true})).toBeVisible();\n  64 |  await page.goto('/demo');await page.getByRole('button',{name:'Entrar como marca',exact:true}).click();await expect(page).toHaveURL(/\\/painel\\/marca$/);await expect(page.getByRole('heading',{name:'Ateliê Aurora · demonstração',exact:true})).toBeVisible();await page.getByRole('button',{name:'Campanhas em rascunho',exact:true}).click();await expect(page.getByRole('button',{name:'Abrir rascunho',exact:true})).toHaveCount(3);\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\experiences.spec.ts:61:125"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 59,
+      "title": "EXP-06 backend real: alternar shopper, creator e marca com os dados fictícios",
+      "project": "celular",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 11337,
+          "retry": 0,
+          "errors": [
+            "Error: expect(page).toHaveURL(expected) failed\n\nExpected pattern: /\\/painel\\/shopper$/\nReceived string:  \"http://127.0.0.1:3101/demo\"\nTimeout: 10000ms\n\nCall log:\n  - Expect \"toHaveURL\" with timeout 10000ms\n    23 × locator resolved to <html lang=\"pt-BR\" data-scroll-behavior=\"smooth\">…</html>\n       - unexpected value \"http://127.0.0.1:3101/demo\"\n\n\n  59 | test('EXP-06 backend real: alternar shopper, creator e marca com os dados fictícios',async({page},info)=>{\n  60 |  test.setTimeout(120000);\n> 61 |  await page.goto('/demo');await page.getByRole('button',{name:'Entrar como shopper',exact:true}).click();await expect(page).toHaveURL(/\\/painel\\/shopper$/);await expect(page.getByRole('heading',{name:'Olá, Ana · demonstração.',exact:true})).toBeVisible();await expect(page.getByRole('heading',{name:'Bolsa Oliva',exact:true})).toBeVisible();\n     |                                                                                                                             ^\n  62 |  await page.getByRole('link',{name:'Editar meu perfil',exact:true}).click();await page.getByRole('button',{name:'Continuar',exact:true}).click();await expect(page.getByLabel('Seu nome',{exact:true})).toHaveValue('Ana · demonstração');\n  63 |  await page.goto('/demo');await page.getByRole('button',{name:'Entrar como creator',exact:true}).click();await expect(page).toHaveURL(/\\/painel\\/criador$/);await expect(page.getByRole('heading',{name:'2 serviços cadastrados',exact:true})).toBeVisible();await expect(page.getByRole('heading',{name:'1 trabalho cadastrado',exact:true})).toBeVisible();await page.getByRole('link',{name:'Gerenciar portfólio',exact:true}).click();await expect(page.getByText('Estudo de conteúdo de beleza · demonstração',{exact:true})).toBeVisible();\n  64 |  await page.goto('/demo');await page.getByRole('button',{name:'Entrar como marca',exact:true}).click();await expect(page).toHaveURL(/\\/painel\\/marca$/);await expect(page.getByRole('heading',{name:'Ateliê Aurora · demonstração',exact:true})).toBeVisible();await page.getByRole('button',{name:'Campanhas em rascunho',exact:true}).click();await expect(page.getByRole('button',{name:'Abrir rascunho',exact:true})).toHaveCount(3);\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\experiences.spec.ts:61:125"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 11,
+      "title": "ONB-01 cadastro confirma envio sem inventar sessão e valida senha",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1367,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 11,
+      "title": "ONB-01 cadastro confirma envio sem inventar sessão e valida senha",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3728,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 29,
+      "title": "ONB-02 recuperação trata falha e resposta sem revelar existência da conta",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1558,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 29,
+      "title": "ONB-02 recuperação trata falha e resposta sem revelar existência da conta",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1761,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 41,
+      "title": "ONB-03 link de recuperação permite trocar senha após sessão verificada",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1420,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 41,
+      "title": "ONB-03 link de recuperação permite trocar senha após sessão verificada",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1847,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 57,
+      "title": "ONB-04 link expirado não libera formulário de nova senha",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1025,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 57,
+      "title": "ONB-04 link expirado não libera formulário de nova senha",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1630,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 64,
+      "title": "ONB-05 visitante precisa entrar para configurar perfil",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 923,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 64,
+      "title": "ONB-05 visitante precisa entrar para configurar perfil",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1003,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 70,
+      "title": "ONB-06 contrato simulado: UGC sem seguidores, reload, atuação híbrida e erro de gravação",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2751,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 70,
+      "title": "ONB-06 contrato simulado: UGC sem seguidores, reload, atuação híbrida e erro de gravação",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3110,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 108,
+      "title": "ONB-07 troca de conta em outra aba (normal) remove o perfil anterior",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2354,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 108,
+      "title": "ONB-07 troca de conta em outra aba (normal) remove o perfil anterior",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2240,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 108,
+      "title": "ONB-08 troca de conta em outra aba (without-broadcast) remove o perfil anterior",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2762,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 108,
+      "title": "ONB-08 troca de conta em outra aba (without-broadcast) remove o perfil anterior",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2004,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 108,
+      "title": "ONB-09 troca de conta em outra aba (delayed-storage) remove o perfil anterior",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3950,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 108,
+      "title": "ONB-09 troca de conta em outra aba (delayed-storage) remove o perfil anterior",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1940,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

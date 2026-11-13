@@ -2,6 +2,7 @@
 import {useEffect, useState, type FormEvent} from 'react';
 import Link from 'next/link';
 import {getBrowserClient} from '../lib/supabase-browser';
+import AccountNavigation from './AccountNavigation';
 
 export default function Account() {
   const [email, setEmail] = useState('');
@@ -40,19 +41,19 @@ export default function Account() {
     if (!client) return;
     setBusy(true); setMessage('');
     try {
-      const {error} = await client.auth.signOut();
+      const {error} = await client.auth.signOut({scope:'local'});
       if (error) setMessage('Não foi possível sair. Tente novamente.');
       else setSignedIn(false);
     } catch {setMessage('Não foi possível conectar. Tente novamente.');}
     finally {setBusy(false);}
   }
   return <section className="account-card"><span className="eyebrow">SUAS DESCOBERTAS</span><h1>Minha conta</h1>
-    {signedIn ? <><p>Você está conectado. Os favoritos salvos na loja ficam vinculados à sua conta.</p><Link className="dark-button" href="/criador#catalogo">Explorar e salvar produtos</Link><Link className="dark-button" href="/painel/criador">Abrir painel do criador</Link><Link className="dark-button" href="/painel/marca">Abrir painel da marca</Link><Link href="/conta/criador">Configurar perfil de creator</Link><p><button onClick={logout} disabled={busy}>Sair da conta</button></p></> : <>
+    {signedIn ? <><AccountNavigation/><p>Você está conectado. Os favoritos salvos na loja ficam vinculados à sua conta.</p><Link className="dark-button" href="/criador#catalogo">Explorar e salvar produtos</Link><Link href="/painel/shopper">Abrir espaço de shopper</Link><Link className="dark-button" href="/painel/criador">Abrir painel do criador</Link><Link className="dark-button" href="/painel/marca">Abrir painel da marca</Link><Link href="/conta/criador">Configurar perfil de creator</Link><p><button onClick={logout} disabled={busy}>Sair da conta</button></p></> : <>
       <p>Entre para guardar suas escolhas entre visitas.</p><form onSubmit={login}>
         <label>E-mail<input type="email" autoComplete="email" required value={email} onChange={e=>setEmail(e.target.value)}/></label>
         <label>Senha<input type="password" autoComplete="current-password" required value={password} onChange={e=>setPassword(e.target.value)}/></label>
         <button className="dark-button" disabled={busy}>{busy?'Aguarde…':'Entrar'}</button>
-      </form><Link href="/cadastro">Criar uma conta</Link><Link href="/recuperar-acesso">Esqueci minha senha</Link>
+      </form><Link href="/cadastro">Criar uma conta</Link><Link href="/demo">Experimentar com uma conta demonstrativa</Link><Link href="/recuperar-acesso">Esqueci minha senha</Link>
     </>}
     {message&&<p role="alert">{message}</p>}
   </section>;

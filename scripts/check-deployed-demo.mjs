@@ -1,0 +1,21 @@
+import assert from 'node:assert/strict';
+import {chromium,expect} from '@playwright/test';
+const base=new URL(process.env.DIDEROT_TEST_BASE_URL??'https://diderot-platform-mari-granado.vercel.app');
+assert.ok(['https://diderot-platform-mari-granado.vercel.app','http://127.0.0.1:3002'].includes(base.origin),'Use only the authorized Diderot deployment or local preview.');
+const browser=await chromium.launch({executablePath:process.env.DIDEROT_CHROME_PATH??'C:/Program Files/Google/Chrome/Application/chrome.exe'}),page=await browser.newPage({viewport:{width:390,height:844}}),checks=[];
+try{
+ const home=await page.goto(new URL('/',base).href);assert.equal(home.status(),200);await page.getByRole('link',{name:/DEMONSTRAÇÃO · Experimentar como shopper/}).click();await expect(page.getByRole('heading',{name:'Experimente a Diderot.',exact:true})).toBeVisible();checks.push('public_home_and_demo_without_vercel_login');
+ await page.screenshot({path:'../../work/screenshots/vercel-demo-entrada.png',fullPage:true});
+ const denied=await page.request.post(new URL('/api/demo/session',base).href,{headers:{Origin:'https://example.invalid'},data:{type:'brand'}});assert.equal(denied.status(),403);checks.push('external_origin_denied');
+ await page.getByRole('button',{name:'Entrar como shopper',exact:true}).click();await expect(page).toHaveURL(/\/painel\/shopper$/);await expect(page.getByRole('heading',{name:'Olá, Ana · demonstração.',exact:true})).toBeVisible();await expect(page.getByRole('heading',{name:'Bolsa Oliva',exact:true})).toBeVisible();checks.push('shopper_real_auth_profile_and_saved_products');
+ await page.goto(new URL('/demo',base).href);await page.getByRole('button',{name:'Entrar como creator',exact:true}).click();await expect(page).toHaveURL(/\/painel\/criador$/);await expect(page.getByRole('heading',{name:'2 serviços cadastrados',exact:true})).toBeVisible();await expect(page.getByRole('heading',{name:'1 trabalho cadastrado',exact:true})).toBeVisible();checks.push('creator_real_auth_seeded_services_and_portfolio');
+ await page.getByRole('link',{name:'Explorar campanhas demonstrativas',exact:true}).click();await page.getByRole('link').filter({hasText:'Rituais de cuidado'}).click();await expect(page.getByRole('heading',{name:'Rituais de cuidado',exact:true})).toBeVisible();await expect(page.getByText('Não exige seguidores nem postagem no perfil pessoal.',{exact:true})).toBeVisible();checks.push('creator_fictitious_campaign_briefing_navigation');
+ await page.goto(new URL('/demo',base).href);await page.getByRole('button',{name:'Entrar como marca',exact:true}).click();await expect(page).toHaveURL(/\/painel\/marca$/);await expect(page.getByRole('heading',{name:'Ateliê Aurora · demonstração',exact:true})).toBeVisible();await page.getByRole('button',{name:'Campanhas em rascunho',exact:true}).click();await expect(page.getByRole('button',{name:'Abrir rascunho',exact:true})).toHaveCount(3);checks.push('brand_real_auth_organization_and_three_private_drafts');
+ await page.getByRole('link',{name:'Meu cadastro e perfil da marca',exact:true}).click();await page.getByRole('button',{name:'Continuar',exact:true}).click();await expect(page.getByLabel('Seu nome',{exact:true})).toHaveValue('Marina · demonstração');await expect(page.getByLabel('Nome da organização',{exact:true})).toHaveValue('Ateliê Aurora · demonstração');checks.push('brand_profile_reread');
+ assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.screenshot({path:'../../work/screenshots/vercel-demo-perfil-marca.png',fullPage:true});
+ await page.goto(new URL('/cadastro',base).href);for(const type of ['Shopper','Creator','Marca'])await expect(page.getByRole('radio',{name:type,exact:true})).toBeVisible();checks.push('signup_type_choice_without_sending_email');
+ console.log(JSON.stringify({status:'passed',origin:base.origin,checks,limits:'Published mobile Chrome, three real demo Auth identities and read-only seeded data; no signup email sent and no successful business-data mutation. Local signout in finally.'}));
+}finally{
+ try{await page.goto(new URL('/conta',base).href);const logout=page.getByRole('button',{name:'Sair da conta',exact:true});if(await logout.count()){await logout.click();await expect(page.getByRole('button',{name:'Entrar',exact:true})).toBeVisible();}}
+ finally{await browser.close();}
+}

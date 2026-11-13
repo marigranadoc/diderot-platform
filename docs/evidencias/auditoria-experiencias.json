@@ -1,0 +1,2207 @@
+{
+  "format": "diderot-playwright-evidence-v1",
+  "source": "Completed Playwright JSON report; raw original retained in local work/raw-campaign-reports.",
+  "projects": [
+    {
+      "name": "computador"
+    },
+    {
+      "name": "celular"
+    }
+  ],
+  "summary": {
+    "startTime": "2026-11-13T10:06:56.986Z",
+    "duration": 450004.521,
+    "expected": 132,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  },
+  "runner_errors": [],
+  "cases": [
+    {
+      "file": "account.spec.ts",
+      "line": 3,
+      "title": "AUTH-01 acesso rejeitado apresenta erro sem simular login",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2028,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "account.spec.ts",
+      "line": 3,
+      "title": "AUTH-01 acesso rejeitado apresenta erro sem simular login",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1551,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "account.spec.ts",
+      "line": 14,
+      "title": "AUTH-02 contrato simulado: login, favorito, reload, remoção e logout",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 9830,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "account.spec.ts",
+      "line": 14,
+      "title": "AUTH-02 contrato simulado: login, favorito, reload, remoção e logout",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 7528,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "audit.spec.ts",
+      "line": 4,
+      "title": "AUD-01 todas as rotas, âncoras, fotografias e recuperação de erro",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 18820,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "audit.spec.ts",
+      "line": 4,
+      "title": "AUD-01 todas as rotas, âncoras, fotografias e recuperação de erro",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 13461,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "audit.spec.ts",
+      "line": 28,
+      "title": "AUD-02 disponibilidade deve revelar informação, não apenas mudar o hash",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5568,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "audit.spec.ts",
+      "line": 28,
+      "title": "AUD-02 disponibilidade deve revelar informação, não apenas mudar o hash",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4391,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "audit.spec.ts",
+      "line": 37,
+      "title": "AUD-03 filtros, preços completos, remoção de favorito e isolamento da coleção",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4284,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "audit.spec.ts",
+      "line": 37,
+      "title": "AUD-03 filtros, preços completos, remoção de favorito e isolamento da coleção",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3069,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "audit.spec.ts",
+      "line": 57,
+      "title": "AUD-04 busca tolera espaços, maiúsculas e acentos",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1330,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "audit.spec.ts",
+      "line": 57,
+      "title": "AUD-04 busca tolera espaços, maiúsculas e acentos",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1091,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "audit.spec.ts",
+      "line": 65,
+      "title": "AUD-05 celular estreito, tablet e teclado nos controles principais",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8473,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "audit.spec.ts",
+      "line": 65,
+      "title": "AUD-05 celular estreito, tablet e teclado nos controles principais",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8054,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "audit.spec.ts",
+      "line": 81,
+      "title": "GAP-01 resolvido: shopper mantém favorito depois de recarregar",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1996,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "audit.spec.ts",
+      "line": 81,
+      "title": "GAP-01 resolvido: shopper mantém favorito depois de recarregar",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1346,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "audit.spec.ts",
+      "line": 92,
+      "title": "GAP-02 @pendente jornada creator tem entrada de gestão",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1195,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "audit.spec.ts",
+      "line": 92,
+      "title": "GAP-02 @pendente jornada creator tem entrada de gestão",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1085,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "audit.spec.ts",
+      "line": 92,
+      "title": "GAP-03 @pendente jornada brand tem entrada de gestão",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1097,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "audit.spec.ts",
+      "line": 92,
+      "title": "GAP-03 @pendente jornada brand tem entrada de gestão",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 809,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "audit.spec.ts",
+      "line": 92,
+      "title": "GAP-04 @pendente jornada administrador tem entrada de gestão",
+      "project": "computador",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 2930,
+          "retry": 0,
+          "errors": [
+            "Error: Jornada administrador bloqueada na entrada: nenhuma tela de gestão existe no código.\n\nexpect(locator).toBeVisible() failed\n\nLocator: getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n  - Jornada administrador bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first() with timeout 1500ms\n  - waiting for getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first()\n\n\n  93 |  await page.goto(role.path);\n  94 |  const entry=page.getByRole('link',{name:role.entry}).or(page.getByRole('button',{name:role.entry}));\n> 95 |  await expect(entry.first(),`Jornada ${role.name} bloqueada na entrada: nenhuma tela de gestão existe no código.`).toBeVisible({timeout:1500});\n     |                                                                                                                    ^\n  96 |  // Sem entrada não é possível avançar, autenticar, gravar, reler e verificar permissões.\n  97 | });\n  98 |\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:95:116"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "audit.spec.ts",
+      "line": 92,
+      "title": "GAP-04 @pendente jornada administrador tem entrada de gestão",
+      "project": "celular",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 2340,
+          "retry": 0,
+          "errors": [
+            "Error: Jornada administrador bloqueada na entrada: nenhuma tela de gestão existe no código.\n\nexpect(locator).toBeVisible() failed\n\nLocator: getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first()\nExpected: visible\nTimeout: 1500ms\nError: element(s) not found\n\nCall log:\n  - Jornada administrador bloqueada na entrada: nenhuma tela de gestão existe no código. getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first() with timeout 1500ms\n  - waiting for getByRole('link', { name: /administração|painel administrativo|entrar como administrador/i }).or(getByRole('button', { name: /administração|painel administrativo|entrar como administrador/i })).first()\n\n\n  93 |  await page.goto(role.path);\n  94 |  const entry=page.getByRole('link',{name:role.entry}).or(page.getByRole('button',{name:role.entry}));\n> 95 |  await expect(entry.first(),`Jornada ${role.name} bloqueada na entrada: nenhuma tela de gestão existe no código.`).toBeVisible({timeout:1500});\n     |                                                                                                                    ^\n  96 |  // Sem entrada não é possível avançar, autenticar, gravar, reler e verificar permissões.\n  97 | });\n  98 |\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\audit.spec.ts:95:116"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 9,
+      "title": "BR-01 visitante encontra a área da marca sem acessar dados privados",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2337,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 9,
+      "title": "BR-01 visitante encontra a área da marca sem acessar dados privados",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1411,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 17,
+      "title": "BR-02 contrato: criar, reler, editar e cancelar sem simular aprovação",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3188,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 17,
+      "title": "BR-02 contrato: criar, reler, editar e cancelar sem simular aprovação",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2276,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 44,
+      "title": "BR-03 falha de consulta ou gravação não confirma cadastro ou edição",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 9090,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 44,
+      "title": "BR-03 falha de consulta ou gravação não confirma cadastro ou edição",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8730,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 66,
+      "title": "BR-04 membro não edita organização alheia nem ganha acesso por metadata",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 895,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 66,
+      "title": "BR-04 membro não edita organização alheia nem ganha acesso por metadata",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 848,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 77,
+      "title": "BR-05 saída em outra aba impede retorno tardio de dados privados",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1743,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "line": 77,
+      "title": "BR-05 saída em outra aba impede retorno tardio de dados privados",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2214,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 36,
+      "title": "CAMP-01 contrato: salvar híbrida, reler após reload, editar e descartar",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3705,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 36,
+      "title": "CAMP-01 contrato: salvar híbrida, reler após reload, editar e descartar",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3802,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 53,
+      "title": "CAMP-02 contrato: datas e estimativas inválidas bloqueiam gravação, UGC sem seguidores",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1999,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 53,
+      "title": "CAMP-02 contrato: datas e estimativas inválidas bloqueiam gravação, UGC sem seguidores",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2359,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 60,
+      "title": "CAMP-03 contrato: resposta perdida preserva campos e usa a mesma tentativa sem duplicar",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1293,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 60,
+      "title": "CAMP-03 contrato: resposta perdida preserva campos e usa a mesma tentativa sem duplicar",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1662,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 65,
+      "title": "CAMP-04 contrato: conflito e erro de releitura não anunciam sucesso",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8427,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 65,
+      "title": "CAMP-04 contrato: conflito e erro de releitura não anunciam sucesso",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8890,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 71,
+      "title": "CAMP-05 contrato: membro consulta sem editar, metadata não promove papel",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 980,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 71,
+      "title": "CAMP-05 contrato: membro consulta sem editar, metadata não promove papel",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1031,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 76,
+      "title": "CAMP-06 contrato: falha de listagem não aparece como organização sem rascunhos",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8064,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 76,
+      "title": "CAMP-06 contrato: falha de listagem não aparece como organização sem rascunhos",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8006,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 81,
+      "title": "CAMP-07 saída em outra aba descarta resposta pendente de campanhas",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1622,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 81,
+      "title": "CAMP-07 saída em outra aba descarta resposta pendente de campanhas",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1428,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 94,
+      "title": "CAMP-08 conta sem organização recebe orientação sem liberar criação",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 893,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "line": 94,
+      "title": "CAMP-08 conta sem organização recebe orientação sem liberar criação",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 827,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "dashboard.spec.ts",
+      "line": 2,
+      "title": "DASH-01 visitante encontra acesso e não recebe dados privados",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 680,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "dashboard.spec.ts",
+      "line": 2,
+      "title": "DASH-01 visitante encontra acesso e não recebe dados privados",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 779,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "dashboard.spec.ts",
+      "line": 5,
+      "title": "DASH-02 contrato simulado: contagens, navegação e falha sem números inventados",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8738,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "dashboard.spec.ts",
+      "line": 5,
+      "title": "DASH-02 contrato simulado: contagens, navegação e falha sem números inventados",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8846,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "design.spec.ts",
+      "line": 3,
+      "title": "DS-01 tokens e componentes globais seguem a referência fornecida",
+      "project": "computador",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 753,
+          "retry": 0,
+          "errors": [
+            "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: \"8px\"\nReceived: \"50%\"\n\n  10 |  expect(styles.foreground).toBe('#000');expect(styles.background).toBe('rgb(255, 255, 255)');expect(styles.font).toContain('DM Sans');\n  11 |  await page.evaluate(()=>document.fonts.ready);expect(await page.evaluate(()=>document.fonts.check('400 14px \"DM Sans\"'))).toBe(true);\n> 12 |  expect(styles.titleWeight).toBe('200');expect(styles.titleSize).toBe(page.viewportSize()!.width<=768?'30px':'52px');expect(styles.buttonHeight).toBe('48px');expect(styles.buttonRadius).toBe('4px');expect(styles.buttonCase).toBe('uppercase');expect(styles.fieldRadius).toBe('8px');\n     |                                                                                                                                                                                                                                                                              ^\n  13 | });\n  14 |\n  15 | test('DS-02 catálogo e detalhe usam fotografias locais carregadas',async({page,request},info)=>{\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\design.spec.ts:12:270"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "design.spec.ts",
+      "line": 3,
+      "title": "DS-01 tokens e componentes globais seguem a referência fornecida",
+      "project": "celular",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 681,
+          "retry": 0,
+          "errors": [
+            "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: \"8px\"\nReceived: \"50%\"\n\n  10 |  expect(styles.foreground).toBe('#000');expect(styles.background).toBe('rgb(255, 255, 255)');expect(styles.font).toContain('DM Sans');\n  11 |  await page.evaluate(()=>document.fonts.ready);expect(await page.evaluate(()=>document.fonts.check('400 14px \"DM Sans\"'))).toBe(true);\n> 12 |  expect(styles.titleWeight).toBe('200');expect(styles.titleSize).toBe(page.viewportSize()!.width<=768?'30px':'52px');expect(styles.buttonHeight).toBe('48px');expect(styles.buttonRadius).toBe('4px');expect(styles.buttonCase).toBe('uppercase');expect(styles.fieldRadius).toBe('8px');\n     |                                                                                                                                                                                                                                                                              ^\n  13 | });\n  14 |\n  15 | test('DS-02 catálogo e detalhe usam fotografias locais carregadas',async({page,request},info)=>{\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\design.spec.ts:12:270"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "design.spec.ts",
+      "line": 15,
+      "title": "DS-02 catálogo e detalhe usam fotografias locais carregadas",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2350,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "design.spec.ts",
+      "line": 15,
+      "title": "DS-02 catálogo e detalhe usam fotografias locais carregadas",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2016,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "design.spec.ts",
+      "line": 27,
+      "title": "DS-03 composição responsiva mantém cabeçalho, hero e formulários acessíveis",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4609,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "design.spec.ts",
+      "line": 27,
+      "title": "DS-03 composição responsiva mantém cabeçalho, hero e formulários acessíveis",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2908,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 21,
+      "title": "EXP-01 shopper: escolha, perfil, revisão e destino corretos",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1702,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 21,
+      "title": "EXP-01 shopper: escolha, perfil, revisão e destino corretos",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1619,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 21,
+      "title": "EXP-01 creator: escolha, perfil, revisão e destino corretos",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1386,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 21,
+      "title": "EXP-01 creator: escolha, perfil, revisão e destino corretos",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1380,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 21,
+      "title": "EXP-01 brand: escolha, perfil, revisão e destino corretos",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1322,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 21,
+      "title": "EXP-01 brand: escolha, perfil, revisão e destino corretos",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1292,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 33,
+      "title": "EXP-02 erro ao salvar ou reler preserva a revisão sem falso sucesso",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 9246,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 33,
+      "title": "EXP-02 erro ao salvar ou reler preserva a revisão sem falso sucesso",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 9131,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 40,
+      "title": "EXP-03 cadastro envia o tipo escolhido e explica a confirmação de e-mail",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1026,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 40,
+      "title": "EXP-03 cadastro envia o tipo escolhido e explica a confirmação de e-mail",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 921,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 46,
+      "title": "EXP-04 visitantes encontram os três caminhos e os briefings fictícios",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1741,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 46,
+      "title": "EXP-04 visitantes encontram os três caminhos e os briefings fictícios",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1377,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 54,
+      "title": "EXP-05 API demonstrativa rejeita origem externa e tipo inexistente",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 62,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 54,
+      "title": "EXP-05 API demonstrativa rejeita origem externa e tipo inexistente",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 52,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 59,
+      "title": "EXP-06 backend real: alternar shopper, creator e marca com os dados fictícios",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 10207,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 59,
+      "title": "EXP-06 backend real: alternar shopper, creator e marca com os dados fictícios",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 10571,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "favorites.spec.ts",
+      "line": 4,
+      "title": "FAV-01 visitante mantém escolhas em reload, coleções e nova aba",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4377,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "favorites.spec.ts",
+      "line": 4,
+      "title": "FAV-01 visitante mantém escolhas em reload, coleções e nova aba",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2969,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "favorites.spec.ts",
+      "line": 21,
+      "title": "FAV-02 abas acompanham inclusão, remoção e limpeza do armazenamento",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2938,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "favorites.spec.ts",
+      "line": 21,
+      "title": "FAV-02 abas acompanham inclusão, remoção e limpeza do armazenamento",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2184,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "favorites.spec.ts",
+      "line": 36,
+      "title": "FAV-03 falha de escrita não confirma inclusão nem remoção",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2167,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "favorites.spec.ts",
+      "line": 36,
+      "title": "FAV-03 falha de escrita não confirma inclusão nem remoção",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1961,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "favorites.spec.ts",
+      "line": 62,
+      "title": "FAV-04 armazenamento ilegível apresenta erro sem quebrar catálogo",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1369,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "favorites.spec.ts",
+      "line": 62,
+      "title": "FAV-04 armazenamento ilegível apresenta erro sem quebrar catálogo",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1585,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "favorites.spec.ts",
+      "line": 79,
+      "title": "FAV-05 dados inválidos são identificados e recuperados por ação explícita",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5594,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "favorites.spec.ts",
+      "line": 79,
+      "title": "FAV-05 dados inválidos são identificados e recuperados por ação explícita",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4264,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "favorites.spec.ts",
+      "line": 93,
+      "title": "FAV-06 outro navegador não recebe a seleção local",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2716,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "favorites.spec.ts",
+      "line": 93,
+      "title": "FAV-06 outro navegador não recebe a seleção local",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2126,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "home.spec.ts",
+      "line": 3,
+      "title": "HOME-01 estrutura editorial, fotografias e fonte Reckless",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5181,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "home.spec.ts",
+      "line": 3,
+      "title": "HOME-01 estrutura editorial, fotografias e fonte Reckless",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3755,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "home.spec.ts",
+      "line": 19,
+      "title": "HOME-02 categorias, marcas e busca abrem resultados reais",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5151,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "home.spec.ts",
+      "line": 19,
+      "title": "HOME-02 categorias, marcas e busca abrem resultados reais",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3273,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "home.spec.ts",
+      "line": 30,
+      "title": "HOME-03 menu funciona com teclado e mantém foco no celular",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1257,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "home.spec.ts",
+      "line": 30,
+      "title": "HOME-03 menu funciona com teclado e mantém foco no celular",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1328,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 11,
+      "title": "ONB-01 cadastro confirma envio sem inventar sessão e valida senha",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 869,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 11,
+      "title": "ONB-01 cadastro confirma envio sem inventar sessão e valida senha",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1077,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 29,
+      "title": "ONB-02 recuperação trata falha e resposta sem revelar existência da conta",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1007,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 29,
+      "title": "ONB-02 recuperação trata falha e resposta sem revelar existência da conta",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1051,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 41,
+      "title": "ONB-03 link de recuperação permite trocar senha após sessão verificada",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1061,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 41,
+      "title": "ONB-03 link de recuperação permite trocar senha após sessão verificada",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1004,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 57,
+      "title": "ONB-04 link expirado não libera formulário de nova senha",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 874,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 57,
+      "title": "ONB-04 link expirado não libera formulário de nova senha",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 855,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 64,
+      "title": "ONB-05 visitante precisa entrar para configurar perfil",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 763,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 64,
+      "title": "ONB-05 visitante precisa entrar para configurar perfil",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 777,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 70,
+      "title": "ONB-06 contrato simulado: UGC sem seguidores, reload, atuação híbrida e erro de gravação",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2463,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 70,
+      "title": "ONB-06 contrato simulado: UGC sem seguidores, reload, atuação híbrida e erro de gravação",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2282,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 108,
+      "title": "ONB-07 troca de conta em outra aba (normal) remove o perfil anterior",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2164,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 108,
+      "title": "ONB-07 troca de conta em outra aba (normal) remove o perfil anterior",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1923,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 108,
+      "title": "ONB-08 troca de conta em outra aba (without-broadcast) remove o perfil anterior",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2301,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 108,
+      "title": "ONB-08 troca de conta em outra aba (without-broadcast) remove o perfil anterior",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1644,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 108,
+      "title": "ONB-09 troca de conta em outra aba (delayed-storage) remove o perfil anterior",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2213,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "line": 108,
+      "title": "ONB-09 troca de conta em outra aba (delayed-storage) remove o perfil anterior",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1718,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "portfolio.spec.ts",
+      "line": 4,
+      "title": "PORT-01 links de mídia aceitam HTTPS sem credenciais",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "portfolio.spec.ts",
+      "line": 4,
+      "title": "PORT-01 links de mídia aceitam HTTPS sem credenciais",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "portfolio.spec.ts",
+      "line": 9,
+      "title": "PORT-02 visitante precisa entrar para gerenciar portfólio",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 751,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "portfolio.spec.ts",
+      "line": 9,
+      "title": "PORT-02 visitante precisa entrar para gerenciar portfólio",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 754,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "portfolio.spec.ts",
+      "line": 15,
+      "title": "PORT-03 contrato simulado: validar, criar, reler, editar, falhar e excluir",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4151,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "portfolio.spec.ts",
+      "line": 15,
+      "title": "PORT-03 contrato simulado: validar, criar, reler, editar, falhar e excluir",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3167,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "services.spec.ts",
+      "line": 3,
+      "title": "SRV-01 visitante não recebe formulário de gestão",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 769,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "services.spec.ts",
+      "line": 3,
+      "title": "SRV-01 visitante não recebe formulário de gestão",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 808,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "services.spec.ts",
+      "line": 9,
+      "title": "SRV-02 contrato simulado: criar, reler, editar, falhar e excluir com confirmação",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3679,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "services.spec.ts",
+      "line": 9,
+      "title": "SRV-02 contrato simulado: criar, reler, editar, falhar e excluir com confirmação",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3294,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "store.spec.ts",
+      "line": 2,
+      "title": "início, perfil, coleção, produto e retorno",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3367,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "store.spec.ts",
+      "line": 2,
+      "title": "início, perfil, coleção, produto e retorno",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2773,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "store.spec.ts",
+      "line": 13,
+      "title": "busca, categoria, ordenação, favoritos e estado vazio",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1571,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "store.spec.ts",
+      "line": 13,
+      "title": "busca, categoria, ordenação, favoritos e estado vazio",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1462,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "store.spec.ts",
+      "line": 23,
+      "title": "rotas, links internos, imagens e largura responsiva",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 15525,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "store.spec.ts",
+      "line": 23,
+      "title": "rotas, links internos, imagens e largura responsiva",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 14522,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "team.spec.ts",
+      "line": 13,
+      "title": "TEAM-01 responsável registra e cancela convite, com releitura e sem e-mail",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2686,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "team.spec.ts",
+      "line": 13,
+      "title": "TEAM-01 responsável registra e cancela convite, com releitura e sem e-mail",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1559,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "team.spec.ts",
+      "line": 34,
+      "title": "TEAM-02 destinatário aceita e passa a ler a organização sem poder editar",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2416,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "team.spec.ts",
+      "line": 34,
+      "title": "TEAM-02 destinatário aceita e passa a ler a organização sem poder editar",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1345,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "team.spec.ts",
+      "line": 51,
+      "title": "TEAM-03 recusa persiste; erro ou convite expirado não concede acesso",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2977,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "team.spec.ts",
+      "line": 51,
+      "title": "TEAM-03 recusa persiste; erro ou convite expirado não concede acesso",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1874,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "team.spec.ts",
+      "line": 66,
+      "title": "TEAM-05 saída descarta uma resposta tardia dos convites privados",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3014,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "team.spec.ts",
+      "line": 66,
+      "title": "TEAM-05 saída descarta uma resposta tardia dos convites privados",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2012,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "team.spec.ts",
+      "line": 85,
+      "title": "TEAM-04 revogação exige confirmação e trata falha de consulta",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2067,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "team.spec.ts",
+      "line": 85,
+      "title": "TEAM-04 revogação exige confirmação e trata falha de consulta",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1276,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

@@ -2,11 +2,14 @@
 import {useEffect, useState, type FormEvent} from 'react';
 import Link from 'next/link';
 import {getBrowserClient} from '../lib/supabase-browser';
+import {accountTypes,accountLabels,type AccountType} from '../lib/account-types';
 
 export default function AccessForm({mode}: {mode: 'signup' | 'recovery'}) {
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   const [confirmation,setConfirmation] = useState('');
+  const [accountType,setAccountType] = useState<AccountType>('shopper');
+  const [hasSession,setHasSession] = useState(false);
   const [canChangePassword,setCanChangePassword] = useState(false);
   const [busy,setBusy] = useState(false);
   const [checking,setChecking] = useState(mode === 'recovery');
@@ -46,9 +49,9 @@ export default function AccessForm({mode}: {mode: 'signup' | 'recovery'}) {
     setBusy(true);
     try {
       if (mode === 'signup') {
-        const {data,error} = await client.auth.signUp({email:email.trim(),password,options:{emailRedirectTo:`${window.location.origin}/conta`}});
+        const {data,error} = await client.auth.signUp({email:email.trim(),password,options:{emailRedirectTo:`${window.location.origin}/conta`,data:{account_type:accountType}}});
         if (error) {setMessage('Não foi possível concluir o cadastro. Confira os dados e tente novamente.');return;}
-        setMessage(data.session ? 'Conta criada. Você já pode acessar sua conta.' : 'Se o cadastro puder ser concluído com este e-mail, você receberá as instruções de confirmação. Confira sua caixa de entrada.');
+        setHasSession(!!data.session);setMessage(data.session ? 'Conta criada. Continue para configurar seu perfil.' : 'Se o cadastro puder ser concluído com este e-mail, você receberá as instruções de confirmação. Confira sua caixa de entrada. Depois, entre para configurar seu perfil.');
       } else if (canChangePassword) {
         const {data,error:identityError} = await client.auth.getUser();
         if (identityError || !data.user) {setCanChangePassword(false);setMessage('Sua sessão expirou. Solicite um novo link.');return;}
@@ -68,11 +71,14 @@ export default function AccessForm({mode}: {mode: 'signup' | 'recovery'}) {
     <h1>{mode==='signup'?'Criar conta':canChangePassword?'Definir nova senha':'Recuperar acesso'}</h1>
     <p>{mode==='signup'?'Comece pelas suas descobertas. Você também poderá configurar seu perfil de creator, sem exigência de seguidores.':canChangePassword?'Escolha uma senha nova para sua conta.':'Informe seu e-mail para receber um link de recuperação.'}</p>
     <form onSubmit={submit}>
+      {mode==='signup'&&<fieldset className="signup-role-options"><legend>Como você quer começar?</legend>{accountTypes.map(type=><label className="modality-option" key={type}><input type="radio" name="signup-account-type" value={type} checked={accountType===type} onChange={()=>setAccountType(type)}/>{accountLabels[type]}</label>)}</fieldset>}
       {!canChangePassword&&<label>E-mail<input type="email" autoComplete="email" required value={email} onChange={e=>setEmail(e.target.value)}/></label>}
       {needsPassword&&<><label>Nova senha<input type="password" autoComplete="new-password" minLength={8} required value={password} onChange={e=>setPassword(e.target.value)}/></label><label>Confirmar senha<input type="password" autoComplete="new-password" minLength={8} required value={confirmation} onChange={e=>setConfirmation(e.target.value)}/></label></>}
       <button className="dark-button" disabled={busy||checking}>{busy||checking?'Aguarde…':mode==='signup'?'Criar conta':canChangePassword?'Salvar nova senha':'Enviar link de recuperação'}</button>
     </form>
     {message&&<p role={success?'status':'alert'}>{message}</p>}
+    {mode==='signup'&&success&&<Link className="dark-button" href={hasSession?'/onboarding':'/conta'}>{hasSession?'Continuar meu cadastro':'Entrar após confirmar meu e-mail'}</Link>}
+    {mode==='signup'&&<Link href="/demo">Prefiro experimentar com dados fictícios</Link>}
     <Link href="/conta">Voltar para minha conta</Link>
   </section>;
 }

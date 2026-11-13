@@ -12,6 +12,12 @@ Para a versão compilada, execute `npm.cmd run build` e `npm.cmd start`. Não us
 
 ## Disponível
 
+- Acesso publicado: [Diderot na Vercel](https://diderot-platform-mari-granado.vercel.app).
+- [Experimentar os três tipos de conta](https://diderot-platform-mari-granado.vercel.app/demo): shopper, creator e marca com dados fictícios compartilhados; entrada sem digitar senha. [Regras, auditoria e limites](docs/ACESSO-DEMONSTRACAO.md).
+- `/onboarding` e `/conta/perfil`: escolha de espaço inicial, perfil por tipo, revisão e persistência; criação da organização ou perfil profissional vinculados à mesma conta.
+- `/painel/shopper`: perfil, interesses, favoritos de conta e navegação ao catálogo.
+- `/explorar/campanhas` e `/campanhas/demo/[slug]`: briefings fictícios navegáveis; não recebem candidaturas nem geram contratação.
+
 - `/`: home editorial com busca, curadoria, seleções temáticas, categorias e marcas; filtros levam a resultados reais do catálogo.
 - `/criador`, `/colecoes/[slug]` e `/produto/[slug]`: catálogo, filtros, ordenação e detalhe demonstrativo; sem checkout.
 - Favoritos de visitante ficam neste navegador entre páginas e reloads. Favoritos de conta usam Supabase e RLS, separados da seleção local. [Comportamento, testes e limites](docs/FAVORITOS.md).
@@ -45,3 +51,9 @@ No painel da marca, abra **Equipe e convites** para registrar convites internos,
 ## Campanhas em rascunho
 
 No painel da marca, abra **Campanhas em rascunho**. O responsável planeja contexto, datas, modalidades, quantidade de vagas e orçamento estimado por creator; membros consultam. Salvamento privado no Supabase com releitura, proteção de versão e tentativas repetidas. [Escopo, auditoria e pendências](docs/CAMPANHAS-RASCUNHOS.md). Publicação, briefing completo, candidaturas, contratação e financeiro continuam pendentes. Salvar um rascunho não gera cobrança ou convite.
+
+## Publicação e demonstração
+
+O GitHub está ligado ao projeto existente `diderot-platform` na equipe Vercel `mari-granado`, branch `main`. Framework corrigido para Next.js; `vercel.json` preserva build/instalação. Use o domínio principal acima para cadastro/recuperação, conforme as URLs Auth informadas pela usuária. Entrega de e-mail real ainda não foi verificada.
+
+Credenciais demonstrativas ficam somente no servidor em `DIDEROT_DEMO_ACCOUNTS`; `DIDEROT_DEMO_ENABLED` habilita os botões. Nunca publique credenciais ou use `NEXT_PUBLIC_` para elas. As três fixtures persistentes foram expressamente autorizadas; não apagá-las como limpeza automática. A chave usada pelo servidor de demonstração é pública e continua limitada pelo RLS. Fonte Reckless TRIAL continua fora do GitHub; a versão hospedada usa o fallback quando não há fonte licenciada.

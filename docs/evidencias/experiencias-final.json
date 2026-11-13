@@ -1,0 +1,375 @@
+{
+  "format": "diderot-playwright-evidence-v1",
+  "source": "Completed Playwright JSON report; raw original retained in local work/raw-campaign-reports.",
+  "projects": [
+    {
+      "name": "computador"
+    },
+    {
+      "name": "celular"
+    }
+  ],
+  "summary": {
+    "startTime": "2026-11-13T10:14:58.259Z",
+    "duration": 88484.253,
+    "expected": 22,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "runner_errors": [],
+  "cases": [
+    {
+      "file": "design.spec.ts",
+      "line": 3,
+      "title": "DS-01 tokens e componentes globais seguem a referência fornecida",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1440,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "design.spec.ts",
+      "line": 3,
+      "title": "DS-01 tokens e componentes globais seguem a referência fornecida",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1936,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "design.spec.ts",
+      "line": 15,
+      "title": "DS-02 catálogo e detalhe usam fotografias locais carregadas",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3660,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "design.spec.ts",
+      "line": 15,
+      "title": "DS-02 catálogo e detalhe usam fotografias locais carregadas",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2695,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "design.spec.ts",
+      "line": 27,
+      "title": "DS-03 composição responsiva mantém cabeçalho, hero e formulários acessíveis",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4876,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "design.spec.ts",
+      "line": 27,
+      "title": "DS-03 composição responsiva mantém cabeçalho, hero e formulários acessíveis",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5704,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 21,
+      "title": "EXP-01 shopper: escolha, perfil, revisão e destino corretos",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1710,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 21,
+      "title": "EXP-01 shopper: escolha, perfil, revisão e destino corretos",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3793,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 21,
+      "title": "EXP-01 creator: escolha, perfil, revisão e destino corretos",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1455,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 21,
+      "title": "EXP-01 creator: escolha, perfil, revisão e destino corretos",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2285,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 21,
+      "title": "EXP-01 brand: escolha, perfil, revisão e destino corretos",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1408,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 21,
+      "title": "EXP-01 brand: escolha, perfil, revisão e destino corretos",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2633,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 33,
+      "title": "EXP-02 erro ao salvar ou reler preserva a revisão sem falso sucesso",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8730,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 33,
+      "title": "EXP-02 erro ao salvar ou reler preserva a revisão sem falso sucesso",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 10772,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 40,
+      "title": "EXP-03 cadastro envia o tipo escolhido e explica a confirmação de e-mail",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 914,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 40,
+      "title": "EXP-03 cadastro envia o tipo escolhido e explica a confirmação de e-mail",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2128,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 46,
+      "title": "EXP-04 visitantes encontram os três caminhos e os briefings fictícios",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1758,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 46,
+      "title": "EXP-04 visitantes encontram os três caminhos e os briefings fictícios",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2745,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 54,
+      "title": "EXP-05 API demonstrativa rejeita origem externa e tipo inexistente",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 95,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 54,
+      "title": "EXP-05 API demonstrativa rejeita origem externa e tipo inexistente",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 85,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 59,
+      "title": "EXP-06 backend real: alternar shopper, creator e marca com os dados fictícios",
+      "project": "computador",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8758,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "line": 59,
+      "title": "EXP-06 backend real: alternar shopper, creator e marca com os dados fictícios",
+      "project": "celular",
+      "status": "expected",
+      "expected_status": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 12187,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

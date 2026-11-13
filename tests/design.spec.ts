@@ -4,7 +4,7 @@ test('DS-01 tokens e componentes globais seguem a referência fornecida',async({
  await page.goto('/cadastro');
  const styles=await page.evaluate(()=>{
   const root=getComputedStyle(document.documentElement),body=getComputedStyle(document.body);
-  const button=getComputedStyle(document.querySelector('main button')!),field=getComputedStyle(document.querySelector('main input')!),heading=getComputedStyle(document.querySelector('h1')!);
+  const button=getComputedStyle(document.querySelector('main button')!),field=getComputedStyle(document.querySelector('main input[type="email"]')!),heading=getComputedStyle(document.querySelector('h1')!);
   return {foreground:root.getPropertyValue('--foreground-primary').trim(),background:body.backgroundColor,font:body.fontFamily,fontLoaded:document.fonts.check('400 14px "DM Sans"'),titleWeight:heading.fontWeight,titleSize:heading.fontSize,buttonHeight:button.minHeight,buttonRadius:button.borderRadius,buttonCase:button.textTransform,fieldRadius:field.borderRadius};
  });
  expect(styles.foreground).toBe('#000');expect(styles.background).toBe('rgb(255, 255, 255)');expect(styles.font).toContain('DM Sans');

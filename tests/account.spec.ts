@@ -23,7 +23,7 @@ test('AUTH-02 contrato simulado: login, favorito, reload, remoção e logout', a
     const url=route.request().url();
     if(url.includes('/auth/v1/token')) return route.fulfill({json:{access_token:token,refresh_token:'test-refresh',expires_in:3600,expires_at:exp,token_type:'bearer',user}});
     if(url.includes('/auth/v1/user')) return route.fulfill({json:user});
-    if(url.includes('/auth/v1/logout')) return route.fulfill({status:204});
+    if(url.includes('/auth/v1/logout')) {expect(new URL(url).searchParams.get('scope')).toBe('local');return route.fulfill({status:204});}
     if(url.includes('/rest/v1/favorites')) {
       const method=route.request().method();
       if(method==='GET') return route.fulfill({json:favorites});

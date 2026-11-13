@@ -1,0 +1,9 @@
+{
+  "status": "blocked_by_deployment_protection",
+  "source_commit": "50133bc423efccf70a9829a1f557b1f860a8d56c",
+  "deployment_id": "dpl_8tJUHCMR3PMyditximVZZew86Th1",
+  "deployment_state": "READY",
+  "domain": "diderot-platform-mari-granado.vercel.app",
+  "finding": "Following redirects returned HTTP 200 for the Vercel login page, not the application. The canonical domain was an automatic alias; only diderot-platform-ten.vercel.app was registered as a public production domain.",
+  "correction": "Registered diderot-platform-mari-granado.vercel.app explicitly as a verified production project domain. Preserved all_except_custom_domains protection for previews. Subsequent browser validation is recorded separately."
+}

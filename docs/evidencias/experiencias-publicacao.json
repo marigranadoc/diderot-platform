@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "project": "diderot-platform",
+  "project_id": "prj_G8nztyaaScl1oZTviX4tTVdUIt3U",
+  "team": "mari-granado",
+  "repository": "marigranadoc/diderot-platform",
+  "branch": "main",
+  "source_commit": "50133bc423efccf70a9829a1f557b1f860a8d56c",
+  "deployment_id": "dpl_8tJUHCMR3PMyditximVZZew86Th1",
+  "deployment_state": "READY",
+  "framework": "nextjs",
+  "production_domain": "https://diderot-platform-mari-granado.vercel.app",
+  "production_domain_explicitly_registered_and_verified": true,
+  "direct_demo_http_status": 200,
+  "direct_demo_redirect_location": null,
+  "direct_demo_contains_application": true,
+  "vercel_login_required_on_production_domain": false,
+  "preview_protection_preserved": "all_except_custom_domains",
+  "browser_evidence": "experiencias-vercel.json",
+  "scope": "Public mobile Chrome with three real fictitious identities, actual Supabase reads, organization drafts and profile navigation. No email delivery, campaign publication, contracts or finance tested. Subsequent evidence-only commit does not change application behavior."
+}

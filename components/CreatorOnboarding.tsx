@@ -1,7 +1,9 @@
 'use client';
+import {displayRecord} from '../lib/presentation';
 import {useEffect, useRef, useState, type FormEvent} from 'react';
 import Link from 'next/link';
 import {getBrowserClient} from '../lib/supabase-browser';
+import ProfilePhoto from './ProfilePhoto';
 
 const choices = [{value:'ugc',label:'UGC Creator',detail:'Produzo conteúdo para marcas. Não exige seguidores.'},{value:'influencer',label:'Influencer',detail:'Divulgo conteúdo para a minha audiência.'},{value:'affiliate',label:'Afiliado',detail:'Recomendo produtos e participo de programas de afiliação.'}];
 const blank = {professional_name:'',bio:'',city:'',state:'',modalities:[] as string[]};
@@ -64,7 +66,7 @@ export default function CreatorOnboarding() {
         const result=await client!.from('creator_profiles').select('professional_name,bio,city,state,modalities').eq('user_id',data.user.id).maybeSingle();
         if(generation.current!==token)return;
         if(result.error)throw result.error;
-        setExists(!!result.data);setProfile(result.data??blank);
+        setExists(!!result.data);setProfile(result.data?displayRecord(result.data):blank);
       } catch {if(generation.current===token){setFailed(true);setMessage('Não foi possível carregar seu perfil. Tente novamente.');}}
       finally {if(generation.current===token)setLoading(false);}
     }
@@ -93,6 +95,8 @@ export default function CreatorOnboarding() {
     finally {if(generation.current===token)setSaving(false);}
   }
   return <section className="account-card creator-onboarding"><span className="eyebrow">SEU TRABALHO, SEU JEITO</span><h1>Perfil de creator</h1>
+  {userId&&exists&&!loading&&!failed&&<ProfilePhoto key={userId} userId={userId} kind="creator" subjectId={userId}/>}
+  <Link className="text-link" href="/painel/criador/loja">Configurar minha loja e perfil público ↗</Link>
     <p>Escolha uma ou mais formas de trabalhar. Você pode alterá-las depois, sem criar outra conta.</p>
     {loading?<p role="status">Carregando seu perfil…</p>:failed?<button className="dark-button" onClick={()=>setRetry(n=>n+1)}>Tentar novamente</button>:!userId?<><p>Entre na sua conta para configurar seu perfil profissional.</p><Link className="dark-button" href="/conta">Entrar na minha conta</Link><Link href="/cadastro">Criar conta</Link></>:<form onSubmit={save}>
       <label>Nome profissional<input required minLength={2} maxLength={80} autoComplete="nickname" value={profile.professional_name} onChange={e=>setProfile(p=>({...p,professional_name:e.target.value}))}/></label>

@@ -1,12 +1,14 @@
 # PRD Diderot — produto, implementação e próximos passos
 
-**Versão:** 1.2 — primeiro incremento de contas e onboarding UGC · **Atualizado em:** 12/11/2026 · **Base de implementação:** histórico de 11/11/2026 e incremento de 12/11/2026, detalhado na seção 26.
+**Versão:** 1.9 — preparação e verificação da publicação · **Atualizado em:** 17/11/2026 · **Base de implementação:** incrementos 26–42, nos ambientes e limites de suas evidências; [plano de lançamento do MVP](PLANO-LANCAMENTO-MVP.md) e [mapa de telas e fluxos](TELAS-FLUXOS-SHOPMY.md).
 
 **Estado:** documento de referência para desenvolvimento. O estado implementado está documentado; as decisões de produto propostas estão identificadas e ainda precisam ser validadas. Não representa aprovação para lançamento.
 
 **Diretriz incorporada nesta versão:** expansão fornecida pelo usuário em [Prompt Master — UGC Marketplace + Creator Commerce](REFERENCIA-EXPANSAO-UGC.md), preservado integralmente como fonte. As seções 16–25 convertem essa diretriz em requisitos, estados, critérios de aceite e plano incremental. UGC é um módulo nativo e obrigatório do escopo-alvo, não uma capacidade comprovada pelo REA nem já implementada. Esta atualização é documental; não executa as instruções de implementação contidas no anexo.
 
-**Código-base desta versão:** [eb8639a](https://github.com/marigranadoc/diderot-platform/commit/eb8639a0973b5552df360cd9bb9404eaf8be89af). Este PRD consolida o estado atual; matrizes antigas em outros documentos permanecem como histórico.
+**Base remota conhecida:** [ee3ff81](https://github.com/marigranadoc/diderot-platform/commit/ee3ff813955ea312f79feec840bbb0827902eb57), com implementação de acesso em [50133bc](https://github.com/marigranadoc/diderot-platform/commit/50133bc423efccf70a9829a1f557b1f860a8d56c). Incrementos documentais 35/36 e implementações locais 37/38 ainda não representam nova publicação do frontend. Matrizes de auditorias anteriores permanecem históricas; o estado do briefing novo está no incremento 37.
+
+**Como ler:** estado consolidado nas seções 3, 5, 7 e 9; regras do marketplace UGC nas seções 16–25; execução histórica nas seções 26–34; referência e conciliações na seção 35; setup na 36; briefing novo na 37 e loja/fotos/redes na 38; [plano de lançamento](PLANO-LANCAMENTO-MVP.md). [Telas/fluxos](TELAS-FLUXOS-SHOPMY.md) e [fonte preservada](REFERENCIA-NAVEGACAO-SHOPMY.md).
 
 ## 1. Visão e objetivo
 
@@ -41,6 +43,8 @@ Neste documento, **observado** significa que um elemento ou estado foi visto. N�
 | D2 — [progresso e auditoria](PROGRESSO-DIDEROT.md) | Código, testes, falhas e correções | Histórico de implementação e verificação | As tabelas iniciais precedem as integrações posteriores |
 | D3 — [integrações](INTEGRACOES.md) | GitHub, Supabase, migrações e permissões | Configuração realizada e limites dos testes | Não comprova prontidão de produção |
 | U0 — [diretriz UGC do usuário](REFERENCIA-EXPANSAO-UGC.md) | Marketplace, modalidades, campanhas/vagas, contratação, produção, direitos, financeiro e reputação | Requisitos obrigatórios do escopo-alvo Diderot | Não é inspeção da ShopMy nem evidência de implementação; exemplos monetários são ilustrativos |
+| N1 — [referência de navegação fornecida em 13/11](REFERENCIA-NAVEGACAO-SHOPMY.md) | Relato de telas de creator em dois vídeos públicos; cadastro, marcas, produtos e operação propostos | Detalhar gestão de seções, adicionar/editar produto, seleção de itens e escopo Diderot | Fonte secundária fornecida pela usuária; vídeos/prints individuais não reanalisados nesta revisão; marcas/admin/onboarding não demonstrados pelos vídeos |
+| N2 — [catálogo consolidado de telas e fluxos](TELAS-FLUXOS-SHOPMY.md) | E0–E3, N1, captura da home e correspondência Diderot | IDs de telas/fluxos, estados, permissões, dados, aceite e dependências | Especificação de destino não equivale a implementação nem a observação direta de todas as telas |
 
 Esta consolidação reutiliza as capturas existentes. Não apresenta uma nova inspeção da ShopMy em 12/11/2026. Evidência pública capturada não revela código privado, algoritmo de recomendação, cálculo de comissão, políticas internas ou telas administrativas.
 
@@ -51,9 +55,12 @@ Esta consolidação reutiliza as capturas existentes. Não apresenta uma nova in
 - Aplicação Next.js, React, TypeScript e Tailwind CSS, com layout responsivo.
 - Inicial editorial, perfil público da criadora fictícia Clara Martins, três coleções e oito páginas de produto.
 - Busca por nome/marca tolerante a acentos, caixa e espaços; filtros Moda/Beleza/Casa; ordenação por seleção e preço.
-- Detalhe com ilustração SVG original, marca, preço fictício, nota da criadora, navegação e informação de disponibilidade demonstrativa.
+- Detalhe com fotografia local ilustrativa, marca, preço fictício, nota da criadora, navegação e informação de disponibilidade demonstrativa; oito produtos continuam fictícios.
 - Estado vazio com limpeza de filtros, página 404 com retorno, foco visível e verificações pontuais de teclado.
-- Tela `/conta` com login/logout para contas existentes, mensagens de erro e indicação de que cadastro público ainda não está disponível.
+- `/conta`, `/cadastro`, `/onboarding` e `/conta/perfil`: login/saída local, escolha shopper/creator/marca, perfil específico, revisão e persistência; entrega de e-mail real ainda não validada.
+- `/painel/shopper`, `/painel/criador` e `/painel/marca`: favoritos/interesses, perfil/serviços/portfólio privados, organização/equipe/convites e rascunhos de campanhas conforme permissões.
+- `/demo`: três contas fictícias persistentes com login real e dados preenchidos; briefings públicos fictícios em `/explorar/campanhas` e `/campanhas/demo/[slug]`, sem candidatura ou contratação.
+- Incremento 38: `/painel/criador/loja` configura perfil público, foto, redes, produtos/recomendações, coleções e posts; `/loja/[slug]` exibe o snapshot publicado. Foto de marca no painel da organização; creator/afiliada compartilham foto de perfil. Frontend novo na prévia local; banco/Storage já aplicados. [Escopo e evidências](LOJA-AFILIADA.md).
 - Favoritos de visitante persistidos neste navegador e separados dos favoritos de conta. Favoritos de conta têm evidências remotas anteriores; limites em FAVORITOS.md e PAINEL-CREATOR.md.
 - Tratamento de falha de catálogo com nova tentativa; o modo conectado não substitui falhas silenciosamente por dados locais.
 
@@ -61,11 +68,12 @@ Esta consolidação reutiliza as capturas existentes. Não apresenta uma nova in
 
 - Código salvo no [repositório GitHub](https://github.com/marigranadoc/diderot-platform).
 - Projeto Supabase `mbxpwrgfujnjonyxzvfw` conectado à vitrine; criação das tabelas `collections`, `products` e `favorites` por migrações versionadas.
-- Três coleções e oito produtos fictícios persistidos. Na última inspeção registrada: zero usuários Auth e zero favoritos.
+- Três coleções e oito produtos fictícios persistidos; contas e dados demonstrativos privados criados por autorização explícita. Não inferir quantidade atual de usuários a partir de inspeções históricas.
 - Leitura pública apenas de catálogo publicado; bloqueio de escrita de catálogo para visitantes e usuários autenticados comuns.
-- Regras de favoritos por usuário, inspecionadas no banco; teste comportamental de isolamento ainda não executado.
+- RLS e verificações reais de isolamento de favoritos, perfis, conteúdo de creator, organizações, equipe e rascunhos documentadas nos módulos e nas evidências das seções 26–34.
 - Chave publicável em configuração local ignorada pelo GitHub, sem chave de serviço no cliente.
 - Automação Playwright em computador e celular e encerramento do servidor temporário corrigido no Windows.
+- GitHub ligado à Vercel, framework Next.js e domínio de produção público verificado; [acesso demonstrativo publicado](https://diderot-platform-mari-granado.vercel.app/demo). Credenciais demonstrativas somente no servidor.
 
 ### 3.3 Defeitos corrigidos
 
@@ -78,7 +86,7 @@ Esta consolidação reutiliza as capturas existentes. Não apresenta uma nova in
 
 ### 3.4 O que não está concluído
 
-Cadastro e recuperação agora têm formulários integrados, mas a jornada com e-mail/Auth real permanece sem validação. Há perfil inicial privado e modalidades profissionais; não há papéis operacionais de creator/brand/admin, gestão de catálogo, candidatura, campanhas, moderação, diretórios de múltiplos creators, grupos, perfil de gosto, recomendações, afiliados ou relatórios. Não houve publicação do site, uso de pagamentos, envio de mensagens, compra ou alteração de dados reais. A implementação de login e favoritos não comprova uma jornada autenticada remota concluída.
+Entrega/retorno de e-mail de cadastro/recuperação ainda não foram validados. Loja própria com edição/publicação existe no incremento 38, separada da loja legada demonstrativa; catálogo operacional de marcas, importação, audiência verificada, rastreamento/comissões, candidatura, contratação, entregas, pagamentos, moderação/administração, diretórios completos, círculos pessoais e perfil de gosto continuam ausentes. Campanhas existem como rascunhos privados e briefings fictícios; não há publicação operacional de campanhas. A versão hospedada e a prévia local podem diferir: os incrementos 35–38 ainda não representam nova publicação do frontend na Vercel. Não foram usados serviços financeiros ou alterados dados reais de negócio.
 
 ## 4. Escopo, fases e prioridades
 
@@ -109,19 +117,19 @@ Ficam fora da implementação imediata: pagamentos ou comissões de produção, 
 |---|---|---|---|---|
 | S01 | Descoberta pela inicial — observado E0/E1 | Verificado no catálogo demonstrativo | Manter navegação inicial → loja → coleção → produto com conteúdo correto; ampliar descoberta em S02 | P1, base existente |
 | S02 | Diretórios de creators, marcas, categorias e grupos — observado E1 | Ausente; só uma criadora fictícia | Resultados ligados a entidades reais de teste, filtros, vazio, paginação quando necessária e acesso ao conteúdo correto | P2 |
-| S03 | Perfil público de creator — observado E0 | Parcial: bio/avatar fixos | Perfil vinculado a creator, edição autorizada e publicação; redes e prova social somente quando houver dados verificáveis | P1 |
+| S03 | Perfil público de creator — observado E0 | Implementado no escopo da loja própria: nome/bio, foto e redes informados pelo titular e publicados explicitamente | `/criador` legado segue demo; diretório e prova social/verificação ainda pendentes | P1 |
 | S04 | Coleções e seus produtos — observado E0 | Leitura remota verificada; gestão ausente | Criar/editar/publicar coleção própria, reler e conferir isolamento; não misturar itens de outra coleção | P1 |
 | S05 | Busca na loja — observado E0; normalização própria | Verificado no catálogo carregado | Manter nome/marca e vazio; busca em grande catálogo e comportamento de abrir/fechar ainda não implementados | P1 para funcionamento; P2 para expansão |
 | S06 | Categorias/ordenação — E0 e decisão local | Verificado: categoria e preços | Não atribuir ordenação por preço à ShopMy sem evidência; decidir restauração de filtros e URL antes de prometer persistência | P2 |
-| S07 | Favoritos — observado E0; persistência exigida | Parcial: cliente e tabela implementados; contratos simulados passam | Salvar/remover, recarregar, sair/entrar e conferir em outra sessão real; dois usuários isolados; repetição e falhas sem falso sucesso | P1 |
+| S07 | Favoritos — observado E0; persistência exigida | Verificado no escopo: visitante local e conta privada, com API real, isolamento e releitura | Preservar separação local/conta e recuperação de falhas; importação de favoritos locais não implementada | P1, base existente |
 | S08 | Detalhe e disponibilidade — observado E0 | Verificado como demonstração | Manter nota da curadoria e preço fictício; disponibilidade atual não é estoque, compra nem confirmação comercial | P1, base existente |
 | S09 | Saída para varejista — observado E0, sem compra | Ausente | URL de teste válida e vinculada ao produto; validação de destino; tratar indisponibilidade; não anunciar venda/comissão por haver clique | P2 |
 | S10 | Grupos de curadores — tela observada E3 | Ausente | Definir privacidade; criar, nomear, adicionar/remover creators, editar e excluir grupo próprio com releitura e acesso cruzado negado | P2 |
 | S11 | Perfil de gosto — estado inicial observado E3 | Ausente; regra a definir | Definir entradas, limiar e atualização; explicar estado insuficiente; provar resultado com dados de teste. Não assumir algoritmo ou limiar de 25 da referência | P3 |
-| S12 | Galeria e opções de compra — observado E0 | Ausente; produto usa uma ilustração | Galeria acessível e oferta vinculada ao item; selecionar opção muda destino/informação correta. Sem opções fictícias apresentadas como reais | P2 |
+| S12 | Galeria e opções de compra — observado E0 | Galeria/ofertas ausentes; produto usa fotografia ilustrativa única | Galeria acessível e oferta vinculada ao item; selecionar opção muda destino/informação correta. Sem opções fictícias apresentadas como reais | P2 |
 | S13 | Recomendações e conteúdo relacionado — observado E0 | Ausente | Seções semelhantes/mesma marca/outros curadores com regra própria documentada, exclusão de conteúdo privado e vazio coerente | P3 |
 | S14 | Outros creators que compartilharam o item — observado E0 | Ausente | Relação produto/creator com fonte verificável; abrir perfil correto; não inventar contagem ou recomendação | P2 |
-| S15 | Redes sociais e adicionar creator a grupo — observado E0 | Ausente | Links válidos informados pelo creator; adicionar grupo autorizado e confirmado; dependências C02/S10 | P2 |
+| S15 | Redes sociais e adicionar creator a grupo — observado E0 | Parcial: redes configuráveis e ordenáveis abaixo de “Explore minhas escolhas”; grupos ausentes | Links HTTPS, nova aba, nome acessível e snapshot; grupos dependem de S10 | P2 |
 
 O convite ao aplicativo visto na referência é registrado como observação, não como requisito de criar aplicativo nativo nesta versão.
 
@@ -129,18 +137,18 @@ O convite ao aplicativo visto na referência é registrado como observação, n�
 
 | ID | Requisito e origem | Estado atual | Critério de aceite / pendência | Prioridade |
 |---|---|---|---|---|
-| A01 | Login, logout e recuperação — observado E2 | Parcial: login/logout e recuperação implementados; contratos simulados | Sessão real, credenciais inválidas, expiração, retorno após reload e saída verificados; recuperação com token expirado/reutilizado tratada em ambiente de teste | P1 |
-| A02 | Papéis shopper/creator/brand e isolamento — observado E2 e exigência local | Ausente para papéis; favoritos têm política por usuário | Papel e propriedade validados no servidor/banco; selecionar perfil na tela não concede privilégio; usuário não promove a si mesmo | P1 |
+| A01 | Login, logout e recuperação — observado E2 | Login/saída local e três identidades demo verificados com Auth real; recuperação parcial | Preservar outra sessão ao sair localmente; validar entrega/retorno e reuso de token de recuperação em fluxo real | P1 |
+| A02 | Contextos shopper/creator/brand e isolamento — observado E2 e exigência local | Preferência e onboarding implementados; proprietário/membro com RLS; administrador ausente | Preferência não é autorização. Concluir matriz operacional, cargos e admin; preservar isolamento e negação de autoelevação já testados | P1 |
 | A03 | Cadastro e confirmação de conta — proposta para completar jornada | Parcial: formulário e resposta de confirmação implementados; e-mail real pendente | Criar conta em ambiente de teste, confirmar quando exigido, tratar duplicidade e erros; definir reenvio e retorno após confirmação | P1 |
 
-A diretriz U0 define que uma conta creator pode reunir UGC, influencer e afiliado, sem cadastros separados. Essas modalidades profissionais são diferentes de papéis de segurança. Continua pendente a política de acumulação entre shopper, creator, membro de marca e administrador. Proposta inicial: shopper pode habilitar atuação creator; marcas têm vínculo organizacional; administrador nunca é autoatribuível. A seleção de modalidades não concede acesso a recursos de terceiros.
+A diretriz U0 define que uma conta creator pode reunir UGC, influencer e afiliado, sem cadastros separados. Modalidades profissionais e preferência `account_type` são diferentes de papéis de segurança. A conta já pode manter dados de shopper, creator e organização, trocando o espaço preferido sem apagar contextos. A autorização depende da identidade/propriedade/vínculo; administrador e futuros cargos de operador/financeiro nunca são autoatribuíveis. O documento N1 não elimina shopper do cadastro existente.
 
 ### 5.3 Creator
 
 | ID | Requisito e origem | Estado atual | Critério de aceite / pendência | Prioridade |
 |---|---|---|---|---|
 | C01 | Candidatura — primeira etapa observada E1 | Ausente | Nome público, nome legal, e-mail e telefone foram observados; definir necessidade de cada dado na Diderot. Validar, salvar, reler status e proteger informações privadas; etapas seguintes não foram observadas | P1 |
-| C02 | Gestão de loja, coleções e produtos — declarado E1 | Ausente; `/criador` é apenas perfil público | Criar/editar, salvar, recarregar, publicar/despublicar e conferir versão pública; impedir edição de outro creator; registrar erros e alterações relevantes | P1 |
+| C02 | Gestão de loja, coleções e produtos — declarado E1 e telas relatadas N1 | Implementado no escopo pessoal do incremento 38: editor, fotos, redes, itens externos/catálogo demo, seções, posts, prévia e snapshot público | Catálogo operacional de marca, diretório/moderação e vídeo permanecem pendentes; afiliação financeira não é concluída por cadastrar um link. Ver LOJA-AFILIADA e NAV-C01–C08 | P1 |
 | C03 | Links de afiliado e desempenho — declarado E1 | Ausente | Definir vínculo creator/produto/destino, fonte de eventos e cálculo; simular atribuição, duplicidade e falhas; não confundir clique com comissão | P2 |
 | C04 | Parcerias com marcas — declarado E1 | Ausente | Creator vê apenas suas propostas; aceita/recusa e acompanha status; mudanças persistem e partes não autorizadas são bloqueadas | P2 |
 
@@ -150,7 +158,7 @@ A diretriz U0 define que uma conta creator pode reunir UGC, influencer e afiliad
 |---|---|---|---|---|
 | B01 | Entrada/candidatura brand — seleção observada E2 | Parcial: organização privada e vínculo responsável; aprovação pendente | Definir formulário próprio, dados, status, aprovação e identidade da organização; seleção de perfil não conclui cadastro | P1 |
 | B02 | Descoberta e seleção de creators — declarado E1 | Ausente | Diretório com filtros definidos, perfil correto e lista de seleção persistente; não expor dados privados da candidatura | P2 |
-| B03 | Campanhas, gifting e oportunidades — declarado E1 | Ausente | Criar rascunho, publicar para destinatários autorizados, aceitar/recusar, encerrar e reler; falhas e transições inválidas tratadas; sem bens ou mensagens reais nos testes | P1 para MVP brand |
+| B03 | Campanhas, gifting e oportunidades — declarado E1 e proposta U0/N1 | Parcial: editor privado de sete etapas e condições por grupo/modalidade no incremento 37; publicação/gifting/candidaturas ausentes | Concluir múltiplas vagas, catálogo vinculado, elegibilidade e validação/transições de publicação; briefing salvo não concede licença nem gera oportunidade ativa | P1 para MVP brand |
 | B04 | Métricas de desempenho — declarado E1 | Ausente | Fonte, janela, fórmula e acesso por organização explicitados; ausência de dados distinta de zero; dados simulados rotulados | P2 |
 
 ### 5.5 Administração e plataforma
@@ -159,8 +167,8 @@ A diretriz U0 define que uma conta creator pode reunir UGC, influencer e afiliad
 |---|---|---|---|---|
 | M01 | Entrada e gestão administrativa — exigência do usuário | Ausente | Sessão e papel verificados antes da operação; negação para anônimo/outro papel; alterações auditáveis | P1 |
 | M02 | Aprovação e moderação — proposta Diderot | Ausente | Revisar candidatura, aprovar/rejeitar com motivo, consultar histórico e bloquear transições inválidas | P1 |
-| T01 | Banco/persistência — exigência do usuário | Parcial: catálogo remoto e migrações verificados; favoritos sem E2E real | Concluir mutações, releitura entre sessões, consistência e erros para cada entidade; catálogo estático não deve mascarar falha de integração | P1 |
-| T02 | Permissões por papel/proprietário — exigência do usuário | Parcial: leitura do catálogo e bloqueio de escrita verificados; política de favoritos inspecionada | Testes reais de acesso cruzado, papel incorreto, sessão inválida e mutação indevida; nenhuma confiança em user_metadata para conceder privilégio | P1 |
+| T01 | Banco/persistência — exigência do usuário | Verificado por módulo implementado; marketplace futuro parcial | Preservar testes de gravação/releitura reais; novos módulos precisam de verificação própria; mock ou preview não prova persistência | P1 |
+| T02 | Permissões por proprietário/vínculo — exigência do usuário | RLS e negativas reais de perfis/conteúdo/organizações/equipe/rascunhos verificadas; admin ausente | Aplicar isolamento e cargos específicos a catálogo, vitrine, candidaturas e financeiro; nunca conceder privilégio por user_metadata | P1 |
 | T03 | Erros e recuperação — exigência do usuário | Parcial: 404/vazio verificados; interface de erro de catálogo; erros de Auth/favoritos simulados | Automatizar indisponibilidade e recuperação do catálogo; validar sessão expirada, rede, validação de formulário e gravação repetida | P1 |
 | T04 | Testes e uso móvel — exigência do usuário | Parcial: Chromium desktop/mobile; testes e evidências existentes | Jornadas completas, navegadores adicionais e aparelhos reais; acessibilidade e desempenho além das verificações pontuais | P1 |
 
@@ -180,7 +188,7 @@ Nenhuma tela administrativa da ShopMy foi inspecionada. Os requisitos M01/M02 s�
 
 **Alvo:** cadastrar/confirmar → entrar → salvar → recarregar → sair → entrar novamente → reencontrar → remover. Repetir em outra sessão e com segunda conta sem acesso ao primeiro conjunto.
 
-**Atual:** cliente de login/logout e operações de favoritos implementados; contrato de interface simulado passou. Não há conta real de teste registrada; o formulário de cadastro está implementado, sem validação da entrega/retorno do e-mail. Não há transferência automática de favoritos locais para a conta. Entrar exibe os favoritos privados; sair restaura a seleção anterior deste navegador.
+**Atual:** login/saída local, painel shopper, perfil/interesses e favoritos privados verificados com dados e sessões reais. Cadastro possui escolha de tipo e onboarding; entrega/retorno do e-mail ainda pendente. Sem transferência automática de favoritos locais para a conta. Entrar exibe os favoritos privados; sair restaura a seleção local e preserva outras sessões.
 
 **Estados obrigatórios:** conta não confirmada, credenciais inválidas, envio em andamento, sessão expirada, falha de salvar/remover, confirmação de resultado e logout. Não mostrar sucesso antes de confirmar a operação.
 
@@ -188,7 +196,7 @@ Nenhuma tela administrativa da ShopMy foi inspecionada. Os requisitos M01/M02 s�
 
 **Alvo proposto:** candidatura → status de revisão → aprovação → configurar loja → criar coleção → adicionar produto → salvar rascunho → publicar → conferir página pública → editar e reler.
 
-**Atual:** para na entrada; painel e candidatura inexistentes. A loja Clara não prova gestão de creator.
+**Atual:** onboarding, painel e gestão privada de perfil/modalidades, serviços e portfólio funcionam. Incremento 38 adiciona loja própria com foto/redes, itens/coleções/posts, edição privada, prévia e publicação/retirada confirmadas. Candidatura/revisão administrativa, diretório e moderação ainda não existem. A demo legada `/criador` permanece separada da loja por conta em `/loja/[slug]`.
 
 **Estados propostos:** candidatura em rascunho/enviada/em análise/aprovada/rejeitada; conteúdo em rascunho/publicado/arquivado. A política de reenvio e suspensão precisa ser decidida. Esses estados não foram extraídos da ShopMy.
 
@@ -196,7 +204,7 @@ Nenhuma tela administrativa da ShopMy foi inspecionada. Os requisitos M01/M02 s�
 
 **Alvo proposto:** cadastrar organização → obter habilitação → descobrir creators → criar campanha em rascunho → selecionar participantes → publicar oportunidade → acompanhar aceite/recusa → encerrar → consultar resultado.
 
-**Atual:** nenhuma etapa privada implementada. Gifting significa somente fluxo de solicitação e acompanhamento com dados de teste nesta fase, sem envio físico.
+**Atual:** organização, responsável/membros de leitura, convites e rascunhos privados implementados; exemplo demo com três rascunhos e navegação real. Habilitação comercial, catálogo da marca, descoberta de creators, publicação, seleção e métricas ainda pendentes. Gifting não inclui envio físico nesta fase.
 
 **Estados propostos:** campanha rascunho/ativa/encerrada/cancelada; participação pendente/aceita/recusada/concluída. Definir quem pode executar cada transição antes de construir a interface.
 
@@ -218,32 +226,39 @@ Nenhuma tela administrativa da ShopMy foi inspecionada. Os requisitos M01/M02 s�
 | `/colecoes/rituais` | Dois produtos fictícios | Sem gestão |
 | `/colecoes/casa` | Dois produtos fictícios | Sem gestão |
 | `/produto/[slug]` | Oito detalhes do catálogo | Sem varejista, estoque ou oferta comercial real |
-| `/conta` | Login/logout e links de conta | Validação remota completa pendente |
-| `/cadastro` | Criação por e-mail/senha | Confirmação real e destinos do Auth não validados |
+| `/conta` | Login/saída local e navegação por preferência | Auth real verificado; recuperação de e-mail ainda parcial |
+| `/cadastro` | Criação por e-mail/senha e escolha de tipo | Destinos informados pela usuária; entrega/retorno de e-mail não testados |
 | `/recuperar-acesso` | Solicitação de link e atualização de senha | Entrega de e-mail real não validada |
-| `/conta/criador` | Perfil privado e modalidades UGC/influencer/afiliado | Sem seguidores; testes de contrato simulados; isolamento SQL pendente |
+| `/conta/criador` | Perfil privado e modalidades UGC/influencer/afiliado | Sem mínimo de seguidores; sem publicação/diretório |
+| `/onboarding`, `/conta/perfil` | Escolha de espaço, perfil específico e revisão | Preferência não é habilitação comercial ou privilégio |
+| `/painel/shopper` | Perfil/interesses e favoritos de conta | Sem perfil de gosto algorítmico |
+| `/painel/criador`, `/conta/criador/servicos`, `/conta/criador/portfolio` | Painel, ofertas e trabalhos privados | Sem editor/publicação da vitrine ou upload |
+| `/painel/criador/loja`, `/loja/[slug]` | Editor privado e loja pública por creator/afiliada; upload de fotos | Incremento 38 local; somente snapshot publicado acessível ao visitante |
+| `/painel/marca` | Organização, equipe, convites e rascunhos de campanhas | Sem catálogo de marca, aprovação comercial ou publicação |
+| `/demo` | Três contas fictícias compartilhadas com login real | Não usar dados pessoais; não equivale a três papéis administrativos |
+| `/explorar/campanhas`, `/campanhas/demo/[slug]` | Três briefings fictícios navegáveis | Sem inscrição ou sincronização com rascunhos privados |
 | URLs inválidas | Página 404 e recuperação | Não equivale a proteção de área privada |
 
-São 17 endereços de conteúdo existentes: 13 da vitrine, `/conta`, `/cadastro`, `/recuperar-acesso` e `/conta/criador`, além do comportamento 404. Slugs dos produtos: `bolsa-oliva`, `camisa-linho`, `serum-botanico`, `vaso-organico`, `sandalia-trama`, `creme-essencial`, `bolsa-areia`, `vaso-calcario`.
+Rotas dinâmicas possuem os slugs existentes, sem inventar entidades para satisfazer navegação. Produtos: `bolsa-oliva`, `camisa-linho`, `serum-botanico`, `vaso-organico`, `sandalia-trama`, `creme-essencial`, `bolsa-areia`, `vaso-calcario`. A demonstração utiliza `/api/demo/session`, endpoint de servidor e não tela. O inventário de telas futuras está no anexo; suas rotas são propostas.
 
 ### Propostas, ainda não implementadas
 
-`/explorar`, `/criadores`, `/marcas`, `/criadores/[slug]`, `/favoritos`, `/grupos`, `/meu-gosto`, `/candidatura/criador`, `/candidatura/marca`, `/painel/criador`, `/painel/marca` e `/admin` são uma proposta de organização. Não devem ser apresentadas como rotas existentes. A migração do perfil público `/criador` para múltiplos creators deve manter redirecionamento ou compatibilidade dos links atuais.
+`/explorar`, `/criadores`, `/marcas`, `/criadores/[slug]`, `/favoritos`, `/grupos`, `/meu-gosto`, `/candidatura/criador`, `/candidatura/marca`, `/admin` e rotas dos editores de vitrine/catálogo no anexo são propostas. `/explorar/campanhas` existe somente como demo. A migração do perfil público `/criador` para múltiplos creators deve manter compatibilidade dos links atuais.
 
 ## 8. Identidade visual e fidelidade à referência
 
 | Aspecto | Observação REA | Implementação Diderot | Pendência de fidelidade |
 |---|---|---|---|
-| Destaque inicial | Fotografia ampla, título serifado grande, navegação e seta | Composição editorial verde com ilustração original | Comparação visual formal; fotografia não foi incorporada |
-| Tipografia | Serifada nos títulos, sem serifa na interface | Georgia e Arial | Fontes exatas da referência não verificadas; definir tipografia própria final |
+| Destaque inicial | Fotografia ampla, título serifado grande, navegação e seta | Home reorganizada conforme estrutura fornecida, com fotografia ilustrativa local | Conteúdo próprio e variações reais de mídia; não declarar equivalência de todas as telas |
+| Tipografia | Serifada nos títulos, sem serifa na interface | Reckless TRIAL apenas local, fallback Georgia; DM Sans no corpo | Arquivo licenciado definitivo para hospedar Reckless |
 | Cabeçalho | Escuro e compacto; adaptação móvel | Cabeçalho escuro e logo Diderot | Comparar espaçamento, hierarquia e comportamento nos breakpoints |
 | Perfil | Imagem circular, autoria, bio, redes, grupos | Avatar ilustrado, nome, bio e aviso fictício | Redes, grupo e informações verificadas de creator |
 | Navegação | Abas horizontais, categorias/contagens e busca expansível | Coleções, filtros e busca sempre visível | Abrir/fechar busca não reproduzido; avaliar navegação horizontal acessível |
-| Produtos | Grade, destaque para imagem; duas colunas no celular | Grade responsiva com SVGs próprios | Galeria, favoritos no detalhe e metadados complementares |
-| Detalhe | Imagens/miniaturas, informações, outros curadores, ofertas e relacionados | Ilustração, preço, nota e disponibilidade demo | S12/S13/S14 e saída comercial |
+| Produtos | Grade, destaque para imagem; duas colunas no celular | Grade responsiva com oito fotografias locais ilustrativas | Galeria, favoritos no detalhe e metadados complementares |
+| Detalhe | Imagens/miniaturas, informações, outros curadores, ofertas e relacionados | Fotografia, preço, nota e disponibilidade demo | S12/S13/S14 e saída comercial |
 | Estados | Carregamento observado no produto | Erro, vazio e 404; estados de gravação | Inventário visual de carregamento, sucesso, bloqueio e falha em todos os módulos |
 
-**Tokens implementados, próprios da Diderot:** texto `#23241f`, papel `#faf9f6`, verde `#354333`, divisórias `#deded7`, secundário `#727469`; cabeçalho com ajuste escuro `#20211e`. Esses valores não são tokens extraídos da ShopMy.
+**Tokens atuais:** `app/design-tokens.css` e [DESIGN-SYSTEM-DIDEROT.md](DESIGN-SYSTEM-DIDEROT.md) prevalecem sobre a paleta inicial histórica: texto primário `#000`, fundo `#fff`, secundários e divisórias neutros conforme o arquivo fornecido. N1 orienta novos editores e dashboards a reutilizar essa identidade Diderot; não redefine a fonte escolhida pela usuária nem autoriza publicar a fonte TRIAL.
 
 **Aceite visual proposto:** comparar telas equivalentes em 390 × 844 e desktop; verificar hierarquia, grid, proporções, espaçamento, contraste, estados de foco e ausência de corte. Não exigir equivalência pixel a pixel com assets distintos nem declarar equivalência sem comparação. Novos módulos devem reutilizar tokens e componentes documentados.
 
@@ -257,14 +272,21 @@ São 17 endereços de conteúdo existentes: 13 da vitrine, `/conta`, `/cadastro`
 |---|---|---|---|
 | `collections` | slug, nome, categoria, descrição, posição, publicação, demo, data | Leitura de publicadas para anon/authenticated | Sem proprietário ou editor |
 | `products` | slug, nome, marca textual, preço, categoria, coleção, tipo/cor da ilustração, nota, posição, publicação, demo, data | Leitura se produto e coleção estiverem publicados | Marca não é entidade; produto pertence a uma única coleção; sem URL comercial |
-| `favorites` | user_id, product_slug, created_at; chave composta | SELECT/INSERT/DELETE do próprio usuário; sem UPDATE; anônimo sem acesso | Políticas inspecionadas, isolamento comportamental pendente |
-| `auth.users` | Identidade gerida pelo Supabase Auth | Utilizada como referência dos favoritos | Zero registros na última inspeção; sem camada de papéis Diderot |
+| `favorites` | user_id, product_slug, created_at; chave composta | SELECT/INSERT/DELETE do próprio usuário; sem UPDATE; anônimo sem acesso | Isolamento e persistência reais verificados; seleção local não é importada |
+| `auth.users` | Identidade gerida pelo Supabase Auth | Referência de perfis, conteúdo e propriedade | Conta não concede admin; confirmação de demo não dispensa confirmação do cadastro normal |
+| `account_profiles` | user_id, tipo preferido, nome, cidade, interesses, onboarding | Leitura/escrita própria; sem transferência de user_id | Preferência não é autorização |
+| `creator_profiles`, `creator_services`, `creator_portfolio_items` | Perfil/modalidades, ofertas e trabalhos por link | Privados do creator, com RLS | Publicação e fotos em módulos separados; contratação ausente |
+| `organizations`, `organization_members` | Organização, proprietário e vínculo owner/member | Responsável escreve; membro consulta; isolamento por vínculo | Uma organização própria por conta; cargos ampliados pendentes |
+| `organization_invitations` | Convite, destinatário, estado, validade | Sem acesso direto; RPC guardado por dono/destinatário confirmado | Convite interno, sem envio de e-mail |
+| `campaign_drafts`, `campaign_draft_slots` | Contexto privado, versão, requisição e grupos por modalidade | Vínculo lê; responsável grava atomicamente por RPC | Somente draft; sem publicação, candidatura ou pagamento |
+| `creator_shops` | Documento privado, slug, snapshot público, versão e recibo | Titular lê; RPC guardado grava/publica; visitante recebe somente snapshot por RPC | Uma loja por conta; limites de 1 MB/200 itens/50 seções/100 posts; relações N:N por IDs no documento |
+| `profile_photos`, `creator_shop_public_media`, bucket `diderot-media` | Fotos por creator/marca e índice das mídias publicadas | Pasta própria; membro lê foto da marca; visitantes acessam somente mídias publicadas por autorização temporária | Sem limpeza automática; URLs já emitidas podem durar até 15 minutos |
 
 Migrações: [catálogo](../supabase/migrations/20261111212222_diderot_demo_catalog.sql) e [favoritos](../supabase/migrations/20261111213111_shopper_favorites.sql).
 
 ### Evolução proposta, não implementada
 
-Perfis, habilitações de papel, lojas, organizações/membros, candidaturas, relação de itens por coleção, grupos/membros, campanhas/participações, destinos de varejista, eventos de desempenho e registros de auditoria. Antes de migrar, decidir se um produto pode aparecer em várias coleções/creators e como evitar duplicação. O esquema atual não suporta esse comportamento por si só.
+Habilitações comerciais e cargos operacionais, lojas/variantes/catálogo canônico de marca, tabelas relacionais dedicadas e escala além do documento da loja pessoal, candidaturas por vaga, grupos, campanhas publicáveis, destinos rastreados, eventos de desempenho e auditoria. Reutilizar perfis, organizações/equipe, rascunhos e loja pessoal já existentes. Não sobrecarregar `products.collection` para simular múltiplos proprietários nem tratar recomendação externa pessoal como produto oficial de marca.
 
 | Ator | Leitura prevista | Escrita prevista | Proibições obrigatórias |
 |---|---|---|---|
@@ -274,7 +296,7 @@ Perfis, habilitações de papel, lojas, organizações/membros, candidaturas, re
 | Membro brand habilitado | Dados da organização e creators públicos | Campanhas e seleções da organização conforme permissão | Organização alheia e dados privados de candidatura |
 | Administrador | Escopo operacional definido | Aprovação/moderação autorizadas e auditadas | Operações sem identidade, rastreabilidade ou política definida |
 
-Essa matriz é alvo do produto. Hoje não existem papéis operacionais de creator, brand ou administrador. A leitura pública e as regras de favoritos são os controles já implementados.
+Essa matriz é alvo do produto e deve ser refinada por entidade. Hoje há propriedade de conteúdo privado de creator, responsável/membro de organização e RLS das entidades implementadas; operador/financeiro/admin ainda não existem. O tipo preferido não substitui esses controles.
 
 ## 10. Critérios não funcionais e definição de concluído
 
@@ -353,7 +375,7 @@ Comissão, vendas atribuídas e retorno financeiro só podem existir após contr
 
 | Decisão / risco | Situação | Quando resolver |
 |---|---|---|
-| Cadastro público e confirmação | Sem fluxo ou configuração verificados end-to-end | Antes de concluir F1 |
+| Cadastro público e confirmação | Cadastro/onboarding implementados; entrega/retorno de confirmação e recuperação ainda não validados com e-mail real | Antes de concluir F1 |
 | Uma pessoa com vários papéis | Modalidades UGC/influencer/afiliado na mesma conta definidas por U0; acúmulo de papéis organizacionais ainda pendente | Antes de migrar A02 |
 | Favoritos de visitante e migração para conta | Persistência local implementada; transferência para conta não implementada | Definir importação explícita antes de migrar dados |
 | Produto compartilhado entre creators/coleções | Esquema atual é insuficiente para múltiplas relações | Antes do CRUD multi-creator |
@@ -363,7 +385,7 @@ Comissão, vendas atribuídas e retorno financeiro só podem existir após contr
 | Afiliados e métricas | Sem provedor, fonte ou regra aprovada | Antes de C03/B04 |
 | Imagens/fotografia e tipografia final | Fotografias locais e DM Sans; Reckless TRIAL somente na prévia local | Fonte licenciada definitiva antes de publicar Reckless |
 | Cobertura da referência | Áreas privadas não inspecionadas | Registrar novos requisitos como proposta até haver evidência |
-| Prontidão operacional | Sem deploy validado, carga, recuperação e monitoramento completos | Antes de lançamento |
+| Prontidão operacional | Deploy e navegação demonstrativa públicos validados; carga, recuperação, monitoramento e operação comercial ainda incompletos | Antes de lançamento |
 
 ## 15. Gate de lançamento e manutenção deste PRD
 
@@ -371,7 +393,7 @@ O MVP só pode ser tratado como concluído quando todas as jornadas escolhidas p
 
 Cada mudança de status deve incluir data, commit, ambiente, teste executado e limite da evidência. Manter [PROGRESSO-DIDEROT.md](PROGRESSO-DIDEROT.md) como registro de execução e este PRD como referência de requisitos/estado consolidado. Não calcular percentual global de conclusão a partir da quantidade de telas ou de testes simulados.
 
-**Próxima entrega recomendada:** concluir a fundação de identidade e a validação real de favoritos antes de ampliar os painéis. O catálogo remoto já fornece uma base concreta; as jornadas de shopper autenticado, creator, marca e administrador ainda não estão concluídas.
+**Próxima entrega recomendada:** encerrar a validação do briefing privado (incremento 37) e seguir para catálogo gerido pela marca e relações necessárias à vitrine/campanhas. Administração mínima e validação real de confirmação/recuperação acompanham os gates de abertura. Publicação exige ainda múltiplas vagas, catálogo vinculado, elegibilidade e transições no backend. Ordem e critérios completos no [plano do MVP](PLANO-LANCAMENTO-MVP.md).
 
 ## 16. Expansão nativa: UGC Marketplace + Creator Commerce
 
@@ -413,7 +435,7 @@ Não há exigência global de seguidores mínimos para participar da Diderot. Qu
 | Perfil Clara | EXISTENTE, MAS INCOMPLETO como perfil profissional | Substituir dados fixos por autoria/perfil editável; não criar uma segunda identidade UGC |
 | Catálogo com uma coleção por produto e marca textual | NECESSITA REFATORAÇÃO para múltiplos creators/campanhas | Planejar relações e migração incremental, preservando slugs e registros |
 | Modalidades, portfólio, serviços, diretório profissional | PARCIAL | Modalidades e gestão privada de portfólio/serviços disponíveis; diretório/publicação pendentes |
-| Campanhas, vagas, candidaturas e contratações | PARCIAL | Contexto e grupos de vagas em rascunho privado disponíveis; briefing completo, publicação, candidaturas e contratação pendentes |
+| Campanhas, vagas, candidaturas e contratações | PARCIAL | Rascunho e sete etapas privadas com condições por grupo/modalidade; múltiplas vagas por modalidade, produtos de catálogo vinculados, publicação, candidaturas e contratação pendentes |
 | Workspace, arquivos privados, mensagens e revisões | NÃO IMPLEMENTADA | Definir Storage, autorização e versões antes de disponibilizar upload |
 | Financeiro, gateway, rastreamento, conversões e comissões | NÃO IMPLEMENTADA | Vitrine não significa afiliação operacional; construir contratos e estados, sem finanças de produção |
 | Administração, disputas, moderação e reputação | NÃO IMPLEMENTADA | Definir papéis, transições, auditoria e critérios de elegibilidade |
@@ -701,3 +723,95 @@ Prioridade explícita da usuária: conseguir entrar e avaliar shopper, creator e
 `/explorar/campanhas` e `/campanhas/demo/[slug]` mostram três briefings fictícios navegáveis, com imagens ilustrativas, estimativas e condições de exemplo. Isso não conclui U09/U10, não publica rascunhos privados nem oferece candidaturas. Upload/avatar, diretório/perfil público, aprovação comercial, publicação, contratação, produção, financeiro e administração continuam pendentes. [Tabela funcional, evidências, acesso e limites](ACESSO-DEMONSTRACAO.md).
 
 GitHub → Vercel já estava conectado a `marigranadoc/diderot-platform`, branch `main`, no projeto existente da equipe `mari-granado`. Corrigida a configuração Other para Next.js; domínio principal https://diderot-platform-mari-granado.vercel.app. URLs de confirmação/recuperação desse domínio foram informadas pela usuária como autorizadas no Supabase; não afirmar entrega de e-mail real validada. Sessões, seed, persistência e isolamento das três fixtures passaram por API real. Testes finais de interface/publicação e seu alcance são registrados no progresso.
+
+## 35. Referência adicional de navegação ShopMy — 13/11/2026
+
+Fonte N1: [documento fornecido preservado integralmente](REFERENCIA-NAVEGACAO-SHOPMY.md), com sete estados de vitrine/editor descritos por horários de vídeo e propostas de catálogo/marca/campanhas. O [anexo de telas e fluxos](TELAS-FLUXOS-SHOPMY.md) consolida todas as 17 seções e os 14 critérios de aceite, sem substituir a diretriz UGC ou promover propostas a fatos observados.
+
+O anexo contém captura real da home enviada pela usuária, catálogo REF com links por horário, requisitos NAV-C01–C08, inventário de telas atuais/propostas, campos/validações de produto, importação e relações N:N, jornadas shopper/creator/marca/UGC/afiliado/admin, estados móveis/acessíveis, modelo incremental, permissões e prioridades. A fonte é secundária: vídeos e prints do editor não estavam no arquivo e não foram reproduzidos nesta sessão. Não afirmar nova engenharia reversa autenticada ou telas privadas verificadas.
+
+Decisões preservadas: shopper/creator/marca no cadastro; uma identidade com vários contextos sem privilégio por preferência; UGC nativo sem mínimo de seguidores; candidatura por vaga; afiliação como condição comercial separada da modalidade de trabalho; sete etapas U08 **com os mesmos nomes/ordem da seção 18**, acomodando os dez assuntos da fonte; produto canônico da marca separado de recomendação do creator. Operador/financeiro/admin são papéis futuros, não permissões já concedidas. A fonte não autoriza escolher provedor pago, regra fiscal ou publicação de produto externo.
+
+Atualizado o estado consolidado: Auth/onboarding, favoritos, perfil/serviços/portfólio, organizações/equipe, rascunhos e demo já possuem entregas verificadas. Vitrine editável/publicação, catálogo de marca, campanha completa/candidatura, contratação/produção, tracking/financeiro e administração seguem pendentes. As próximas entregas estão ordenadas no anexo; o próximo incremento funcional recomendado continua briefing U08/condições por vaga nos rascunhos privados.
+
+## 36. Preparação de desenvolvimento com Vibe Coding Toolkit — 13/11/2026
+
+Adotado o caminho **configurar projeto existente**, revisão fixa `7ef68dd7b00ddfc5cd464458855e4ab66dd2128f`, com atribuição MIT. [Setup, seleção de todos os componentes e limites](setup.md). Preservados stack, lockfile, banco, permissões, identidade visual e integrações; nenhum scaffold substituiu o app.
+
+Entregas locais: AGENTS com comandos/contexto/limites e bloco Next preservado; bridge opcional CLAUDE; arquitetura observada; documentos canônicos mapeados em vez de duplicados; [prompts de implementação/setup/segurança/melhoria de processo](prompts/README.md); [qualidade](quality.md) e verificações documentais automatizadas com fixtures negativas. `npm.cmd run check` combina documentos, testes do verificador e TypeScript; não substitui lint, auditoria integral, build ou jornada com banco real.
+
+Modo de melhoria selecionado: adaptação nativa inspirada em Harness2. Comparativo local reproduz links para anexo faltante e verifica sua correção com o mesmo avaliador; não é benchmark oficial nem evidência de ganho do modelo. Context7 não disponível; reaproveitadas ferramentas/instruções existentes, sem instalação global, API paga ou serviços novos. Lint de aplicação e avaliações independentes do agente continuam com limitações explícitas em setup/qualidade.
+
+Esta etapa consolida requisitos e preparação. Não implementa as novas telas do anexo, não altera dados reais, não usa serviços financeiros e não publica automaticamente. Resultados efetivamente executados estão em [setup-toolkit.json](evidencias/setup-toolkit.json) e no progresso. Gate de término: fonte preservada, conciliações e aceites rastreáveis, arquivos/links íntegros e checks registrados com seus limites.
+
+## 37. Briefing privado em sete etapas — 13/11/2026
+
+Implementado no frontend local em `/painel/marca` → Campanhas em rascunho: informações gerais, modalidades/vagas, requisitos, entregáveis, direitos de uso, remuneração e revisão/publicação. O backend recebeu a migração aditiva `20261113120556_campaign_briefing.sql`. Todos os campos novos são planejamento privado; salvar não publica, contrata, concede licença ou cobra. [Campos, auditoria, evidências e limites](CAMPANHAS-RASCUNHOS.md).
+
+Referências visuais e produtos por nome/link HTTPS persistem em `campaign_drafts.briefing`; não são importação, upload ou vínculo ao catálogo. Cada grupo/modalidade possui requisitos, entregáveis, direitos e remunerações próprias em `campaign_draft_slots.briefing`. UGC não aceita mínimo de seguidores no backend; postagem é exigência explicitamente marcada. Valores de produção/publicação em centavos e comissão em pontos-base; nulo e zero têm significados distintos. Direitos são condições planejadas, sem aceite contratual.
+
+Mantidos RLS, responsável editor/membro leitor, versionamento e retry idempotente do documento completo. Cliente antigo não pode regravar sem briefing um registro com condições novas. Conversão de linha do banco para formulário corrigida para selecionar só os campos editáveis, evitando que IDs/status/relacionamentos sejam enviados de volta ao RPC e bloqueiem edição. Navegação em etapas e nomes acessíveis das textareas recebem testes de reentrada/celular.
+
+U07/U08 permanecem **PARCIAIS**: um grupo por modalidade, referências externas em vez de catálogo vinculado, sem múltiplas vagas da mesma modalidade, elegibilidade comercial, validador de completude para publicação, publicação/pausa/encerramento ou candidatura. Backend segue permitindo somente draft e rejeita tentativa de status publicado. Upload, contratos, licenças aceitas, entregas e financeiro continuam ausentes.
+
+Banco real verificado com identidades efêmeras/ROLLBACK, incluindo persistência, inválidos, precisão, proteção contra cliente antigo, isolamento e revogação; suíte legada também passou. API real das três identidades demo verifica leitura e negação cruzada/anônima, sem gravação de negócio positiva. Resultados da interface e ambiente final no progresso; não equivalem a dois logins Auth editando por HTTP ou homologação comercial.
+
+Atendendo à solicitação de detalhar o lançamento, o [plano do MVP](PLANO-LANCAMENTO-MVP.md) define onze blocos com dependências e gate de saída: escopo; contas; catálogo; vitrine; administração; campanhas/candidaturas; contratação/produção; afiliação; financeiro; operação/segurança; homologação/piloto. Reaproveita o que já existe, sem calcular percentual global ou assumir provedor financeiro/prazo. Recursos avançados só saem do primeiro lançamento por recorte explícito de escopo.
+
+## 38. Loja própria, fotos de perfil e redes — 13–14/11/2026
+
+Solicitação da usuária: foto de marca/creator/afiliada, foto no topo da loja, produtos, coleções, posts, adicionar produto, ver a própria loja e redes sociais abaixo de “Explore minhas escolhas”. As duas imagens fornecidas orientaram menu/seções e cinco formatos visuais; não comprovam API/fluxos privados da ShopMy. [Guia, tabela funcional e limites](LOJA-AFILIADA.md).
+
+Implementado `/painel/criador/loja`, com perfil público e slug exclusivo, upload de fotos, Instagram/TikTok/YouTube e outras redes ordenáveis, itens externos pessoais/seleção do catálogo demo, seções com visuais Prateleiras/Editorial/Posts quadrados/verticais/horizontais, visibilidade/cópia/ordem, posts com foto/legenda e vários produtos. Há salvar/reler, prévia privada, publicação explícita, Ver minha loja em `/loja/[slug]` e retirada do ar. Dados salvos permanecem privados até publicar; editar não muda o snapshot anterior.
+
+Marca troca a foto no cartão da organização: responsável edita e membro consulta. Creator/afiliada compartilham foto de perfil, usada no topo da loja após publicação. Redes aparecem como último elemento do cabeçalho, abaixo do CTA, com nome acessível e nova aba. Links HTTPS são informados pelo titular; não há conexão OAuth, publicação nas redes, métrica verificada ou cálculo de comissão.
+
+Migração `20261113131815_creator_shops_media.sql` aplicada. Uma loja/documento transacional por titular, relações N:N por IDs validados, snapshot público e recibo/versão. Fotos ficam em bucket privado; servidor/banco verificam posse e associação publicada. Itens do catálogo preservam dados canônicos; recomendação externa pessoal não altera produto de marca. Perfil profissional/portfólio e entregáveis UGC continuam distintos da loja pública.
+
+SQL com quatro identidades efêmeras/ROLLBACK passou, incluindo permissões de foto/Storage, snapshot/ocultos, IDs/URLs/valores, catálogo canônico, retry/versão, endereço permanente, e-mail confirmado, membro somente leitura e retirada. Seed API real criou somente loja fictícia `clara-demonstracao`, dois itens e um post, verificando upload privado, negação anônima antes da publicação, salvamento/releitura/retry, publicação e foto pública por URL temporária. [Evidência de banco/API](evidencias/loja-banco-api.json).
+
+Primeira interface: 36/40 aprovados; quatro falhas por seletor de alerta confundindo o anunciador interno Next. Corrigido somente escopo do seletor. Revalidação de 14/11: **40/40 aprovados**, 246,5 segundos, desktop/celular, sem skips/retries, incluindo loja, marca e onboarding. [Inicial](evidencias/loja-interface-inicial.json) e [final](evidencias/loja-interface-final.json). SHOP-04 usa Auth/loja reais em leitura; demais SHOP simulam contratos/upload e exercitam reprocessamento de imagem no Chrome. Não afirmar upload de retrato em conta real; a autorização de foto foi verificada em SQL e fluxo de navegador simulado.
+
+C02 e NAV-C01–C07 têm entrega no escopo documentado; vídeo, catálogo operacional de marcas, diretório/moderação, rastreamento/comissões e pagamentos continuam pendentes. Endereço permanece fixo após publicar; não há renomeação com redirects. O frontend deste incremento está na prévia local, sem nova publicação Vercel. Não foram alterados dados reais de negócio ou usados serviços financeiros.
+
+
+## 39. Apresentação da loja e catálogo — 14/11/2026
+
+Solicitação: redes sociais somente com ícones abaixo de Explore minhas escolhas; avatar vazio sem texto; produtos no visual anterior; retirar a comunicação de demonstração da interface.
+
+Implementado: ícones SVG acessíveis por rede (nome acessível, foco e nova aba), silhueta neutra para perfis sem foto, cards compactos do catálogo com fotografia 4:5, nome/marca/preço, quatro colunas no desktop e duas no celular. Busca, ordenação por preço e favoritos dos itens canônicos usam os comportamentos existentes; produtos externos preservam destino HTTPS e identificação de link afiliado. Posts seguem separados dos cards de produto. Trocar seção reinicia o filtro de categoria.
+
+Faixa e rótulos demonstrativos removidos da navegação, home, catálogo, produto, campanhas e acessos. Textos conhecidos das contas de avaliação são apresentados sem os rótulos por uma camada de apresentação. Registros de origem, IDs, rotas e controles de permissão permanecem preservados; nenhuma alteração em massa no banco. Ler uma conta não salva automaticamente os textos apresentados. Aviso de contas compartilhadas e indisponibilidade real de compras/inscrições permanecem, sem sugerir operações financeiras ativas.
+
+Critérios de aceite: redes sem texto visível e com nome acessível; ausência de Sem foto; ausência de rótulos demonstrativos no corpo visível da loja; cards responsivos; busca/ordenação/favorito com releitura; detalhe do produto acessível. Evidência e limites da rodada estão no progresso. Não transforma dados sintéticos em catálogo comercial validado nem comprova lançamento do MVP.
+
+
+## 40. Perfil, foto e confirmação de cadastro — 15/11/2026
+
+A edição em /conta/perfil abre diretamente o formulário preenchido, com Salvar perfil; mantém validação, RPC atômico e releitura antes de navegar. Alterar tipo de conta continua disponível e não altera permissões de organizações. Creator/afiliada com perfil profissional salvo encontra Escolher foto de perfil nesta tela. Marca responsável encontra Escolher foto da marca. A mesma referência de foto é usada na configuração da loja e na navegação privada; a foto da creator aparece no topo da loja pública após publicar/atualizar a publicação. Upload continua privado em WebP, com validação, tratamento de erro e confirmação por releitura. Não foi criado um novo bucket ou cadastro paralelo de avatar. Foto de shopper sem perfil profissional/organização continua fora deste incremento.
+
+As rotas /conta e /painel compartilham navegação de perfil: identidade/foto, Meu perfil, Minha loja, Produtos, Coleções, Posts, Serviços, Portfólio e Perfil profissional para creator; caminhos pertinentes para marca e shopper. No celular, navegação horizontal com rolagem; no desktop, lateral. Links de seção efetivamente trocam a área e respeitam formulário aberto na loja.
+
+Cadastro sem sessão orienta: Confirme seu e-mail para continuar. Procure a mensagem da Diderot na caixa de entrada e no spam. Depois, entre na sua conta. Cadastro com sessão continua para onboarding. Reenviar confirmação chama Auth resend para o e-mail da solicitação concluída, mesmo que o campo seja editado depois. Falhas e limite de solicitações não exibem sucesso. Recuperação informa solicitação recebida, sem afirmar existência de conta ou entrega da mensagem. Nenhuma confirmação de e-mail foi desabilitada.
+
+Consulta somente leitura de /auth/v1/settings confirmou cadastro habilitado, e-mail habilitado e confirmação obrigatória; isso não comprova entrega SMTP nem clique no e-mail real. Testes de signup/reenvio/recuperação usam mocks e não enviam e-mails. Resultados e pendências no progresso. Sem migrações ou alteração de contas reais neste incremento.
+
+No retorno de cadastro sem nova identidade (resposta ofuscada) ou no erro explícito de conta já cadastrada, a interface oferece entrada e recuperação, sem inventar envio de confirmação. Não consulta lista de usuários ou usa chave administrativa. A entrega e o clique em um e-mail real continuam sem teste ponta a ponta nesta etapa.
+
+
+## 41. Entrada, confirmação e destino do cadastro — 16–17/11/2026
+
+Depois de entrar com e-mail/senha, a aplicação valida o titular no Auth, lê account_profiles e abre o painel correspondente ao cadastro concluído; sem perfil ou onboarding incompleto, abre /onboarding. Não escolhe o painel por user_metadata ou parâmetro next. A sessão é comparada novamente depois da leitura para não abrir o perfil anterior após troca/saída. Erro de consulta mantém opção de tentar abrir novamente, sem inventar perfil ou sucesso. /conta continua disponível para gestão/saída, sem redirecionar automaticamente uma visita comum de quem já está conectado.
+
+Novos envios e reenvios de confirmação usam /auth/retorno. Essa página aguarda a sessão processada pelo SDK, verifica usuário/e-mail confirmado e encaminha ao onboarding/painel; limpa parâmetros do endereço e não reflete descrições recebidas no link. Link inválido/expirado não simula confirmação. O fluxo legado /conta continua disponível para links anteriores. Entrega/clique de e-mail real ainda precisam de homologação; não foi alterado SMTP ou allowlist de redirecionamento.
+
+A solicitação HTTP de entrada compartilhada é abortada após 20 segundos e permite tentar novamente; antes de obter resposta válida não encerra a conta anterior. As consultas de Auth da rota de servidor possuem prazo de 12 segundos por requisição. Logout continua local e instalação de sessão mantém verificação de identidade. Isso não é prova de prazo total de todos os passos internos do SDK. Server-Timing registra só duração; teste real anexa somente etapas, status e tempos, sem tokens, e-mails ou corpos de resposta. Causa dos timeouts históricos ainda não é atribuída a uma etapa sem evidência.
+
+Mapa e limites: [Acesso e onboarding](ACESSO-ONBOARDING.md). Sem migrações, permissões novas ou operações financeiras. Evidências e próxima ação no progresso.
+
+Login com email_not_confirmed disponibiliza reenvio de confirmação na própria tela, vinculado ao endereço daquela tentativa. O novo caso de callback testa também o processamento do fragmento de confirmação pelo SDK e a remoção de tokens do endereço, com sessão sintética.
+
+
+## 42. Publicação e verificação no domínio público — 17/11/2026
+
+Preparar GitHub/Vercel com os incrementos locais já verificados, preservando projeto, equipe, variáveis e banco. Não publicar credenciais, fontes TRIAL ou relatórios privados. Verificar revisão vinculada, build, rotas, ausência de redirecionamento para login Vercel e jornadas de leitura das contas fictícias no computador/celular. Status inicial e final em [publicação](PUBLICACAO-VERCEL.md) e progresso. Não declarar validação SMTP ou conclusão de financeiro/administração como resultado de deploy.

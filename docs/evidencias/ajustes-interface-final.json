@@ -1,0 +1,302 @@
+{
+  "date": "2026-11-14",
+  "scope": "SHOP-01/02/04/07, EXP-01–06 e DS-02; computador e celular",
+  "stats": {
+    "startTime": "2026-11-14T22:44:09.042Z",
+    "duration": 247904.039,
+    "expected": 25,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "cases": [
+    {
+      "title": "SHOP-01 contrato: perfil com foto, redes sociais, produto, seção e post persistem",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 12112
+        }
+      ]
+    },
+    {
+      "title": "SHOP-01 contrato: perfil com foto, redes sociais, produto, seção e post persistem",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 18245
+        }
+      ]
+    },
+    {
+      "title": "SHOP-02 contrato: catálogo, duplicar/ocultar/ordenar seções e publicação explícita",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 12188
+        }
+      ]
+    },
+    {
+      "title": "SHOP-02 contrato: catálogo, duplicar/ocultar/ordenar seções e publicação explícita",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 8415
+        }
+      ]
+    },
+    {
+      "title": "SHOP-04 backend real: loja pública demonstrativa, redes abaixo do CTA e acesso pelo painel",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 19720
+        }
+      ]
+    },
+    {
+      "title": "SHOP-04 backend real: loja pública demonstrativa, redes abaixo do CTA e acesso pelo painel",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 18976
+        }
+      ]
+    },
+    {
+      "title": "SHOP-07 loja pública: cards compactos, busca, ordenação e favorito de visitante persistente",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 16436
+        }
+      ]
+    },
+    {
+      "title": "SHOP-07 loja pública: cards compactos, busca, ordenação e favorito de visitante persistente",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 16693
+        }
+      ]
+    },
+    {
+      "title": "DS-02 catálogo e detalhe usam fotografias locais carregadas",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3817
+        }
+      ]
+    },
+    {
+      "title": "DS-02 catálogo e detalhe usam fotografias locais carregadas",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3534
+        }
+      ]
+    },
+    {
+      "title": "EXP-01 shopper: escolha, perfil, revisão e destino corretos",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3388
+        }
+      ]
+    },
+    {
+      "title": "EXP-01 shopper: escolha, perfil, revisão e destino corretos",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2861
+        }
+      ]
+    },
+    {
+      "title": "EXP-01 creator: escolha, perfil, revisão e destino corretos",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2438
+        }
+      ]
+    },
+    {
+      "title": "EXP-01 creator: escolha, perfil, revisão e destino corretos",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2398
+        }
+      ]
+    },
+    {
+      "title": "EXP-01 brand: escolha, perfil, revisão e destino corretos",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2455
+        }
+      ]
+    },
+    {
+      "title": "EXP-01 brand: escolha, perfil, revisão e destino corretos",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1655
+        }
+      ]
+    },
+    {
+      "title": "EXP-02 erro ao salvar ou reler preserva a revisão sem falso sucesso",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 11822
+        }
+      ]
+    },
+    {
+      "title": "EXP-02 erro ao salvar ou reler preserva a revisão sem falso sucesso",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 9429
+        }
+      ]
+    },
+    {
+      "title": "EXP-03 cadastro envia o tipo escolhido e explica a confirmação de e-mail",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5251
+        }
+      ]
+    },
+    {
+      "title": "EXP-03 cadastro envia o tipo escolhido e explica a confirmação de e-mail",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 933
+        }
+      ]
+    },
+    {
+      "title": "EXP-04 visitantes encontram os três caminhos e os briefings fictícios",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3453
+        }
+      ]
+    },
+    {
+      "title": "EXP-04 visitantes encontram os três caminhos e os briefings fictícios",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1569
+        }
+      ]
+    },
+    {
+      "title": "EXP-05 API demonstrativa rejeita origem externa e tipo inexistente",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 476
+        }
+      ]
+    },
+    {
+      "title": "EXP-05 API demonstrativa rejeita origem externa e tipo inexistente",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 68
+        }
+      ]
+    },
+    {
+      "title": "EXP-06 backend real: alternar shopper, creator e marca com os dados fictícios",
+      "project": "computador",
+      "status": "unexpected",
+      "results": [
+        {
+          "status": "failed",
+          "duration": 42424,
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/painel\\/marca$/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:3101/demo\"\u001b[39m\nTimeout: 30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 30000ms\u001b[22m\n\u001b[2m    62 × locator resolved to <html lang=\"pt-BR\" data-scroll-behavior=\"smooth\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:3101/demo\"\u001b[22m\n"
+        }
+      ]
+    },
+    {
+      "title": "EXP-06 backend real: alternar shopper, creator e marca com os dados fictícios",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 15285
+        }
+      ]
+    }
+  ],
+  "limits": "Mock de gravação nos contratos. SHOP-04/07 usam loja real em leitura; favorito SHOP-07 persiste somente no navegador. EXP-06 autentica contas fictícias reais. Sem gravações de negócio reais ou financeiro. Não é auditoria integral."
+}

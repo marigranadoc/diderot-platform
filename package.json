@@ -8,6 +8,9 @@
     "start": "next start --hostname 127.0.0.1",
     "test": "node scripts/test.mjs",
     "typecheck": "tsc --noEmit",
+    "docs:check": "node scripts/check-docs.mjs",
+    "docs:test": "node --test scripts/check-docs.test.mjs",
+    "check": "npm run docs:check && npm run docs:test && npm run typecheck",
     "test:vitrine": "node scripts/test.mjs --grep-invert @pendente",
     "test:audit": "node scripts/test.mjs"
   },

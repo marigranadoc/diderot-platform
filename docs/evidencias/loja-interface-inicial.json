@@ -1,0 +1,582 @@
+{
+  "format": "diderot-playwright-evidence-v1",
+  "source": "work/loja-interface-inicial.raw.json retained outside app",
+  "summary": {
+    "startTime": "2026-11-13T13:34:51.402Z",
+    "duration": 125861.42000000001,
+    "expected": 36,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  },
+  "cases": [
+    {
+      "file": "brand.spec.ts",
+      "title": "BR-01 visitante encontra a área da marca sem acessar dados privados",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2648,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "title": "BR-01 visitante encontra a área da marca sem acessar dados privados",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1621,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "title": "BR-02 contrato: criar, reler, editar e cancelar sem simular aprovação",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3191,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "title": "BR-02 contrato: criar, reler, editar e cancelar sem simular aprovação",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2722,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "title": "BR-03 falha de consulta ou gravação não confirma cadastro ou edição",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 9276,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "title": "BR-03 falha de consulta ou gravação não confirma cadastro ou edição",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8847,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "title": "BR-04 membro não edita organização alheia nem ganha acesso por metadata",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 973,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "title": "BR-04 membro não edita organização alheia nem ganha acesso por metadata",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 856,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "title": "BR-05 saída em outra aba impede retorno tardio de dados privados",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2113,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "brand.spec.ts",
+      "title": "BR-05 saída em outra aba impede retorno tardio de dados privados",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1702,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "creator-shop.spec.ts",
+      "title": "SHOP-01 contrato: perfil com foto, redes sociais, produto, seção e post persistem",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 6089,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "creator-shop.spec.ts",
+      "title": "SHOP-01 contrato: perfil com foto, redes sociais, produto, seção e post persistem",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 5190,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "creator-shop.spec.ts",
+      "title": "SHOP-02 contrato: catálogo, duplicar/ocultar/ordenar seções e publicação explícita",
+      "project": "computador",
+      "status": "unexpected",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 2194,
+          "retry": 0,
+          "errors": [
+            "Error: expect(locator).toContainText(expected) failed\n\nLocator: getByRole('alert')\nExpected substring: \"pelo menos um produto\"\nError: strict mode violation: getByRole('alert') resolved to 2 elements:\n    1) <p role=\"alert\">Adicione pelo menos um produto ou post visível an…</p> aka getByText('Adicione pelo menos um')\n    2) <div role=\"alert\" aria-live=\"assertive\" id=\"__next-route-announcer__\"></div> aka locator('[id=\"__next-route-announcer__\"]')\n\nCall log:\n  - Expect \"toContainText\" getByRole('alert') with timeout 10000ms\n  - waiting for getByRole('alert')\n\n\n  52 |\n  53 | test('SHOP-02 contrato: catálogo, duplicar/ocultar/ordenar seções e publicação explícita',async({page})=>{\n> 54 |  const state=await setup(page);await fillProfile(page);await page.getByRole('button',{name:'Publicar loja',exact:true}).click();await page.getByRole('button',{name:'Confirmar publicação',exact:true}).click();await expect(page.getByRole('alert')).toContainText('pelo menos um produto');\n     |                                                                                                                                                                                                                                                       ^\n  55 |  await page.getByRole('button',{name:'Produtos',exact:true}).click();await page.getByText('Adicionar do catálogo demonstrativo',{exact:true}).click();await page.getByRole('button',{name:'Adicionar Bolsa Oliva à loja',exact:true}).click();await saved(page);\n  56 |  await page.getByRole('button',{name:'Coleções e seções',exact:true}).click();await page.getByRole('button',{name:'Adicionar seção / coleção',exact:true}).click();await page.getByLabel('Nome da seção',{exact:true}).fill('Favoritos');await page.getByRole('group',{name:'Produtos desta seção',exact:true}).getByLabel('Bolsa Oliva',{exact:true}).check();await page.getByRole('button',{name:'Salvar seção',exact:true}).click();await saved(page);\n  57 |  await page.getByRole('button',{name:'Duplicar seção Favoritos',exact:true}).click();await saved(page);expect(state.row?.document.collections).toHaveLength(2);await page.getByRole('button',{name:'Subir seção Favoritos (cópia)',exact:true}).click();await saved(page);expect(state.row?.document.collections[0].title).toBe('Favoritos (cópia)');await page.getByRole('button',{name:'Ocultar seção Favoritos',exact:true}).click();await saved(page);expect(state.row?.document.collections[1].visible).toBe(false);\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\creator-shop.spec.ts:54:247"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "creator-shop.spec.ts",
+      "title": "SHOP-02 contrato: catálogo, duplicar/ocultar/ordenar seções e publicação explícita",
+      "project": "celular",
+      "status": "unexpected",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 1668,
+          "retry": 0,
+          "errors": [
+            "Error: expect(locator).toContainText(expected) failed\n\nLocator: getByRole('alert')\nExpected substring: \"pelo menos um produto\"\nError: strict mode violation: getByRole('alert') resolved to 2 elements:\n    1) <p role=\"alert\">Adicione pelo menos um produto ou post visível an…</p> aka getByText('Adicione pelo menos um')\n    2) <div role=\"alert\" aria-live=\"assertive\" id=\"__next-route-announcer__\"></div> aka locator('[id=\"__next-route-announcer__\"]')\n\nCall log:\n  - Expect \"toContainText\" getByRole('alert') with timeout 10000ms\n  - waiting for getByRole('alert')\n\n\n  52 |\n  53 | test('SHOP-02 contrato: catálogo, duplicar/ocultar/ordenar seções e publicação explícita',async({page})=>{\n> 54 |  const state=await setup(page);await fillProfile(page);await page.getByRole('button',{name:'Publicar loja',exact:true}).click();await page.getByRole('button',{name:'Confirmar publicação',exact:true}).click();await expect(page.getByRole('alert')).toContainText('pelo menos um produto');\n     |                                                                                                                                                                                                                                                       ^\n  55 |  await page.getByRole('button',{name:'Produtos',exact:true}).click();await page.getByText('Adicionar do catálogo demonstrativo',{exact:true}).click();await page.getByRole('button',{name:'Adicionar Bolsa Oliva à loja',exact:true}).click();await saved(page);\n  56 |  await page.getByRole('button',{name:'Coleções e seções',exact:true}).click();await page.getByRole('button',{name:'Adicionar seção / coleção',exact:true}).click();await page.getByLabel('Nome da seção',{exact:true}).fill('Favoritos');await page.getByRole('group',{name:'Produtos desta seção',exact:true}).getByLabel('Bolsa Oliva',{exact:true}).check();await page.getByRole('button',{name:'Salvar seção',exact:true}).click();await saved(page);\n  57 |  await page.getByRole('button',{name:'Duplicar seção Favoritos',exact:true}).click();await saved(page);expect(state.row?.document.collections).toHaveLength(2);await page.getByRole('button',{name:'Subir seção Favoritos (cópia)',exact:true}).click();await saved(page);expect(state.row?.document.collections[0].title).toBe('Favoritos (cópia)');await page.getByRole('button',{name:'Ocultar seção Favoritos',exact:true}).click();await saved(page);expect(state.row?.document.collections[1].visible).toBe(false);\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\creator-shop.spec.ts:54:247"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "creator-shop.spec.ts",
+      "title": "SHOP-03 contrato: resposta perdida, conflito, campos preservados e URL insegura",
+      "project": "computador",
+      "status": "unexpected",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 2260,
+          "retry": 0,
+          "errors": [
+            "Error: expect(locator).toContainText(expected) failed\n\nLocator: getByRole('alert')\nExpected substring: \"HTTPS\"\nError: strict mode violation: getByRole('alert') resolved to 2 elements:\n    1) <p role=\"alert\">Informe o nome da rede social e um link HTTPS vál…</p> aka getByText('Informe o nome da rede social')\n    2) <div role=\"alert\" aria-live=\"assertive\" id=\"__next-route-announcer__\"></div> aka locator('[id=\"__next-route-announcer__\"]')\n\nCall log:\n  - Expect \"toContainText\" getByRole('alert') with timeout 10000ms\n  - waiting for getByRole('alert')\n\n\n  61 |\n  62 | test('SHOP-03 contrato: resposta perdida, conflito, campos preservados e URL insegura',async({page})=>{\n> 63 |  const state=await setup(page);await fillProfile(page);await page.getByLabel('Link da rede 1',{exact:true}).fill('javascript:alert(1)');await page.getByRole('button',{name:'Salvar perfil da loja',exact:true}).click();await expect(page.getByRole('alert')).toContainText('HTTPS');expect(state.requests).toHaveLength(0);await page.getByLabel('Link da rede 1',{exact:true}).fill('https://www.instagram.com/creator');\n     |                                                                                                                                                                                                                                                                ^\n  64 |  state.loseResponse=true;await page.getByRole('button',{name:'Salvar perfil da loja',exact:true}).click();await expect(page.getByRole('alert')).toContainText('Não foi possível confirmar');await expect(page.getByLabel('Bio pública',{exact:true})).toHaveValue('Minhas recomendações pessoais');await page.getByRole('button',{name:'Salvar perfil da loja',exact:true}).click();await saved(page);expect(state.requests[0].p_request).toBe(state.requests[1].p_request);expect(state.row?.revision).toBe(1);\n  65 |  state.conflict=true;await page.getByLabel('Bio pública',{exact:true}).fill('Minha alteração pendente');await page.getByRole('button',{name:'Salvar perfil da loja',exact:true}).click();await expect(page.getByRole('alert')).toContainText('outra sessão');await expect(page.getByLabel('Bio pública',{exact:true})).toHaveValue('Minha alteração pendente');\n  66 | });\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\creator-shop.spec.ts:63:256"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "creator-shop.spec.ts",
+      "title": "SHOP-03 contrato: resposta perdida, conflito, campos preservados e URL insegura",
+      "project": "celular",
+      "status": "unexpected",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 2227,
+          "retry": 0,
+          "errors": [
+            "Error: expect(locator).toContainText(expected) failed\n\nLocator: getByRole('alert')\nExpected substring: \"HTTPS\"\nError: strict mode violation: getByRole('alert') resolved to 2 elements:\n    1) <p role=\"alert\">Informe o nome da rede social e um link HTTPS vál…</p> aka getByText('Informe o nome da rede social')\n    2) <div role=\"alert\" aria-live=\"assertive\" id=\"__next-route-announcer__\"></div> aka locator('[id=\"__next-route-announcer__\"]')\n\nCall log:\n  - Expect \"toContainText\" getByRole('alert') with timeout 10000ms\n  - waiting for getByRole('alert')\n\n\n  61 |\n  62 | test('SHOP-03 contrato: resposta perdida, conflito, campos preservados e URL insegura',async({page})=>{\n> 63 |  const state=await setup(page);await fillProfile(page);await page.getByLabel('Link da rede 1',{exact:true}).fill('javascript:alert(1)');await page.getByRole('button',{name:'Salvar perfil da loja',exact:true}).click();await expect(page.getByRole('alert')).toContainText('HTTPS');expect(state.requests).toHaveLength(0);await page.getByLabel('Link da rede 1',{exact:true}).fill('https://www.instagram.com/creator');\n     |                                                                                                                                                                                                                                                                ^\n  64 |  state.loseResponse=true;await page.getByRole('button',{name:'Salvar perfil da loja',exact:true}).click();await expect(page.getByRole('alert')).toContainText('Não foi possível confirmar');await expect(page.getByLabel('Bio pública',{exact:true})).toHaveValue('Minhas recomendações pessoais');await page.getByRole('button',{name:'Salvar perfil da loja',exact:true}).click();await saved(page);expect(state.requests[0].p_request).toBe(state.requests[1].p_request);expect(state.row?.revision).toBe(1);\n  65 |  state.conflict=true;await page.getByLabel('Bio pública',{exact:true}).fill('Minha alteração pendente');await page.getByRole('button',{name:'Salvar perfil da loja',exact:true}).click();await expect(page.getByRole('alert')).toContainText('outra sessão');await expect(page.getByLabel('Bio pública',{exact:true})).toHaveValue('Minha alteração pendente');\n  66 | });\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\creator-shop.spec.ts:63:256"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "creator-shop.spec.ts",
+      "title": "SHOP-04 backend real: loja pública demonstrativa, redes abaixo do CTA e acesso pelo painel",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 10120,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "creator-shop.spec.ts",
+      "title": "SHOP-04 backend real: loja pública demonstrativa, redes abaixo do CTA e acesso pelo painel",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8701,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "creator-shop.spec.ts",
+      "title": "SHOP-05 contrato: marca envia/remove foto e membro permanece somente leitura",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2449,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "creator-shop.spec.ts",
+      "title": "SHOP-05 contrato: marca envia/remove foto e membro permanece somente leitura",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2868,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "creator-shop.spec.ts",
+      "title": "SHOP-06 saída em outra aba descarta resposta privada pendente",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1851,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "creator-shop.spec.ts",
+      "title": "SHOP-06 saída em outra aba descarta resposta privada pendente",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1823,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "title": "ONB-01 cadastro confirma envio sem inventar sessão e valida senha",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1141,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "title": "ONB-01 cadastro confirma envio sem inventar sessão e valida senha",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1296,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "title": "ONB-02 recuperação trata falha e resposta sem revelar existência da conta",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1233,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "title": "ONB-02 recuperação trata falha e resposta sem revelar existência da conta",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1135,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "title": "ONB-03 link de recuperação permite trocar senha após sessão verificada",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1310,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "title": "ONB-03 link de recuperação permite trocar senha após sessão verificada",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1087,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "title": "ONB-04 link expirado não libera formulário de nova senha",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 938,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "title": "ONB-04 link expirado não libera formulário de nova senha",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 903,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "title": "ONB-05 visitante precisa entrar para configurar perfil",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 790,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "title": "ONB-05 visitante precisa entrar para configurar perfil",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 791,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "title": "ONB-06 contrato simulado: UGC sem seguidores, reload, atuação híbrida e erro de gravação",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2801,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "title": "ONB-06 contrato simulado: UGC sem seguidores, reload, atuação híbrida e erro de gravação",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2943,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "title": "ONB-07 troca de conta em outra aba (normal) remove o perfil anterior",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2382,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "title": "ONB-07 troca de conta em outra aba (normal) remove o perfil anterior",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2090,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "title": "ONB-08 troca de conta em outra aba (without-broadcast) remove o perfil anterior",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2354,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "title": "ONB-08 troca de conta em outra aba (without-broadcast) remove o perfil anterior",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2086,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "title": "ONB-09 troca de conta em outra aba (delayed-storage) remove o perfil anterior",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2384,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "onboarding.spec.ts",
+      "title": "ONB-09 troca de conta em outra aba (delayed-storage) remove o perfil anterior",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2050,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

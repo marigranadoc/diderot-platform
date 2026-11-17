@@ -1,0 +1,918 @@
+{
+  "date": "2026-11-14",
+  "scope": "SHOP/HOME/DS/EXP/AUD/BR/ONB; exclui @pendente",
+  "stats": {
+    "startTime": "2026-11-14T22:34:25.134Z",
+    "duration": 404874.354,
+    "expected": 81,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "cases": [
+    {
+      "title": "AUD-01 todas as rotas, âncoras, fotografias e recuperação de erro",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 19764
+        }
+      ]
+    },
+    {
+      "title": "AUD-01 todas as rotas, âncoras, fotografias e recuperação de erro",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 32460
+        }
+      ]
+    },
+    {
+      "title": "AUD-02 disponibilidade deve revelar informação, não apenas mudar o hash",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4781
+        }
+      ]
+    },
+    {
+      "title": "AUD-02 disponibilidade deve revelar informação, não apenas mudar o hash",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7159
+        }
+      ]
+    },
+    {
+      "title": "AUD-03 filtros, preços completos, remoção de favorito e isolamento da coleção",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3800
+        }
+      ]
+    },
+    {
+      "title": "AUD-03 filtros, preços completos, remoção de favorito e isolamento da coleção",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 8488
+        }
+      ]
+    },
+    {
+      "title": "AUD-04 busca tolera espaços, maiúsculas e acentos",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1266
+        }
+      ]
+    },
+    {
+      "title": "AUD-04 busca tolera espaços, maiúsculas e acentos",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3800
+        }
+      ]
+    },
+    {
+      "title": "AUD-05 celular estreito, tablet e teclado nos controles principais",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6780
+        }
+      ]
+    },
+    {
+      "title": "AUD-05 celular estreito, tablet e teclado nos controles principais",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 14701
+        }
+      ]
+    },
+    {
+      "title": "GAP-01 resolvido: shopper mantém favorito depois de recarregar",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1448
+        }
+      ]
+    },
+    {
+      "title": "GAP-01 resolvido: shopper mantém favorito depois de recarregar",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3037
+        }
+      ]
+    },
+    {
+      "title": "BR-01 visitante encontra a área da marca sem acessar dados privados",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1609
+        }
+      ]
+    },
+    {
+      "title": "BR-01 visitante encontra a área da marca sem acessar dados privados",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2772
+        }
+      ]
+    },
+    {
+      "title": "BR-02 contrato: criar, reler, editar e cancelar sem simular aprovação",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4364
+        }
+      ]
+    },
+    {
+      "title": "BR-02 contrato: criar, reler, editar e cancelar sem simular aprovação",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5523
+        }
+      ]
+    },
+    {
+      "title": "BR-03 falha de consulta ou gravação não confirma cadastro ou edição",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 9122
+        }
+      ]
+    },
+    {
+      "title": "BR-03 falha de consulta ou gravação não confirma cadastro ou edição",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 10155
+        }
+      ]
+    },
+    {
+      "title": "BR-04 membro não edita organização alheia nem ganha acesso por metadata",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 789
+        }
+      ]
+    },
+    {
+      "title": "BR-04 membro não edita organização alheia nem ganha acesso por metadata",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1301
+        }
+      ]
+    },
+    {
+      "title": "BR-05 saída em outra aba impede retorno tardio de dados privados",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1853
+        }
+      ]
+    },
+    {
+      "title": "BR-05 saída em outra aba impede retorno tardio de dados privados",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3907
+        }
+      ]
+    },
+    {
+      "title": "SHOP-01 contrato: perfil com foto, redes sociais, produto, seção e post persistem",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7174
+        }
+      ]
+    },
+    {
+      "title": "SHOP-01 contrato: perfil com foto, redes sociais, produto, seção e post persistem",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 8890
+        }
+      ]
+    },
+    {
+      "title": "SHOP-02 contrato: catálogo, duplicar/ocultar/ordenar seções e publicação explícita",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4844
+        }
+      ]
+    },
+    {
+      "title": "SHOP-02 contrato: catálogo, duplicar/ocultar/ordenar seções e publicação explícita",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4571
+        }
+      ]
+    },
+    {
+      "title": "SHOP-03 contrato: resposta perdida, conflito, campos preservados e URL insegura",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2139
+        }
+      ]
+    },
+    {
+      "title": "SHOP-03 contrato: resposta perdida, conflito, campos preservados e URL insegura",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5415
+        }
+      ]
+    },
+    {
+      "title": "SHOP-04 backend real: loja pública demonstrativa, redes abaixo do CTA e acesso pelo painel",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 10776
+        }
+      ]
+    },
+    {
+      "title": "SHOP-04 backend real: loja pública demonstrativa, redes abaixo do CTA e acesso pelo painel",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 12019
+        }
+      ]
+    },
+    {
+      "title": "SHOP-05 contrato: marca envia/remove foto e membro permanece somente leitura",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2933
+        }
+      ]
+    },
+    {
+      "title": "SHOP-05 contrato: marca envia/remove foto e membro permanece somente leitura",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4544
+        }
+      ]
+    },
+    {
+      "title": "SHOP-06 saída em outra aba descarta resposta privada pendente",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2275
+        }
+      ]
+    },
+    {
+      "title": "SHOP-06 saída em outra aba descarta resposta privada pendente",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2650
+        }
+      ]
+    },
+    {
+      "title": "SHOP-07 loja pública: cards compactos, busca, ordenação e favorito de visitante persistente",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7032
+        }
+      ]
+    },
+    {
+      "title": "SHOP-07 loja pública: cards compactos, busca, ordenação e favorito de visitante persistente",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5095
+        }
+      ]
+    },
+    {
+      "title": "DS-01 tokens e componentes globais seguem a referência fornecida",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1097
+        }
+      ]
+    },
+    {
+      "title": "DS-01 tokens e componentes globais seguem a referência fornecida",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 851
+        }
+      ]
+    },
+    {
+      "title": "DS-02 catálogo e detalhe usam fotografias locais carregadas",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1646
+        }
+      ]
+    },
+    {
+      "title": "DS-02 catálogo e detalhe usam fotografias locais carregadas",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2157
+        }
+      ]
+    },
+    {
+      "title": "DS-03 composição responsiva mantém cabeçalho, hero e formulários acessíveis",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5067
+        }
+      ]
+    },
+    {
+      "title": "DS-03 composição responsiva mantém cabeçalho, hero e formulários acessíveis",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3189
+        }
+      ]
+    },
+    {
+      "title": "EXP-01 shopper: escolha, perfil, revisão e destino corretos",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1688
+        }
+      ]
+    },
+    {
+      "title": "EXP-01 shopper: escolha, perfil, revisão e destino corretos",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1796
+        }
+      ]
+    },
+    {
+      "title": "EXP-01 creator: escolha, perfil, revisão e destino corretos",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2166
+        }
+      ]
+    },
+    {
+      "title": "EXP-01 creator: escolha, perfil, revisão e destino corretos",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2638
+        }
+      ]
+    },
+    {
+      "title": "EXP-01 brand: escolha, perfil, revisão e destino corretos",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1791
+        }
+      ]
+    },
+    {
+      "title": "EXP-01 brand: escolha, perfil, revisão e destino corretos",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3456
+        }
+      ]
+    },
+    {
+      "title": "EXP-02 erro ao salvar ou reler preserva a revisão sem falso sucesso",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 9557
+        }
+      ]
+    },
+    {
+      "title": "EXP-02 erro ao salvar ou reler preserva a revisão sem falso sucesso",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 10037
+        }
+      ]
+    },
+    {
+      "title": "EXP-03 cadastro envia o tipo escolhido e explica a confirmação de e-mail",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1295
+        }
+      ]
+    },
+    {
+      "title": "EXP-03 cadastro envia o tipo escolhido e explica a confirmação de e-mail",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1402
+        }
+      ]
+    },
+    {
+      "title": "EXP-04 visitantes encontram os três caminhos e os briefings fictícios",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2516
+        }
+      ]
+    },
+    {
+      "title": "EXP-04 visitantes encontram os três caminhos e os briefings fictícios",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1966
+        }
+      ]
+    },
+    {
+      "title": "EXP-05 API demonstrativa rejeita origem externa e tipo inexistente",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 98
+        }
+      ]
+    },
+    {
+      "title": "EXP-05 API demonstrativa rejeita origem externa e tipo inexistente",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 79
+        }
+      ]
+    },
+    {
+      "title": "EXP-06 backend real: alternar shopper, creator e marca com os dados fictícios",
+      "project": "computador",
+      "status": "unexpected",
+      "results": [
+        {
+          "status": "failed",
+          "duration": 11477,
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/painel\\/shopper$/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:3101/demo\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 10000ms\u001b[22m\n\u001b[2m    23 × locator resolved to <html lang=\"pt-BR\" data-scroll-behavior=\"smooth\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:3101/demo\"\u001b[22m\n"
+        }
+      ]
+    },
+    {
+      "title": "EXP-06 backend real: alternar shopper, creator e marca com os dados fictícios",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 12201
+        }
+      ]
+    },
+    {
+      "title": "HOME-01 estrutura editorial, fotografias e fonte Reckless",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 8407
+        }
+      ]
+    },
+    {
+      "title": "HOME-01 estrutura editorial, fotografias e fonte Reckless",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6314
+        }
+      ]
+    },
+    {
+      "title": "HOME-02 categorias, marcas e busca abrem resultados reais",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3453
+        }
+      ]
+    },
+    {
+      "title": "HOME-02 categorias, marcas e busca abrem resultados reais",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3318
+        }
+      ]
+    },
+    {
+      "title": "HOME-03 menu funciona com teclado e mantém foco no celular",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1590
+        }
+      ]
+    },
+    {
+      "title": "HOME-03 menu funciona com teclado e mantém foco no celular",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2147
+        }
+      ]
+    },
+    {
+      "title": "ONB-01 cadastro confirma envio sem inventar sessão e valida senha",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1547
+        }
+      ]
+    },
+    {
+      "title": "ONB-01 cadastro confirma envio sem inventar sessão e valida senha",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1908
+        }
+      ]
+    },
+    {
+      "title": "ONB-02 recuperação trata falha e resposta sem revelar existência da conta",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1975
+        }
+      ]
+    },
+    {
+      "title": "ONB-02 recuperação trata falha e resposta sem revelar existência da conta",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1346
+        }
+      ]
+    },
+    {
+      "title": "ONB-03 link de recuperação permite trocar senha após sessão verificada",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1893
+        }
+      ]
+    },
+    {
+      "title": "ONB-03 link de recuperação permite trocar senha após sessão verificada",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1055
+        }
+      ]
+    },
+    {
+      "title": "ONB-04 link expirado não libera formulário de nova senha",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1639
+        }
+      ]
+    },
+    {
+      "title": "ONB-04 link expirado não libera formulário de nova senha",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 977
+        }
+      ]
+    },
+    {
+      "title": "ONB-05 visitante precisa entrar para configurar perfil",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1325
+        }
+      ]
+    },
+    {
+      "title": "ONB-05 visitante precisa entrar para configurar perfil",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1150
+        }
+      ]
+    },
+    {
+      "title": "ONB-06 contrato simulado: UGC sem seguidores, reload, atuação híbrida e erro de gravação",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6102
+        }
+      ]
+    },
+    {
+      "title": "ONB-06 contrato simulado: UGC sem seguidores, reload, atuação híbrida e erro de gravação",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4330
+        }
+      ]
+    },
+    {
+      "title": "ONB-07 troca de conta em outra aba (normal) remove o perfil anterior",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4342
+        }
+      ]
+    },
+    {
+      "title": "ONB-07 troca de conta em outra aba (normal) remove o perfil anterior",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2348
+        }
+      ]
+    },
+    {
+      "title": "ONB-08 troca de conta em outra aba (without-broadcast) remove o perfil anterior",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5239
+        }
+      ]
+    },
+    {
+      "title": "ONB-08 troca de conta em outra aba (without-broadcast) remove o perfil anterior",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2177
+        }
+      ]
+    },
+    {
+      "title": "ONB-09 troca de conta em outra aba (delayed-storage) remove o perfil anterior",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 9216
+        }
+      ]
+    },
+    {
+      "title": "ONB-09 troca de conta em outra aba (delayed-storage) remove o perfil anterior",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2305
+        }
+      ]
+    }
+  ],
+  "limits": "Contratos simulados; SHOP-04/07 e EXP-06 usam leituras/autenticação reais. Sem operações financeiras. Nenhuma auditoria integral reivindicada."
+}

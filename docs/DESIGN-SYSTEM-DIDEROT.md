@@ -26,3 +26,7 @@ Há uma criadora fictícia, oito produtos e quatro marcas demonstrativas. O mosa
 Build de produção aprovado. Testes DS cobrem tokens, fotos e responsividade; testes HOME cobrem sequência, contagens, carregamento, busca/filtros reais e teclado. Auditoria existente verifica rotas, erros, produtos, coleções e fluxos de conta com contratos simulados. A execução anterior do design system registrou 56 aprovados e seis falhas conhecidas de visitante/marca/admin; resultado final desta home registrado em PROGRESSO-DIDEROT.md e nas evidências.
 
 Resultado registrado: auditoria integral 62/68, com seis falhas conhecidas (visitante, marca/admin nos dois tamanhos). Depois do último ajuste exclusivo do cabeçalho, build e 12/12 testes direcionados aprovados. Evidências: `evidencias/auditoria-home-final.json` e `evidencias/home-revalidada.json`. Não combinar essas execuções como uma única aprovação integral.
+
+## Revisão de apresentação — 14/11/2026
+
+A loja pública usa ícones SVG monocromáticos das redes sociais, com área de toque 44×44 e nome acessível. Perfis sem foto recebem silhueta neutra em círculo; não se exibe o texto Sem foto. Produtos mantêm os cards compactos do catálogo original, fotografia 4:5, grade de quatro colunas no desktop e duas no celular. Os rótulos de demonstração foram retirados da interface; as limitações acima descrevem a proveniência interna e pendências históricas, sem representar uma validação comercial do catálogo. Avisos de contas compartilhadas e ações indisponíveis permanecem objetivos.

@@ -1,4 +1,5 @@
 'use client';
+import {displayRecord} from '../lib/presentation';
 import {useEffect,useRef,useState,type FormEvent} from 'react';
 import Link from 'next/link';
 import {getBrowserClient} from '../lib/supabase-browser';
@@ -25,7 +26,7 @@ export default function CreatorPortfolio(){
    if(error||!data.user){setOwner(null);return;}
    const id=data.user.id;sessionOwner.current=id;setOwner(id);
    const [profile,services]=await Promise.all([db!.from('creator_profiles').select('user_id').eq('user_id',id).maybeSingle(),db!.from('creator_portfolio_items').select('id,title,description,item_type,category,participation,media_url').eq('user_id',id).order('created_at',{ascending:false})]);
-   if(generation.current!==token)return;if(profile.error||services.error)throw Error('Load failed');setHasProfile(!!profile.data);setItems(services.data);
+   if(generation.current!==token)return;if(profile.error||services.error)throw Error('Load failed');setHasProfile(!!profile.data);setItems(services.data.map(displayRecord));
   }catch{if(generation.current===token){setFailed(true);setMessage('Não foi possível carregar seu portfólio. Tente novamente.');}}
   finally{if(generation.current===token)setLoading(false);}}
   void load();return()=>{generation.current++;listener.subscription.unsubscribe();};

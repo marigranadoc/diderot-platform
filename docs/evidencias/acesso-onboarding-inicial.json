@@ -1,0 +1,278 @@
+{
+  "date": "2026-11-16",
+  "stats": {
+    "startTime": "2026-11-17T00:09:19.500Z",
+    "duration": 243412.77,
+    "expected": 24,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "cases": [
+    {
+      "title": "ACCESS-01 shopper: login abre o painel do cadastro salvo",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4167
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-01 shopper: login abre o painel do cadastro salvo",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4624
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-01 creator: login abre o painel do cadastro salvo",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3426
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-01 creator: login abre o painel do cadastro salvo",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5003
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-01 brand: login abre o painel do cadastro salvo",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2724
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-01 brand: login abre o painel do cadastro salvo",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5870
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-02 login sem perfil abre onboarding, sem assumir o papel preferido",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3082
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-02 login sem perfil abre onboarding, sem assumir o papel preferido",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7725
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-03 falha no perfil preserva sessão e permite abrir o espaço novamente",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 11698
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-03 falha no perfil preserva sessão e permite abrir o espaço novamente",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 19790
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-04 confirmação usa sessão verificada, ignora destino externo e remove parâmetros",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2004
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-04 confirmação usa sessão verificada, ignora destino externo e remove parâmetros",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7538
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-05 confirmação sem perfil abre onboarding; link inválido não simula confirmação",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3220
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-05 confirmação sem perfil abre onboarding; link inválido não simula confirmação",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 15137
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-06 retorno não aceita e-mail sem confirmação",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2187
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-06 retorno não aceita e-mail sem confirmação",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 19496
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-07 sessão encerrada durante a consulta não abre o painel anterior",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2672
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-07 sessão encerrada durante a consulta não abre o painel anterior",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 17659
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-08 demora na solicitação preserva conta anterior e habilita nova tentativa",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2542
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-08 demora na solicitação preserva conta anterior e habilita nova tentativa",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7716
+        }
+      ]
+    },
+    {
+      "title": "AUTH-01 acesso rejeitado apresenta erro sem simular login",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2383
+        }
+      ]
+    },
+    {
+      "title": "AUTH-01 acesso rejeitado apresenta erro sem simular login",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 10391
+        }
+      ]
+    },
+    {
+      "title": "AUTH-02 contrato simulado: login, favorito, reload, remoção e logout",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 13573
+        }
+      ]
+    },
+    {
+      "title": "AUTH-02 contrato simulado: login, favorito, reload, remoção e logout",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 37922
+        }
+      ]
+    }
+  ],
+  "limits": "Contratos simulados; sem envio real de e-mail. Rodada anterior ao reenvio pela tela de login e ACCESS-09."
+}

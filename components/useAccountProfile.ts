@@ -1,4 +1,5 @@
 'use client';
+import {displayRecord} from '../lib/presentation';
 import {useCallback,useEffect,useRef,useState} from 'react';
 import {getBrowserClient} from '../lib/supabase-browser';
 import {accountProfileColumns,isAccountType,type AccountProfile,type AccountType} from '../lib/account-types';
@@ -24,7 +25,7 @@ export function useAccountProfile(){
    if(current.error||current.data.session?.user.id!==auth.data.user.id)return;
    owner.current=auth.data.user.id;setUserId(auth.data.user.id);setHint(isAccountType(auth.data.user.user_metadata?.account_type)?auth.data.user.user_metadata.account_type:'shopper');
    const result=await db.from('account_profiles').select(accountProfileColumns).eq('user_id',auth.data.user.id).maybeSingle();if(generation.current!==token)return;
-   if(result.error||result.data&&!isAccountType(result.data.account_type))throw Error();setProfile(result.data as AccountProfile|null);
+   if(result.error||result.data&&!isAccountType(result.data.account_type))throw Error();setProfile(result.data?displayRecord(result.data as AccountProfile):null);
   }catch{if(generation.current===token)setError('Não foi possível carregar seu perfil. Tente novamente.');}
   finally{if(generation.current===token)setLoading(false);}}
   void load();return()=>{generation.current++;};

@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-17",
+  "stats": {
+    "startTime": "2026-11-17T12:06:07.792Z",
+    "duration": 8050.048999999999,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "scope": "ACCESS-09 desktop/celular; hash de confirmação processado pelo SDK com respostas simuladas de Auth, destino interno e URL sem tokens",
+  "limits": "Sem e-mail real enviado; não comprova SMTP."
+}

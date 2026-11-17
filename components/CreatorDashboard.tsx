@@ -1,4 +1,5 @@
 'use client';
+import {displayCopy} from '../lib/presentation';
 import {useEffect,useRef,useState} from 'react';
 import Link from 'next/link';
 import {getBrowserClient} from '../lib/supabase-browser';
@@ -28,7 +29,7 @@ export default function CreatorDashboard(){
    ]);
    if(generation.current!==token)return;
    if(profile.error||services.error||portfolio.error||services.count===null||portfolio.count===null)throw Error('Overview failed');
-   setOverview({name:profile.data?.professional_name??null,services:services.count,portfolio:portfolio.count});
+   setOverview({name:profile.data?.professional_name?displayCopy(profile.data.professional_name):null,services:services.count,portfolio:portfolio.count});
   }catch{if(generation.current===token){setOverview(null);setError('Não foi possível carregar seu painel. Tente novamente.');}}
   finally{if(generation.current===token)setLoading(false);}}
   void load();return()=>{generation.current++;listener.subscription.unsubscribe();};
@@ -36,10 +37,11 @@ export default function CreatorDashboard(){
  return <section className="creator-dashboard"><span className="eyebrow">SEU ESPAÇO DE CRIAÇÃO</span><h1>Painel do criador</h1>
  {loading?<p role="status">Carregando seu painel…</p>:error?<><p role="alert">{error}</p><button className="dark-button" onClick={()=>setRevision(n=>n+1)}>Tentar novamente</button></>:!signedIn?<><p>Entre para acessar seu perfil profissional, serviços e portfólio.</p><Link className="dark-button" href="/conta">Entrar na minha conta</Link><Link className="text-link" href="/cadastro">Criar conta</Link></>:overview?<>
  <p>{overview.name?`Olá, ${overview.name}. Organize aqui suas ofertas e seus trabalhos.`:'Comece configurando seu perfil de creator. UGC não exige seguidores.'}</p>
+ <article className="service-card"><span className="eyebrow">MINHA LOJA</span><h2>Sua curadoria, seu espaço</h2><p>Configure seu perfil público, sua foto, redes sociais, produtos, coleções e posts.</p><Link className="dark-button" href="/painel/criador/loja">Gerenciar minha loja</Link></article>
  <div className="creator-dashboard-grid"><article className="service-card"><span className="eyebrow">PERFIL</span><h2>{overview.name??'Seu perfil profissional'}</h2><p>{overview.name?'Seu perfil está salvo e privado.':'Escolha suas modalidades: UGC, influencer e afiliado na mesma conta.'}</p><Link className="dark-button" href="/conta/criador">{overview.name?'Editar perfil':'Configurar perfil'}</Link></article>
  <article className="service-card"><span className="eyebrow">SERVIÇOS</span><h2>{overview.services} {overview.services===1?'serviço cadastrado':'serviços cadastrados'}</h2><p>Organize suas ofertas com preço inicial ou sob orçamento.</p><Link className="dark-button" href="/conta/criador/servicos">Gerenciar serviços</Link></article>
  <article className="service-card"><span className="eyebrow">PORTFÓLIO</span><h2>{overview.portfolio} {overview.portfolio===1?'trabalho cadastrado':'trabalhos cadastrados'}</h2><p>Reúna links dos seus vídeos, fotografias e projetos.</p><Link className="dark-button" href="/conta/criador/portfolio">Gerenciar portfólio</Link></article></div>
-   <div className="campaign-actions"><Link className="dark-button" href="/explorar/campanhas">Explorar campanhas demonstrativas</Link><Link href="/conta/perfil">Meu cadastro e perfil</Link><Link href="/demo">Trocar conta demonstrativa</Link></div>
-   <p>Seu perfil, serviços e portfólio ficam privados nesta etapa. Publicação e contratações ainda não estão disponíveis; os briefings demonstrativos são fictícios e não recebem inscrições.</p>
+   <div className="campaign-actions"><Link className="dark-button" href="/explorar/campanhas">Explorar campanhas</Link><Link href="/conta/perfil">Meu cadastro e perfil</Link><Link href="/demo">Acessar outra conta</Link></div>
+   <p>Gerencie seu perfil profissional, serviços e portfólio. Para publicar sua curadoria, configure sua loja.</p>
  </>:null}<Link className="text-link" href="/conta">Minha conta e saída</Link></section>;
 }

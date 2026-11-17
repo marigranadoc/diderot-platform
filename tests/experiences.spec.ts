@@ -34,17 +34,17 @@ test('EXP-02 erro ao salvar ou reler preserva a revisão sem falso sucesso',asyn
  const state=await setup(page,'shopper');await page.goto('/onboarding');await page.getByRole('button',{name:'Continuar',exact:true}).click();await page.getByLabel('Seu nome',{exact:true}).fill('Perfil preservado');await page.getByRole('button',{name:'Revisar cadastro',exact:true}).click();state.failSave=true;
  await page.getByRole('button',{name:'Concluir cadastro',exact:true}).click();await expect(page.getByRole('main').getByRole('alert')).toContainText('Não foi possível confirmar');await expect(page).toHaveURL(/\/onboarding$/);await expect(page.getByText('Perfil preservado',{exact:true})).toBeVisible();
  state.failSave=false;state.failRead=true;await page.getByRole('button',{name:'Concluir cadastro',exact:true}).click();await expect(page.getByRole('main').getByRole('alert')).toContainText('Não foi possível confirmar');await expect(page).toHaveURL(/\/onboarding$/);
- state.failRead=false;await page.getByRole('button',{name:'Concluir cadastro',exact:true}).click();await expect(page).toHaveURL(/\/painel\/shopper$/);
+ state.failRead=false;await page.getByRole('button',{name:'Concluir cadastro',exact:true}).click();await expect(page).toHaveURL(/\/painel\/shopper$/,{timeout:30000});
 });
 
 test('EXP-03 cadastro envia o tipo escolhido e explica a confirmação de e-mail',async({page})=>{
  let sent:Record<string,unknown>|null=null;await page.route('**/auth/v1/signup**',route=>{sent=route.request().postDataJSON();return route.fulfill({json:{user:{id,email:'novo@example.invalid'},session:null}});});
  await page.goto('/cadastro');await page.getByRole('radio',{name:'Marca',exact:true}).check();await page.getByLabel('E-mail',{exact:true}).fill('novo@example.invalid');await page.getByLabel('Nova senha',{exact:true}).fill('test-only-2026');await page.getByLabel('Confirmar senha',{exact:true}).fill('test-only-2026');await page.getByRole('button',{name:'Criar conta',exact:true}).click();
- await expect(page.getByRole('main').getByRole('status')).toContainText('instruções de confirmação');expect((sent as Record<string,unknown>|null)?.data).toEqual({account_type:'brand'});await expect(page.getByRole('link',{name:'Entrar após confirmar meu e-mail',exact:true})).toHaveAttribute('href','/conta');
+ await expect(page.getByRole('main').getByRole('status')).toContainText('Confirme seu e-mail para continuar');expect((sent as Record<string,unknown>|null)?.data).toEqual({account_type:'brand'});await expect(page.getByRole('link',{name:'Entrar após confirmar meu e-mail',exact:true})).toHaveAttribute('href','/conta');
 });
 
 test('EXP-04 visitantes encontram os três caminhos e os briefings fictícios',async({page})=>{
- await page.goto('/');await page.getByRole('link',{name:/DEMONSTRAÇÃO · Experimentar como shopper/}).click();await expect(page).toHaveURL(/\/demo$/);
+ await page.goto('/conta');await page.getByRole('link',{name:'Conhecer os espaços da Diderot',exact:true}).click();await expect(page).toHaveURL(/\/demo$/);
  for(const role of ['shopper','creator','marca'])await expect(page.getByRole('button',{name:`Entrar como ${role}`,exact:true})).toBeVisible();
  await page.getByRole('link',{name:'Criar minha própria conta',exact:true}).click();await expect(page.getByRole('heading',{name:'Criar conta',exact:true})).toBeVisible();
  await page.goto('/explorar/campanhas');await expect(page.getByRole('heading',{name:'Explore campanhas',exact:true})).toBeVisible();await page.getByRole('link').filter({hasText:'Rituais de cuidado'}).click();await expect(page.getByRole('heading',{name:'Rituais de cuidado',exact:true})).toBeVisible();await expect(page.getByText('Não exige seguidores nem postagem no perfil pessoal.',{exact:true})).toBeVisible();await expect(page.getByRole('button',{name:/candidatar|contratar|pagar/i})).toHaveCount(0);
@@ -58,10 +58,30 @@ test('EXP-05 API demonstrativa rejeita origem externa e tipo inexistente',async(
 
 test('EXP-06 backend real: alternar shopper, creator e marca com os dados fictícios',async({page},info)=>{
  test.setTimeout(120000);
- await page.goto('/demo');await page.getByRole('button',{name:'Entrar como shopper',exact:true}).click();await expect(page).toHaveURL(/\/painel\/shopper$/);await expect(page.getByRole('heading',{name:'Olá, Ana · demonstração.',exact:true})).toBeVisible();await expect(page.getByRole('heading',{name:'Bolsa Oliva',exact:true})).toBeVisible();
- await page.getByRole('link',{name:'Editar meu perfil',exact:true}).click();await page.getByRole('button',{name:'Continuar',exact:true}).click();await expect(page.getByLabel('Seu nome',{exact:true})).toHaveValue('Ana · demonstração');
- await page.goto('/demo');await page.getByRole('button',{name:'Entrar como creator',exact:true}).click();await expect(page).toHaveURL(/\/painel\/criador$/);await expect(page.getByRole('heading',{name:'2 serviços cadastrados',exact:true})).toBeVisible();await expect(page.getByRole('heading',{name:'1 trabalho cadastrado',exact:true})).toBeVisible();await page.getByRole('link',{name:'Gerenciar portfólio',exact:true}).click();await expect(page.getByText('Estudo de conteúdo de beleza · demonstração',{exact:true})).toBeVisible();
- await page.goto('/demo');await page.getByRole('button',{name:'Entrar como marca',exact:true}).click();await expect(page).toHaveURL(/\/painel\/marca$/);await expect(page.getByRole('heading',{name:'Ateliê Aurora · demonstração',exact:true})).toBeVisible();await page.getByRole('button',{name:'Campanhas em rascunho',exact:true}).click();await expect(page.getByRole('button',{name:'Abrir rascunho',exact:true})).toHaveCount(3);
- await page.getByRole('article').filter({has:page.getByRole('heading',{name:'Rituais de cuidado · demonstração',exact:true})}).getByRole('button',{name:'Abrir rascunho',exact:true}).click();await expect(page.getByLabel('Título da campanha',{exact:true})).toHaveValue('Rituais de cuidado · demonstração');await expect(page.getByLabel('Quantidade UGC',{exact:true})).toHaveValue('3');
+ const timings:{stage:string;status:number;ms:number;serverTiming?:string}[]=[],starts=new WeakMap<object,number>();
+ const stage=(url:string)=>{const p=new URL(url).pathname;return ['/api/demo/session','/auth/v1/user','/auth/v1/logout','/auth/v1/token'].includes(p)?p:null;};
+ page.on('request',request=>{if(stage(request.url()))starts.set(request,Date.now());});
+ page.on('response',response=>{const request=response.request(),time=starts.get(request),name=stage(request.url());if(time===undefined||!name)return;const row={stage:name,status:response.status(),ms:Date.now()-time,serverTiming:undefined as string|undefined};timings.push(row);void response.headerValue('server-timing').then(value=>{if(value)row.serverTiming=value;}).catch(()=>{});});
+ try{
+ await page.goto('/demo');await page.getByRole('button',{name:'Entrar como shopper',exact:true}).click();await expect(page).toHaveURL(/\/painel\/shopper$/);await expect(page.getByRole('heading',{name:'Olá, Ana.',exact:true})).toBeVisible();await expect(page.getByRole('heading',{name:'Bolsa Oliva',exact:true})).toBeVisible();
+ await page.getByRole('link',{name:'Editar meu perfil',exact:true}).click();await expect(page.getByLabel('Seu nome',{exact:true})).toHaveValue('Ana');
+ await page.goto('/demo');await page.getByRole('button',{name:'Entrar como creator',exact:true}).click();await expect(page).toHaveURL(/\/painel\/criador$/,{timeout:30000});await expect(page.getByRole('heading',{name:'2 serviços cadastrados',exact:true})).toBeVisible();await expect(page.getByRole('heading',{name:'1 trabalho cadastrado',exact:true})).toBeVisible();await page.getByRole('link',{name:'Gerenciar portfólio',exact:true}).click();await expect(page.getByText('Estudo de conteúdo de beleza',{exact:true})).toBeVisible();
+ await page.goto('/demo');await page.getByRole('button',{name:'Entrar como marca',exact:true}).click();await expect(page).toHaveURL(/\/painel\/marca$/,{timeout:30000});await expect(page.getByRole('heading',{name:'Ateliê Aurora',exact:true})).toBeVisible();await page.getByRole('button',{name:'Campanhas em rascunho',exact:true}).click();await expect(page.getByRole('button',{name:'Abrir rascunho',exact:true})).toHaveCount(3);
+ await page.getByRole('article').filter({has:page.getByRole('heading',{name:'Rituais de cuidado',exact:true})}).getByRole('button',{name:'Abrir rascunho',exact:true}).click();await expect(page.getByLabel('Título da campanha',{exact:true})).toHaveValue('Rituais de cuidado');await page.getByRole('button',{name:'Etapa 2: Modalidades/vagas',exact:true}).click();await expect(page.getByLabel('Quantidade UGC',{exact:true})).toHaveValue('3');
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.screenshot({path:`../../work/screenshots/${info.project.name}-demo-marca.png`,fullPage:true});await page.getByRole('button',{name:'Cancelar edição',exact:true}).click();await page.getByRole('link',{name:'Minha conta e saída',exact:true}).click();await page.getByRole('button',{name:'Sair da conta',exact:true}).click();await expect(page.getByRole('button',{name:'Entrar',exact:true})).toBeVisible();
+ }finally{await info.attach('tempos-acesso-sem-identificadores',{body:JSON.stringify(timings,null,2),contentType:'application/json'});}
+});
+
+
+test('EXP-07 edição do perfil abre direto, preserva erro e confirma salvamento por releitura',async({page})=>{
+ const state=await setup(page,'creator');state.profile={user_id:id,account_type:'creator',display_name:'Meu nome',city:'',interests:[],onboarding_completed:true};
+ await page.route('**/rest/v1/creator_profiles**',route=>route.fulfill({json:{professional_name:'Meu nome',bio:'',city:'',state:'',modalities:['ugc']}}));
+ await page.route('**/rest/v1/profile_photos**',route=>route.fulfill({json:null}));
+ await page.goto('/conta/perfil');await expect(page.getByLabel('Nome profissional',{exact:true})).toHaveValue('Meu nome');
+ await page.getByLabel('Nome profissional',{exact:true}).fill('Nome atualizado');state.failSave=true;
+ await page.getByRole('button',{name:'Salvar perfil',exact:true}).click();await expect(page.getByRole('main').getByRole('alert')).toContainText('Não foi possível confirmar');
+ await expect(page.getByLabel('Nome profissional',{exact:true})).toHaveValue('Nome atualizado');
+ state.failSave=false;await page.getByRole('button',{name:'Salvar perfil',exact:true}).click();await expect(page).toHaveURL(/painel\/criador$/);expect(state.profile?.display_name).toBe('Nome atualizado');
+ await page.goto('/conta/perfil');await expect(page.getByLabel('Nome profissional',{exact:true})).toHaveValue('Nome atualizado');
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });

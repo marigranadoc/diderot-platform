@@ -28,9 +28,9 @@ test('AUD-01 todas as rotas, âncoras, fotografias e recuperação de erro',asyn
 test('AUD-02 disponibilidade deve revelar informação, não apenas mudar o hash',async({page})=>{
  for(const product of products){
   await page.goto(`/produto/${product.slug}`);
-  await page.getByText('Ver disponibilidade demonstrativa ↓',{exact:true}).click();
+  await page.getByText('Ver disponibilidade ↓',{exact:true}).click();
   await expect(page.locator('#disponibilidade')).toHaveAttribute('open','');
-  await expect(page.getByText('Não está à venda.',{exact:false})).toBeVisible();
+  await expect(page.getByText('O link de compra deste produto ainda não foi cadastrado.',{exact:false})).toBeVisible();
  }
 });
 
@@ -73,7 +73,7 @@ test('AUD-05 celular estreito, tablet e teclado nos controles principais',async(
  }
  await page.goto('/produto/bolsa-oliva');
  const summary=page.locator('#disponibilidade summary');await summary.focus();await page.keyboard.press('Enter');
- await expect(page.getByText('Não está à venda.',{exact:false})).toBeVisible();
+ await expect(page.getByText('O link de compra deste produto ainda não foi cadastrado.',{exact:false})).toBeVisible();
  await page.goto('/criador');const favorite=page.getByRole('button',{name:'Salvar Bolsa Oliva',exact:true});
  await favorite.focus();await page.keyboard.press('Space');await expect(page.getByText('1 favorito neste navegador')).toBeVisible();
 });

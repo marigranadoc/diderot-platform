@@ -1,0 +1,60 @@
+{
+  "date": "2026-11-14",
+  "stats": {
+    "startTime": "2026-11-14T23:58:59.027Z",
+    "duration": 41550.874,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  },
+  "cases": [
+    {
+      "title": "SHOP-08 perfil: upload compartilhado com loja, navegação por área e publicação da foto",
+      "project": "computador",
+      "status": "unexpected",
+      "results": [
+        {
+          "status": "failed",
+          "duration": 16726,
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Meus posts', exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Meus posts', exact: true }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Meus posts', exact: true })\u001b[22m\n"
+        }
+      ]
+    },
+    {
+      "title": "SHOP-08 perfil: upload compartilhado com loja, navegação por área e publicação da foto",
+      "project": "celular",
+      "status": "unexpected",
+      "results": [
+        {
+          "status": "failed",
+          "duration": 14391,
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Meus posts', exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Meus posts', exact: true }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Meus posts', exact: true })\u001b[22m\n"
+        }
+      ]
+    },
+    {
+      "title": "ONB-10 confirmação clara, reenvio real pelo contrato e falha sem falso sucesso",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1693
+        }
+      ]
+    },
+    {
+      "title": "ONB-10 confirmação clara, reenvio real pelo contrato e falha sem falso sucesso",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1583
+        }
+      ]
+    }
+  ],
+  "scope": "Novos contratos simulados de perfil/foto/navegação e reenvio. Nenhum e-mail real enviado."
+}

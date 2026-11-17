@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-15",
+  "scope": "ONB-11 resposta ofuscada e erro explícito de cadastro existente",
+  "stats": {
+    "startTime": "2026-11-15T20:16:05.884Z",
+    "duration": 11514.659,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "cases": [
+    {
+      "title": "ONB-11 resposta ofuscada orienta acesso sem inventar envio de confirmação",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2944
+        }
+      ]
+    },
+    {
+      "title": "ONB-11 resposta ofuscada orienta acesso sem inventar envio de confirmação",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2002
+        }
+      ]
+    }
+  ],
+  "correction": "Mock com X-Supabase-Api-Version e Access-Control-Expose-Headers. O navegador agora expõe o cabeçalho necessário ao SDK para ler code. Sem mudança na aplicação depois do build final.",
+  "limits": "Respostas simuladas; sem e-mail real ou consulta de existência de usuários."
+}

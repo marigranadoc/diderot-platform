@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-13",
+  "migration": "20261113120556_campaign_briefing.sql",
+  "status": "passed",
+  "execution": "Hosted PostgreSQL via Supabase connector; ephemeral identities, controlled claims, rollback",
+  "checks": [
+    "detailed briefing create/read/edit",
+    "legacy contract regression",
+    "zero/null distinction and basis points",
+    "13 invalid detailed payloads rejected atomically",
+    "UGC follower minimum rejected even at zero",
+    "legacy editor cannot erase extended briefing",
+    "retry idempotence and revision conflicts",
+    "member read-only, cross-organization and anonymous denial",
+    "revocation removes read access",
+    "private helpers not directly executable",
+    "no direct table writes or publication"
+  ],
+  "initialFixtureFailure": {
+    "code": "42601",
+    "reason": "Dollar-quote delimiters collapsed while generating test file",
+    "correctedInFixtureOnly": true
+  },
+  "limits": "Controlled SQL identities are not two Auth sessions writing through HTTP",
+  "businessDataChanged": false,
+  "permanentFixturesCreated": false
+}

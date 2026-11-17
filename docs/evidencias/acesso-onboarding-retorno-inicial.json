@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-17",
+  "state": "Rodada interrompida; relatório final não disponível",
+  "observed_failure": {
+    "test": "ACCESS-09",
+    "project": "computador",
+    "expected": "/painel/criador",
+    "actual": "/auth/retorno",
+    "ui": "Verificando sua conta e abrindo seu espaço"
+  },
+  "observed_requests": [
+    {
+      "path": "/auth/v1/user",
+      "status": 200,
+      "count": 4
+    },
+    {
+      "path": "/rest/v1/account_profiles",
+      "status": 200,
+      "count": 2
+    }
+  ],
+  "correction": "Limpar endereço antes de router.replace e não restaurar pathname no finally depois de solicitar navegação. Revalidação pendente."
+}

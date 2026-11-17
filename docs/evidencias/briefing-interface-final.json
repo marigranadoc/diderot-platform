@@ -1,0 +1,350 @@
+{
+  "format": "diderot-playwright-evidence-v1",
+  "source": "work/briefing-interface-final.raw.json retained outside app",
+  "summary": {
+    "startTime": "2026-11-13T12:23:02.168Z",
+    "duration": 112448.37199999999,
+    "expected": 24,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "cases": [
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-01 contrato: salvar híbrida, reler após reload, editar e descartar",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 7837,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-01 contrato: salvar híbrida, reler após reload, editar e descartar",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3261,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-02 contrato: datas e estimativas inválidas bloqueiam gravação, UGC sem seguidores",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3803,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-02 contrato: datas e estimativas inválidas bloqueiam gravação, UGC sem seguidores",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2440,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-03 contrato: resposta perdida preserva campos e usa a mesma tentativa sem duplicar",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2763,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-03 contrato: resposta perdida preserva campos e usa a mesma tentativa sem duplicar",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1449,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-04 contrato: conflito e erro de releitura não anunciam sucesso",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8832,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-04 contrato: conflito e erro de releitura não anunciam sucesso",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8645,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-05 contrato: membro consulta sem editar, metadata não promove papel",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1563,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-05 contrato: membro consulta sem editar, metadata não promove papel",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1036,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-06 contrato: falha de listagem não aparece como organização sem rascunhos",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8741,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-06 contrato: falha de listagem não aparece como organização sem rascunhos",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8292,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-07 saída em outra aba descarta resposta pendente de campanhas",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1740,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-07 saída em outra aba descarta resposta pendente de campanhas",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2558,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-08 conta sem organização recebe orientação sem liberar criação",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 981,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-08 conta sem organização recebe orientação sem liberar criação",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1063,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-09 contrato: sete etapas, condições por modalidade e releitura completa",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4308,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-09 contrato: sete etapas, condições por modalidade e releitura completa",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4920,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-10 contrato: referências, precisão e rejeição do banco preservam os campos",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2104,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-10 contrato: referências, precisão e rejeição do banco preservam os campos",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2676,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-11 contrato: membro consulta condições em todas as etapas sem editar",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1608,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-11 contrato: membro consulta condições em todas as etapas sem editar",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1884,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "title": "EXP-06 backend real: alternar shopper, creator e marca com os dados fictícios",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 12466,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "experiences.spec.ts",
+      "title": "EXP-06 backend real: alternar shopper, creator e marca com os dados fictícios",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 12345,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

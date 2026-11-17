@@ -1,4 +1,6 @@
 import {test,expect,type Page} from '@playwright/test';
+
+test.beforeEach(async({page})=>{await page.route('**/rest/v1/profile_photos**',route=>route.fulfill({json:null}));});
 const id='44444444-4444-4444-8444-444444444444';
 const user={id,aud:'authenticated',role:'authenticated',email:'marca@example.invalid',app_metadata:{},user_metadata:{role:'admin'},created_at:new Date().toISOString()};
 const orgId='aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa';

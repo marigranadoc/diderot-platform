@@ -1,9 +1,11 @@
 'use client';
+import {displayRecord} from '../lib/presentation';
 import {useEffect,useRef,useState,type FormEvent} from 'react';
 import Link from 'next/link';
 import {getBrowserClient} from '../lib/supabase-browser';
 import OrganizationTeam from './OrganizationTeam';
 import CampaignDrafts from './CampaignDrafts';
+import ProfilePhoto from './ProfilePhoto';
 
 type Organization={id:string;owner_user_id:string;name:string;website:string;description:string;created_at:string;role:'owner'|'member'};
 const columns='id,owner_user_id,name,website,description,created_at';
@@ -70,7 +72,7 @@ export default function BrandWorkspace(){
     if(role!=='owner'&&role!=='member')throw Error('Membership not confirmed');
     return {...row,role} as Organization;
    });
-   setOrganizations(rows);
+   setOrganizations(rows.map(displayRecord));
   }catch{if(generation.current===token)setLoadError('Não foi possível carregar suas organizações. Tente novamente.');}
   finally{if(generation.current===token)setLoading(false);}}
   void load();return()=>{generation.current++;};
@@ -110,7 +112,7 @@ export default function BrandWorkspace(){
  function edit(org:Organization){setEditing(org.id);setForm({name:org.name,website:org.website,description:org.description});setMessage('');setSuccess(false);}
  return <section className="creator-dashboard brand-workspace"><span className="eyebrow">SEU ESPAÇO DE MARCA</span><h1>Painel da marca</h1>
  <p>Cadastre sua organização e mantenha suas informações em um espaço privado.</p>
- <nav className="campaign-actions" aria-label="Seu espaço de marca"><Link href="/conta/perfil">Meu cadastro e perfil da marca</Link><Link href="/explorar/campanhas">Ver campanhas demonstrativas</Link><Link href="/demo">Trocar conta demonstrativa</Link></nav>
+ <nav className="campaign-actions" aria-label="Seu espaço de marca"><Link href="/conta/perfil">Meu cadastro e perfil da marca</Link><Link href="/explorar/campanhas">Ver campanhas</Link><Link href="/demo">Acessar outra conta</Link></nav>
  {loading?<p role="status">Carregando suas organizações…</p>:loadError?<><p role="alert">{loadError}</p><button className="dark-button" onClick={()=>setRevision(n=>n+1)}>Tentar novamente</button></>:!userId?<><p>Entre para acessar ou cadastrar sua organização.</p><Link className="dark-button" href="/conta">Entrar na minha conta</Link><Link href="/cadastro">Criar conta</Link></>:organizations&&<>
  <div className="brand-toolbar"><p>{organizations.length===0?'Você ainda não possui uma organização vinculada.':`${organizations.length} ${organizations.length===1?'organização vinculada':'organizações vinculadas'}`}</p><button disabled={saving||campaignDirty} onClick={()=>setRevision(n=>n+1)}>Atualizar organizações</button></div>
  <div className="campaign-actions"><button className="dark-button" disabled={campaignDirty} aria-expanded={teamOpen} onClick={()=>{setCampaignOpen(false);setTeamOpen(value=>!value);}}>{teamOpen?'Fechar equipe e convites':'Equipe e convites'}</button>
@@ -119,7 +121,7 @@ export default function BrandWorkspace(){
  {campaignOpen&&<CampaignDrafts key={userId} userId={userId} organizations={organizations} onDirtyChange={setCampaignDirty}/>}
  {teamNotice&&<p role="status">{teamNotice}</p>}
  {teamOpen&&<OrganizationTeam key={userId} userId={userId} organizationId={owned?.id??null} onActionStart={()=>setTeamNotice('')} onMembershipChange={notice=>{setTeamNotice(notice);setRevision(n=>n+1);}}/>}
- <div className="brand-organization-list">{organizations.map(org=><article className="service-card" key={org.id} aria-label={org.name}><span className="eyebrow">{org.owner_user_id===userId&&org.role==='owner'?'RESPONSÁVEL':'MEMBRO · SOMENTE LEITURA'}</span><h2>{org.name}</h2>{org.description&&<p>{org.description}</p>}{org.website&&<a href={org.website} target="_blank" rel="noopener noreferrer">Visitar site da organização ↗</a>}{org.owner_user_id===userId&&org.role==='owner'&&<button disabled={saving} onClick={()=>edit(org)}>Editar organização</button>}</article>)}</div>
+ <div className="brand-organization-list">{organizations.map(org=><article className="service-card" key={org.id} aria-label={org.name}><span className="eyebrow">{org.owner_user_id===userId&&org.role==='owner'?'RESPONSÁVEL':'MEMBRO · SOMENTE LEITURA'}</span><h2>{org.name}</h2><ProfilePhoto key={org.id+userId} userId={userId} kind="brand" subjectId={org.id} readOnly={org.owner_user_id!==userId||org.role!=='owner'}/>{org.description&&<p>{org.description}</p>}{org.website&&<a href={org.website} target="_blank" rel="noopener noreferrer">Visitar site da organização ↗</a>}{org.owner_user_id===userId&&org.role==='owner'&&<button disabled={saving} onClick={()=>edit(org)}>Editar organização</button>}</article>)}</div>
  {(!owned||editing)&&<div className="account-card brand-form"><h2>{editing?'Editar organização':'Cadastrar organização'}</h2><p>Cada conta pode criar uma organização nesta etapa. Criar o cadastro não representa aprovação comercial da marca.</p><form onSubmit={save}><label>Nome da organização<input required minLength={2} maxLength={100} autoComplete="organization" value={form.name} onChange={e=>setForm(p=>({...p,name:e.target.value}))}/></label><label>Site (opcional)<input type="url" placeholder="https://" maxLength={2048} value={form.website} onChange={e=>setForm(p=>({...p,website:e.target.value}))}/></label><label>Sobre a organização<textarea maxLength={2000} value={form.description} onChange={e=>setForm(p=>({...p,description:e.target.value}))}/></label><button className="dark-button" disabled={saving}>{saving?'Salvando…':'Salvar organização'}</button>{editing&&<button type="button" disabled={saving} onClick={()=>{setEditing(null);setForm(blank);setMessage('');}}>Cancelar edição</button>}</form></div>}
  {message&&<p role={success?'status':'alert'}>{message}</p>}
  

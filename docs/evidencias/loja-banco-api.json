@@ -1,0 +1,62 @@
+{
+  "date": "2026-11-14",
+  "migration": "20261113131815_creator_shops_media.sql",
+  "status": "passed",
+  "sql": {
+    "fixture": "supabase/tests/creator-shops.sql",
+    "lastVerified": "2026-11-14",
+    "identities": 4,
+    "rollback": true,
+    "checks": [
+      "owner-scoped shop and profile photos",
+      "canonical catalog fields preserved",
+      "private draft vs published snapshot",
+      "social URL validation",
+      "cross-shop reference and duplicate rejection",
+      "image owner validation",
+      "retry and version",
+      "brand member read-only photo access",
+      "confirmed email for publication",
+      "anonymous public snapshot only",
+      "unpublication prevents new access"
+    ],
+    "storageScope": "Synthetic storage metadata in SQL; no binary upload by SQL"
+  },
+  "realApi": {
+    "executed": "2026-11-13",
+    "script": "scripts/seed-creator-shop-demo.mjs",
+    "fixture": "demo.creator.diderot@example.invalid only",
+    "shopSlug": "clara-demonstracao",
+    "checks": [
+      "actual private WebP upload",
+      "anonymous access denied before publish",
+      "draft save and reread",
+      "same request retry without duplicate",
+      "anonymous draft hidden",
+      "explicit publish and public snapshot",
+      "signed image returns HTTP200 WebP"
+    ],
+    "created": "One fictional shop with 2 catalog examples and 1 illustrative post; original profiles/avatars/campaigns unchanged"
+  },
+  "limits": [
+    "Browser edit/upload operations are mocked contracts, with real image preparation",
+    "SHOP-04 is real Auth and public shop read-only",
+    "No successful portrait upload/attachment to a real user profile was performed",
+    "Photo RPC ownership/publication verified in SQL; actual Storage API exercised with the fictional post image",
+    "No financial, email or third-party social posting operation"
+  ],
+  "advisors": {
+    "newInfo": "creator_shop_public_media is closed to direct access with RLS and no grants; intentional",
+    "existing": "organization_invitations closed and leaked-password-protection disabled remain unchanged"
+  },
+  "initialFailures": [
+    {
+      "type": "migration-generator",
+      "message": "String generation corrupted upload policy; corrected before successful atomic application"
+    },
+    {
+      "type": "sql-fixture",
+      "message": "Cross-user request returned serialization failure; fixture expectation corrected while operation stayed blocked"
+    }
+  ]
+}

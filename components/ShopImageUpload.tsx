@@ -1,0 +1,51 @@
+'use client';
+import {useEffect,useRef,useState} from 'react';
+import {getBrowserClient} from '../lib/supabase-browser';
+import ProfileAvatarPlaceholder from './ProfileAvatarPlaceholder';
+
+async function prepareImage(file:File,avatar:boolean){
+ if(!['image/jpeg','image/png','image/webp'].includes(file.type)||file.size>8*1024*1024)throw Error('Escolha uma foto JPEG, PNG ou WebP de até 8 MB.');
+ const bitmap=await createImageBitmap(file);
+ try{
+  if(bitmap.width*bitmap.height>40000000)throw Error('A foto excede o limite de 40 megapixels.');
+  const canvas=document.createElement('canvas');
+  const scale=Math.min(1,1600/Math.max(bitmap.width,bitmap.height));
+  canvas.width=avatar?512:Math.max(1,Math.round(bitmap.width*scale));canvas.height=avatar?512:Math.max(1,Math.round(bitmap.height*scale));
+  const context=canvas.getContext('2d');if(!context)throw Error('Não foi possível preparar a foto.');
+  if(avatar){const size=Math.min(bitmap.width,bitmap.height);context.drawImage(bitmap,(bitmap.width-size)/2,(bitmap.height-size)/2,size,size,0,0,512,512);}else context.drawImage(bitmap,0,0,canvas.width,canvas.height);
+  const blob=await new Promise<Blob|null>(resolve=>canvas.toBlob(resolve,'image/webp',0.86));
+  if(!blob||blob.type!=='image/webp'||blob.size>4*1024*1024)throw Error('Não foi possível preparar a foto neste navegador.');
+  return blob;
+ }finally{bitmap.close();}
+}
+
+export function SignedShopImage({path,alt,avatar=false}:{path:string|null;alt:string;avatar?:boolean}){
+ const [url,setUrl]=useState<string|null>(null),[failed,setFailed]=useState(false);
+ useEffect(()=>{let active=true;setUrl(null);setFailed(false);if(path){const db=getBrowserClient();if(db)void db.storage.from('diderot-media').createSignedUrl(path,900).then(result=>{if(active){setUrl(result.data?.signedUrl??null);setFailed(!!result.error);}},()=>{if(active)setFailed(true);});}return()=>{active=false;};},[path]);
+ return <div className={avatar?'shop-avatar':'shop-image'} role={avatar&&(!url||failed)?'img':undefined} aria-label={avatar&&(!url||failed)?'Foto de perfil não adicionada':undefined}>{url&&!failed?<img src={url} alt={alt} onError={()=>setFailed(true)}/>:avatar?<ProfileAvatarPlaceholder/>:<span>{failed?'Foto indisponível':path?'Carregando foto…':'Imagem indisponível'}</span>}</div>;
+}
+
+export default function ShopImageUpload({userId,kind,value,onChange,label,disabled=false,onBusyChange}:{userId:string;kind:'creator'|'brand'|'shop';value:string|null;onChange:(path:string|null)=>Promise<void>|void;label:string;disabled?:boolean;onBusyChange?:(busy:boolean)=>void}){
+ const [busy,setBusy]=useState(false),[error,setError]=useState('');
+ const lifetime=useRef(0),writing=useRef(false);
+ useEffect(()=>{onBusyChange?.(busy);},[busy,onBusyChange]);
+ useEffect(()=>()=>{lifetime.current++;},[]);
+ async function upload(file?:File){
+  if(!file||busy||writing.current||disabled)return;
+  const token=lifetime.current;writing.current=true;setBusy(true);setError('');
+  try{
+   const db=getBrowserClient();if(!db)throw Error('Acesso indisponível.');
+   const auth=await db.auth.getUser();if(auth.error||auth.data.user?.id!==userId)throw Error('Confira sua sessão antes de enviar a foto.');
+   const blob=await prepareImage(file,kind!=='shop');if(lifetime.current!==token)return;
+   const path=`${userId}/${kind}/${crypto.randomUUID()}.webp`;
+   const saved=await db.storage.from('diderot-media').upload(path,blob,{contentType:'image/webp',upsert:false,cacheControl:'60'});
+   if(saved.error)throw Error('Não foi possível enviar a foto. Tente novamente.');
+   const current=await db.auth.getUser();if(lifetime.current!==token)return;
+   if(current.error||current.data.user?.id!==userId)throw Error('A sessão mudou; a foto não foi vinculada ao perfil.');
+   await onChange(path);
+  }catch(error){if(lifetime.current===token)setError(error instanceof Error?error.message:'Não foi possível salvar a foto.');}
+  finally{writing.current=false;if(lifetime.current===token)setBusy(false);}
+ }
+ async function remove(){if(writing.current||disabled)return;const token=lifetime.current;writing.current=true;setBusy(true);setError('');try{await onChange(null);}catch{if(lifetime.current===token)setError('Não foi possível remover a foto do cadastro.');}finally{writing.current=false;if(lifetime.current===token)setBusy(false);}}
+ return <div className="shop-upload"><SignedShopImage path={value} alt={label} avatar={kind!=='shop'}/>{!disabled&&<><label className="shop-file-label">{busy?'Enviando foto…':label}<input aria-label={label} type="file" accept="image/jpeg,image/png,image/webp" disabled={busy} onChange={event=>{void upload(event.target.files?.[0]);event.target.value='';}}/></label><small>JPEG, PNG ou WebP, até 8 MB. {kind==='shop'?'A imagem só aparece publicamente após publicar a loja.':'A foto é ajustada para o formato de perfil.'}</small>{value&&<button type="button" disabled={busy} onClick={()=>void remove()}>Remover {kind==='shop'?'imagem':'foto'}</button>}</>}{busy&&<p role="status">Preparando e salvando foto…</p>}{error&&<p role="alert">{error}</p>}</div>;
+}

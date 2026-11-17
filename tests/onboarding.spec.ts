@@ -1,5 +1,7 @@
 import {test,expect,type Page} from '@playwright/test';
 
+test.beforeEach(async({page})=>{await page.route('**/rest/v1/profile_photos**',route=>route.fulfill({json:null}));});
+
 const user={id:'22222222-2222-4222-8222-222222222222',aud:'authenticated',role:'authenticated',email:'creator@example.invalid',app_metadata:{},user_metadata:{},created_at:new Date().toISOString()};
 function session(identity=user){
   const exp=Math.floor(Date.now()/1000)+3600;
@@ -20,7 +22,7 @@ test('ONB-01 cadastro confirma envio sem inventar sessão e valida senha',async(
   expect(calls).toBe(0);
   await page.getByLabel('Confirmar senha',{exact:true}).fill('test-password-123');
   await page.getByRole('button',{name:'Criar conta',exact:true}).click();
-  await expect(page.getByRole('main').getByRole('status')).toContainText('instruções de confirmação');
+  await expect(page.getByRole('main').getByRole('status')).toContainText('Confirme seu e-mail para continuar');
   expect(calls).toBe(1);
   await expect(page.getByLabel('Nova senha',{exact:true})).toHaveValue('');
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
@@ -35,7 +37,7 @@ test('ONB-02 recuperação trata falha e resposta sem revelar existência da con
   await expect(page.getByRole('main').getByRole('alert')).toContainText('Não foi possível solicitar');
   fail=false;
   await page.getByRole('button',{name:'Enviar link de recuperação'}).click();
-  await expect(page.getByRole('main').getByRole('status')).toContainText('Se houver uma conta elegível');
+  await expect(page.getByRole('main').getByRole('status')).toContainText('Solicitação de recuperação recebida');
 });
 
 test('ONB-03 link de recuperação permite trocar senha após sessão verificada',async({page})=>{
@@ -141,4 +143,35 @@ for(const mode of ['normal','without-broadcast','delayed-storage'] as const)test
   }
   await expect(page.getByLabel('Nome profissional',{exact:true})).toHaveValue('Outro perfil');
   await account.close();
+});
+
+
+test('ONB-10 confirmação clara, reenvio real pelo contrato e falha sem falso sucesso',async({page})=>{
+ let target:Record<string,unknown>|null=null,fail=false;
+ await page.route('**/auth/v1/signup**',route=>route.fulfill({json:{user,session:null}}));
+ await page.route('**/auth/v1/resend**',route=>{target=route.request().postDataJSON();return route.fulfill(fail?{status:429,json:{msg:'Rate limit'}}:{json:{}});});
+ await page.goto('/cadastro');await page.getByLabel('E-mail',{exact:true}).fill(user.email);await page.getByLabel('Nova senha',{exact:true}).fill('test-password-123');await page.getByLabel('Confirmar senha',{exact:true}).fill('test-password-123');await page.getByRole('button',{name:'Criar conta',exact:true}).click();
+ await expect(page.getByRole('main').getByRole('status')).toContainText('Confirme seu e-mail para continuar');
+ await expect(page.getByRole('main').getByRole('status')).not.toContainText('Se o cadastro');
+ await page.getByLabel('E-mail',{exact:true}).fill('outro@example.invalid');
+ await page.getByRole('button',{name:'Reenviar confirmação',exact:true}).click();
+ await expect(page.getByRole('main').getByRole('status')).toContainText('Solicitação de confirmação recebida');
+ expect(target).toMatchObject({type:'signup',email:user.email});
+ fail=true;await page.getByRole('button',{name:'Reenviar confirmação',exact:true}).click();
+ await expect(page.getByRole('main').getByRole('alert')).toContainText('Não foi possível solicitar outra confirmação');
+ await expect(page.getByRole('link',{name:'Entrar após confirmar meu e-mail',exact:true})).toBeVisible();
+});
+
+
+test('ONB-11 resposta ofuscada orienta acesso sem inventar envio de confirmação',async({page})=>{
+ await page.route('**/auth/v1/signup**',route=>route.fulfill({json:{user:{...user,identities:[]},session:null}}));
+ await page.goto('/cadastro');await page.getByLabel('E-mail',{exact:true}).fill(user.email);await page.getByLabel('Nova senha',{exact:true}).fill('test-password-123');await page.getByLabel('Confirmar senha',{exact:true}).fill('test-password-123');await page.getByRole('button',{name:'Criar conta',exact:true}).click();
+ await expect(page.getByRole('main').getByRole('status')).toHaveText('Continue pela entrada da sua conta ou recupere a senha.');
+ await expect(page.getByRole('link',{name:'Entrar na minha conta',exact:true})).toHaveAttribute('href','/conta');
+ await expect(page.getByRole('link',{name:'Recuperar minha senha',exact:true})).toHaveAttribute('href','/recuperar-acesso');
+ await expect(page.getByRole('button',{name:'Reenviar confirmação',exact:true})).toHaveCount(0);
+ await page.route('**/auth/v1/signup**',route=>route.fulfill({status:422,headers:{'X-Supabase-Api-Version':'2024-01-01','Access-Control-Expose-Headers':'X-Supabase-Api-Version'},json:{code:'user_already_exists',msg:'User already registered'}}));
+ await page.getByLabel('Nova senha',{exact:true}).fill('test-password-123');await page.getByLabel('Confirmar senha',{exact:true}).fill('test-password-123');await page.getByRole('button',{name:'Criar conta',exact:true}).click();
+ await expect(page.getByRole('main').getByRole('alert')).toHaveText('Entre na sua conta ou recupere a senha para continuar.');
+ await expect(page.getByRole('link',{name:'Recuperar minha senha',exact:true})).toBeVisible();
 });

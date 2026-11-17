@@ -1,0 +1,336 @@
+{
+  "format": "diderot-playwright-evidence-v1",
+  "source": "work/briefing-interface-inicial.raw.json retained outside app",
+  "summary": {
+    "startTime": "2026-11-13T12:15:54.398Z",
+    "duration": 247287.788,
+    "expected": 16,
+    "skipped": 0,
+    "unexpected": 6,
+    "flaky": 0
+  },
+  "cases": [
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-01 contrato: salvar híbrida, reler após reload, editar e descartar",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 7028,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-01 contrato: salvar híbrida, reler após reload, editar e descartar",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3700,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-02 contrato: datas e estimativas inválidas bloqueiam gravação, UGC sem seguidores",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 3462,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-02 contrato: datas e estimativas inválidas bloqueiam gravação, UGC sem seguidores",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1718,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-03 contrato: resposta perdida preserva campos e usa a mesma tentativa sem duplicar",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1942,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-03 contrato: resposta perdida preserva campos e usa a mesma tentativa sem duplicar",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1275,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-04 contrato: conflito e erro de releitura não anunciam sucesso",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 9372,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-04 contrato: conflito e erro de releitura não anunciam sucesso",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 9097,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-05 contrato: membro consulta sem editar, metadata não promove papel",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1370,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-05 contrato: membro consulta sem editar, metadata não promove papel",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1480,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-06 contrato: falha de listagem não aparece como organização sem rascunhos",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8368,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-06 contrato: falha de listagem não aparece como organização sem rascunhos",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 8247,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-07 saída em outra aba descarta resposta pendente de campanhas",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1576,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-07 saída em outra aba descarta resposta pendente de campanhas",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1477,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-08 conta sem organização recebe orientação sem liberar criação",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 882,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-08 conta sem organização recebe orientação sem liberar criação",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 767,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-09 contrato: sete etapas, condições por modalidade e releitura completa",
+      "project": "computador",
+      "status": "unexpected",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 14405,
+          "retry": 0,
+          "errors": [
+            "Error: expect(locator).toHaveValue(expected) failed\n\nLocator: getByLabel('Tom de voz', { exact: true })\nExpected: \"Editorial e natural\"\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toHaveValue\" getByLabel('Tom de voz', { exact: true }) with timeout 10000ms\n  - waiting for getByLabel('Tom de voz', { exact: true })\n\n\n  129 |  expect(doc.slots[1].briefing).toMatchObject({requirements:{min_followers:500},deliverables:{posting_required:true},compensation:{commission_basis_points:1250}});\n  130 |  await page.reload();await page.getByRole('button',{name:'Campanhas em rascunho',exact:true}).click();await page.getByRole('button',{name:'Abrir rascunho',exact:true}).click();\n> 131 |  await expect(page.getByLabel('Tom de voz',{exact:true})).toHaveValue('Editorial e natural');await expect(page.getByLabel('Nome do produto 1',{exact:true})).toHaveValue('Bolsa fictícia');\n      |                                                           ^\n  132 |  await page.getByRole('button',{name:'Etapa 3: Requisitos',exact:true}).click();await expect(page.getByLabel('Mínimo de seguidores (opcional) — Influencer',{exact:true})).toHaveValue('500');\n  133 |  await page.getByRole('button',{name:'Etapa 6: Remuneração',exact:true}).click();await expect(page.getByLabel('Remuneração por produção (R$) — UGC',{exact:true})).toHaveValue('150,50');await expect(page.getByLabel('Remuneração por publicação (R$) — UGC',{exact:true})).toHaveValue('0,00');await expect(page.getByLabel('Comissão por venda (%) — Influencer',{exact:true})).toHaveValue('12,50');\n  134 |  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\campaigns.spec.ts:131:59"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-09 contrato: sete etapas, condições por modalidade e releitura completa",
+      "project": "celular",
+      "status": "unexpected",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 13002,
+          "retry": 0,
+          "errors": [
+            "Error: expect(locator).toHaveValue(expected) failed\n\nLocator: getByLabel('Tom de voz', { exact: true })\nExpected: \"Editorial e natural\"\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toHaveValue\" getByLabel('Tom de voz', { exact: true }) with timeout 10000ms\n  - waiting for getByLabel('Tom de voz', { exact: true })\n\n\n  129 |  expect(doc.slots[1].briefing).toMatchObject({requirements:{min_followers:500},deliverables:{posting_required:true},compensation:{commission_basis_points:1250}});\n  130 |  await page.reload();await page.getByRole('button',{name:'Campanhas em rascunho',exact:true}).click();await page.getByRole('button',{name:'Abrir rascunho',exact:true}).click();\n> 131 |  await expect(page.getByLabel('Tom de voz',{exact:true})).toHaveValue('Editorial e natural');await expect(page.getByLabel('Nome do produto 1',{exact:true})).toHaveValue('Bolsa fictícia');\n      |                                                           ^\n  132 |  await page.getByRole('button',{name:'Etapa 3: Requisitos',exact:true}).click();await expect(page.getByLabel('Mínimo de seguidores (opcional) — Influencer',{exact:true})).toHaveValue('500');\n  133 |  await page.getByRole('button',{name:'Etapa 6: Remuneração',exact:true}).click();await expect(page.getByLabel('Remuneração por produção (R$) — UGC',{exact:true})).toHaveValue('150,50');await expect(page.getByLabel('Remuneração por publicação (R$) — UGC',{exact:true})).toHaveValue('0,00');await expect(page.getByLabel('Comissão por venda (%) — Influencer',{exact:true})).toHaveValue('12,50');\n  134 |  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\campaigns.spec.ts:131:59"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-10 contrato: referências, precisão e rejeição do banco preservam os campos",
+      "project": "computador",
+      "status": "unexpected",
+      "results": [
+        {
+          "status": "timedOut",
+          "duration_ms": 60292,
+          "retry": 0,
+          "errors": [
+            "Test timeout of 60000ms exceeded.",
+            "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n  - waiting for getByLabel('Referências visuais (um link HTTPS por linha)', { exact: true })\n\n\n  139 |  const state=await setup(page);await create(page);await page.getByLabel('Referências visuais (um link HTTPS por linha)',{exact:true}).fill('javascript:alert(1)');\n  140 |  await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('main').getByRole('alert')).toContainText('HTTPS');expect(state.requests).toHaveLength(0);await expect(page.getByLabel('Título da campanha',{exact:true})).toHaveValue('Lançamento demonstrativo');\n> 141 |  await page.getByLabel('Referências visuais (um link HTTPS por linha)',{exact:true}).fill('https://example.invalid/reference');await page.getByRole('button',{name:'Etapa 2: Modalidades/vagas',exact:true}).click();await page.getByLabel('Planejar vagas UGC',{exact:true}).check();\n      |                                                                                      ^\n  142 |  await page.getByRole('button',{name:'Etapa 6: Remuneração',exact:true}).click();await page.getByLabel('Comissão por venda (%) — UGC',{exact:true}).fill('12,345');await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('main').getByRole('alert')).toContainText('Comissão por venda');expect(state.requests).toHaveLength(0);\n  143 |  await page.getByLabel('Comissão por venda (%) — UGC',{exact:true}).fill('0');state.invalid=true;await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('main').getByRole('alert')).toContainText('banco rejeitou');await expect(page.getByLabel('Comissão por venda (%) — UGC',{exact:true})).toHaveValue('0');await expect(page.getByRole('status')).toHaveCount(0);\n  144 |  state.invalid=false;await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('status')).toContainText('salvo e relido');expect(state.requests[0].p_request).toBe(state.requests[1].p_request);\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\campaigns.spec.ts:141:86"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-10 contrato: referências, precisão e rejeição do banco preservam os campos",
+      "project": "celular",
+      "status": "unexpected",
+      "results": [
+        {
+          "status": "timedOut",
+          "duration_ms": 61257,
+          "retry": 0,
+          "errors": [
+            "Test timeout of 60000ms exceeded.",
+            "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n  - waiting for getByLabel('Referências visuais (um link HTTPS por linha)', { exact: true })\n\n\n  139 |  const state=await setup(page);await create(page);await page.getByLabel('Referências visuais (um link HTTPS por linha)',{exact:true}).fill('javascript:alert(1)');\n  140 |  await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('main').getByRole('alert')).toContainText('HTTPS');expect(state.requests).toHaveLength(0);await expect(page.getByLabel('Título da campanha',{exact:true})).toHaveValue('Lançamento demonstrativo');\n> 141 |  await page.getByLabel('Referências visuais (um link HTTPS por linha)',{exact:true}).fill('https://example.invalid/reference');await page.getByRole('button',{name:'Etapa 2: Modalidades/vagas',exact:true}).click();await page.getByLabel('Planejar vagas UGC',{exact:true}).check();\n      |                                                                                      ^\n  142 |  await page.getByRole('button',{name:'Etapa 6: Remuneração',exact:true}).click();await page.getByLabel('Comissão por venda (%) — UGC',{exact:true}).fill('12,345');await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('main').getByRole('alert')).toContainText('Comissão por venda');expect(state.requests).toHaveLength(0);\n  143 |  await page.getByLabel('Comissão por venda (%) — UGC',{exact:true}).fill('0');state.invalid=true;await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('main').getByRole('alert')).toContainText('banco rejeitou');await expect(page.getByLabel('Comissão por venda (%) — UGC',{exact:true})).toHaveValue('0');await expect(page.getByRole('status')).toHaveCount(0);\n  144 |  state.invalid=false;await page.getByRole('button',{name:'Salvar rascunho',exact:true}).click();await expect(page.getByRole('status')).toContainText('salvo e relido');expect(state.requests[0].p_request).toBe(state.requests[1].p_request);\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\campaigns.spec.ts:141:86"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-11 contrato: membro consulta condições em todas as etapas sem editar",
+      "project": "computador",
+      "status": "unexpected",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 11583,
+          "retry": 0,
+          "errors": [
+            "Error: expect(locator).toBeDisabled() failed\n\nLocator: getByLabel('Tom de voz', { exact: true })\nExpected: disabled\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeDisabled\" getByLabel('Tom de voz', { exact: true }) with timeout 10000ms\n  - waiting for getByLabel('Tom de voz', { exact: true })\n\n\n  147 | test('CAMP-11 contrato: membro consulta condições em todas as etapas sem editar',async({page})=>{\n  148 |  const state=await setup(page,'member');state.rows=[{id:'44444444-4444-4444-8444-444444444444',organization_id:org,title:'Condições privadas',campaign_type:'ugc',description:'',objective:'',category:'',starts_on:null,ends_on:null,application_deadline:null,status:'draft',revision:1,briefing:{tone:'Editorial',messages:'',restrictions:'',references:[],products:[]},campaign_draft_slots:[{modality:'ugc',quantity:1,budget_per_creator_cents:null,briefing:{requirements:{languages:'Português'},deliverables:{videos:2},rights:{paid:true},compensation:{production_fee_cents:10000}}}]}];\n> 149 |  await page.getByRole('button',{name:'Atualizar rascunhos',exact:true}).click();await page.getByRole('button',{name:'Consultar rascunho',exact:true}).click();await expect(page.getByLabel('Tom de voz',{exact:true})).toBeDisabled();\n      |                                                                                                                                                                                                                        ^\n  150 |  await page.getByRole('button',{name:'Etapa 3: Requisitos',exact:true}).click();await expect(page.getByLabel('Idiomas — UGC',{exact:true})).toHaveValue('Português');await expect(page.getByLabel('Idiomas — UGC',{exact:true})).toBeDisabled();\n  151 |  await page.getByRole('button',{name:'Etapa 5: Direitos de uso',exact:true}).click();await expect(page.getByLabel('Planejar uso em mídia paga — UGC',{exact:true})).toBeChecked();await expect(page.getByLabel('Planejar uso em mídia paga — UGC',{exact:true})).toBeDisabled();\n  152 |  await page.getByRole('button',{name:'Etapa 6: Remuneração',exact:true}).click();await expect(page.getByLabel('Remuneração por produção (R$) — UGC',{exact:true})).toHaveValue('100,00');await expect(page.getByLabel('Remuneração por produção (R$) — UGC',{exact:true})).toBeDisabled();\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\campaigns.spec.ts:149:216"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "campaigns.spec.ts",
+      "title": "CAMP-11 contrato: membro consulta condições em todas as etapas sem editar",
+      "project": "celular",
+      "status": "unexpected",
+      "results": [
+        {
+          "status": "failed",
+          "duration_ms": 12790,
+          "retry": 0,
+          "errors": [
+            "Error: expect(locator).toBeDisabled() failed\n\nLocator: getByLabel('Tom de voz', { exact: true })\nExpected: disabled\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeDisabled\" getByLabel('Tom de voz', { exact: true }) with timeout 10000ms\n  - waiting for getByLabel('Tom de voz', { exact: true })\n\n\n  147 | test('CAMP-11 contrato: membro consulta condições em todas as etapas sem editar',async({page})=>{\n  148 |  const state=await setup(page,'member');state.rows=[{id:'44444444-4444-4444-8444-444444444444',organization_id:org,title:'Condições privadas',campaign_type:'ugc',description:'',objective:'',category:'',starts_on:null,ends_on:null,application_deadline:null,status:'draft',revision:1,briefing:{tone:'Editorial',messages:'',restrictions:'',references:[],products:[]},campaign_draft_slots:[{modality:'ugc',quantity:1,budget_per_creator_cents:null,briefing:{requirements:{languages:'Português'},deliverables:{videos:2},rights:{paid:true},compensation:{production_fee_cents:10000}}}]}];\n> 149 |  await page.getByRole('button',{name:'Atualizar rascunhos',exact:true}).click();await page.getByRole('button',{name:'Consultar rascunho',exact:true}).click();await expect(page.getByLabel('Tom de voz',{exact:true})).toBeDisabled();\n      |                                                                                                                                                                                                                        ^\n  150 |  await page.getByRole('button',{name:'Etapa 3: Requisitos',exact:true}).click();await expect(page.getByLabel('Idiomas — UGC',{exact:true})).toHaveValue('Português');await expect(page.getByLabel('Idiomas — UGC',{exact:true})).toBeDisabled();\n  151 |  await page.getByRole('button',{name:'Etapa 5: Direitos de uso',exact:true}).click();await expect(page.getByLabel('Planejar uso em mídia paga — UGC',{exact:true})).toBeChecked();await expect(page.getByLabel('Planejar uso em mídia paga — UGC',{exact:true})).toBeDisabled();\n  152 |  await page.getByRole('button',{name:'Etapa 6: Remuneração',exact:true}).click();await expect(page.getByLabel('Remuneração por produção (R$) — UGC',{exact:true})).toHaveValue('100,00');await expect(page.getByLabel('Remuneração por produção (R$) — UGC',{exact:true})).toBeDisabled();\n    at C:\\Users\\Andrea\\Documents\\Codex\\2026-11-11\\diderot\\outputs\\diderot\\tests\\campaigns.spec.ts:149:216"
+          ]
+        }
+      ]
+    }
+  ]
+}

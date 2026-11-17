@@ -1,0 +1,200 @@
+{
+  "date": "2026-11-13",
+  "status": "candidate-rejected",
+  "eslint": "9.39.5",
+  "nextPreset": "16.4.6",
+  "typescriptDuringRun": "6.0.3",
+  "originalTypeScript": "7.0.2",
+  "exitCode": 1,
+  "files": 84,
+  "errors": 15,
+  "warnings": 15,
+  "limitations": [
+    "Not a baseline of the original TypeScript 7 stack",
+    "ESLint 9 EOL and parser peer <6.1.0; package manager downgraded TS",
+    "No rule disabled, no source fix or autofix performed",
+    "Candidate packages/config removed; original lockfile and stack restored"
+  ],
+  "findings": [
+    {
+      "file": "components/AccessForm.tsx",
+      "line": 25,
+      "rule": "react-hooks/set-state-in-effect",
+      "severity": 2
+    },
+    {
+      "file": "components/Account.tsx",
+      "line": 17,
+      "rule": "react-hooks/set-state-in-effect",
+      "severity": 2
+    },
+    {
+      "file": "components/AccountSetup.tsx",
+      "line": 17,
+      "rule": "react-hooks/set-state-in-effect",
+      "severity": 2
+    },
+    {
+      "file": "components/AccountSetup.tsx",
+      "line": 28,
+      "rule": "react-hooks/exhaustive-deps",
+      "severity": 1
+    },
+    {
+      "file": "components/BrandWorkspace.tsx",
+      "line": 46,
+      "rule": "react-hooks/exhaustive-deps",
+      "severity": 1
+    },
+    {
+      "file": "components/BrandWorkspace.tsx",
+      "line": 50,
+      "rule": "react-hooks/set-state-in-effect",
+      "severity": 2
+    },
+    {
+      "file": "components/BrandWorkspace.tsx",
+      "line": 76,
+      "rule": "react-hooks/exhaustive-deps",
+      "severity": 1
+    },
+    {
+      "file": "components/CampaignDrafts.tsx",
+      "line": 29,
+      "rule": "react-hooks/set-state-in-effect",
+      "severity": 2
+    },
+    {
+      "file": "components/CampaignDrafts.tsx",
+      "line": 42,
+      "rule": "react-hooks/exhaustive-deps",
+      "severity": 1
+    },
+    {
+      "file": "components/CreatorDashboard.tsx",
+      "line": 12,
+      "rule": "react-hooks/set-state-in-effect",
+      "severity": 2
+    },
+    {
+      "file": "components/CreatorDashboard.tsx",
+      "line": 34,
+      "rule": "react-hooks/exhaustive-deps",
+      "severity": 1
+    },
+    {
+      "file": "components/CreatorOnboarding.tsx",
+      "line": 49,
+      "rule": "react-hooks/exhaustive-deps",
+      "severity": 1
+    },
+    {
+      "file": "components/CreatorOnboarding.tsx",
+      "line": 54,
+      "rule": "react-hooks/set-state-in-effect",
+      "severity": 2
+    },
+    {
+      "file": "components/CreatorOnboarding.tsx",
+      "line": 72,
+      "rule": "react-hooks/exhaustive-deps",
+      "severity": 1
+    },
+    {
+      "file": "components/CreatorPortfolio.tsx",
+      "line": 15,
+      "rule": "react-hooks/set-state-in-effect",
+      "severity": 2
+    },
+    {
+      "file": "components/CreatorPortfolio.tsx",
+      "line": 31,
+      "rule": "react-hooks/exhaustive-deps",
+      "severity": 1
+    },
+    {
+      "file": "components/CreatorServices.tsx",
+      "line": 16,
+      "rule": "react-hooks/set-state-in-effect",
+      "severity": 2
+    },
+    {
+      "file": "components/CreatorServices.tsx",
+      "line": 32,
+      "rule": "react-hooks/exhaustive-deps",
+      "severity": 1
+    },
+    {
+      "file": "components/OrganizationTeam.tsx",
+      "line": 13,
+      "rule": "react-hooks/set-state-in-effect",
+      "severity": 2
+    },
+    {
+      "file": "components/OrganizationTeam.tsx",
+      "line": 23,
+      "rule": "react-hooks/exhaustive-deps",
+      "severity": 1
+    },
+    {
+      "file": "components/useAccountProfile.ts",
+      "line": 16,
+      "rule": "react-hooks/exhaustive-deps",
+      "severity": 1
+    },
+    {
+      "file": "components/useAccountProfile.ts",
+      "line": 19,
+      "rule": "react-hooks/set-state-in-effect",
+      "severity": 2
+    },
+    {
+      "file": "components/useAccountProfile.ts",
+      "line": 30,
+      "rule": "react-hooks/exhaustive-deps",
+      "severity": 1
+    },
+    {
+      "file": "components/useFavorites.ts",
+      "line": 17,
+      "rule": "react-hooks/set-state-in-effect",
+      "severity": 2
+    },
+    {
+      "file": "components/useFavorites.ts",
+      "line": 28,
+      "rule": "react-hooks/exhaustive-deps",
+      "severity": 1
+    },
+    {
+      "file": "components/useFavorites.ts",
+      "line": 33,
+      "rule": "react-hooks/set-state-in-effect",
+      "severity": 2
+    },
+    {
+      "file": "components/useFavorites.ts",
+      "line": 67,
+      "rule": "react-hooks/exhaustive-deps",
+      "severity": 1
+    },
+    {
+      "file": "postcss.config.mjs",
+      "line": 1,
+      "rule": "import/no-anonymous-default-export",
+      "severity": 1
+    },
+    {
+      "file": "tests/portfolio.spec.ts",
+      "line": 20,
+      "rule": "@typescript-eslint/no-explicit-any",
+      "severity": 2
+    },
+    {
+      "file": "tests/services.spec.ts",
+      "line": 14,
+      "rule": "@typescript-eslint/no-explicit-any",
+      "severity": 2
+    }
+  ]
+}

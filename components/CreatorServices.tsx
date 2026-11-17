@@ -1,4 +1,5 @@
 'use client';
+import {displayRecord} from '../lib/presentation';
 import {useEffect,useRef,useState,type FormEvent} from 'react';
 import Link from 'next/link';
 import {getBrowserClient} from '../lib/supabase-browser';
@@ -26,7 +27,7 @@ export default function CreatorServices(){
    if(error||!data.user){setOwner(null);return;}
    const id=data.user.id;sessionOwner.current=id;setOwner(id);
    const [profile,services]=await Promise.all([db!.from('creator_profiles').select('user_id').eq('user_id',id).maybeSingle(),db!.from('creator_services').select('id,title,description,service_type,pricing_mode,starting_price_cents').eq('user_id',id).order('created_at',{ascending:false})]);
-   if(generation.current!==token)return;if(profile.error||services.error)throw Error('Load failed');setHasProfile(!!profile.data);setItems(services.data);
+   if(generation.current!==token)return;if(profile.error||services.error)throw Error('Load failed');setHasProfile(!!profile.data);setItems(services.data.map(displayRecord));
   }catch{if(generation.current===token){setFailed(true);setMessage('Não foi possível carregar seus serviços. Tente novamente.');}}
   finally{if(generation.current===token)setLoading(false);}}
   void load();return()=>{generation.current++;listener.subscription.unsubscribe();};

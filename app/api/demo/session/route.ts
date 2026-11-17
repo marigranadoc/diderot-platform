@@ -1,8 +1,8 @@
 import {createClient} from '@supabase/supabase-js';
 import {isAccountType} from '../../../../lib/account-types';
 export async function POST(request:Request){
- const headers={'Cache-Control':'no-store'};
- if(process.env.DIDEROT_DEMO_ENABLED!=='true')return Response.json({error:'O acesso demonstrativo não está habilitado neste ambiente.'},{status:503,headers});
+ const headers:Record<string,string>={'Cache-Control':'no-store'};const started=performance.now();
+ if(process.env.DIDEROT_DEMO_ENABLED!=='true')return Response.json({error:'Este acesso não está habilitado neste ambiente.'},{status:503,headers});
  // Next may use its internal hostname in request.url. Compare the browser
  // origin with the actual request Host, preserving the request protocol.
  const destination=new URL(request.url);destination.host=request.headers.get('host')??destination.host;
@@ -12,9 +12,10 @@ export async function POST(request:Request){
   const {type}=await request.json();if(!isAccountType(type))return Response.json({error:'Escolha shopper, creator ou marca.'},{status:400,headers});
   const configured=JSON.parse(process.env.DIDEROT_DEMO_ACCOUNTS??'{}')[type];
   if(!configured?.id||configured.email!==`demo.${type}.diderot@example.invalid`||!configured.password)throw Error();
-  const db=createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,{auth:{persistSession:false,autoRefreshToken:false}});
+  const db=createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,{auth:{persistSession:false,autoRefreshToken:false},global:{fetch:(input,init)=>fetch(input,{...init,cache:'no-store',signal:AbortSignal.timeout(12000)})}});
   const result=await db.auth.signInWithPassword({email:configured.email,password:configured.password});
   if(result.error||!result.data.session||result.data.user.id!==configured.id){if(result.data.session)await db.auth.signOut({scope:'local'});throw Error();}
+  headers['Server-Timing']=`session;dur=${(performance.now()-started).toFixed(1)}`;
   return Response.json({access_token:result.data.session.access_token,refresh_token:result.data.session.refresh_token},{headers});
- }catch{return Response.json({error:'Não foi possível abrir a conta demonstrativa agora. Tente novamente.'},{status:503,headers});}
+ }catch{headers['Server-Timing']=`session;dur=${(performance.now()-started).toFixed(1)}`;return Response.json({error:'Não foi possível abrir esta conta agora. Tente novamente.'},{status:503,headers});}
 }

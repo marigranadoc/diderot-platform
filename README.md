@@ -29,6 +29,7 @@ Login real, duas sessões da conta demonstrativa e isolamento de banco têm [evi
 
 ## Verificar
 
+- `npm.cmd run check`: links locais da documentação, testes do verificador e TypeScript, sem banco. [Limites de cada check](docs/quality.md).
 - `npm.cmd run typecheck`
 - `npm.cmd run build`
 - `npm.cmd test`: auditoria integral em Chrome, computador/celular, com servidor próprio na porta 3101. Falha enquanto persistirem testes de requisitos não implementados; não usar para afirmar plataforma completa.
@@ -52,8 +53,22 @@ No painel da marca, abra **Equipe e convites** para registrar convites internos,
 
 No painel da marca, abra **Campanhas em rascunho**. O responsável planeja contexto, datas, modalidades, quantidade de vagas e orçamento estimado por creator; membros consultam. Salvamento privado no Supabase com releitura, proteção de versão e tentativas repetidas. [Escopo, auditoria e pendências](docs/CAMPANHAS-RASCUNHOS.md). Publicação, briefing completo, candidaturas, contratação e financeiro continuam pendentes. Salvar um rascunho não gera cobrança ou convite.
 
+Na versão local de 13/11, o editor tem sete etapas, referências e condições de requisitos/entregáveis/direitos/remuneração por modalidade. Continua privado e com um grupo por modalidade; não publica oportunidades nem concede licenças. Catálogo vinculado, múltiplas vagas, elegibilidade e transições comerciais ainda faltam. [Etapas e critérios para lançar o MVP](docs/PLANO-LANCAMENTO-MVP.md).
+
 ## Publicação e demonstração
 
 O GitHub está ligado ao projeto existente `diderot-platform` na equipe Vercel `mari-granado`, branch `main`. Framework corrigido para Next.js; `vercel.json` preserva build/instalação. Use o domínio principal acima para cadastro/recuperação, conforme as URLs Auth informadas pela usuária. Entrega de e-mail real ainda não foi verificada.
 
 Credenciais demonstrativas ficam somente no servidor em `DIDEROT_DEMO_ACCOUNTS`; `DIDEROT_DEMO_ENABLED` habilita os botões. Nunca publique credenciais ou use `NEXT_PUBLIC_` para elas. As três fixtures persistentes foram expressamente autorizadas; não apagá-las como limpeza automática. A chave usada pelo servidor de demonstração é pública e continua limitada pelo RLS. Fonte Reckless TRIAL continua fora do GitHub; a versão hospedada usa o fallback quando não há fonte licenciada.
+
+## Continuar o desenvolvimento
+
+Abra a raiz que contém este README e package.json. [Instruções de trabalho](AGENTS.md), [arquitetura](docs/architecture.md), [setup de projeto existente](docs/setup.md) e [prompts reutilizáveis](docs/prompts/README.md) adaptam o Vibe Coding Toolkit à Diderot sem recriar a aplicação.
+
+O [mapa de telas e fluxos ShopMy/Diderot](docs/TELAS-FLUXOS-SHOPMY.md) amplia o PRD com referência por horário, campos, estados, permissões e aceites. A captura real da home está incluída; os vídeos foram descritos no documento fornecido, sem nova reprodução nesta etapa. Novas telas do mapa são propostas, não funcionalidades já disponíveis.
+
+## Minha loja, fotos e redes sociais — versão local de 14/11
+
+No painel do creator, abra **Gerenciar minha loja**, em `/painel/criador/loja`. Creator/afiliada configura foto, nome/bio públicos, endereço, redes, produtos, coleções/seções e posts com produtos associados. Há prévia privada, publicação explícita, **Ver minha loja** e retirada do ar. Redes sociais ficam abaixo de **Explore minhas escolhas**; foto no topo da loja. Responsáveis de marca trocam a foto no cartão da organização. [Como usar, permissões e limites](docs/LOJA-AFILIADA.md).
+
+Loja fictícia para avaliação local: `/loja/clara-demonstracao`, acessível pelo editor da conta demo creator. Os links sociais desse exemplo são as páginas iniciais das plataformas; não representam contas pessoais. Publicação da loja não ativa rastreamento, comissões ou pagamentos. O frontend deste incremento ainda não foi publicado na Vercel.

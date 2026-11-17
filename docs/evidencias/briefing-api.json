@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-13",
+  "status": "passed",
+  "script": "scripts/check-briefing-session.mjs",
+  "identities": "Only configured demo.brand/creator/shopper example.invalid accounts",
+  "checks": [
+    "brand own organization nested briefing read",
+    "creator and shopper cross-organization read hidden",
+    "creator and shopper RPC denied",
+    "anonymous read and RPC denied",
+    "local signout"
+  ],
+  "successfulBusinessMutation": false,
+  "limits": "Positive writes tested in SQL rollback suite; not HTTP mutation end-to-end."
+}

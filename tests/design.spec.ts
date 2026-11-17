@@ -18,8 +18,8 @@ test('DS-02 catálogo e detalhe usam fotografias locais carregadas',async({page,
  await expect.poll(()=>page.locator('.product-card img').evaluateAll(els=>els.every(e=>(e as HTMLImageElement).complete&&(e as HTMLImageElement).naturalWidth>0))).toBe(true);
  await expect(page.locator('.product-card svg')).toHaveCount(0);
  await page.getByRole('link',{name:'Ver Camisa de linho',exact:true}).click();
- await expect(page.locator('.detail-grid .product-photo img')).toHaveAttribute('alt','Fotografia ilustrativa de Camisa de linho');
- await expect(page.getByText('A fotografia é ilustrativa; produto, marca e preço são demonstrativos.',{exact:false})).toBeVisible();
+ await expect(page.locator('.detail-grid .product-photo img')).toHaveAttribute('alt','Foto de Camisa de linho');
+ await expect(page.getByText('Produto e preço demonstrativos',{exact:true})).toHaveCount(0);
  const image=await request.get('/products/camisa-linho.webp');expect(image.status()).toBe(200);expect(image.headers()['content-type']).toContain('image/webp');
  await page.screenshot({path:`../../work/design-system/${info.project.name}-produto.png`,fullPage:true});
 });

@@ -1,4 +1,6 @@
 import {test,expect,type Page} from '@playwright/test';
+
+test.beforeEach(async({page})=>{await page.route('**/rest/v1/profile_photos**',route=>route.fulfill({json:null}));});
 const owner='66666666-6666-4666-8666-666666666666',recipient='77777777-7777-4777-8777-777777777777',org='cccccccc-cccc-4ccc-8ccc-cccccccccccc',invite='dddddddd-dddd-4ddd-8ddd-dddddddddddd';
 const organization={id:org,owner_user_id:owner,name:'Equipe de teste',website:'',description:'',created_at:'2026-11-12T00:00:00Z'};
 const invitation={id:invite,organization_id:org,organization_name:organization.name,email:'pessoa@example.invalid',status:'pending',expires_at:'2099-01-01T00:00:00Z'};

@@ -1,0 +1,126 @@
+{
+  "date": "2026-11-13",
+  "scope": "ShopMy reference consolidation and selected existing-project setup",
+  "status": "completed-with-explicit-tooling-limitations",
+  "toolkit": {
+    "repository": "soumatheusgomes/vibe-coding-toolkit",
+    "revision": "7ef68dd7b00ddfc5cd464458855e4ab66dd2128f",
+    "license": "MIT",
+    "mode": "existing-project; native method adaptation; no official Harness2 execution"
+  },
+  "baseline": {
+    "docs": {
+      "files": 20,
+      "links": 73,
+      "exitCode": 1,
+      "missingAnnexReferences": 3
+    },
+    "remoteCodeReference": "ee3ff813955ea312f79feec840bbb0827902eb57"
+  },
+  "checks": {
+    "combined": {
+      "command": "npm.cmd run check",
+      "exitCode": 0,
+      "documents": 29,
+      "localLinks": 150,
+      "brokenLinks": 0,
+      "checkerTests": {
+        "passed": 2,
+        "failed": 0
+      },
+      "typecheck": "passed with TypeScript 7.0.2"
+    },
+    "source": {
+      "identicalBytes": true,
+      "sha256": "3cb0b6324c71708b51a725b01c512caa376ffce30d7158b12441d093ec79ee3f",
+      "mappedSourceSections": 17,
+      "acceptanceRows": 14,
+      "navRequirements": 8,
+      "canonicalCampaignSteps": 7
+    },
+    "nextInstructionBlock": {
+      "preserved": true,
+      "count": 1
+    },
+    "lockfile": {
+      "restored": true,
+      "equalsPinnedRemote": true
+    },
+    "build": {
+      "command": "npm.cmd run build",
+      "catalogMode": "demo",
+      "firstAttempt": "EPERM creating prerender directory after successful code/types compilation",
+      "authorizedRetryExitCode": 0
+    },
+    "localPreview": {
+      "port": 3002,
+      "catalogMode": "demo",
+      "running": true,
+      "routes": [
+        {
+          "route": "/",
+          "status": 200,
+          "redirect": null,
+          "appContent": true
+        },
+        {
+          "route": "/demo",
+          "status": 200,
+          "redirect": null,
+          "appContent": true
+        },
+        {
+          "route": "/cadastro",
+          "status": 200,
+          "redirect": null,
+          "appContent": true
+        },
+        {
+          "route": "/conta",
+          "status": 200,
+          "redirect": null,
+          "appContent": true
+        }
+      ],
+      "authenticationTested": false,
+      "initialRestrictedFetch": "failed; authorized local HTTP check passed"
+    },
+    "lintCandidate": {
+      "status": "rejected-and-removed",
+      "eslint": "9.39.5",
+      "preset": "16.4.6",
+      "automaticTypeScriptDowngrade": "7.0.2 -> 6.0.3; restored",
+      "exitCode": 1,
+      "errors": 15,
+      "warnings": 15,
+      "report": "lint-candidato.json",
+      "reason": "ESLint9 EOL; parser peer excludes TS7; no forced downgrade retained"
+    }
+  },
+  "resolvedVersions": {
+    "node": "26.13.0",
+    "next": "16.4.6",
+    "react": "19.3.1",
+    "typescript": "7.0.2",
+    "playwright": "1.65.0"
+  },
+  "notRun": [
+    "full application audit",
+    "new authenticated browser journeys",
+    "real signup email delivery and return",
+    "independent agent/client restart evaluation",
+    "official Harness2 CLI or benchmarks",
+    "new dependency vulnerability audit"
+  ],
+  "remaining": [
+    "supported application lint combination and measured baseline",
+    "full U08 briefing and per-slot conditions",
+    "brand catalog and editable creator storefront",
+    "commercial campaign publication, applications, production, finance and admin"
+  ],
+  "productionMutations": false,
+  "newBusinessFeatures": false,
+  "newMigration": false,
+  "newCommitOrPush": false,
+  "newDeployment": false
+}

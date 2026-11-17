@@ -24,6 +24,8 @@ test('AUTH-02 contrato simulado: login, favorito, reload, remoção e logout', a
     if(url.includes('/auth/v1/token')) return route.fulfill({json:{access_token:token,refresh_token:'test-refresh',expires_in:3600,expires_at:exp,token_type:'bearer',user}});
     if(url.includes('/auth/v1/user')) return route.fulfill({json:user});
     if(url.includes('/auth/v1/logout')) {expect(new URL(url).searchParams.get('scope')).toBe('local');return route.fulfill({status:204});}
+    if(url.includes('/rest/v1/account_profiles'))return route.fulfill({json:{user_id:id,account_type:'shopper',display_name:'Teste',city:'',interests:[],onboarding_completed:true}});
+    if(url.includes('/rest/v1/profile_photos'))return route.fulfill({json:null});
     if(url.includes('/rest/v1/favorites')) {
       const method=route.request().method();
       if(method==='GET') return route.fulfill({json:favorites});
@@ -40,6 +42,7 @@ test('AUTH-02 contrato simulado: login, favorito, reload, remoção e logout', a
   await page.getByLabel('E-mail',{exact:true}).fill('teste@example.invalid');
   await page.getByLabel('Senha',{exact:true}).fill('test-only-password');
   await page.getByRole('button',{name:'Entrar',exact:true}).click();
+  await expect(page).toHaveURL(/painel\/shopper$/);await page.goto('/conta');
   await expect(page.getByRole('button',{name:'Sair da conta'})).toBeVisible();
   await page.getByRole('link',{name:'Explorar e salvar produtos'}).click();
   await expect(page.getByRole('button',{name:'Salvar Bolsa Areia',exact:true})).toBeVisible();
@@ -65,4 +68,15 @@ test('AUTH-02 contrato simulado: login, favorito, reload, remoção e logout', a
   await expect(page.getByRole('button',{name:'Remover Bolsa Areia',exact:true})).toBeVisible();
   await expect(page.getByRole('button',{name:'Salvar Bolsa Oliva',exact:true})).toBeVisible();
   expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('diderot:guest-favorites:v1')!))).toEqual({version:1,slugs:['bolsa-areia']});
+});
+
+
+test('AUTH-03 e-mail não confirmado oferece reenvio direto sem simular entrada',async({page})=>{
+ let sent:Record<string,unknown>|null=null;
+ await page.route('**/auth/v1/token?**',route=>route.fulfill({status:400,json:{error_code:'email_not_confirmed',msg:'Email not confirmed'}}));
+ await page.route('**/auth/v1/resend**',route=>{sent=route.request().postDataJSON();return route.fulfill({json:{}});});
+ await page.goto('/conta');await page.getByLabel('E-mail',{exact:true}).fill('confirmar@example.invalid');await page.getByLabel('Senha',{exact:true}).fill('test-only-password');await page.getByRole('button',{name:'Entrar',exact:true}).click();
+ await expect(page.getByRole('main').getByRole('alert')).toContainText('Confirme seu e-mail antes de entrar');
+ await page.getByLabel('E-mail',{exact:true}).fill('outro@example.invalid');await page.getByRole('button',{name:'Reenviar confirmação',exact:true}).click();
+ await expect(page.getByRole('main').getByRole('status')).toContainText('Solicitação de confirmação recebida');expect(sent).toMatchObject({type:'signup',email:'confirmar@example.invalid'});await expect(page).toHaveURL(/conta$/);await expect(page.getByRole('button',{name:'Sair da conta',exact:true})).toHaveCount(0);
 });

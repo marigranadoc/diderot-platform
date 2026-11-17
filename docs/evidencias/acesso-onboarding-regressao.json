@@ -1,0 +1,965 @@
+{
+  "date": "2026-11-17",
+  "stats": {
+    "startTime": "2026-11-17T12:07:16.279Z",
+    "duration": 177939.068,
+    "expected": 58,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "scope": "ACCESS-01–09, AUTH-01–03, ONB-01–11, EXP-06, SHOP-04/06/08; computador/celular",
+  "cases": [
+    {
+      "title": "ACCESS-01 shopper: login abre o painel do cadastro salvo",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2519
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-01 shopper: login abre o painel do cadastro salvo",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2565
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-01 creator: login abre o painel do cadastro salvo",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2050
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-01 creator: login abre o painel do cadastro salvo",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2020
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-01 brand: login abre o painel do cadastro salvo",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2174
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-01 brand: login abre o painel do cadastro salvo",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1820
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-02 login sem perfil abre onboarding, sem assumir o papel preferido",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1529
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-02 login sem perfil abre onboarding, sem assumir o papel preferido",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1274
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-03 falha no perfil preserva sessão e permite abrir o espaço novamente",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 8813
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-03 falha no perfil preserva sessão e permite abrir o espaço novamente",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 8696
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-04 confirmação usa sessão verificada, ignora destino externo e remove parâmetros",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 931
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-04 confirmação usa sessão verificada, ignora destino externo e remove parâmetros",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 869
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-05 confirmação sem perfil abre onboarding; link inválido não simula confirmação",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1377
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-05 confirmação sem perfil abre onboarding; link inválido não simula confirmação",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1182
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-06 retorno não aceita e-mail sem confirmação",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1194
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-06 retorno não aceita e-mail sem confirmação",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1077
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-07 sessão encerrada durante a consulta não abre o painel anterior",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1207
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-07 sessão encerrada durante a consulta não abre o painel anterior",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1120
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-08 demora na solicitação preserva conta anterior e habilita nova tentativa",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1052
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-08 demora na solicitação preserva conta anterior e habilita nova tentativa",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 886
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-09 retorno processa o fragmento de confirmação pelo SDK e remove tokens da URL",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 994
+        }
+      ]
+    },
+    {
+      "title": "ACCESS-09 retorno processa o fragmento de confirmação pelo SDK e remove tokens da URL",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1043
+        }
+      ]
+    },
+    {
+      "title": "AUTH-01 acesso rejeitado apresenta erro sem simular login",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1125
+        }
+      ]
+    },
+    {
+      "title": "AUTH-01 acesso rejeitado apresenta erro sem simular login",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1191
+        }
+      ]
+    },
+    {
+      "title": "AUTH-02 contrato simulado: login, favorito, reload, remoção e logout",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6687
+        }
+      ]
+    },
+    {
+      "title": "AUTH-02 contrato simulado: login, favorito, reload, remoção e logout",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7494
+        }
+      ]
+    },
+    {
+      "title": "AUTH-03 e-mail não confirmado oferece reenvio direto sem simular entrada",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1375
+        }
+      ]
+    },
+    {
+      "title": "AUTH-03 e-mail não confirmado oferece reenvio direto sem simular entrada",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1551
+        }
+      ]
+    },
+    {
+      "title": "SHOP-04 backend real: loja pública demonstrativa, redes abaixo do CTA e acesso pelo painel",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 11272
+        }
+      ]
+    },
+    {
+      "title": "SHOP-04 backend real: loja pública demonstrativa, redes abaixo do CTA e acesso pelo painel",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7704
+        }
+      ]
+    },
+    {
+      "title": "SHOP-06 saída em outra aba descarta resposta privada pendente",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1911
+        }
+      ]
+    },
+    {
+      "title": "SHOP-06 saída em outra aba descarta resposta privada pendente",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1558
+        }
+      ]
+    },
+    {
+      "title": "SHOP-08 perfil: upload compartilhado com loja, navegação por área e publicação da foto",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 8209
+        }
+      ]
+    },
+    {
+      "title": "SHOP-08 perfil: upload compartilhado com loja, navegação por área e publicação da foto",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4012
+        }
+      ]
+    },
+    {
+      "title": "EXP-06 backend real: alternar shopper, creator e marca com os dados fictícios",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 17018
+        }
+      ]
+    },
+    {
+      "title": "EXP-06 backend real: alternar shopper, creator e marca com os dados fictícios",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 10368
+        }
+      ]
+    },
+    {
+      "title": "ONB-01 cadastro confirma envio sem inventar sessão e valida senha",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2282
+        }
+      ]
+    },
+    {
+      "title": "ONB-01 cadastro confirma envio sem inventar sessão e valida senha",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1208
+        }
+      ]
+    },
+    {
+      "title": "ONB-02 recuperação trata falha e resposta sem revelar existência da conta",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2137
+        }
+      ]
+    },
+    {
+      "title": "ONB-02 recuperação trata falha e resposta sem revelar existência da conta",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1250
+        }
+      ]
+    },
+    {
+      "title": "ONB-03 link de recuperação permite trocar senha após sessão verificada",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1751
+        }
+      ]
+    },
+    {
+      "title": "ONB-03 link de recuperação permite trocar senha após sessão verificada",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1158
+        }
+      ]
+    },
+    {
+      "title": "ONB-04 link expirado não libera formulário de nova senha",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1121
+        }
+      ]
+    },
+    {
+      "title": "ONB-04 link expirado não libera formulário de nova senha",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 882
+        }
+      ]
+    },
+    {
+      "title": "ONB-05 visitante precisa entrar para configurar perfil",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 948
+        }
+      ]
+    },
+    {
+      "title": "ONB-05 visitante precisa entrar para configurar perfil",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 835
+        }
+      ]
+    },
+    {
+      "title": "ONB-06 contrato simulado: UGC sem seguidores, reload, atuação híbrida e erro de gravação",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3784
+        }
+      ]
+    },
+    {
+      "title": "ONB-06 contrato simulado: UGC sem seguidores, reload, atuação híbrida e erro de gravação",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2508
+        }
+      ]
+    },
+    {
+      "title": "ONB-07 troca de conta em outra aba (normal) remove o perfil anterior",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3437
+        }
+      ]
+    },
+    {
+      "title": "ONB-07 troca de conta em outra aba (normal) remove o perfil anterior",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3671
+        }
+      ]
+    },
+    {
+      "title": "ONB-08 troca de conta em outra aba (without-broadcast) remove o perfil anterior",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3759
+        }
+      ]
+    },
+    {
+      "title": "ONB-08 troca de conta em outra aba (without-broadcast) remove o perfil anterior",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2105
+        }
+      ]
+    },
+    {
+      "title": "ONB-09 troca de conta em outra aba (delayed-storage) remove o perfil anterior",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3170
+        }
+      ]
+    },
+    {
+      "title": "ONB-09 troca de conta em outra aba (delayed-storage) remove o perfil anterior",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1886
+        }
+      ]
+    },
+    {
+      "title": "ONB-10 confirmação clara, reenvio real pelo contrato e falha sem falso sucesso",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1738
+        }
+      ]
+    },
+    {
+      "title": "ONB-10 confirmação clara, reenvio real pelo contrato e falha sem falso sucesso",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1166
+        }
+      ]
+    },
+    {
+      "title": "ONB-11 resposta ofuscada orienta acesso sem inventar envio de confirmação",
+      "project": "computador",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1241
+        }
+      ]
+    },
+    {
+      "title": "ONB-11 resposta ofuscada orienta acesso sem inventar envio de confirmação",
+      "project": "celular",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1141
+        }
+      ]
+    }
+  ],
+  "timings": [
+    {
+      "project": "computador",
+      "stages": [
+        {
+          "stage": "/api/demo/session",
+          "status": 200,
+          "ms": 763,
+          "serverTiming": "session;dur=736.6"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 587,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 458,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 481,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 916,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 414,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 834,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/api/demo/session",
+          "status": 200,
+          "ms": 629,
+          "serverTiming": "session;dur=594.9"
+        },
+        {
+          "stage": "/auth/v1/logout",
+          "status": 204,
+          "ms": 215,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 167,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 438,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 253,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 454,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 468,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 917,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/api/demo/session",
+          "status": 200,
+          "ms": 683,
+          "serverTiming": "session;dur=573.1"
+        },
+        {
+          "stage": "/auth/v1/logout",
+          "status": 204,
+          "ms": 151,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 163,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 189,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 167,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 335,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 155,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 389,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 444,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/logout",
+          "status": 204,
+          "ms": 154,
+          "serverTiming": "cfExtPri"
+        }
+      ]
+    },
+    {
+      "project": "celular",
+      "stages": [
+        {
+          "stage": "/api/demo/session",
+          "status": 200,
+          "ms": 359,
+          "serverTiming": "session;dur=353.2"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 246,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 161,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 423,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 579,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 403,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 827,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/api/demo/session",
+          "status": 200,
+          "ms": 196,
+          "serverTiming": "session;dur=193.7"
+        },
+        {
+          "stage": "/auth/v1/logout",
+          "status": 204,
+          "ms": 222,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 153,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 163,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 411,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 575,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 152,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 302,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/api/demo/session",
+          "status": 200,
+          "ms": 241,
+          "serverTiming": "session;dur=236.9"
+        },
+        {
+          "stage": "/auth/v1/logout",
+          "status": 204,
+          "ms": 408,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 156,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 160,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 164,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 319,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 158,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 313,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/user",
+          "status": 200,
+          "ms": 386,
+          "serverTiming": "cfExtPri"
+        },
+        {
+          "stage": "/auth/v1/logout",
+          "status": 204,
+          "ms": 158,
+          "serverTiming": "cfExtPri"
+        }
+      ]
+    }
+  ],
+  "limits": "Auth/callback/reenvio e gravações da interface com mocks; EXP-06 e SHOP-04 usam contas fictícias reais somente Auth/leitura. Sem e-mails reais enviados ou nova gravação de negócio. Não é auditoria integral."
+}

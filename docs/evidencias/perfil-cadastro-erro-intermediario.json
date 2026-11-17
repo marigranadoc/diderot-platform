@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-15",
+  "stats": {
+    "startTime": "2026-11-15T20:13:49.735Z",
+    "duration": 37424.274000000005,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  },
+  "problem": "ONB-11 simula erro cross-origin: cabeçalho de versão incluído, mas não exposto ao JavaScript pelo CORS. SDK só interpreta body.code com versão acessível. Mock ajustado para expor X-Supabase-Api-Version; código da aplicação preservado."
+}

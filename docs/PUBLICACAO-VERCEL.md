@@ -13,3 +13,8 @@ Pacote: comparar hashes de arquivos com main, preservar arquivos remotos não al
 Pré-requisitos funcionais: build/check e regressão local de acesso 58/58 registrados no progresso. Migrações de briefing/loja já constam aplicadas nas evidências anteriores; incluir arquivos SQL no repositório não executa migrações. Financeiro permanece inativo. Testes publicados devem usar somente contas fictícias e leitura, sem criar usuários ou enviar e-mails.
 
 O estado final de commit, implantação, domínio e jornadas será registrado após a publicação. Entrega/clique de e-mail real permanece pendente de homologação.
+
+
+## Publicação confirmada — 17–18/11/2026
+
+GitHub main atualizado atomicamente para [2a0ca505f8f4f2530a9f7dcf1a4dda02fb44083d](https://github.com/marigranadoc/diderot-platform/commit/2a0ca505f8f4f2530a9f7dcf1a4dda02fb44083d). Integração Git disparou a [implantação Vercel](https://vercel.com/mari-granado/diderot-platform/EgZjXyodwuvq1MDD2zTrxPEFQUGs), status success. As rotas antes 404 passaram a 200 no domínio canônico. Verificação com Chrome no computador e celular: entrada das três contas fictícias, painéis e navegação da creator, loja pública com fotos e redes, campanhas da marca, rejeição de origem externa na API de entrada. [Evidência](evidencias/publicacao-vercel-jornadas.json). Escritas de negócio bloqueadas durante a verificação; zero tentativas. Nenhum envio de e-mail, alteração de dados reais ou financeiro. O script scripts/check-deployed-release.mjs reproduz a verificação. O incremento 43 terá estado de publicação próprio.

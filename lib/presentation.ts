@@ -2,6 +2,7 @@ import type {ShopDocument} from './creator-shop';
 
 // Presentation-only substitutions for the original seeded copy. IDs and provenance stay intact.
 const copy:Record<string,string>={
+ 'Curadoria demonstrativa':'Uma seleção das minhas escolhas favoritas.',
  'Criação demonstrativa':'Criação de conteúdo',
  'Campanha inteiramente fictícia para avaliação de cadastro e navegação. Sem inscrições, contratação ou cobrança.':'Produção de conteúdo para apresentar a coleção.',
  'Avaliar a experiência da Diderot':'Apresentar a coleção e suas escolhas.',
@@ -20,6 +21,6 @@ const copy:Record<string,string>={
  'Marca inteiramente fictícia para avaliar equipe e planejamento de campanhas. Não recebe compras ou pagamentos.':'Curadoria e conteúdo para moda, beleza e casa.',
 };
 export function displayCopy(value:string){return copy[value]??value.replace(/ · demonstração$/i,'').replace(/ · demo$/i,'');}
-export function displayShop(doc:ShopDocument):ShopDocument{return {...doc,name:displayCopy(doc.name),bio:displayCopy(doc.bio),items:doc.items.map(item=>({...item,description:displayCopy(item.description)})),posts:doc.posts.map(post=>({...post,title:displayCopy(post.title),caption:displayCopy(post.caption)}))};}
+export function displayShop(doc:ShopDocument):ShopDocument{return {...doc,name:displayCopy(doc.name),bio:displayCopy(doc.bio),collections:doc.collections.map(value=>({...value,title:displayCopy(value.title),description:displayCopy(value.description)})),items:doc.items.map(item=>({...item,description:displayCopy(item.description)})),posts:doc.posts.map(post=>({...post,title:displayCopy(post.title),caption:displayCopy(post.caption)}))};}
 
 export function displayRecord<T extends object>(value:T):T{return Object.fromEntries(Object.entries(value).map(([key,item])=>[key,typeof item==='string'?displayCopy(item):item])) as T;}

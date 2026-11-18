@@ -1,0 +1,134 @@
+{
+  "stage": 43,
+  "stats": {
+    "startTime": "2026-11-18T23:12:57.628Z",
+    "duration": 128650.40299999999,
+    "expected": 16,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  },
+  "cases": [
+    {
+      "title": "SHOP-01 contrato: perfil com foto, redes sociais, produto, seção e post persistem",
+      "project": "computador",
+      "status": "expected",
+      "duration": 13783
+    },
+    {
+      "title": "SHOP-01 contrato: perfil com foto, redes sociais, produto, seção e post persistem",
+      "project": "celular",
+      "status": "expected",
+      "duration": 8232
+    },
+    {
+      "title": "SHOP-02 contrato: catálogo, duplicar/ocultar/ordenar seções e publicação explícita",
+      "project": "computador",
+      "status": "expected",
+      "duration": 5577
+    },
+    {
+      "title": "SHOP-02 contrato: catálogo, duplicar/ocultar/ordenar seções e publicação explícita",
+      "project": "celular",
+      "status": "expected",
+      "duration": 3791
+    },
+    {
+      "title": "SHOP-03 contrato: resposta perdida, conflito, campos preservados e URL insegura",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2840
+    },
+    {
+      "title": "SHOP-03 contrato: resposta perdida, conflito, campos preservados e URL insegura",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1801
+    },
+    {
+      "title": "SHOP-04 backend real: loja pública demonstrativa, redes abaixo do CTA e acesso pelo painel",
+      "project": "computador",
+      "status": "unexpected",
+      "duration": 7229
+    },
+    {
+      "title": "SHOP-04 backend real: loja pública demonstrativa, redes abaixo do CTA e acesso pelo painel",
+      "project": "celular",
+      "status": "unexpected",
+      "duration": 7149
+    },
+    {
+      "title": "SHOP-05 contrato: marca envia/remove foto e membro permanece somente leitura",
+      "project": "computador",
+      "status": "expected",
+      "duration": 3090
+    },
+    {
+      "title": "SHOP-05 contrato: marca envia/remove foto e membro permanece somente leitura",
+      "project": "celular",
+      "status": "expected",
+      "duration": 3557
+    },
+    {
+      "title": "SHOP-06 saída em outra aba descarta resposta privada pendente",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1908
+    },
+    {
+      "title": "SHOP-06 saída em outra aba descarta resposta privada pendente",
+      "project": "celular",
+      "status": "expected",
+      "duration": 2603
+    },
+    {
+      "title": "SHOP-07 loja pública: cards compactos, busca, ordenação e favorito de visitante persistente",
+      "project": "computador",
+      "status": "expected",
+      "duration": 5407
+    },
+    {
+      "title": "SHOP-07 loja pública: cards compactos, busca, ordenação e favorito de visitante persistente",
+      "project": "celular",
+      "status": "expected",
+      "duration": 4379
+    },
+    {
+      "title": "SHOP-08 perfil: upload compartilhado com loja, navegação por área e publicação da foto",
+      "project": "computador",
+      "status": "expected",
+      "duration": 5765
+    },
+    {
+      "title": "SHOP-08 perfil: upload compartilhado com loja, navegação por área e publicação da foto",
+      "project": "celular",
+      "status": "expected",
+      "duration": 4084
+    },
+    {
+      "title": "SHOP-09 criação app: seções, coleções, catálogo com foto própria, reutilizar, arquivar e restaurar",
+      "project": "computador",
+      "status": "unexpected",
+      "duration": 14252
+    },
+    {
+      "title": "SHOP-09 criação app: seções, coleções, catálogo com foto própria, reutilizar, arquivar e restaurar",
+      "project": "celular",
+      "status": "unexpected",
+      "duration": 12353
+    },
+    {
+      "title": "SHOP-10 criação app: URL manual, erro de foto, campos preservados e edição protegida",
+      "project": "computador",
+      "status": "expected",
+      "duration": 4961
+    },
+    {
+      "title": "SHOP-10 criação app: URL manual, erro de foto, campos preservados e edição protegida",
+      "project": "celular",
+      "status": "expected",
+      "duration": 4096
+    }
+  ],
+  "failures": "SHOP-04 exibiu descrição conhecida da fixture recém-exposta nos cards de coleção; corrigida camada de apresentação. SHOP-09 seletor por label não encontrou select com opções; substituído por combobox e nome acessível. Sem alteração de dados reais."
+}

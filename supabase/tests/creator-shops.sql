@@ -18,7 +18,7 @@ select set_config('test.shop_doc',jsonb_build_object(
  'name','Public fixture','bio','Public bio','social_links',jsonb_build_array(jsonb_build_object('label','Instagram','url','https://www.instagram.com/'),jsonb_build_object('label','TikTok','url','https://www.tiktok.com/'),jsonb_build_object('label','YouTube','url','https://www.youtube.com/')),
  'items',jsonb_build_array(
   jsonb_build_object('id',current_setting('test.shop_item'),'source_slug',null,'name','My recommendation','brand','Example','description','Personal recommendation','category','Casa','url','https://example.invalid/product','price_cents',15050,'image_path',current_setting('test.shop_image'),'visible',true,'is_affiliate',true),
-  jsonb_build_object('id',current_setting('test.shop_catalog'),'source_slug','bolsa-oliva','name','Tampered canonical name','brand','Fake brand','description','My note','category','','url','https://example.invalid/tampered','price_cents',1,'image_path',null,'visible',true,'is_affiliate',true),
+  jsonb_build_object('id',current_setting('test.shop_catalog'),'source_slug','bolsa-oliva','name','Tampered canonical name','brand','Fake brand','description','My note','category','','url','https://example.invalid/tampered','price_cents',1,'image_path',current_setting('test.shop_image'),'visible',true,'is_affiliate',true),
   jsonb_build_object('id',current_setting('test.shop_hidden'),'source_slug',null,'name','Hidden secret product','url','','image_path',current_setting('test.shop_secret'),'visible',false,'is_affiliate',false)
  ),
  'posts',jsonb_build_array(jsonb_build_object('id',current_setting('test.shop_post'),'title','Public post','caption','Photo and products','image_path',current_setting('test.shop_image'),'visible',true,'item_ids',jsonb_build_array(current_setting('test.shop_item'),current_setting('test.shop_hidden')))),
@@ -30,6 +30,7 @@ do $$ declare saved jsonb; bad jsonb; doc jsonb:=current_setting('test.shop_doc'
  perform public.save_creator_shop(current_setting('test.shop_id')::uuid,current_setting('test.shop_slug'),0,current_setting('test.shop_request')::uuid,'save',doc);
  if (select count(*) from public.creator_shops)<>1 or (select revision from public.creator_shops)<>1 then raise exception 'Retry duplicated shop';end if;
  if public.get_public_creator_shop(current_setting('test.shop_slug')) is not null then raise exception 'Draft exposed publicly';end if;
+ if (select document#>>'{items,1,image_path}' from public.creator_shops)<>current_setting('test.shop_image') then raise exception 'Catalog custom photo lost';end if;
  if (select document#>>'{items,1,name}' from public.creator_shops)<>(select name from public.products where slug='bolsa-oliva') or (select document#>>'{items,1,url}' from public.creator_shops)<>'' then raise exception 'Creator overwrote canonical catalog';end if;
  for bad in select * from jsonb_array_elements(jsonb_build_array(
   doc||'{"owner_user_id":"11111111-1111-4111-8111-111111111111"}',
@@ -41,6 +42,11 @@ do $$ declare saved jsonb; bad jsonb; doc jsonb:=current_setting('test.shop_doc'
   jsonb_set(doc,'{posts,0,item_ids}','["11111111-1111-4111-8111-111111111111"]'),
   jsonb_set(doc,'{collections,0,item_ids}',jsonb_build_array(current_setting('test.shop_item'),current_setting('test.shop_item'))),
   jsonb_set(doc,'{collections,0,layout}','"unknown"'),
+  jsonb_set(doc,'{items,1,image_path}',to_jsonb(current_setting('test.shop_b')||'/shop/'||gen_random_uuid()::text||'.webp')),
+  jsonb_set(doc,'{collections,0,section_id}','"11111111-1111-4111-8111-111111111111"'),
+  doc||'{"sections":[]}',
+  doc||'{"sections":null}',
+  jsonb_set(doc,'{collections,0,archived}','"true"'),
   jsonb_set(doc,'{items,1,source_slug}','"missing-product"')
  )) loop
   begin perform public.save_creator_shop(current_setting('test.shop_id')::uuid,current_setting('test.shop_slug'),1,gen_random_uuid(),'save',bad);raise exception 'Invalid document accepted';exception when invalid_parameter_value then null;end;
@@ -77,7 +83,7 @@ do $$ begin
 end $$;
 select set_config('request.jwt.claim.sub',current_setting('test.shop_d'),true);
 do $$ declare doc jsonb:=current_setting('test.shop_doc')::jsonb; id uuid:=gen_random_uuid(); begin
- doc:=jsonb_set(jsonb_set(jsonb_set(doc,'{items}',jsonb_build_array(doc#>'{items,1}')),'{posts}','[]'),'{collections}','[]');
+ doc:=jsonb_set(jsonb_set(jsonb_set(doc,'{items}',jsonb_build_array(jsonb_set(doc#>'{items,1}','{image_path}','null'))),'{posts}','[]'),'{collections}','[]');
  perform public.save_creator_shop(id,'unconfirmed-'||substr(id::text,1,8),0,gen_random_uuid(),'save',doc);
  begin perform public.save_creator_shop(id,'unconfirmed-'||substr(id::text,1,8),1,gen_random_uuid(),'publish',doc);raise exception 'Unconfirmed account published';exception when insufficient_privilege then null;end;
 end $$;
@@ -97,6 +103,34 @@ select public.save_creator_shop(current_setting('test.shop_id')::uuid,current_se
 reset role;
 set local role anon;
 do $$ begin if public.get_public_creator_shop(current_setting('test.shop_slug')) is not null or exists(select 1 from storage.objects where bucket_id='diderot-media' and name=current_setting('test.shop_avatar')) then raise exception 'Unpublish failed to revoke new access';end if;end $$;
+reset role;
+-- Hierarchy tests operate only on the ephemeral fixture above; the transaction rolls back.
+set local role authenticated;
+select set_config('request.jwt.claim.sub',current_setting('test.shop_a'),true);
+do $$ declare doc jsonb; snap jsonb; revision integer; nav text:=gen_random_uuid()::text; begin
+ select document,creator_shops.revision into doc,revision from public.creator_shops where id=current_setting('test.shop_id')::uuid;
+ if jsonb_array_length(doc->'sections')<>1 or doc#>>'{collections,0,section_id}'<>doc#>>'{sections,0,id}' then raise exception 'Legacy hierarchy normalization failed';end if;
+ doc:=jsonb_set(doc,'{sections}',jsonb_build_array(jsonb_build_object('id',nav,'title','Beleza','visible',true)));
+ doc:=jsonb_set(doc,'{collections,0,section_id}',to_jsonb(nav));
+ doc:=jsonb_set(doc,'{collections,0,archived}','true');
+ perform public.save_creator_shop(current_setting('test.shop_id')::uuid,current_setting('test.shop_slug'),revision,gen_random_uuid(),'publish',doc);revision:=revision+1;
+ snap:=public.get_public_creator_shop(current_setting('test.shop_slug'))#>'{document}';
+ if jsonb_array_length(snap->'collections')<>0 or jsonb_array_length(snap->'items')<>0 or jsonb_array_length(snap->'posts')<>0 then raise exception 'Archived collection contents leaked';end if;
+ if not (select (document#>>'{collections,0,archived}')::boolean from public.creator_shops where id=current_setting('test.shop_id')::uuid) then raise exception 'Archive lost on reread';end if;
+ doc:=jsonb_set(doc,'{collections,0,archived}','false');
+ perform public.save_creator_shop(current_setting('test.shop_id')::uuid,current_setting('test.shop_slug'),revision,gen_random_uuid(),'publish',doc);revision:=revision+1;
+ snap:=public.get_public_creator_shop(current_setting('test.shop_slug'))#>'{document}';
+ if jsonb_array_length(snap->'collections')<>1 or jsonb_array_length(snap->'items')<>2 or snap#>>'{items,1,image_path}'<>current_setting('test.shop_image') then raise exception 'Restored collection or catalog photo unavailable';end if;
+ doc:=jsonb_set(doc,'{sections,0,visible}','false');
+ perform public.save_creator_shop(current_setting('test.shop_id')::uuid,current_setting('test.shop_slug'),revision,gen_random_uuid(),'publish',doc);revision:=revision+1;
+ snap:=public.get_public_creator_shop(current_setting('test.shop_slug'))#>'{document}';
+ if jsonb_array_length(snap->'sections')<>0 or jsonb_array_length(snap->'items')<>0 or jsonb_array_length(snap->'posts')<>0 then raise exception 'Hidden section contents leaked';end if;
+ doc:=jsonb_set(doc,'{sections,0,visible}','true');
+ doc:=jsonb_set(doc,'{collections,0,visible}','false');
+ perform public.save_creator_shop(current_setting('test.shop_id')::uuid,current_setting('test.shop_slug'),revision,gen_random_uuid(),'publish',doc);
+ snap:=public.get_public_creator_shop(current_setting('test.shop_slug'))#>'{document}';
+ if jsonb_array_length(snap->'collections')<>0 or jsonb_array_length(snap->'items')<>0 then raise exception 'Hidden collection contents leaked';end if;
+end $$;
 reset role;
 select 'PASS: shop CRUD document, canonical catalog isolation, media/photo ownership, N:N references and order, private/public snapshot, hidden fields, social URL validation, retry/version, immutable address, brand member read-only, confirmed-email gate, anonymous read/write scope and unpublication' as result;
 rollback;

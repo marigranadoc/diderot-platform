@@ -467,3 +467,25 @@ Check aprovado: tipos, 2/2 testes documentais e links íntegros; build final pas
 ## Incremento 42 — preparação da publicação (17/11/2026)
 
 Comparado GitHub main (ee3ff813955ea312f79feec840bbb0827902eb57) com a versão local: GitHub ainda não inclui loja própria, fotos, navegação privada e retorno de confirmação recentes. Home pública 200, /auth/retorno e /loja/clara-demonstracao 404. Status Vercel do head confirma vínculo à equipe Mari Granado/projeto diderot-platform. Conector de Vercel retorna 404 e CLI não conserva credenciais; não foi criado projeto duplicado. Preparado envio pela integração Git existente, com preservação de ambiente e sem fontes TRIAL/credenciais. [Plano e limites](PUBLICACAO-VERCEL.md). Ainda não considerar nova versão publicada por esta preparação.
+
+
+Conclusão do incremento 42: publicado o commit [2a0ca50](https://github.com/marigranadoc/diderot-platform/commit/2a0ca505f8f4f2530a9f7dcf1a4dda02fb44083d), status Vercel success. Rotas de conta/retorno/loja privadas e públicas respondem 200 no domínio canônico. Jornadas reais das três contas fictícias aprovadas no computador e celular, em leitura e com gravações de negócio bloqueadas (zero tentativas). [Evidência](evidencias/publicacao-vercel-jornadas.json) e [publicação](PUBLICACAO-VERCEL.md). Entrega/clique de e-mail real não testados.
+
+## Incremento 43 — criação da loja no fluxo de app (18/11/2026)
+
+Referência fornecida preservada no [guia](REFERENCIA-CONSTRUCAO-LOJA-SHOPMY.md), sem executar instruções do texto como comandos. PRD v1.10 separa seções, coleções e produtos/links, registra escopo e integrações ainda ausentes. Implementação e testes em andamento.
+
+Causa identificada da indisponibilidade de foto em produto do catálogo: formulário não mostrava envio, normalizador do banco apagava image_path e vitrine priorizava imagem canônica. Correção mantém nome/preço/marca canônicos, permite somente arquivo do titular e prioriza foto própria na loja. Não foi possível atribuir a falha relatada a HEIC ou rede sem evidência do arquivo da usuária.
+
+Migração 20261118224903_shop_product_photo_override aplicada: normalização compatível de sections e section_id/archived; validação de vínculos; foto própria; publicação filtrada e índice público de mídia. Nenhuma linha preexistente regravada, sem novos grants/bucket/tabelas. SQL completo com quatro identidades efêmeras/ROLLBACK passou, incluindo CRUD/retry/conflito/RLS, fotos cruzadas, catálogo canônico, legado, arquivar/restaurar e ocultar seção/coleção sem vazamento no snapshot. Storage metadata sintético, sem upload binário novo real nesta etapa.
+
+Advisors de segurança mantêm o WARN preexistente de proteção de senhas vazadas desabilitada ([orientação](https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection)) e INFO nas duas tabelas fechadas sem grants diretos; sem achado novo. Não foram abertas políticas só para suprimir INFO.
+
+Build inicial falhou com EPERM em pasta gerada .next/server/app/conta/criador; repetido com acesso adequado e passou, sem alterar código para contornar erro. Check passou: tipos, 2/2 testes do verificador e 212 links íntegros. Testes de interface em execução; não considerar incremento publicado ainda.
+
+
+Interface inicial: **16/20 aprovados**, 128,7 s. SHOP-04 nos dois tamanhos detectou a descrição Curadoria demonstrativa da fixture, agora exposta pelos novos cards; normalização restrita à apresentação foi estendida às coleções. SHOP-09 nos dois tamanhos não encontrou o select pelo label exato (opções entram no texto); trocado para combobox/nome acessível, sem remover a validação do valor. [Inicial](evidencias/loja-criacao-interface-inicial.json).
+
+Build corrigido aprovado. Interface final: **22/22 aprovados**, 139,1 s, sem skips/retries/flaky, SHOP-01–11 no computador e celular. [Final](evidencias/loja-criacao-interface-final.json). Inclui + inferior, diálogo/Escape/retorno de foco, entradas URL/catálogo/registros, seção e coleção criadas juntas, associação/reutilização sem duplicar registro, arquivar/restaurar, ocultar seção, foto própria no item canônico com fallback de decodificação, erro de arquivo inválido com campos preservados, proteção de formulário aberto, releitura/reload, prévia e publicação explícita. SHOP-04 usa conta fictícia e loja reais em leitura; demais casos simulam API/Storage e reprocessam arquivos reais no Chrome. [Banco isolado](evidencias/loja-hierarquia-banco.json) cobre autorização e persistência com ROLLBACK. Não é auditoria integral nem comprova suporte universal a HEIC. Captura móvel da hierarquia revisada, sem overflow.
+
+PRD v1.10, guia preservado, arquitetura e módulo atualizados. Revisão React: efeitos com limpeza de sessão/arquivo, verificação de titular antes/depois do upload, estados de envio/erro e campos preservados; diálogo nativo modal/foco/Escape; opções com nomes acessíveis e ações com tipo adequado. Sem dependência ou serviço novo. Publicação do incremento 43 em preparação.

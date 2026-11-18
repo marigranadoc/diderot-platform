@@ -3,11 +3,16 @@ export const layouts=[{value:'shelves',name:'Prateleiras',description:'Produtos 
 export type ShopLayout=typeof layouts[number]['value'];
 export type ShopItem={id:string;source_slug:string|null;name:string;brand:string;description:string;category:string;price_cents:number|null;url:string;image_path:string|null;visible:boolean;is_affiliate:boolean};
 export type ShopPost={id:string;title:string;caption:string;image_path:string|null;visible:boolean;item_ids:string[]};
-export type ShopCollection={id:string;title:string;description:string;layout:ShopLayout;visible:boolean;item_ids:string[];post_ids:string[]};
-export type ShopDocument={name:string;bio:string;social_links:{label:string;url:string}[];items:ShopItem[];collections:ShopCollection[];posts:ShopPost[]};
+export type ShopSection={id:string;title:string;visible:boolean};
+export type ShopCollection={id:string;title:string;description:string;layout:ShopLayout;visible:boolean;item_ids:string[];post_ids:string[];section_id?:string;archived?:boolean};
+export type ShopDocument={name:string;bio:string;social_links:{label:string;url:string}[];items:ShopItem[];collections:ShopCollection[];posts:ShopPost[];sections?:ShopSection[]};
 export type PublicShopDocument=ShopDocument&{avatar_path?:string|null};
 export type ShopRow={id:string;slug:string;document:ShopDocument;published_document:PublicShopDocument|null;is_published:boolean;revision:number;published_at:string|null};
-export const blankShop=(name=''):ShopDocument=>({name,bio:'',social_links:[{label:'Instagram',url:''},{label:'TikTok',url:''},{label:'YouTube',url:''}],items:[],collections:[],posts:[]});
+export const defaultSectionId='00000000-0000-4000-8000-000000000001';
+export const blankShopSection=():ShopSection=>({id:crypto.randomUUID(),title:'',visible:true});
+export function normalizeShop<T extends ShopDocument>(doc:T):T&{sections:ShopSection[]}{const sections=doc.sections??[{id:defaultSectionId,title:'Minhas escolhas',visible:true}];return {...doc,sections,collections:doc.collections.map(x=>({...x,section_id:x.section_id??sections[0]?.id??defaultSectionId,archived:x.archived??false}))};}
+export function publicShop<T extends ShopDocument>(source:T):T&{sections:ShopSection[]}{const doc=normalizeShop(source),sections=doc.sections.filter(x=>x.visible),collections=doc.collections.filter(x=>x.visible&&!x.archived&&sections.some(s=>s.id===x.section_id));const permitted=(id:string,kind:'item_ids'|'post_ids')=>!doc.collections.some(x=>x[kind].includes(id))||collections.some(x=>x[kind].includes(id));const posts=doc.posts.filter(x=>x.visible&&permitted(x.id,'post_ids'));const items=doc.items.filter(x=>x.visible&&(permitted(x.id,'item_ids')||posts.some(p=>p.item_ids.includes(x.id))));return {...doc,sections,items,posts:posts.map(x=>({...x,item_ids:x.item_ids.filter(id=>items.some(i=>i.id===id))})),collections:collections.map(x=>({...x,item_ids:x.item_ids.filter(id=>items.some(i=>i.id===id)),post_ids:x.post_ids.filter(id=>posts.some(p=>p.id===id))}))};}
+export const blankShop=(name=''):ShopDocument=>({name,bio:'',social_links:[{label:'Instagram',url:''},{label:'TikTok',url:''},{label:'YouTube',url:''}],items:[],collections:[],posts:[],sections:[{id:defaultSectionId,title:'Minhas escolhas',visible:true}]});
 export const blankShopItem=():ShopItem=>({id:crypto.randomUUID(),source_slug:null,name:'',brand:'',description:'',category:'',price_cents:null,url:'',image_path:null,visible:true,is_affiliate:false});
 export const blankShopPost=():ShopPost=>({id:crypto.randomUUID(),title:'',caption:'',image_path:null,visible:true,item_ids:[]});
 export const blankShopCollection=():ShopCollection=>({id:crypto.randomUUID(),title:'',description:'',layout:'shelves',visible:true,item_ids:[],post_ids:[]});
@@ -19,6 +24,9 @@ export function validateShop(doc:ShopDocument,slug:string){
  if(!/^[a-z0-9][a-z0-9-]{1,48}[a-z0-9]$/.test(slug))throw Error('Escolha um endereço de 3 a 50 caracteres, com letras minúsculas, números e hífens, começando e terminando com letra ou número.');
  if(doc.name.trim().length<2||doc.name.trim().length>80)throw Error('Informe um nome público de 2 a 80 caracteres.');
  if(doc.bio.length>2000||doc.social_links.length>10||doc.items.length>200||doc.collections.length>50||doc.posts.length>100)throw Error('Confira os limites dos campos da loja.');
+ const sections=normalizeShop(doc).sections;
+ if(sections.length<1||sections.length>20||sections.some(x=>x.title.trim().length<2||x.title.length>100)||new Set(sections.map(x=>x.id)).size!==sections.length)throw Error('Mantenha de 1 a 20 seções, com nomes de 2 a 100 caracteres.');
+ if(normalizeShop(doc).collections.some(x=>!sections.some(s=>s.id===x.section_id)))throw Error('Escolha uma seção existente para cada coleção.');
  for(const social of doc.social_links)if(social.label.trim().length<2||social.label.length>40||(social.url&&!httpsUrl(social.url)))throw Error('Informe o nome da rede social e um link HTTPS válido, sem usuário ou senha no endereço.');
  for(const item of doc.items)if(item.name.trim().length<2||(!item.source_slug&&item.url&&!httpsUrl(item.url)))throw Error('Confira o nome e o link HTTPS dos produtos.');
  for(const item of [...doc.collections,...doc.posts])if(item.title.trim().length<2)throw Error('Informe um título com pelo menos 2 caracteres para cada coleção e post.');

@@ -92,3 +92,15 @@ footer{background:var(--background-inverse);color:var(--foreground-inverse);padd
 .shop-file-label{position:relative;display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:12px 18px;border:1px solid var(--stroke-light);border-radius:4px;cursor:pointer;font-size:13px}
 .shop-file-label input{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .shop-file-label:focus-within{outline:2px solid currentColor;outline-offset:3px}
+
+/* Store creation action and mobile creation sheet. */
+.shop-manager{padding-bottom:104px}
+.shop-fab{position:fixed;right:24px;bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:60;width:60px;height:60px;border:0;border-radius:50%;background:var(--foreground-primary);color:var(--foreground-inverse);display:grid;place-items:center;box-shadow:0 4px 18px #0003}
+.shop-fab:hover{background:var(--foreground-secondary)}
+.shop-create-sheet{inset:auto 24px 24px auto;width:380px;max-width:calc(100vw - 32px);margin:0;padding:24px;border:1px solid var(--stroke-light);border-radius:16px;color:var(--foreground-primary);background:var(--background-primary);max-height:85dvh;overflow:auto}
+.shop-create-sheet::backdrop{background:#0006}
+.shop-create-heading{display:flex;align-items:center;justify-content:space-between;gap:16px}.shop-create-heading h2{font-size:30px}.shop-create-heading button{width:44px;height:44px;border:0;background:transparent;font-size:28px}
+.shop-create-sheet>p{font-size:14px;margin:8px 0 20px}.shop-create-options{display:grid;gap:12px;margin-bottom:20px}.shop-create-options button{display:grid;gap:6px;text-align:left;padding:18px;border:1px solid var(--stroke-light);border-radius:8px;background:var(--background-primary);min-height:80px}.shop-create-options button:hover{background:var(--background-secondary)}.shop-create-options strong{font-size:15px}.shop-create-options span{font-size:13px;color:var(--foreground-secondary)}
+@media(max-width:768px){.shop-fab{right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px))}.shop-create-sheet{inset:auto 0 0;width:100%;max-width:100%;padding:24px 20px calc(24px + env(safe-area-inset-bottom,0px));border-radius:24px 24px 0 0}}
+
+.shop-collection-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:24px 0}.shop-collection-cards button{display:flex;flex-direction:column;text-align:left;gap:8px;border:1px solid #ddd;padding:24px;background:#fafafa;min-height:110px}.shop-collection-cards strong{font-family:var(--font-display,Georgia,serif);font-size:24px;font-weight:400}.shop-collection-cards small{line-height:1.5}.shop-sections-nav button{flex-shrink:0;min-height:44px}

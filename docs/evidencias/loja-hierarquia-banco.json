@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-18",
+  "stage": 43,
+  "project": "mbxpwrgfujnjonyxzvfw",
+  "migration": "20261118224903_shop_product_photo_override",
+  "migrationApplied": true,
+  "fixture": "supabase/tests/creator-shops.sql",
+  "result": "PASS",
+  "transaction": "ROLLBACK",
+  "identities": 4,
+  "checks": [
+    "Canonical product name/brand/price and destination preserved",
+    "Owned custom catalog photo survives save and public snapshot",
+    "Foreign media and missing/foreign section references rejected",
+    "Legacy section normalization on explicit save",
+    "Archived collection and exclusive items/posts removed from public snapshot",
+    "Restore repopulates contents and photo",
+    "Hidden section and hidden collection removed from public snapshot",
+    "Existing RLS, version, receipt retry, confirmation, owner/member and unpublication checks passed"
+  ],
+  "limits": "Synthetic Storage metadata; no new binary upload to the real bucket and no changes to preexisting business records.",
+  "securityAdvisors": {
+    "newFindings": 0,
+    "existing": [
+      "auth_leaked_password_protection WARN",
+      "rls_enabled_no_policy INFO for intentionally closed creator_shop_public_media and organization_invitations"
+    ]
+  }
+}

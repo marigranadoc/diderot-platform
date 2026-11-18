@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "origin": "https://diderot-platform-mari-granado.vercel.app",
+  "results": [
+    {
+      "viewport": "computador",
+      "status": "passed",
+      "checks": [
+        "public_routes_and_store_without_vercel_login",
+        "signup_choices_without_sending_email",
+        "external_origin_rejected",
+        "shopper_real_auth_and_private_dashboard",
+        "creator_real_auth_and_private_dashboard",
+        "creator_private_editor_and_public_store",
+        "shop_creation_menu_read_only",
+        "creator_photo_and_profile_navigation_read_only",
+        "marca_real_auth_and_private_dashboard",
+        "brand_reads_three_campaign_drafts"
+      ],
+      "businessWrites": 0
+    },
+    {
+      "viewport": "celular",
+      "status": "passed",
+      "checks": [
+        "public_routes_and_store_without_vercel_login",
+        "signup_choices_without_sending_email",
+        "external_origin_rejected",
+        "shopper_real_auth_and_private_dashboard",
+        "creator_real_auth_and_private_dashboard",
+        "creator_private_editor_and_public_store",
+        "shop_creation_menu_read_only",
+        "creator_photo_and_profile_navigation_read_only",
+        "marca_real_auth_and_private_dashboard",
+        "brand_reads_three_campaign_drafts"
+      ],
+      "businessWrites": 0
+    }
+  ],
+  "limits": "Auth real e leitura; sem escrita de negócio ou e-mail real.",
+  "commit": "bbd1c25263e8cd7d56b6d5f642be4fa66c8538cf"
+}

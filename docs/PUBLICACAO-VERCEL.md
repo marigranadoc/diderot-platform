@@ -18,3 +18,8 @@ O estado final de commit, implantação, domínio e jornadas será registrado ap
 ## Publicação confirmada — 17–18/11/2026
 
 GitHub main atualizado atomicamente para [2a0ca505f8f4f2530a9f7dcf1a4dda02fb44083d](https://github.com/marigranadoc/diderot-platform/commit/2a0ca505f8f4f2530a9f7dcf1a4dda02fb44083d). Integração Git disparou a [implantação Vercel](https://vercel.com/mari-granado/diderot-platform/EgZjXyodwuvq1MDD2zTrxPEFQUGs), status success. As rotas antes 404 passaram a 200 no domínio canônico. Verificação com Chrome no computador e celular: entrada das três contas fictícias, painéis e navegação da creator, loja pública com fotos e redes, campanhas da marca, rejeição de origem externa na API de entrada. [Evidência](evidencias/publicacao-vercel-jornadas.json). Escritas de negócio bloqueadas durante a verificação; zero tentativas. Nenhum envio de e-mail, alteração de dados reais ou financeiro. O script scripts/check-deployed-release.mjs reproduz a verificação. O incremento 43 terá estado de publicação próprio.
+
+
+## Incremento 43 publicado — 18/11/2026
+
+Código [bbd1c25](https://github.com/marigranadoc/diderot-platform/commit/bbd1c25263e8cd7d56b6d5f642be4fa66c8538cf), [implantação aprovada](https://vercel.com/mari-granado/diderot-platform/E9hHS91W5bc6FonqcsHBYyEYsJ8a). Migração do banco aplicada separadamente antes do frontend. [Conferência pública](evidencias/publicacao-vercel-criacao-jornadas.json) passou com três contas fictícias, computador e celular; inclui + e suas opções, sem salvar/alterar conteúdo. Zero gravações de negócio durante a verificação. Cadastro não enviou e-mail; não realizou upload binário real nem publicou loja durante essa conferência. Não houve mudança de projeto, ambiente ou dados preexistentes.

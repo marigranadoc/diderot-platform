@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-19T14:04:32.886Z",
+  "codeCommit": "f4b82d98af299e00de4098e758afa318fbe3f676",
+  "productionMerge": "599faf3003057c7544b009d748f9431b21487ff8",
+  "pullRequest": "https://github.com/marigranadoc/diderot-platform/pull/1",
+  "vercelStatus": "success",
+  "vercelInspection": "https://vercel.com/mari-granado/diderot-platform/6BtRS2RBcSKn9KRQ3a8eh85bzvhJ",
+  "published": {
+    "origin": "https://www.shopdiderot.com",
+    "phase": "ajustes-publicado",
+    "results": [
+      {
+        "width": 390,
+        "businessWrites": 0
+      },
+      {
+        "width": 1440,
+        "businessWrites": 0
+      }
+    ]
+  },
+  "local": {
+    "origin": "http://127.0.0.1:3002",
+    "phase": "ajustes-local",
+    "results": [
+      {
+        "width": 390,
+        "businessWrites": 0
+      },
+      {
+        "width": 1440,
+        "businessWrites": 0
+      }
+    ]
+  },
+  "roles": [
+    "creator",
+    "brand",
+    "shopper"
+  ],
+  "verified": [
+    "Cadastro público com linguagem Descobrir e salvar",
+    "Painéis reais das três contas fictícias em 390 e 1440 px",
+    "Seletor com somente categoria cadastrada e configurações",
+    "Loja, serviços e portfólio da creator em leitura",
+    "Menu + novo com layouts e Escape",
+    "Acesso /demo autenticado sem alternar identidades",
+    "Saída local entre as contas"
+  ],
+  "limits": [
+    "REST de negócio bloqueado para métodos diferentes de GET/HEAD/OPTIONS; zero tentativas",
+    "Auth das contas fictícias usado; sem e-mails, seeds, financeiro ou escrita de negócio",
+    "Gravações e persistência desta extensão verificadas por contratos simulados em testes separados",
+    "Capturas autenticadas guardadas localmente; não incluídas no repositório público"
+  ]
+}

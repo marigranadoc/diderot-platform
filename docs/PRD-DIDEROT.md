@@ -2,7 +2,7 @@
 
 **Versão:** 1.12 — categorias de conta, criação contextual e layouts · **Atualizado em:** 19/11/2026 · **Base de implementação:** incrementos 26–45, nos ambientes e limites de suas evidências; [plano de lançamento do MVP](PLANO-LANCAMENTO-MVP.md) e [mapa de telas e fluxos](TELAS-FLUXOS-SHOPMY.md).
 
-**Estado:** documento de referência para desenvolvimento. O estado implementado está documentado; as decisões de produto propostas estão identificadas e ainda precisam ser validadas. Não representa aprovação para lançamento.
+**Estado:** documento de referência para desenvolvimento. O estado implementado está documentado; as decisões de produto propostas estão identificadas e ainda precisam ser validadas. Não representa conclusão dos módulos futuros nem lançamento integral do MVP.
 
 **Diretriz incorporada nesta versão:** expansão fornecida pelo usuário em [Prompt Master — UGC Marketplace + Creator Commerce](REFERENCIA-EXPANSAO-UGC.md), preservado integralmente como fonte. As seções 16–25 convertem essa diretriz em requisitos, estados, critérios de aceite e plano incremental. UGC é um módulo nativo e obrigatório do escopo-alvo, não uma capacidade comprovada pelo REA nem já implementada. A expansão das seções 16–25 preserva requisitos propostos; a entrega atual de UX/UI é descrita separadamente nas seções 44–45 e não comprova os módulos de negócio futuros.
 
@@ -866,4 +866,4 @@ Coleções oferecem cinco cartões visuais de layout diretamente no formulário,
 
 Usuária autorizou explicitamente envio ao GitHub e deploy desta versão após os ajustes e testes. Isso substitui a restrição de entrega somente em prévia do incremento 44 para esta entrega. Evidências e implantação serão registradas no progresso.
 
-Verificação do incremento 45: 106/106 testes de navegador aprovados, sem ignorados ou flaky; [evidência e limites](evidencias/ux-ajustes-validacao-final.json). Mudanças de categoria e layouts usam contratos existentes com confirmação e releitura. Escritas simuladas não equivalem a homologação de novos dados reais. Publicação autorizada em preparação.
+Verificação do incremento 45: 106/106 testes de navegador aprovados, sem ignorados ou flaky; [evidência e limites](evidencias/ux-ajustes-validacao-final.json). Mudanças de categoria e layouts usam contratos existentes com confirmação e releitura. Escritas simuladas não equivalem a homologação de novos dados reais. Publicado após autorização em [www.shopdiderot.com](https://www.shopdiderot.com): código f4b82d9 / merge 599faf3 do [PR #1](https://github.com/marigranadoc/diderot-platform/pull/1), Vercel success. [Jornadas publicadas](evidencias/ux-ajustes-publicacao.json) com três contas fictícias em 390/1440 px, sem tentativas de gravação de negócio. Local 3002 também verificado.

@@ -57,10 +57,10 @@ test('ACCESS-07 sessão encerrada durante a consulta não abre o painel anterior
  try{await login(page);await requested;await page.evaluate(key=>{localStorage.removeItem(key);window.dispatchEvent(new StorageEvent('storage',{key}));},key);release();await expect(page.getByRole('main').getByRole('alert')).toContainText('Sua sessão mudou ou expirou');await expect(page).toHaveURL(/conta$/);}finally{release();}
 });
 
-test('ACCESS-08 demora na solicitação preserva conta anterior e habilita nova tentativa',async({page})=>{
- await setup(page,'shopper',true);await page.clock.install();let release=()=>{};const gate=new Promise<void>(r=>release=r);
+test('ACCESS-08 visitante: demora não cria sessão e habilita nova tentativa',async({page})=>{
+ await setup(page,'shopper',false);await page.clock.install();let release=()=>{};const gate=new Promise<void>(r=>release=r);
  await page.route('**/api/demo/session',async route=>{await gate;try{await route.fulfill({status:503,json:{error:'test outage'}});}catch{}});
- try{await page.goto('/demo');await page.getByRole('button',{name:'Entrar como creator',exact:true}).click();await page.clock.fastForward(20001);await expect(page.getByRole('main').getByRole('alert')).toContainText('A entrada demorou mais que o esperado');await expect(page.getByRole('button',{name:'Entrar como creator',exact:true})).toBeEnabled();expect(await page.evaluate(key=>JSON.parse(localStorage.getItem(key)!).user.id,key)).toBe(id);}finally{release();}
+ try{await page.goto('/demo');await page.getByRole('button',{name:'Entrar como creator',exact:true}).click();await page.clock.fastForward(20001);await expect(page.getByRole('main').getByRole('alert')).toContainText('A entrada demorou mais que o esperado');await expect(page.getByRole('button',{name:'Entrar como creator',exact:true})).toBeEnabled();expect(await page.evaluate(key=>localStorage.getItem(key),key)).toBeNull();}finally{release();}
 });
 
 

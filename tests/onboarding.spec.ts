@@ -13,7 +13,7 @@ async function seedSession(page:Page){await page.addInitScript(value=>localStora
 test('ONB-01 cadastro confirma envio sem inventar sessão e valida senha',async({page})=>{
   let calls=0;
   await page.route('**/auth/v1/signup**',route=>{calls++;return route.fulfill({json:{user,session:null}});});
-  await page.goto('/cadastro');
+  await page.goto('/cadastro');await page.getByRole('button',{name:'Continuar com este espaço',exact:true}).click();
   await page.getByLabel('E-mail',{exact:true}).fill(user.email);
   await page.getByLabel('Nova senha',{exact:true}).fill('test-password-123');
   await page.getByLabel('Confirmar senha',{exact:true}).fill('test-password-456');
@@ -90,7 +90,7 @@ test('ONB-06 contrato simulado: UGC sem seguidores, reload, atuação híbrida e
   await page.getByRole('button',{name:'Salvar perfil'}).click();
   await expect(page.getByRole('main').getByRole('status')).toContainText('Perfil salvo');
   expect(profile!.modalities).toEqual(['ugc']);
-  await page.reload();
+  page.once('dialog',dialog=>dialog.accept());await page.reload();
   await expect(page.getByLabel('Nome profissional',{exact:true})).toHaveValue('Criadora de teste');
   await expect(page.getByRole('checkbox',{name:/UGC Creator/})).toBeChecked();
   await page.getByRole('checkbox',{name:/Influencer/}).check();
@@ -150,7 +150,7 @@ test('ONB-10 confirmação clara, reenvio real pelo contrato e falha sem falso s
  let target:Record<string,unknown>|null=null,fail=false;
  await page.route('**/auth/v1/signup**',route=>route.fulfill({json:{user,session:null}}));
  await page.route('**/auth/v1/resend**',route=>{target=route.request().postDataJSON();return route.fulfill(fail?{status:429,json:{msg:'Rate limit'}}:{json:{}});});
- await page.goto('/cadastro');await page.getByLabel('E-mail',{exact:true}).fill(user.email);await page.getByLabel('Nova senha',{exact:true}).fill('test-password-123');await page.getByLabel('Confirmar senha',{exact:true}).fill('test-password-123');await page.getByRole('button',{name:'Criar conta',exact:true}).click();
+ await page.goto('/cadastro');await page.getByRole('button',{name:'Continuar com este espaço',exact:true}).click();await page.getByLabel('E-mail',{exact:true}).fill(user.email);await page.getByLabel('Nova senha',{exact:true}).fill('test-password-123');await page.getByLabel('Confirmar senha',{exact:true}).fill('test-password-123');await page.getByRole('button',{name:'Criar conta',exact:true}).click();
  await expect(page.getByRole('main').getByRole('status')).toContainText('Confirme seu e-mail para continuar');
  await expect(page.getByRole('main').getByRole('status')).not.toContainText('Se o cadastro');
  await page.getByLabel('E-mail',{exact:true}).fill('outro@example.invalid');
@@ -165,7 +165,7 @@ test('ONB-10 confirmação clara, reenvio real pelo contrato e falha sem falso s
 
 test('ONB-11 resposta ofuscada orienta acesso sem inventar envio de confirmação',async({page})=>{
  await page.route('**/auth/v1/signup**',route=>route.fulfill({json:{user:{...user,identities:[]},session:null}}));
- await page.goto('/cadastro');await page.getByLabel('E-mail',{exact:true}).fill(user.email);await page.getByLabel('Nova senha',{exact:true}).fill('test-password-123');await page.getByLabel('Confirmar senha',{exact:true}).fill('test-password-123');await page.getByRole('button',{name:'Criar conta',exact:true}).click();
+ await page.goto('/cadastro');await page.getByRole('button',{name:'Continuar com este espaço',exact:true}).click();await page.getByLabel('E-mail',{exact:true}).fill(user.email);await page.getByLabel('Nova senha',{exact:true}).fill('test-password-123');await page.getByLabel('Confirmar senha',{exact:true}).fill('test-password-123');await page.getByRole('button',{name:'Criar conta',exact:true}).click();
  await expect(page.getByRole('main').getByRole('status')).toHaveText('Continue pela entrada da sua conta ou recupere a senha.');
  await expect(page.getByRole('link',{name:'Entrar na minha conta',exact:true})).toHaveAttribute('href','/conta');
  await expect(page.getByRole('link',{name:'Recuperar minha senha',exact:true})).toHaveAttribute('href','/recuperar-acesso');

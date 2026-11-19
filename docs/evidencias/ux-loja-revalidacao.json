@@ -1,0 +1,343 @@
+{
+  "date": "2026-11-19",
+  "stats": {
+    "startTime": "2026-11-19T10:38:34.878Z",
+    "duration": 357191.441,
+    "expected": 40,
+    "skipped": 3,
+    "unexpected": 3,
+    "flaky": 0
+  },
+  "cases": [
+    {
+      "title": "SHOP-01 contrato: perfil com foto, redes sociais, produto, seção e post persistem",
+      "project": "computador",
+      "status": "expected",
+      "duration": 17638,
+      "errors": []
+    },
+    {
+      "title": "SHOP-01 contrato: perfil com foto, redes sociais, produto, seção e post persistem",
+      "project": "celular",
+      "status": "expected",
+      "duration": 18382,
+      "errors": []
+    },
+    {
+      "title": "SHOP-02 contrato: catálogo, duplicar/ocultar/ordenar seções e publicação explícita",
+      "project": "computador",
+      "status": "expected",
+      "duration": 8220,
+      "errors": []
+    },
+    {
+      "title": "SHOP-02 contrato: catálogo, duplicar/ocultar/ordenar seções e publicação explícita",
+      "project": "celular",
+      "status": "expected",
+      "duration": 5840,
+      "errors": []
+    },
+    {
+      "title": "SHOP-03 contrato: resposta perdida, conflito, campos preservados e URL insegura",
+      "project": "computador",
+      "status": "expected",
+      "duration": 4264,
+      "errors": []
+    },
+    {
+      "title": "SHOP-03 contrato: resposta perdida, conflito, campos preservados e URL insegura",
+      "project": "celular",
+      "status": "expected",
+      "duration": 3124,
+      "errors": []
+    },
+    {
+      "title": "SHOP-04 backend real: loja pública demonstrativa, redes abaixo do CTA e acesso pelo painel",
+      "project": "computador",
+      "status": "expected",
+      "duration": 11691,
+      "errors": []
+    },
+    {
+      "title": "SHOP-04 backend real: loja pública demonstrativa, redes abaixo do CTA e acesso pelo painel",
+      "project": "celular",
+      "status": "expected",
+      "duration": 10033,
+      "errors": []
+    },
+    {
+      "title": "SHOP-05 contrato: marca envia/remove foto e membro permanece somente leitura",
+      "project": "computador",
+      "status": "expected",
+      "duration": 7117,
+      "errors": []
+    },
+    {
+      "title": "SHOP-05 contrato: marca envia/remove foto e membro permanece somente leitura",
+      "project": "celular",
+      "status": "expected",
+      "duration": 4967,
+      "errors": []
+    },
+    {
+      "title": "SHOP-06 saída em outra aba descarta resposta privada pendente",
+      "project": "computador",
+      "status": "expected",
+      "duration": 3913,
+      "errors": []
+    },
+    {
+      "title": "SHOP-06 saída em outra aba descarta resposta privada pendente",
+      "project": "celular",
+      "status": "expected",
+      "duration": 3690,
+      "errors": []
+    },
+    {
+      "title": "SHOP-07 loja pública: cards compactos, busca, ordenação e favorito de visitante persistente",
+      "project": "computador",
+      "status": "expected",
+      "duration": 4164,
+      "errors": []
+    },
+    {
+      "title": "SHOP-07 loja pública: cards compactos, busca, ordenação e favorito de visitante persistente",
+      "project": "celular",
+      "status": "expected",
+      "duration": 5998,
+      "errors": []
+    },
+    {
+      "title": "SHOP-08 perfil: upload compartilhado com loja, navegação por área e publicação da foto",
+      "project": "computador",
+      "status": "expected",
+      "duration": 7890,
+      "errors": []
+    },
+    {
+      "title": "SHOP-08 perfil: upload compartilhado com loja, navegação por área e publicação da foto",
+      "project": "celular",
+      "status": "unexpected",
+      "duration": 60786,
+      "errors": [
+        "Test timeout of 60000ms exceeded.",
+        "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n  - waiting for getByRole('navigation', { name: 'Navegação do meu espaço', exact: true }).getByRole('lin"
+      ]
+    },
+    {
+      "title": "SHOP-09 criação app: seções, coleções, catálogo com foto própria, reutilizar, arquivar e restaurar",
+      "project": "computador",
+      "status": "expected",
+      "duration": 12158,
+      "errors": []
+    },
+    {
+      "title": "SHOP-09 criação app: seções, coleções, catálogo com foto própria, reutilizar, arquivar e restaurar",
+      "project": "celular",
+      "status": "expected",
+      "duration": 16489,
+      "errors": []
+    },
+    {
+      "title": "SHOP-10 criação app: URL manual, erro de foto, campos preservados e edição protegida",
+      "project": "computador",
+      "status": "expected",
+      "duration": 6420,
+      "errors": []
+    },
+    {
+      "title": "SHOP-10 criação app: URL manual, erro de foto, campos preservados e edição protegida",
+      "project": "celular",
+      "status": "expected",
+      "duration": 3959,
+      "errors": []
+    },
+    {
+      "title": "SHOP-11 coleção: criar seção junto, ocultar e mover produto sem duplicar o registro",
+      "project": "computador",
+      "status": "expected",
+      "duration": 8745,
+      "errors": []
+    },
+    {
+      "title": "SHOP-11 coleção: criar seção junto, ocultar e mover produto sem duplicar o registro",
+      "project": "celular",
+      "status": "expected",
+      "duration": 3396,
+      "errors": []
+    },
+    {
+      "title": "SHOP-12 ordem visual: arrastar coleção salva e relê a ordem",
+      "project": "computador",
+      "status": "expected",
+      "duration": 8092,
+      "errors": []
+    },
+    {
+      "title": "SHOP-12 ordem visual: arrastar coleção salva e relê a ordem",
+      "project": "celular",
+      "status": "expected",
+      "duration": 5181,
+      "errors": []
+    },
+    {
+      "title": "SHOP-13 etapas: voltar preserva produto, foto e dados opcionais",
+      "project": "computador",
+      "status": "expected",
+      "duration": 7619,
+      "errors": []
+    },
+    {
+      "title": "SHOP-13 etapas: voltar preserva produto, foto e dados opcionais",
+      "project": "celular",
+      "status": "expected",
+      "duration": 5691,
+      "errors": []
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 320px",
+      "project": "computador",
+      "status": "expected",
+      "duration": 3162,
+      "errors": []
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 320px",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1929,
+      "errors": []
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 375px",
+      "project": "computador",
+      "status": "expected",
+      "duration": 4568,
+      "errors": []
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 375px",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1902,
+      "errors": []
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 390px",
+      "project": "computador",
+      "status": "expected",
+      "duration": 4149,
+      "errors": []
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 390px",
+      "project": "celular",
+      "status": "expected",
+      "duration": 2536,
+      "errors": []
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 768px",
+      "project": "computador",
+      "status": "expected",
+      "duration": 3977,
+      "errors": []
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 768px",
+      "project": "celular",
+      "status": "expected",
+      "duration": 4496,
+      "errors": []
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 1024px",
+      "project": "computador",
+      "status": "expected",
+      "duration": 4573,
+      "errors": []
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 1024px",
+      "project": "celular",
+      "status": "expected",
+      "duration": 5912,
+      "errors": []
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 1440px",
+      "project": "computador",
+      "status": "expected",
+      "duration": 5219,
+      "errors": []
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 1440px",
+      "project": "celular",
+      "status": "expected",
+      "duration": 5652,
+      "errors": []
+    },
+    {
+      "title": "UX-02 filtros do catálogo sobrevivem a recarregar e voltar do produto",
+      "project": "computador",
+      "status": "unexpected",
+      "duration": 15231,
+      "errors": [
+        "Error: expect(locator).toHaveValue(expected) failed\n\nLocator: getByRole('searchbox', { name: 'Buscar na loja', exact: true })\nExpected: \"bolsa\"\nTimeout: 10000ms\nError: el"
+      ]
+    },
+    {
+      "title": "UX-02 filtros do catálogo sobrevivem a recarregar e voltar do produto",
+      "project": "celular",
+      "status": "unexpected",
+      "duration": 16518,
+      "errors": [
+        "Error: expect(locator).toHaveValue(expected) failed\n\nLocator: getByRole('searchbox', { name: 'Buscar na loja', exact: true })\nExpected: \"bolsa\"\nTimeout: 10000ms\nError: el"
+      ]
+    },
+    {
+      "title": "UX-03 escolha de intenção funciona por teclado",
+      "project": "computador",
+      "status": "expected",
+      "duration": 3107,
+      "errors": []
+    },
+    {
+      "title": "UX-03 escolha de intenção funciona por teclado",
+      "project": "celular",
+      "status": "skipped",
+      "duration": 0,
+      "errors": []
+    },
+    {
+      "title": "UX-04 compartilhar loja usa o endereço público e confirma cópia real pelo contrato",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2850,
+      "errors": []
+    },
+    {
+      "title": "UX-04 compartilhar loja usa o endereço público e confirma cópia real pelo contrato",
+      "project": "celular",
+      "status": "skipped",
+      "duration": 0,
+      "errors": []
+    },
+    {
+      "title": "UX-05 seletor de espaços usa vínculos consultados, não metadata",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2104,
+      "errors": []
+    },
+    {
+      "title": "UX-05 seletor de espaços usa vínculos consultados, não metadata",
+      "project": "celular",
+      "status": "skipped",
+      "duration": 0,
+      "errors": []
+    }
+  ],
+  "limits": "Directed diagnosis limited to 3 failures. Remaining legacy mobile menu selector and missing wait for SPA URL in return-navigation test corrected afterward."
+}

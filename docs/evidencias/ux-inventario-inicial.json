@@ -1,0 +1,427 @@
+{
+  "date": "2026-11-18",
+  "branch": "feat/ux-overhaul-2026-11-18",
+  "routes": [
+    {
+      "route": "/auth/retorno",
+      "source": "app/auth/retorno/page.tsx"
+    },
+    {
+      "route": "/cadastro",
+      "source": "app/cadastro/page.tsx"
+    },
+    {
+      "route": "/campanhas/demo/[slug]",
+      "source": "app/campanhas/demo/[slug]/page.tsx"
+    },
+    {
+      "route": "/colecoes/[slug]",
+      "source": "app/colecoes/[slug]/page.tsx"
+    },
+    {
+      "route": "/conta/criador",
+      "source": "app/conta/criador/page.tsx"
+    },
+    {
+      "route": "/conta/criador/portfolio",
+      "source": "app/conta/criador/portfolio/page.tsx"
+    },
+    {
+      "route": "/conta/criador/servicos",
+      "source": "app/conta/criador/servicos/page.tsx"
+    },
+    {
+      "route": "/conta",
+      "source": "app/conta/page.tsx"
+    },
+    {
+      "route": "/conta/perfil",
+      "source": "app/conta/perfil/page.tsx"
+    },
+    {
+      "route": "/criador",
+      "source": "app/criador/page.tsx"
+    },
+    {
+      "route": "/demo",
+      "source": "app/demo/page.tsx"
+    },
+    {
+      "route": "/explorar/campanhas",
+      "source": "app/explorar/campanhas/page.tsx"
+    },
+    {
+      "route": "/loja/[slug]",
+      "source": "app/loja/[slug]/page.tsx"
+    },
+    {
+      "route": "/onboarding",
+      "source": "app/onboarding/page.tsx"
+    },
+    {
+      "route": "/",
+      "source": "app/page.tsx"
+    },
+    {
+      "route": "/painel/criador/loja",
+      "source": "app/painel/criador/loja/page.tsx"
+    },
+    {
+      "route": "/painel/criador",
+      "source": "app/painel/criador/page.tsx"
+    },
+    {
+      "route": "/painel/marca",
+      "source": "app/painel/marca/page.tsx"
+    },
+    {
+      "route": "/painel/shopper",
+      "source": "app/painel/shopper/page.tsx"
+    },
+    {
+      "route": "/produto/[slug]",
+      "source": "app/produto/[slug]/page.tsx"
+    },
+    {
+      "route": "/recuperar-acesso",
+      "source": "app/recuperar-acesso/page.tsx"
+    }
+  ],
+  "components": [
+    {
+      "source": "components/AccessForm.tsx",
+      "states": [],
+      "persistence": []
+    },
+    {
+      "source": "components/Account.tsx",
+      "states": [
+        "email",
+        "password",
+        "working",
+        "opening",
+        "message",
+        "retry",
+        "confirmationEmail",
+        "confirmationNotice"
+      ],
+      "persistence": []
+    },
+    {
+      "source": "components/AccountNavigation.tsx",
+      "states": [],
+      "persistence": []
+    },
+    {
+      "source": "components/AccountSetup.tsx",
+      "states": [
+        "type",
+        "form",
+        "step",
+        "contextLoading",
+        "contextError",
+        "busy",
+        "message",
+        "photoContext",
+        "photoBusy"
+      ],
+      "persistence": [
+        "creator_profiles",
+        "organizations",
+        "complete_account_onboarding",
+        "account_profiles"
+      ]
+    },
+    {
+      "source": "components/BrandWorkspace.tsx",
+      "states": [
+        "userId",
+        "organizations",
+        "loading",
+        "loadError",
+        "revision",
+        "editing",
+        "form",
+        "saving",
+        "message",
+        "success",
+        "teamOpen",
+        "teamNotice",
+        "campaignOpen",
+        "campaignDirty"
+      ],
+      "persistence": [
+        "organizations",
+        "organization_members"
+      ]
+    },
+    {
+      "source": "components/CampaignBriefingFields.tsx",
+      "states": [],
+      "persistence": []
+    },
+    {
+      "source": "components/CampaignDrafts.tsx",
+      "states": [
+        "organizationId",
+        "rows",
+        "loading",
+        "error",
+        "notice",
+        "refresh",
+        "editing",
+        "form",
+        "dirty",
+        "saving",
+        "discard",
+        "step"
+      ],
+      "persistence": [
+        "organizations",
+        "campaign_drafts",
+        "save_campaign_draft"
+      ]
+    },
+    {
+      "source": "components/Catalog.tsx",
+      "states": [
+        "query",
+        "category",
+        "sort"
+      ],
+      "persistence": []
+    },
+    {
+      "source": "components/CreatorDashboard.tsx",
+      "states": [
+        "overview",
+        "signedIn",
+        "loading",
+        "error",
+        "revision"
+      ],
+      "persistence": [
+        "creator_profiles",
+        "creator_services",
+        "creator_portfolio_items"
+      ]
+    },
+    {
+      "source": "components/CreatorOnboarding.tsx",
+      "states": [],
+      "persistence": [
+        "creator_profiles"
+      ]
+    },
+    {
+      "source": "components/CreatorPortfolio.tsx",
+      "states": [
+        "items",
+        "form",
+        "editing",
+        "deleting",
+        "owner",
+        "hasProfile",
+        "loading",
+        "busy",
+        "failed",
+        "message",
+        "success",
+        "revision"
+      ],
+      "persistence": [
+        "creator_profiles",
+        "creator_portfolio_items"
+      ]
+    },
+    {
+      "source": "components/CreatorServices.tsx",
+      "states": [
+        "items",
+        "form",
+        "editing",
+        "deleting",
+        "owner",
+        "hasProfile",
+        "loading",
+        "busy",
+        "failed",
+        "message",
+        "success",
+        "revision"
+      ],
+      "persistence": [
+        "creator_profiles",
+        "creator_services"
+      ]
+    },
+    {
+      "source": "components/CreatorShopEditor.tsx",
+      "states": [
+        "row",
+        "doc",
+        "slug",
+        "loading",
+        "loadError",
+        "error",
+        "notice",
+        "busy",
+        "hasProfile",
+        "tab",
+        "preview",
+        "dirty",
+        "avatar",
+        "loadVersion",
+        "item",
+        "post",
+        "collection",
+        "confirm",
+        "catalogQuery",
+        "photoBusy",
+        "shopSection",
+        "selectedSection"
+      ],
+      "persistence": [
+        "creator_shops",
+        "creator_profiles",
+        "profile_photos",
+        "save_creator_shop"
+      ]
+    },
+    {
+      "source": "components/CreatorShopView.tsx",
+      "states": [
+        "section",
+        "openedCollection",
+        "query",
+        "category",
+        "sort"
+      ],
+      "persistence": []
+    },
+    {
+      "source": "components/DemoAccess.tsx",
+      "states": [
+        "busy",
+        "error"
+      ],
+      "persistence": []
+    },
+    {
+      "source": "components/HomePage.tsx",
+      "states": [],
+      "persistence": []
+    },
+    {
+      "source": "components/OrganizationTeam.tsx",
+      "states": [
+        "inbox",
+        "members",
+        "sent",
+        "loading",
+        "error",
+        "revision",
+        "email",
+        "busy",
+        "message",
+        "success",
+        "removing"
+      ],
+      "persistence": [
+        "organization_team"
+      ]
+    },
+    {
+      "source": "components/ProductPhoto.tsx",
+      "states": [],
+      "persistence": []
+    },
+    {
+      "source": "components/ProfileAvatarPlaceholder.tsx",
+      "states": [],
+      "persistence": []
+    },
+    {
+      "source": "components/ProfilePhoto.tsx",
+      "states": [
+        "path",
+        "loading",
+        "error",
+        "notice",
+        "reload"
+      ],
+      "persistence": [
+        "profile_photos",
+        "save_profile_photo"
+      ]
+    },
+    {
+      "source": "components/ProfileWorkspace.tsx",
+      "states": [
+        "hash",
+        "photo"
+      ],
+      "persistence": [
+        "organizations",
+        "profile_photos"
+      ]
+    },
+    {
+      "source": "components/ShopContentForms.tsx",
+      "states": [
+        "imageBusy",
+        "imageBusy",
+        "newSection"
+      ],
+      "persistence": []
+    },
+    {
+      "source": "components/ShopCreateMenu.tsx",
+      "states": [
+        "products",
+        "open"
+      ],
+      "persistence": []
+    },
+    {
+      "source": "components/ShopImageUpload.tsx",
+      "states": [
+        "url",
+        "failed",
+        "busy",
+        "error",
+        "notice"
+      ],
+      "persistence": [
+        "diderot-media"
+      ]
+    },
+    {
+      "source": "components/ShopperDashboard.tsx",
+      "states": [],
+      "persistence": []
+    },
+    {
+      "source": "components/SiteFooter.tsx",
+      "states": [],
+      "persistence": []
+    },
+    {
+      "source": "components/SiteHeader.tsx",
+      "states": [
+        "open",
+        "mobile",
+        "search",
+        "query",
+        "scrolled"
+      ],
+      "persistence": []
+    },
+    {
+      "source": "components/SocialIcon.tsx",
+      "states": [],
+      "persistence": []
+    }
+  ],
+  "limits": "Source inventory; not proof that every state has been exercised."
+}

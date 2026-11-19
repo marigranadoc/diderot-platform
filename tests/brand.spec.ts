@@ -27,7 +27,7 @@ test('BR-02 contrato: criar, reler, editar e cancelar sem simular aprovação',a
  });
  await page.route('**/rest/v1/organization_members**',route=>route.fulfill({json:route.request().url().includes('organization_id=')?{role:'owner'}:org?[{organization_id:orgId,role:'owner'}]:[]}));
  await page.goto('/painel/marca');await page.getByLabel('Nome da organização',{exact:true}).fill('Marca de teste');
- await page.getByLabel('Site (opcional)',{exact:true}).fill('http://example.com');await page.getByRole('button',{name:'Salvar organização',exact:true}).click();
+ await page.getByText('Apresentação e site da marca',{exact:true}).click();await page.getByLabel('Site (opcional)',{exact:true}).fill('http://example.com');await page.getByRole('button',{name:'Salvar organização',exact:true}).click();
  await expect(page.getByRole('main').getByRole('alert')).toContainText('HTTPS válido');expect(posts).toBe(0);
  await page.getByLabel('Site (opcional)',{exact:true}).fill('https://example.com');await page.getByLabel('Sobre a organização',{exact:true}).fill('Conteúdo demonstrativo');
  await page.getByRole('button',{name:'Salvar organização',exact:true}).click();

@@ -1,0 +1,23 @@
+{
+  "results": [
+    {
+      "phase": "before",
+      "origin": "https://www.shopdiderot.com",
+      "signupInitiallyVisibleFields": 3,
+      "productInitiallyVisibleFields": 11,
+      "collectionInitiallyVisibleFields": 12,
+      "clicksFromCreatorDashboardToProductForm": 3,
+      "businessWrites": 0
+    },
+    {
+      "phase": "after",
+      "origin": "http://127.0.0.1:3002",
+      "signupInitiallyVisibleFields": 0,
+      "productInitiallyVisibleFields": 3,
+      "collectionInitiallyVisibleFields": 2,
+      "clicksFromCreatorDashboardToProductForm": 2,
+      "businessWrites": 0
+    }
+  ],
+  "limits": "Observed screen counts in existing fictional creator account. Advanced controls excluded while collapsed. Measures task entry, not completion time or conversion."
+}

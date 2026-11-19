@@ -1,12 +1,12 @@
 # PRD Diderot — produto, implementação e próximos passos
 
-**Versão:** 1.10 — organização da loja e criação pelo botão + · **Atualizado em:** 18/11/2026 · **Base de implementação:** incrementos 26–43, nos ambientes e limites de suas evidências; [plano de lançamento do MVP](PLANO-LANCAMENTO-MVP.md) e [mapa de telas e fluxos](TELAS-FLUXOS-SHOPMY.md).
+**Versão:** 1.12 — categorias de conta, criação contextual e layouts · **Atualizado em:** 19/11/2026 · **Base de implementação:** incrementos 26–45, nos ambientes e limites de suas evidências; [plano de lançamento do MVP](PLANO-LANCAMENTO-MVP.md) e [mapa de telas e fluxos](TELAS-FLUXOS-SHOPMY.md).
 
 **Estado:** documento de referência para desenvolvimento. O estado implementado está documentado; as decisões de produto propostas estão identificadas e ainda precisam ser validadas. Não representa aprovação para lançamento.
 
-**Diretriz incorporada nesta versão:** expansão fornecida pelo usuário em [Prompt Master — UGC Marketplace + Creator Commerce](REFERENCIA-EXPANSAO-UGC.md), preservado integralmente como fonte. As seções 16–25 convertem essa diretriz em requisitos, estados, critérios de aceite e plano incremental. UGC é um módulo nativo e obrigatório do escopo-alvo, não uma capacidade comprovada pelo REA nem já implementada. Esta atualização é documental; não executa as instruções de implementação contidas no anexo.
+**Diretriz incorporada nesta versão:** expansão fornecida pelo usuário em [Prompt Master — UGC Marketplace + Creator Commerce](REFERENCIA-EXPANSAO-UGC.md), preservado integralmente como fonte. As seções 16–25 convertem essa diretriz em requisitos, estados, critérios de aceite e plano incremental. UGC é um módulo nativo e obrigatório do escopo-alvo, não uma capacidade comprovada pelo REA nem já implementada. A expansão das seções 16–25 preserva requisitos propostos; a entrega atual de UX/UI é descrita separadamente nas seções 44–45 e não comprova os módulos de negócio futuros.
 
-**Base publicada verificada:** [bbd1c25](https://github.com/marigranadoc/diderot-platform/commit/bbd1c25263e8cd7d56b6d5f642be4fa66c8538cf), incluindo o incremento 43. Build, SQL isolado e 22/22 testes da loja aprovados. Jornadas de leitura das três contas fictícias e menu de criação aprovados no domínio público, computador/celular, sem gravações de negócio. [Evidência publicada](evidencias/publicacao-vercel-criacao-jornadas.json).
+**Base publicada anterior verificada (histórico):** [bbd1c25](https://github.com/marigranadoc/diderot-platform/commit/bbd1c25263e8cd7d56b6d5f642be4fa66c8538cf), incluindo o incremento 43. Build, SQL isolado e 22/22 testes da loja aprovados. Jornadas de leitura das três contas fictícias e menu de criação aprovados no domínio público, computador/celular, sem gravações de negócio. [Evidência publicada](evidencias/publicacao-vercel-criacao-jornadas.json).
 
 **Como ler:** estado consolidado nas seções 3, 5, 7 e 9; regras do marketplace UGC nas seções 16–25; execução histórica nas seções 26–34; referência e conciliações na seção 35; setup na 36; briefing novo na 37 e loja/fotos/redes na 38; [plano de lançamento](PLANO-LANCAMENTO-MVP.md). [Telas/fluxos](TELAS-FLUXOS-SHOPMY.md) e [fonte preservada](REFERENCIA-NAVEGACAO-SHOPMY.md).
 
@@ -837,3 +837,33 @@ Pendências explicitamente fora da implementação: extração automática de t�
 
 
 Validação do incremento 43: publicado e conferido no domínio da Vercel; evidências no progresso. Limite do rascunho: produto externo visível precisa de foto e destino completo ao publicar, inclusive se sua coleção estiver oculta; desmarcar a visibilidade do produto enquanto incompleto. Ocultar/arquivar coleção não altera a visibilidade individual do registro. A elegibilidade pública do grupo e a completude individual são verificações distintas.
+
+
+## 44. Reformulação UX/UI — 18/11/2026
+
+Pedido da usuária: [Master Prompt UX/UI](REFERENCIA-UX-OVERHAUL.md). Preservar a identidade Diderot, arquitetura e dados; simplificar tarefas com intenção → configuração mínima → prévia → confirmação. Esta diretriz substitui a clonagem literal da ShopMy como objetivo visual. Referência de experiência não autoriza copiar textos, identidade ou código proprietário.
+
+Ambiente: www.shopdiderot.com responde com a aplicação Diderot; trabalho em feat/ux-overhaul-2026-11-18 a partir de main 16a63fe. [Diagnóstico e inventário](UX-OVERHAUL.md). Não atualizar main nem publicar automaticamente em produção; entregar branch/PR e prévia para revisão. Nenhuma tabela/RLS/API deverá mudar só para facilitar o novo frontend.
+
+Escopo implementado em validação: seleção de intenção antes dos campos de senha, mesmas validações Auth; onboarding com opcionais recolhidos e revisão; navegação inferior para creator/marca/shopper e seletor de espaços baseado em perfil profissional/vínculos existentes, sem alterar preferências ou conceder permissões; painel de creator com ação principal e checklist calculado dos dados relidos; loja inicia em prévia quando existente, edição visual com busca e filtros; produto novo em duas etapas (essenciais e destino/prévia), coleção nova em três (identidade, conteúdo, prévia); edições existentes diretas; arquivar/restaurar/duplicar/ordem preservados em menus secundários; arrastar para reordenar no desktop e botões acessíveis como alternativa; serviços/portfólio criados sob demanda com seleção de tipo e prévia privada; perfil com prévia e localização opcional; marca por tarefas e edição curta com prévia; campanhas filtráveis pelos dados existentes; catálogo com limpar e filtros na URL; compartilhamento real de loja por Web Share/clipboard.
+
+Critérios: voltar preserva campos; fechar/navegar com alterações pede confirmação; required visível na etapa pertinente; envio duplicado bloqueado; erro mantém valores; sucesso só após retorno confirmado existente; checklist sem valores inventados; espaços não concedem acesso por metadata; nenhuma candidatura/contratação/comissão simulada. Fotos usam a infraestrutura atual. Portfólio continua por URL, sem upload novo; serviços continuam privados e preço opcional. Produtos/coleções continuam em rascunho até publicação explícita. Limites funcionais anteriores permanecem no plano do MVP.
+
+Verificação: rodadas por módulo e jornadas de leitura com contas fictícias; seis larguras, teclado, erros e capturas antes/depois. Sem cadastro SMTP real, escritas em contas reais ou operações financeiras. Comparações devem medir campos/etapas/cliques observados; não inventar conversão ou declarar certificação WCAG só por inspeção. Resultados, falhas e pendências no progresso.
+
+
+Estado de entrega do incremento 44: implementado e validado localmente, com revalidação final 92/92 e [PR de revisão](https://github.com/marigranadoc/diderot-platform/pull/1). Build Vercel Ready em prévia protegida; produção preservada. Não equivale a homologação automatizada dessa implantação nem conclusão dos módulos futuros do MVP.
+
+## 45. Conta escolhida, criação contextual e layouts — 19/11/2026
+
+Ajuste aprovado pela usuária: uma pessoa autenticada vê somente a categoria registrada em account_profiles, inclusive se houver perfil profissional ou vínculos anteriores. Não oferecer troca por contas compartilhadas no acesso normal. A navegação direta a um painel de outra categoria orienta para as configurações; esta barreira de experiência não substitui autorização de dados pelo backend. Cadastro continua em etapas; outra categoria é configurada explicitamente em Meu perfil → Configurar outra categoria, com os campos próprios e confirmação/releitura do fluxo existente. A preferência não concede permissões: organizações, perfil profissional e RLS continuam independentes. Esta entrega mantém uma categoria ativa; mudar preserva os registros anteriores, não cria aprovação comercial ou múltiplas categorias simultâneas.
+
+Linguagem pública: “Descobrir e salvar”, “Minhas descobertas” e “Para você” substituem Shopper. Código interno shopper e endereços existentes permanecem compatíveis.
+
+O + da loja abre painel lateral direito com ícones: novo produto (URL/catálogo/existentes), coleção, post e seção; lista seções reais para editar e oferece atalhos de perfil e layouts. Fechar por Escape, botão ou fundo preserva foco; slide da direita e fade discretos respeitam movimento reduzido.
+
+Coleções oferecem cinco cartões visuais de layout diretamente no formulário, com escolha persistida no contrato existente: Prateleiras, Editorial, Posts quadrados, verticais e horizontais. O visual é da coleção: produtos usam grade de compras ou composição editorial; formatos de posts controlam proporção das fotos dos posts associados. Não adicionar campo fictício de formato por produto/post nem integrações de feeds sociais. Prévia e loja publicada devem respeitar o layout salvo, mantendo rascunho separado da publicação.
+
+Usuária autorizou explicitamente envio ao GitHub e deploy desta versão após os ajustes e testes. Isso substitui a restrição de entrega somente em prévia do incremento 44 para esta entrega. Evidências e implantação serão registradas no progresso.
+
+Verificação do incremento 45: 106/106 testes de navegador aprovados, sem ignorados ou flaky; [evidência e limites](evidencias/ux-ajustes-validacao-final.json). Mudanças de categoria e layouts usam contratos existentes com confirmação e releitura. Escritas simuladas não equivalem a homologação de novos dados reais. Publicação autorizada em preparação.

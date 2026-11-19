@@ -2,6 +2,9 @@
 import {displayRecord} from '../lib/presentation';
 import {useEffect,useRef,useState,type FormEvent} from 'react';
 import Link from 'next/link';
+import {EmptyState,Skeleton} from './ExperienceUI';
+import {useUnsavedChanges} from './useUnsavedChanges';
+import AppIcon from './AppIcon';
 import {getBrowserClient} from '../lib/supabase-browser';
 import {portfolioTypes as types,portfolioLink} from '../lib/portfolio';
 
@@ -10,6 +13,9 @@ const empty={title:'',description:'',item_type:'ugc_video',category:'',participa
 export default function CreatorPortfolio(){
  const [items,setItems]=useState<PortfolioItem[]>([]),[form,setForm]=useState(empty),[editing,setEditing]=useState<string|null>(null),[deleting,setDeleting]=useState<string|null>(null);
  const [owner,setOwner]=useState<string|null>(null),[hasProfile,setHasProfile]=useState(false),[loading,setLoading]=useState(true),[busy,setBusy]=useState(false),[failed,setFailed]=useState(false),[message,setMessage]=useState(''),[success,setSuccess]=useState(false),[revision,setRevision]=useState(0);
+ const [composer,setComposer]=useState<'closed'|'type'|'form'>('closed');
+ const original=items.find(x=>x.id===editing);const savedForm=original?{title:original.title,description:original.description,item_type:original.item_type,category:original.category,participation:original.participation,media_url:original.media_url}:{...empty,item_type:form.item_type};
+ useUnsavedChanges(composer==='form'&&JSON.stringify(form)!==JSON.stringify(savedForm));
  const generation=useRef(0),sessionOwner=useRef<string|null|undefined>(undefined);
  useEffect(()=>{
   const token=++generation.current,db=getBrowserClient();
@@ -18,7 +24,7 @@ export default function CreatorPortfolio(){
   const {data:listener}=db.auth.onAuthStateChange((event,session)=>{
    if(event==='INITIAL_SESSION')sessionOwner.current=session?.user.id??null;
    if(event==='SIGNED_OUT'||(event==='SIGNED_IN'&&session?.user.id!==sessionOwner.current)){
-    sessionOwner.current=session?.user.id??null;generation.current++;setOwner(null);setItems([]);setForm(empty);setEditing(null);setDeleting(null);setBusy(false);setRevision(n=>n+1);
+    sessionOwner.current=session?.user.id??null;generation.current++;setOwner(null);setItems([]);setForm(empty);setEditing(null);setComposer('closed');setDeleting(null);setBusy(false);setRevision(n=>n+1);
    }
   });
   async function load(){try{
@@ -44,23 +50,23 @@ export default function CreatorPortfolio(){
     const fields={title:form.title.trim(),description:form.description.trim(),item_type:form.item_type,category:form.category.trim(),participation:form.participation.trim(),media_url:mediaUrl!};
     const request=editing?db.from('creator_portfolio_items').update(fields).eq('user_id',owner).eq('id',editing):db.from('creator_portfolio_items').insert({user_id:owner,...fields});
     const result=await request.select('id,title,description,item_type,category,participation,media_url').single();if(result.error||!result.data)throw Error('Save not confirmed');if(generation.current!==token)return;
-    setItems(list=>editing?list.map(s=>s.id===editing?result.data:s):[result.data,...list]);setForm(empty);setEditing(null);setMessage('Trabalho salvo.');
+    setItems(list=>editing?list.map(s=>s.id===editing?result.data:s):[result.data,...list]);setForm(empty);setEditing(null);setComposer('closed');setMessage('Trabalho salvo.');
    }
    setSuccess(true);
   }catch{if(generation.current===token)setMessage('Não foi possível concluir a operação. Seus dados anteriores foram preservados. Tente novamente.');}
   finally{if(generation.current===token)setBusy(false);}
  }
  return <section className="account-card creator-onboarding"><span className="eyebrow">SUAS CRIAÇÕES</span><h1>Meu portfólio</h1><p>Organize links dos seus trabalhos. O cadastro fica privado; a visibilidade do conteúdo no site de destino depende das configurações desse serviço.</p>
- {loading?<p role="status">Carregando portfólio…</p>:failed?<button onClick={()=>setRevision(n=>n+1)}>Tentar novamente</button>:!owner?<Link className="dark-button" href="/conta">Entrar para gerenciar portfólio</Link>:!hasProfile?<><p>Configure seu perfil de creator antes de adicionar trabalhos.</p><Link href="/conta/criador">Configurar perfil de creator</Link></>:<>
- <form onSubmit={mutate}><h2>{editing?'Editar trabalho':'Novo trabalho'}</h2>
+ {loading?<Skeleton label="Carregando portfólio…"/>:failed?<button onClick={()=>setRevision(n=>n+1)}>Tentar novamente</button>:!owner?<Link className="dark-button" href="/conta">Entrar para gerenciar portfólio</Link>:!hasProfile?<><p>Configure seu perfil de creator antes de adicionar trabalhos.</p><Link href="/conta/criador">Configurar perfil de creator</Link></>:<>
+ {composer==='closed'&&<button className="dark-button" type="button" onClick={()=>{setMessage('');setComposer('type');}}>Adicionar trabalho</button>}{composer==='type'&&<section><h2>Que trabalho você quer apresentar?</h2><div className="ux-choice-grid">{types.map(([value,label])=><button type="button" className="ux-selection" key={value} onClick={()=>{setForm({...empty,item_type:value});setComposer('form');}}><AppIcon name="image"/><span>{label}</span></button>)}</div><button type="button" onClick={()=>setComposer('closed')}>Cancelar criação</button></section>}{composer==='form'&&<form onSubmit={mutate}><h2>{editing?'Editar trabalho':'Novo trabalho'}</h2>
  <label>Título do trabalho<input required minLength={2} maxLength={100} value={form.title} onChange={e=>setForm(p=>({...p,title:e.target.value}))}/></label>
  <label>Tipo de trabalho<select value={form.item_type} onChange={e=>setForm(p=>({...p,item_type:e.target.value}))}>{types.map(([value,label])=><option key={value} value={value}>{label}</option>)}</select></label>
- <label>Categoria<input maxLength={100} value={form.category} onChange={e=>setForm(p=>({...p,category:e.target.value}))}/></label>
+ <details className="ux-form-advanced"><summary>Conte mais sobre este trabalho</summary><div><label>Categoria<input maxLength={100} value={form.category} onChange={e=>setForm(p=>({...p,category:e.target.value}))}/></label>
  <label>Descrição do trabalho<textarea maxLength={2000} value={form.description} onChange={e=>setForm(p=>({...p,description:e.target.value}))}/></label>
  <label>Sua participação<input maxLength={200} placeholder="Ex.: roteiro, captação e edição" value={form.participation} onChange={e=>setForm(p=>({...p,participation:e.target.value}))}/></label>
- <label>Link do trabalho<input type="url" required maxLength={2048} placeholder="https://" value={form.media_url} onChange={e=>setForm(p=>({...p,media_url:e.target.value}))}/></label>
- <p>Use um link HTTPS que você tenha autorização para compartilhar. Nesta etapa os arquivos permanecem no serviço de origem.</p>
- <button className="dark-button" disabled={busy||!!deleting}>{busy?'Aguarde…':'Salvar trabalho'}</button>{editing&&<button type="button" disabled={busy} onClick={()=>{setEditing(null);setForm(empty);}}>Cancelar edição</button>}</form>
- {items.length===0?<p>Nenhum trabalho cadastrado. Adicione seu primeiro item de portfólio.</p>:<div className="service-list">{items.map(item=><article key={item.id} className="service-card"><span className="eyebrow">{types.find(([value])=>value===item.item_type)?.[1]}{item.category&&` · ${item.category}`}</span><h2>{item.title}</h2><p>{item.description}</p>{item.participation&&<p>Participação: {item.participation}</p>}{portfolioLink(item.media_url)?<a className="text-link" href={portfolioLink(item.media_url)!} target="_blank" rel="noopener noreferrer">Abrir trabalho: {item.title} ↗</a>:<p>Link indisponível. Edite este trabalho para atualizar o endereço.</p>}<div className="service-actions"><button disabled={busy||!!deleting} onClick={()=>{setEditing(item.id);setForm({title:item.title,description:item.description,item_type:item.item_type,category:item.category,participation:item.participation,media_url:item.media_url});setMessage('');}}>Editar {item.title}</button><button disabled={busy||!!deleting} onClick={()=>{setDeleting(item.id);setMessage('');}}>Excluir {item.title}</button></div>{deleting===item.id&&<div role="group" aria-label={`Confirmar exclusão de ${item.title}`}><p>Excluir este item do portfólio? O arquivo no serviço de origem será mantido.</p><button disabled={busy} onClick={()=>mutate()}>Confirmar exclusão</button><button disabled={busy} onClick={()=>setDeleting(null)}>Cancelar exclusão</button></div>}</article>)}</div>}
+ </div></details><label>Link do trabalho<input type="url" required maxLength={2048} placeholder="https://" value={form.media_url} onChange={e=>setForm(p=>({...p,media_url:e.target.value}))}/></label>
+ <div className="ux-editor-preview" aria-label="Prévia do trabalho"><AppIcon name="image"/><span className="ux-private-label">Portfólio privado</span><h3>{form.title||'Seu próximo trabalho'}</h3><p>{types.find(x=>x[0]===form.item_type)?.[1]}</p></div><p>Use um link HTTPS que você tenha autorização para compartilhar. Nesta etapa os arquivos permanecem no serviço de origem.</p>
+ <button className="dark-button" disabled={busy||!!deleting}>{busy?'Aguarde…':'Salvar trabalho'}</button><button type="button" disabled={busy} onClick={()=>{if(JSON.stringify(form)!==JSON.stringify(empty)&&!window.confirm('Descartar as alterações que ainda não foram salvas?'))return;setEditing(null);setForm(empty);setComposer('closed');}}>Cancelar edição</button></form>}
+ {items.length===0?composer==='closed'?<EmptyState title="Seu trabalho merece um lugar" description="Reúna os links dos seus projetos e apresente o que sabe criar." icon="image"/>:null:<div className="ux-gallery">{items.map(item=><article key={item.id} className="service-card"><div className="ux-media-type" aria-hidden="true"><AppIcon name="image"/></div><span className="eyebrow">{types.find(([value])=>value===item.item_type)?.[1]}{item.category&&` · ${item.category}`}</span><h2>{item.title}</h2><p>{item.description}</p>{item.participation&&<p>Participação: {item.participation}</p>}{portfolioLink(item.media_url)?<a className="text-link" href={portfolioLink(item.media_url)!} target="_blank" rel="noopener noreferrer">Abrir trabalho: {item.title} ↗</a>:<p>Link indisponível. Edite este trabalho para atualizar o endereço.</p>}<div className="service-actions"><button disabled={busy||!!deleting} onClick={()=>{setComposer('form');setEditing(item.id);setForm({title:item.title,description:item.description,item_type:item.item_type,category:item.category,participation:item.participation,media_url:item.media_url});setMessage('');}}>Editar {item.title}</button><button disabled={busy||!!deleting} onClick={()=>{setDeleting(item.id);setMessage('');}}>Excluir {item.title}</button></div>{deleting===item.id&&<div role="group" aria-label={`Confirmar exclusão de ${item.title}`}><p>Excluir este item do portfólio? O arquivo no serviço de origem será mantido.</p><button disabled={busy} onClick={()=>mutate()}>Confirmar exclusão</button><button disabled={busy} onClick={()=>setDeleting(null)}>Cancelar exclusão</button></div>}</article>)}</div>}
  </>}{message&&<p role={success?'status':'alert'}>{message}</p>}<Link href="/conta/criador">Voltar ao perfil de creator</Link></section>;
 }

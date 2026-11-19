@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test';
 
 test('DS-01 tokens e componentes globais seguem a referência fornecida',async({page})=>{
- await page.goto('/cadastro');
+ await page.goto('/cadastro');await page.getByRole('button',{name:'Continuar com este espaço',exact:true}).click();
  const styles=await page.evaluate(()=>{
   const root=getComputedStyle(document.documentElement),body=getComputedStyle(document.body);
   const button=getComputedStyle(document.querySelector('main button')!),field=getComputedStyle(document.querySelector('main input[type="email"]')!),heading=getComputedStyle(document.querySelector('h1')!);

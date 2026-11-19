@@ -1,0 +1,800 @@
+{
+  "date": "2026-11-18",
+  "stats": {
+    "startTime": "2026-11-18T23:53:03.913Z",
+    "duration": 1106204.681,
+    "expected": 98,
+    "skipped": 0,
+    "unexpected": 10,
+    "flaky": 0
+  },
+  "cases": [
+    {
+      "title": "ACCESS-01 shopper: login abre o painel do cadastro salvo",
+      "project": "computador",
+      "status": "expected",
+      "duration": 4451,
+      "errors": []
+    },
+    {
+      "title": "ACCESS-01 shopper: login abre o painel do cadastro salvo",
+      "project": "celular",
+      "status": "expected",
+      "duration": 3139,
+      "errors": []
+    },
+    {
+      "title": "ACCESS-01 creator: login abre o painel do cadastro salvo",
+      "project": "computador",
+      "status": "expected",
+      "duration": 5099,
+      "errors": []
+    },
+    {
+      "title": "ACCESS-01 creator: login abre o painel do cadastro salvo",
+      "project": "celular",
+      "status": "expected",
+      "duration": 4363,
+      "errors": []
+    },
+    {
+      "title": "ACCESS-01 brand: login abre o painel do cadastro salvo",
+      "project": "computador",
+      "status": "expected",
+      "duration": 3277,
+      "errors": []
+    },
+    {
+      "title": "ACCESS-01 brand: login abre o painel do cadastro salvo",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1925,
+      "errors": []
+    },
+    {
+      "title": "ACCESS-02 login sem perfil abre onboarding, sem assumir o papel preferido",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1982,
+      "errors": []
+    },
+    {
+      "title": "ACCESS-02 login sem perfil abre onboarding, sem assumir o papel preferido",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1321,
+      "errors": []
+    },
+    {
+      "title": "ACCESS-03 falha no perfil preserva sessão e permite abrir o espaço novamente",
+      "project": "computador",
+      "status": "expected",
+      "duration": 9496,
+      "errors": []
+    },
+    {
+      "title": "ACCESS-03 falha no perfil preserva sessão e permite abrir o espaço novamente",
+      "project": "celular",
+      "status": "expected",
+      "duration": 8863,
+      "errors": []
+    },
+    {
+      "title": "ACCESS-04 confirmação usa sessão verificada, ignora destino externo e remove parâmetros",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1342,
+      "errors": []
+    },
+    {
+      "title": "ACCESS-04 confirmação usa sessão verificada, ignora destino externo e remove parâmetros",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1089,
+      "errors": []
+    },
+    {
+      "title": "ACCESS-05 confirmação sem perfil abre onboarding; link inválido não simula confirmação",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1873,
+      "errors": []
+    },
+    {
+      "title": "ACCESS-05 confirmação sem perfil abre onboarding; link inválido não simula confirmação",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1482,
+      "errors": []
+    },
+    {
+      "title": "ACCESS-06 retorno não aceita e-mail sem confirmação",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1424,
+      "errors": []
+    },
+    {
+      "title": "ACCESS-06 retorno não aceita e-mail sem confirmação",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1142,
+      "errors": []
+    },
+    {
+      "title": "ACCESS-07 sessão encerrada durante a consulta não abre o painel anterior",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1591,
+      "errors": []
+    },
+    {
+      "title": "ACCESS-07 sessão encerrada durante a consulta não abre o painel anterior",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1383,
+      "errors": []
+    },
+    {
+      "title": "ACCESS-08 demora na solicitação preserva conta anterior e habilita nova tentativa",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1352,
+      "errors": []
+    },
+    {
+      "title": "ACCESS-08 demora na solicitação preserva conta anterior e habilita nova tentativa",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1499,
+      "errors": []
+    },
+    {
+      "title": "ACCESS-09 retorno processa o fragmento de confirmação pelo SDK e remove tokens da URL",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1097,
+      "errors": []
+    },
+    {
+      "title": "ACCESS-09 retorno processa o fragmento de confirmação pelo SDK e remove tokens da URL",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1470,
+      "errors": []
+    },
+    {
+      "title": "BR-01 visitante encontra a área da marca sem acessar dados privados",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2346,
+      "errors": []
+    },
+    {
+      "title": "BR-01 visitante encontra a área da marca sem acessar dados privados",
+      "project": "celular",
+      "status": "expected",
+      "duration": 2931,
+      "errors": []
+    },
+    {
+      "title": "BR-02 contrato: criar, reler, editar e cancelar sem simular aprovação",
+      "project": "computador",
+      "status": "expected",
+      "duration": 3843,
+      "errors": []
+    },
+    {
+      "title": "BR-02 contrato: criar, reler, editar e cancelar sem simular aprovação",
+      "project": "celular",
+      "status": "expected",
+      "duration": 4422,
+      "errors": []
+    },
+    {
+      "title": "BR-03 falha de consulta ou gravação não confirma cadastro ou edição",
+      "project": "computador",
+      "status": "expected",
+      "duration": 9301,
+      "errors": []
+    },
+    {
+      "title": "BR-03 falha de consulta ou gravação não confirma cadastro ou edição",
+      "project": "celular",
+      "status": "expected",
+      "duration": 9271,
+      "errors": []
+    },
+    {
+      "title": "BR-04 membro não edita organização alheia nem ganha acesso por metadata",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1648,
+      "errors": []
+    },
+    {
+      "title": "BR-04 membro não edita organização alheia nem ganha acesso por metadata",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1100,
+      "errors": []
+    },
+    {
+      "title": "BR-05 saída em outra aba impede retorno tardio de dados privados",
+      "project": "computador",
+      "status": "expected",
+      "duration": 3032,
+      "errors": []
+    },
+    {
+      "title": "BR-05 saída em outra aba impede retorno tardio de dados privados",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1903,
+      "errors": []
+    },
+    {
+      "title": "SHOP-01 contrato: perfil com foto, redes sociais, produto, seção e post persistem",
+      "project": "computador",
+      "status": "expected",
+      "duration": 18297,
+      "errors": []
+    },
+    {
+      "title": "SHOP-01 contrato: perfil com foto, redes sociais, produto, seção e post persistem",
+      "project": "celular",
+      "status": "expected",
+      "duration": 8792,
+      "errors": []
+    },
+    {
+      "title": "SHOP-02 contrato: catálogo, duplicar/ocultar/ordenar seções e publicação explícita",
+      "project": "computador",
+      "status": "unexpected",
+      "duration": 60527,
+      "errors": [
+        "Test timeout of 60000ms exceeded.",
+        "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Salvar produto', exact: true })\n\n\n  55 | test('SHOP-02 contrato: catálogo, duplicar/ocultar/ordenar seções e publicação explícita',async({p"
+      ]
+    },
+    {
+      "title": "SHOP-02 contrato: catálogo, duplicar/ocultar/ordenar seções e publicação explícita",
+      "project": "celular",
+      "status": "unexpected",
+      "duration": 60492,
+      "errors": [
+        "Test timeout of 60000ms exceeded.",
+        "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Salvar produto', exact: true })\n\n\n  55 |  await page.getByRole('button',{name:'Coleções',exact:true}).click();await page.getByRole('button'"
+      ]
+    },
+    {
+      "title": "SHOP-03 contrato: resposta perdida, conflito, campos preservados e URL insegura",
+      "project": "computador",
+      "status": "expected",
+      "duration": 3743,
+      "errors": []
+    },
+    {
+      "title": "SHOP-03 contrato: resposta perdida, conflito, campos preservados e URL insegura",
+      "project": "celular",
+      "status": "expected",
+      "duration": 4134,
+      "errors": []
+    },
+    {
+      "title": "SHOP-04 backend real: loja pública demonstrativa, redes abaixo do CTA e acesso pelo painel",
+      "project": "computador",
+      "status": "expected",
+      "duration": 12103,
+      "errors": []
+    },
+    {
+      "title": "SHOP-04 backend real: loja pública demonstrativa, redes abaixo do CTA e acesso pelo painel",
+      "project": "celular",
+      "status": "expected",
+      "duration": 9195,
+      "errors": []
+    },
+    {
+      "title": "SHOP-05 contrato: marca envia/remove foto e membro permanece somente leitura",
+      "project": "computador",
+      "status": "expected",
+      "duration": 5631,
+      "errors": []
+    },
+    {
+      "title": "SHOP-05 contrato: marca envia/remove foto e membro permanece somente leitura",
+      "project": "celular",
+      "status": "expected",
+      "duration": 3755,
+      "errors": []
+    },
+    {
+      "title": "SHOP-06 saída em outra aba descarta resposta privada pendente",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2246,
+      "errors": []
+    },
+    {
+      "title": "SHOP-06 saída em outra aba descarta resposta privada pendente",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1959,
+      "errors": []
+    },
+    {
+      "title": "SHOP-07 loja pública: cards compactos, busca, ordenação e favorito de visitante persistente",
+      "project": "computador",
+      "status": "expected",
+      "duration": 5121,
+      "errors": []
+    },
+    {
+      "title": "SHOP-07 loja pública: cards compactos, busca, ordenação e favorito de visitante persistente",
+      "project": "celular",
+      "status": "expected",
+      "duration": 4053,
+      "errors": []
+    },
+    {
+      "title": "SHOP-08 perfil: upload compartilhado com loja, navegação por área e publicação da foto",
+      "project": "computador",
+      "status": "unexpected",
+      "duration": 60680,
+      "errors": [
+        "Test timeout of 60000ms exceeded.",
+        "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Salvar produto', exact: true })\n\n\n  125 |  if(!await nav.isVisible())await page.getByRole('button',{name:'Mais opções do meu espaço',exact:"
+      ]
+    },
+    {
+      "title": "SHOP-08 perfil: upload compartilhado com loja, navegação por área e publicação da foto",
+      "project": "celular",
+      "status": "unexpected",
+      "duration": 60817,
+      "errors": [
+        "Test timeout of 60000ms exceeded.",
+        "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Salvar produto', exact: true })\n\n\n  125 |  await expect(page.locator('aside').getByRole('img',{name:'Minha foto de perfil',exact:true})).to"
+      ]
+    },
+    {
+      "title": "SHOP-09 criação app: seções, coleções, catálogo com foto própria, reutilizar, arquivar e restaurar",
+      "project": "computador",
+      "status": "unexpected",
+      "duration": 121789,
+      "errors": [
+        "Test timeout of 120000ms exceeded.",
+        "Error: locator.click: Test timeout of 120000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Salvar coleção', exact: true })\n\n\n  140 |  await fab.click();await sheet.getByRole('button',{name:/Nova seção/}).click();await page.getByL"
+      ]
+    },
+    {
+      "title": "SHOP-09 criação app: seções, coleções, catálogo com foto própria, reutilizar, arquivar e restaurar",
+      "project": "celular",
+      "status": "unexpected",
+      "duration": 122330,
+      "errors": [
+        "Test timeout of 120000ms exceeded.",
+        "Error: locator.click: Test timeout of 120000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Salvar coleção', exact: true })\n\n\n  140 |\n  141 |\n> 142 | test('SHOP-09 criação app: seções, coleções, catálogo com foto própria, reutiliz"
+      ]
+    },
+    {
+      "title": "SHOP-10 criação app: URL manual, erro de foto, campos preservados e edição protegida",
+      "project": "computador",
+      "status": "unexpected",
+      "duration": 60630,
+      "errors": [
+        "Test timeout of 60000ms exceeded.",
+        "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Salvar produto', exact: true })\n\n\n  154 | test('SHOP-10 criação app: URL manual, erro de foto, campos preservados e edição protegida',async"
+      ]
+    },
+    {
+      "title": "SHOP-10 criação app: URL manual, erro de foto, campos preservados e edição protegida",
+      "project": "celular",
+      "status": "unexpected",
+      "duration": 60549,
+      "errors": [
+        "Test timeout of 60000ms exceeded.",
+        "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Salvar produto', exact: true })\n\n\n  154 |  await page.reload();await page.getByRole('button',{name:'Produtos',exact:true}).click();await pa"
+      ]
+    },
+    {
+      "title": "SHOP-11 coleção: criar seção junto, ocultar e mover produto sem duplicar o registro",
+      "project": "computador",
+      "status": "unexpected",
+      "duration": 61978,
+      "errors": [
+        "Test timeout of 60000ms exceeded.",
+        "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Salvar coleção', exact: true })\n\n\n  160 | });\n  161 |\n> 162 |\n      | ^\n  163 | test('SHOP-11 coleção: criar seção junto, ocultar e mover p"
+      ]
+    },
+    {
+      "title": "SHOP-11 coleção: criar seção junto, ocultar e mover produto sem duplicar o registro",
+      "project": "celular",
+      "status": "unexpected",
+      "duration": 60550,
+      "errors": [
+        "Test timeout of 60000ms exceeded.",
+        "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Salvar coleção', exact: true })\n\n\n  160 | test('SHOP-10 criação app: URL manual, erro de foto, campos preservados e edição protegida',async"
+      ]
+    },
+    {
+      "title": "DASH-01 visitante encontra acesso e não recebe dados privados",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2724,
+      "errors": []
+    },
+    {
+      "title": "DASH-01 visitante encontra acesso e não recebe dados privados",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1084,
+      "errors": []
+    },
+    {
+      "title": "DASH-02 contrato simulado: contagens, navegação e falha sem números inventados",
+      "project": "computador",
+      "status": "expected",
+      "duration": 11090,
+      "errors": []
+    },
+    {
+      "title": "DASH-02 contrato simulado: contagens, navegação e falha sem números inventados",
+      "project": "celular",
+      "status": "expected",
+      "duration": 9458,
+      "errors": []
+    },
+    {
+      "title": "EXP-01 shopper: escolha, perfil, revisão e destino corretos",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2795,
+      "errors": []
+    },
+    {
+      "title": "EXP-01 shopper: escolha, perfil, revisão e destino corretos",
+      "project": "celular",
+      "status": "expected",
+      "duration": 2105,
+      "errors": []
+    },
+    {
+      "title": "EXP-01 creator: escolha, perfil, revisão e destino corretos",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2273,
+      "errors": []
+    },
+    {
+      "title": "EXP-01 creator: escolha, perfil, revisão e destino corretos",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1323,
+      "errors": []
+    },
+    {
+      "title": "EXP-01 brand: escolha, perfil, revisão e destino corretos",
+      "project": "computador",
+      "status": "expected",
+      "duration": 3004,
+      "errors": []
+    },
+    {
+      "title": "EXP-01 brand: escolha, perfil, revisão e destino corretos",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1544,
+      "errors": []
+    },
+    {
+      "title": "EXP-02 erro ao salvar ou reler preserva a revisão sem falso sucesso",
+      "project": "computador",
+      "status": "expected",
+      "duration": 13078,
+      "errors": []
+    },
+    {
+      "title": "EXP-02 erro ao salvar ou reler preserva a revisão sem falso sucesso",
+      "project": "celular",
+      "status": "expected",
+      "duration": 9901,
+      "errors": []
+    },
+    {
+      "title": "EXP-03 cadastro envia o tipo escolhido e explica a confirmação de e-mail",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1195,
+      "errors": []
+    },
+    {
+      "title": "EXP-03 cadastro envia o tipo escolhido e explica a confirmação de e-mail",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1006,
+      "errors": []
+    },
+    {
+      "title": "EXP-04 visitantes encontram os três caminhos e os briefings fictícios",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2183,
+      "errors": []
+    },
+    {
+      "title": "EXP-04 visitantes encontram os três caminhos e os briefings fictícios",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1577,
+      "errors": []
+    },
+    {
+      "title": "EXP-05 API demonstrativa rejeita origem externa e tipo inexistente",
+      "project": "computador",
+      "status": "expected",
+      "duration": 104,
+      "errors": []
+    },
+    {
+      "title": "EXP-05 API demonstrativa rejeita origem externa e tipo inexistente",
+      "project": "celular",
+      "status": "expected",
+      "duration": 69,
+      "errors": []
+    },
+    {
+      "title": "EXP-06 backend real: alternar shopper, creator e marca com os dados fictícios",
+      "project": "computador",
+      "status": "expected",
+      "duration": 12978,
+      "errors": []
+    },
+    {
+      "title": "EXP-06 backend real: alternar shopper, creator e marca com os dados fictícios",
+      "project": "celular",
+      "status": "expected",
+      "duration": 12477,
+      "errors": []
+    },
+    {
+      "title": "EXP-07 edição do perfil abre direto, preserva erro e confirma salvamento por releitura",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2152,
+      "errors": []
+    },
+    {
+      "title": "EXP-07 edição do perfil abre direto, preserva erro e confirma salvamento por releitura",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1852,
+      "errors": []
+    },
+    {
+      "title": "ONB-01 cadastro confirma envio sem inventar sessão e valida senha",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1499,
+      "errors": []
+    },
+    {
+      "title": "ONB-01 cadastro confirma envio sem inventar sessão e valida senha",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1415,
+      "errors": []
+    },
+    {
+      "title": "ONB-02 recuperação trata falha e resposta sem revelar existência da conta",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1509,
+      "errors": []
+    },
+    {
+      "title": "ONB-02 recuperação trata falha e resposta sem revelar existência da conta",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1337,
+      "errors": []
+    },
+    {
+      "title": "ONB-03 link de recuperação permite trocar senha após sessão verificada",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1565,
+      "errors": []
+    },
+    {
+      "title": "ONB-03 link de recuperação permite trocar senha após sessão verificada",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1194,
+      "errors": []
+    },
+    {
+      "title": "ONB-04 link expirado não libera formulário de nova senha",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1932,
+      "errors": []
+    },
+    {
+      "title": "ONB-04 link expirado não libera formulário de nova senha",
+      "project": "celular",
+      "status": "expected",
+      "duration": 840,
+      "errors": []
+    },
+    {
+      "title": "ONB-05 visitante precisa entrar para configurar perfil",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1220,
+      "errors": []
+    },
+    {
+      "title": "ONB-05 visitante precisa entrar para configurar perfil",
+      "project": "celular",
+      "status": "expected",
+      "duration": 803,
+      "errors": []
+    },
+    {
+      "title": "ONB-06 contrato simulado: UGC sem seguidores, reload, atuação híbrida e erro de gravação",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2892,
+      "errors": []
+    },
+    {
+      "title": "ONB-06 contrato simulado: UGC sem seguidores, reload, atuação híbrida e erro de gravação",
+      "project": "celular",
+      "status": "expected",
+      "duration": 2921,
+      "errors": []
+    },
+    {
+      "title": "ONB-07 troca de conta em outra aba (normal) remove o perfil anterior",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2721,
+      "errors": []
+    },
+    {
+      "title": "ONB-07 troca de conta em outra aba (normal) remove o perfil anterior",
+      "project": "celular",
+      "status": "expected",
+      "duration": 4250,
+      "errors": []
+    },
+    {
+      "title": "ONB-08 troca de conta em outra aba (without-broadcast) remove o perfil anterior",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2785,
+      "errors": []
+    },
+    {
+      "title": "ONB-08 troca de conta em outra aba (without-broadcast) remove o perfil anterior",
+      "project": "celular",
+      "status": "expected",
+      "duration": 3949,
+      "errors": []
+    },
+    {
+      "title": "ONB-09 troca de conta em outra aba (delayed-storage) remove o perfil anterior",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2986,
+      "errors": []
+    },
+    {
+      "title": "ONB-09 troca de conta em outra aba (delayed-storage) remove o perfil anterior",
+      "project": "celular",
+      "status": "expected",
+      "duration": 2027,
+      "errors": []
+    },
+    {
+      "title": "ONB-10 confirmação clara, reenvio real pelo contrato e falha sem falso sucesso",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1665,
+      "errors": []
+    },
+    {
+      "title": "ONB-10 confirmação clara, reenvio real pelo contrato e falha sem falso sucesso",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1102,
+      "errors": []
+    },
+    {
+      "title": "ONB-11 resposta ofuscada orienta acesso sem inventar envio de confirmação",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1325,
+      "errors": []
+    },
+    {
+      "title": "ONB-11 resposta ofuscada orienta acesso sem inventar envio de confirmação",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1087,
+      "errors": []
+    },
+    {
+      "title": "PORT-01 links de mídia aceitam HTTPS sem credenciais",
+      "project": "computador",
+      "status": "expected",
+      "duration": 3,
+      "errors": []
+    },
+    {
+      "title": "PORT-01 links de mídia aceitam HTTPS sem credenciais",
+      "project": "celular",
+      "status": "expected",
+      "duration": 2,
+      "errors": []
+    },
+    {
+      "title": "PORT-02 visitante precisa entrar para gerenciar portfólio",
+      "project": "computador",
+      "status": "expected",
+      "duration": 741,
+      "errors": []
+    },
+    {
+      "title": "PORT-02 visitante precisa entrar para gerenciar portfólio",
+      "project": "celular",
+      "status": "expected",
+      "duration": 669,
+      "errors": []
+    },
+    {
+      "title": "PORT-03 contrato simulado: validar, criar, reler, editar, falhar e excluir",
+      "project": "computador",
+      "status": "expected",
+      "duration": 4949,
+      "errors": []
+    },
+    {
+      "title": "PORT-03 contrato simulado: validar, criar, reler, editar, falhar e excluir",
+      "project": "celular",
+      "status": "expected",
+      "duration": 4550,
+      "errors": []
+    },
+    {
+      "title": "SRV-01 visitante não recebe formulário de gestão",
+      "project": "computador",
+      "status": "expected",
+      "duration": 827,
+      "errors": []
+    },
+    {
+      "title": "SRV-01 visitante não recebe formulário de gestão",
+      "project": "celular",
+      "status": "expected",
+      "duration": 773,
+      "errors": []
+    },
+    {
+      "title": "SRV-02 contrato simulado: criar, reler, editar, falhar e excluir com confirmação",
+      "project": "computador",
+      "status": "expected",
+      "duration": 5090,
+      "errors": []
+    },
+    {
+      "title": "SRV-02 contrato simulado: criar, reler, editar, falhar e excluir com confirmação",
+      "project": "celular",
+      "status": "expected",
+      "duration": 4312,
+      "errors": []
+    }
+  ],
+  "limits": "Initial diagnostic iteration. Old selectors did not yet navigate the new confirmation steps; do not treat this as final validation."
+}

@@ -6,7 +6,7 @@ test('início, perfil, coleção, produto e retorno',async({page})=>{
  await expect(page.locator('.product-card')).toHaveCount(8);
  await page.locator('.collection-nav').getByRole('link',{name:'Pequenos rituais'}).click();await expect(page).toHaveURL(/colecoes\/rituais/);await expect(page.locator('.product-card')).toHaveCount(2);
  await page.getByRole('link',{name:'Ver Sérum botânico',exact:true}).click();await expect(page.getByRole('heading',{level:1})).toHaveText('Sérum botânico');
- await page.getByText('Ver disponibilidade demonstrativa ↓',{exact:true}).click();await expect(page.getByText('Não está à venda.',{exact:false})).toBeVisible();
+ await page.getByText('Ver disponibilidade ↓',{exact:true}).click();await expect(page.getByText('O link de compra deste produto ainda não foi cadastrado.',{exact:true})).toBeVisible();
  await page.getByRole('link',{name:'Clara Martins ↗'}).click();await expect(page).toHaveURL(/criador/);
  expect(errors).toEqual([]);
 });

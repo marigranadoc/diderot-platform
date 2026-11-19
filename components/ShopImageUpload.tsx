@@ -1,5 +1,5 @@
 'use client';
-import {useEffect,useRef,useState} from 'react';
+import {useEffect,useId,useRef,useState} from 'react';
 import {getBrowserClient} from '../lib/supabase-browser';
 import ProfileAvatarPlaceholder from './ProfileAvatarPlaceholder';
 
@@ -33,6 +33,7 @@ export function SignedShopImage({path,alt,avatar=false}:{path:string|null;alt:st
 
 export default function ShopImageUpload({userId,kind,value,onChange,label,disabled=false,onBusyChange}:{userId:string;kind:'creator'|'brand'|'shop';value:string|null;onChange:(path:string|null)=>Promise<void>|void;label:string;disabled?:boolean;onBusyChange?:(busy:boolean)=>void}){
  const [busy,setBusy]=useState(false),[error,setError]=useState(''),[notice,setNotice]=useState('');
+ const inputId=useId();
  const lifetime=useRef(0),writing=useRef(false);
  useEffect(()=>{onBusyChange?.(busy);},[busy,onBusyChange]);
  useEffect(()=>()=>{lifetime.current++;},[]);
@@ -53,5 +54,5 @@ export default function ShopImageUpload({userId,kind,value,onChange,label,disabl
   finally{writing.current=false;if(lifetime.current===token)setBusy(false);}
  }
  async function remove(){if(writing.current||disabled)return;const token=lifetime.current;writing.current=true;setBusy(true);setError('');setNotice('');try{await onChange(null);}catch{if(lifetime.current===token)setError('Não foi possível remover a foto do cadastro.');}finally{writing.current=false;if(lifetime.current===token)setBusy(false);}}
- return <div className="shop-upload"><SignedShopImage path={value} alt={label} avatar={kind!=='shop'}/>{!disabled&&<><label className="shop-file-label">{busy?'Enviando foto…':label}<input aria-label={label} type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif,.heic,.heif" disabled={busy} onChange={event=>{void upload(event.target.files?.[0]);event.target.value='';}}/></label><small>JPEG, PNG ou WebP, até 20 MB. HEIC pode exigir conversão no seu navegador. {kind==='shop'?'A imagem só aparece publicamente após publicar a loja.':'A foto é ajustada para o formato de perfil.'}</small>{value&&<button type="button" disabled={busy} onClick={()=>void remove()}>Remover {kind==='shop'?'imagem':'foto'}</button>}</>}{busy&&<p role="status">Preparando e salvando foto…</p>}{error&&<p role="alert">{error}</p>}{notice&&<p role="status">{notice}</p>}</div>;
+ return <div className="shop-upload">{disabled?<SignedShopImage path={value} alt={label} avatar={kind!=='shop'}/>:<label htmlFor={inputId} className="ux-photo-target"><SignedShopImage path={value} alt={label} avatar={kind!=='shop'}/></label>}{!disabled&&<><label className="shop-file-label">{busy?'Enviando foto…':label}<input id={inputId} aria-label={label} type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif,.heic,.heif" disabled={busy} onChange={event=>{void upload(event.target.files?.[0]);event.target.value='';}}/></label><small>JPEG, PNG ou WebP, até 20 MB. HEIC pode exigir conversão no seu navegador. {kind==='shop'?'A imagem só aparece publicamente após publicar a loja.':'A foto é ajustada para o formato de perfil.'}</small>{value&&<button type="button" disabled={busy} onClick={()=>void remove()}>Remover {kind==='shop'?'imagem':'foto'}</button>}</>}{busy&&<p role="status">Preparando e salvando foto…</p>}{error&&<p role="alert">{error}</p>}{notice&&<p role="status">{notice}</p>}</div>;
 }

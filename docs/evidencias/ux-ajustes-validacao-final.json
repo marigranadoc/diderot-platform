@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-19T13:55:49.881Z",
+  "scope": "Categorias, cadastro, acesso, loja, layouts e navegação responsiva",
+  "stats": {
+    "startTime": "2026-11-19T13:49:11.137Z",
+    "duration": 358560.773,
+    "expected": 106,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "failures": [],
+  "coverage": [
+    "Categoria persistida; vínculos antigos e metadata não ampliam entrada",
+    "Troca explícita de categoria no perfil; sem troca por conta compartilhada autenticada",
+    "Rotas de outra categoria orientam para configurações",
+    "Menu lateral, Escape, retorno de foco e movimento reduzido",
+    "Cinco layouts salvos/recarregados e proporção vertical renderizada nos posts",
+    "Produto, foto, coleção, seção, rascunho, publicação, conflitos e erro preservando campos"
+  ],
+  "limits": [
+    "Gravações de negócio verificadas por contratos simulados no navegador; leituras públicas existentes",
+    "Sem nova escrita em conta real, SMTP ou operações financeiras",
+    "Acabamento CSS e endereço #sections recebem build e teste dirigido posteriores"
+  ]
+}

@@ -49,3 +49,12 @@ DemoAccess mantém exclusão mútua por ref e aborta sua solicitação HTTP pend
 ## Loja: hierarquia e foto própria (18/11/2026)
 
 ShopDocument mantém sections (id/title/visible) e collections com section_id/archived. normalizeShop adapta documentos legados na leitura, sem persistência automática. check_shop_document normaliza no save explícito e valida IDs/vínculos/tipos/limites. save_creator_shop preserva bloqueio por titular, versão e recibo idempotente; snapshot calcula elegibilidade das seções/coleções/posts/itens, filtrando referências e índice público de mídia. Funções substituídas mantêm schema privado, search_path vazio e grants anteriores; sem tabelas/bucket/grants novos. Foto particular de item canônico usa check_shop_media; campos canônicos continuam revalidados. publicShop aplica elegibilidade equivalente na prévia. Reutilizar um item não gera tracking de comissão. Migração 20261118224903_shop_product_photo_override.sql aplicada; fixtures SQL com quatro identidades efêmeras e ROLLBACK passaram em 18/11.
+
+
+## Camada de experiência — incremento 44 (18–19/11/2026)
+
+experience.css estende os tokens existentes sem substituir globals/design-tokens. AppIcon, ExperienceUI, ShareShop e useUnsavedChanges concentram interações reutilizáveis. ProfileWorkspace distingue o contexto da rota e consulta perfil profissional/vínculos para o seletor de espaços; não grava preferências nem concede acesso. Layouts de explorar/campanhas conservam a navegação autenticada, enquanto visitantes recebem só o conteúdo público.
+
+Criação de produto/coleção usa estado local de etapas e prévia sobre ShopDocument; gravação permanece no save_creator_shop existente, com revisão/recibo/releitura e publicação explícita. Modelos, RLS, Auth, Storage e APIs não mudaram. A ordenação por drag/drop usa a mesma sequência JSON validada; botões permanecem como alternativa. Serviços/portfólio continuam privados e por contratos existentes. Catálogo grava filtros canônicos na URL e remove aliases antigos ao alterá-los para manter limpar/reload consistentes.
+
+PRD 1.11 e [relatório de UX](UX-OVERHAUL.md) registram baseline, escolhas, provas e limitações. Nova etapa está em branch/PR de revisão; produção preservada. Capturas autenticadas não são publicadas no repositório.

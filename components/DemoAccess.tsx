@@ -3,9 +3,11 @@ import {useEffect,useRef,useState} from 'react';
 import Link from 'next/link';
 import {useRouter} from 'next/navigation';
 import {accountDestinations,accountLabels,accountTypes,type AccountType} from '../lib/account-types';
+import {useAccountProfile} from './useAccountProfile';
 import {getBrowserClient} from '../lib/supabase-browser';
 const features={shopper:['Perfil de Ana','Produtos e curadorias','Favoritos salvos na conta'],creator:['Perfil de Clara','Serviços e portfólio','Loja, produtos e coleções'],brand:['Organização Ateliê Aurora','Equipe e convites','Planejamento de campanhas']};
 export default function DemoAccess({enabled}:{enabled:boolean}){
+ const {userId,profile,loading,error:profileError,reload}=useAccountProfile();
  const router=useRouter(),[busy,setBusy]=useState<AccountType|null>(null),[error,setError]=useState('');
  const writing=useRef(false),generation=useRef(0),pending=useRef<AbortController|null>(null);
  useEffect(()=>()=>{generation.current++;pending.current?.abort();},[]);
@@ -24,8 +26,11 @@ export default function DemoAccess({enabled}:{enabled:boolean}){
   }catch{if(generation.current===token){setError(expired?'A entrada demorou mais que o esperado. Tente novamente.':'Não foi possível entrar nesta conta. Tente novamente ou use seu próprio cadastro.');setBusy(null);}}
   finally{clearTimeout(timer);pending.current=null;writing.current=false;}
  }
- return <section className="demo-access"><span className="eyebrow">SEU ESPAÇO NA DIDEROT</span><h1>Escolha seu espaço.</h1><p>Explore a Diderot como shopper, creator ou marca.</p><p className="demo-notice">Estas contas são compartilhadas. Ao entrar, a conta ativa neste navegador será trocada. Use sua própria conta para informações pessoais.</p>
+ if(loading)return <p role="status">Preparando seu espaço…</p>;
+ if(profileError)return <section><p role="alert">{profileError}</p><button onClick={reload}>Tentar novamente</button></section>;
+ if(userId)return <section className="demo-access"><h1>Seu espaço na Diderot</h1><p>Sua conta acompanha a escolha feita no cadastro.</p><Link className="dark-button" href={profile?.onboarding_completed?accountDestinations[profile.account_type]:'/onboarding'}>{profile?.onboarding_completed?'Abrir '+accountLabels[profile.account_type]:'Concluir meu cadastro'}</Link><p><Link href="/conta/perfil">Configurar outra categoria nas configurações</Link></p></section>;
+ return <section className="demo-access"><span className="eyebrow">SEU ESPAÇO NA DIDEROT</span><h1>Escolha seu espaço.</h1><p>Explore descobertas, uma loja de creator ou uma marca.</p><p className="demo-notice">Estas contas são compartilhadas. Ao entrar, a conta ativa neste navegador será trocada. Use sua própria conta para informações pessoais.</p>
  {!enabled&&<p role="alert">Estes acessos estão indisponíveis no momento. Você pode criar sua própria conta abaixo.</p>}
- <div className="demo-account-grid">{accountTypes.map(type=><article className="service-card" key={type}><span className="eyebrow">DIDEROT</span><h2>{accountLabels[type]}</h2><ul>{features[type].map(feature=><li key={feature}>{feature}</li>)}</ul><button className="dark-button" disabled={!!busy||!enabled} onClick={()=>void enter(type)}>{busy===type?'Entrando…':`Entrar como ${accountLabels[type].toLowerCase()}`}</button></article>)}</div>
+ <div className="demo-account-grid">{accountTypes.map(type=><article className="service-card" key={type}><span className="eyebrow">DIDEROT</span><h2>{accountLabels[type]}</h2><ul>{features[type].map(feature=><li key={feature}>{feature}</li>)}</ul><button className="dark-button" disabled={!!busy||!enabled} onClick={()=>void enter(type)}>{busy===type?'Entrando…':type==='shopper'?'Descobrir e salvar':`Entrar como ${accountLabels[type].toLowerCase()}`}</button></article>)}</div>
  {error&&<p role="alert">{error}</p>}<div className="campaign-actions"><Link className="dark-button" href="/cadastro">Criar minha própria conta</Link><Link href="/conta">Já tenho conta</Link><Link href="/">Voltar para a home</Link></div></section>;
 }

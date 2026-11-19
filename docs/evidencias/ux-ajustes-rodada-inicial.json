@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-19T13:48:01.219Z",
+  "scope": "Ajustes de conta, menu lateral e layouts",
+  "stats": {
+    "startTime": "2026-11-19T13:40:05.680Z",
+    "duration": 409583.379,
+    "expected": 105,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "failures": [
+    {
+      "title": "SHOP-14 menu lateral, seções e layouts persistem após releitura",
+      "project": "computador",
+      "reason": "Medição imediata durante o slide; teste passou a aguardar posição final."
+    }
+  ],
+  "limits": [
+    "Contratos de gravação simulados no navegador; consultas públicas existentes em leitura.",
+    "Não comprova nova gravação real, SMTP ou financeiro.",
+    "Barreira de navegação direta acrescentada depois desta compilação; será revalidada."
+  ]
+}

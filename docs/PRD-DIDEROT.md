@@ -1,12 +1,12 @@
 # PRD Diderot — produto, implementação e próximos passos
 
-**Versão:** 1.11 — reformulação UX/UI em revisão · **Atualizado em:** 19/11/2026 · **Base de implementação:** incrementos 26–44, nos ambientes e limites de suas evidências; [plano de lançamento do MVP](PLANO-LANCAMENTO-MVP.md) e [mapa de telas e fluxos](TELAS-FLUXOS-SHOPMY.md).
+**Versão:** 1.12 — categorias de conta, criação contextual e layouts · **Atualizado em:** 19/11/2026 · **Base de implementação:** incrementos 26–45, nos ambientes e limites de suas evidências; [plano de lançamento do MVP](PLANO-LANCAMENTO-MVP.md) e [mapa de telas e fluxos](TELAS-FLUXOS-SHOPMY.md).
 
 **Estado:** documento de referência para desenvolvimento. O estado implementado está documentado; as decisões de produto propostas estão identificadas e ainda precisam ser validadas. Não representa aprovação para lançamento.
 
-**Diretriz incorporada nesta versão:** expansão fornecida pelo usuário em [Prompt Master — UGC Marketplace + Creator Commerce](REFERENCIA-EXPANSAO-UGC.md), preservado integralmente como fonte. As seções 16–25 convertem essa diretriz em requisitos, estados, critérios de aceite e plano incremental. UGC é um módulo nativo e obrigatório do escopo-alvo, não uma capacidade comprovada pelo REA nem já implementada. A expansão das seções 16–25 preserva requisitos propostos; a entrega atual de UX/UI é descrita separadamente na seção 44 e não comprova os módulos de negócio futuros.
+**Diretriz incorporada nesta versão:** expansão fornecida pelo usuário em [Prompt Master — UGC Marketplace + Creator Commerce](REFERENCIA-EXPANSAO-UGC.md), preservado integralmente como fonte. As seções 16–25 convertem essa diretriz em requisitos, estados, critérios de aceite e plano incremental. UGC é um módulo nativo e obrigatório do escopo-alvo, não uma capacidade comprovada pelo REA nem já implementada. A expansão das seções 16–25 preserva requisitos propostos; a entrega atual de UX/UI é descrita separadamente nas seções 44–45 e não comprova os módulos de negócio futuros.
 
-**Base publicada verificada:** [bbd1c25](https://github.com/marigranadoc/diderot-platform/commit/bbd1c25263e8cd7d56b6d5f642be4fa66c8538cf), incluindo o incremento 43. Build, SQL isolado e 22/22 testes da loja aprovados. Jornadas de leitura das três contas fictícias e menu de criação aprovados no domínio público, computador/celular, sem gravações de negócio. [Evidência publicada](evidencias/publicacao-vercel-criacao-jornadas.json).
+**Base publicada anterior verificada (histórico):** [bbd1c25](https://github.com/marigranadoc/diderot-platform/commit/bbd1c25263e8cd7d56b6d5f642be4fa66c8538cf), incluindo o incremento 43. Build, SQL isolado e 22/22 testes da loja aprovados. Jornadas de leitura das três contas fictícias e menu de criação aprovados no domínio público, computador/celular, sem gravações de negócio. [Evidência publicada](evidencias/publicacao-vercel-criacao-jornadas.json).
 
 **Como ler:** estado consolidado nas seções 3, 5, 7 e 9; regras do marketplace UGC nas seções 16–25; execução histórica nas seções 26–34; referência e conciliações na seção 35; setup na 36; briefing novo na 37 e loja/fotos/redes na 38; [plano de lançamento](PLANO-LANCAMENTO-MVP.md). [Telas/fluxos](TELAS-FLUXOS-SHOPMY.md) e [fonte preservada](REFERENCIA-NAVEGACAO-SHOPMY.md).
 
@@ -853,3 +853,17 @@ Verificação: rodadas por módulo e jornadas de leitura com contas fictícias; 
 
 
 Estado de entrega do incremento 44: implementado e validado localmente, com revalidação final 92/92 e [PR de revisão](https://github.com/marigranadoc/diderot-platform/pull/1). Build Vercel Ready em prévia protegida; produção preservada. Não equivale a homologação automatizada dessa implantação nem conclusão dos módulos futuros do MVP.
+
+## 45. Conta escolhida, criação contextual e layouts — 19/11/2026
+
+Ajuste aprovado pela usuária: uma pessoa autenticada vê somente a categoria registrada em account_profiles, inclusive se houver perfil profissional ou vínculos anteriores. Não oferecer troca por contas compartilhadas no acesso normal. A navegação direta a um painel de outra categoria orienta para as configurações; esta barreira de experiência não substitui autorização de dados pelo backend. Cadastro continua em etapas; outra categoria é configurada explicitamente em Meu perfil → Configurar outra categoria, com os campos próprios e confirmação/releitura do fluxo existente. A preferência não concede permissões: organizações, perfil profissional e RLS continuam independentes. Esta entrega mantém uma categoria ativa; mudar preserva os registros anteriores, não cria aprovação comercial ou múltiplas categorias simultâneas.
+
+Linguagem pública: “Descobrir e salvar”, “Minhas descobertas” e “Para você” substituem Shopper. Código interno shopper e endereços existentes permanecem compatíveis.
+
+O + da loja abre painel lateral direito com ícones: novo produto (URL/catálogo/existentes), coleção, post e seção; lista seções reais para editar e oferece atalhos de perfil e layouts. Fechar por Escape, botão ou fundo preserva foco; slide da direita e fade discretos respeitam movimento reduzido.
+
+Coleções oferecem cinco cartões visuais de layout diretamente no formulário, com escolha persistida no contrato existente: Prateleiras, Editorial, Posts quadrados, verticais e horizontais. O visual é da coleção: produtos usam grade de compras ou composição editorial; formatos de posts controlam proporção das fotos dos posts associados. Não adicionar campo fictício de formato por produto/post nem integrações de feeds sociais. Prévia e loja publicada devem respeitar o layout salvo, mantendo rascunho separado da publicação.
+
+Usuária autorizou explicitamente envio ao GitHub e deploy desta versão após os ajustes e testes. Isso substitui a restrição de entrega somente em prévia do incremento 44 para esta entrega. Evidências e implantação serão registradas no progresso.
+
+Verificação do incremento 45: 106/106 testes de navegador aprovados, sem ignorados ou flaky; [evidência e limites](evidencias/ux-ajustes-validacao-final.json). Mudanças de categoria e layouts usam contratos existentes com confirmação e releitura. Escritas simuladas não equivalem a homologação de novos dados reais. Publicação autorizada em preparação.

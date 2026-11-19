@@ -109,3 +109,11 @@ História verificada: intenção/criação → payload existente → retorno con
 - Perfil/ofertas: [CreatorOnboarding](../components/CreatorOnboarding.tsx), [CreatorServices](../components/CreatorServices.tsx), [CreatorPortfolio](../components/CreatorPortfolio.tsx).
 - Marca/descoberta: [BrandWorkspace](../components/BrandWorkspace.tsx), [CampaignExplorer](../components/CampaignExplorer.tsx), [Catalog](../components/Catalog.tsx).
 - Verificação nova: [testes UX](../tests/ux-overhaul.spec.ts), além dos módulos existentes atualizados no PR.
+
+## Ajustes aprovados em 19/11
+
+Categoria ativa vem exclusivamente do cadastro persistido. Painéis de outra categoria orientam para a configuração explícita antes de exibir seu conteúdo. Vínculos antigos e metadata não ampliam o seletor; /demo autenticado abre apenas o próprio espaço. Mudança de categoria fica nas configurações com cadastro existente e releitura, sem conceder autorização administrativa. Contas compartilhadas continuam disponíveis somente a visitantes sem sessão. Interface usa “Descobrir e salvar”.
+
+Menu + lateral com ícones, seções reais editáveis, perfil e layouts; mantém ações e contratos existentes. Movimento de abertura/fechamento: fade e slide horizontal, desativado com movimento reduzido. Layout da coleção visível no formulário, miniaturas e seleção por teclado: Prateleiras e Editorial para produtos, proporções quadrada/vertical/horizontal para posts associados. Nenhuma migração, novo serviço ou alteração de dados reais.
+
+Validação desta extensão: 106/106 aprovados em 358,6 s, sem ignorados ou falhas, com [evidência](evidencias/ux-ajustes-validacao-final.json). Check e build aprovados. A primeira rodada teve 105/106 por medição durante o slide; corrigida a espera pela posição final. CSS de acabamento e endereço #sections: build final e [2/2 dirigidos aprovados](evidencias/ux-ajustes-acabamento.json), sem somar rodadas. Usuária autorizou publicação; estado de produção será registrado após o deploy.

@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-19T13:58:14.275Z",
+  "stats": {
+    "startTime": "2026-11-19T13:57:14.173Z",
+    "duration": 32499.332,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "scope": "Menu lateral e encaixe dos cartões, sem sublinhado nos botões, #sections, layouts persistidos e movimento reduzido",
+  "limits": [
+    "Contrato de banco simulado no navegador; sem gravações reais"
+  ]
+}

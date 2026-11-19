@@ -39,7 +39,7 @@ test('EXP-02 erro ao salvar ou reler preserva a revisão sem falso sucesso',asyn
 
 test('EXP-03 cadastro envia o tipo escolhido e explica a confirmação de e-mail',async({page})=>{
  let sent:Record<string,unknown>|null=null;await page.route('**/auth/v1/signup**',route=>{sent=route.request().postDataJSON();return route.fulfill({json:{user:{id,email:'novo@example.invalid'},session:null}});});
- await page.goto('/cadastro');await page.getByRole('radio',{name:'Marca',exact:true}).check();await page.getByLabel('E-mail',{exact:true}).fill('novo@example.invalid');await page.getByLabel('Nova senha',{exact:true}).fill('test-only-2026');await page.getByLabel('Confirmar senha',{exact:true}).fill('test-only-2026');await page.getByRole('button',{name:'Criar conta',exact:true}).click();
+ await page.goto('/cadastro');await page.getByRole('radio',{name:'Marca',exact:true}).check();await page.getByRole('button',{name:'Continuar com este espaço',exact:true}).click();await page.getByLabel('E-mail',{exact:true}).fill('novo@example.invalid');await page.getByLabel('Nova senha',{exact:true}).fill('test-only-2026');await page.getByLabel('Confirmar senha',{exact:true}).fill('test-only-2026');await page.getByRole('button',{name:'Criar conta',exact:true}).click();
  await expect(page.getByRole('main').getByRole('status')).toContainText('Confirme seu e-mail para continuar');expect((sent as Record<string,unknown>|null)?.data).toEqual({account_type:'brand'});await expect(page.getByRole('link',{name:'Entrar após confirmar meu e-mail',exact:true})).toHaveAttribute('href','/conta');
 });
 

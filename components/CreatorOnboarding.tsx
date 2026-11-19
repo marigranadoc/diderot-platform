@@ -3,6 +3,7 @@ import {displayRecord} from '../lib/presentation';
 import {useEffect, useRef, useState, type FormEvent} from 'react';
 import Link from 'next/link';
 import {getBrowserClient} from '../lib/supabase-browser';
+import {useUnsavedChanges} from './useUnsavedChanges';
 import ProfilePhoto from './ProfilePhoto';
 
 const choices = [{value:'ugc',label:'UGC Creator',detail:'Produzo conteúdo para marcas. Não exige seguidores.'},{value:'influencer',label:'Influencer',detail:'Divulgo conteúdo para a minha audiência.'},{value:'affiliate',label:'Afiliado',detail:'Recomendo produtos e participo de programas de afiliação.'}];
@@ -17,6 +18,8 @@ export default function CreatorOnboarding() {
   const [message,setMessage] = useState('');
   const [success,setSuccess] = useState(false);
   const [retry,setRetry] = useState(0);
+  const baseline=useRef('');
+  useUnsavedChanges(!loading&&!failed&&!!userId&&baseline.current!==''&&JSON.stringify(profile)!==baseline.current);
   const generation = useRef(0);
   const sessionOwner = useRef<string|null|undefined>(undefined);
   const verifiedOwner = useRef<string|null>(null);
@@ -66,7 +69,7 @@ export default function CreatorOnboarding() {
         const result=await client!.from('creator_profiles').select('professional_name,bio,city,state,modalities').eq('user_id',data.user.id).maybeSingle();
         if(generation.current!==token)return;
         if(result.error)throw result.error;
-        setExists(!!result.data);setProfile(result.data?displayRecord(result.data):blank);
+        const loaded=result.data?displayRecord(result.data):blank;baseline.current=JSON.stringify(loaded);setExists(!!result.data);setProfile(loaded);
       } catch {if(generation.current===token){setFailed(true);setMessage('Não foi possível carregar seu perfil. Tente novamente.');}}
       finally {if(generation.current===token)setLoading(false);}
     }
@@ -90,7 +93,7 @@ export default function CreatorOnboarding() {
         : await client.from('creator_profiles').insert({user_id:userId,...fields}).select('user_id').single();
       if(generation.current!==token)return;
       if(result.error||result.data?.user_id!==userId)throw new Error('Save not confirmed');
-      setProfile(fields);setExists(true);setSuccess(true);setMessage('Perfil salvo. Suas modalidades ficam vinculadas à mesma conta.');
+      baseline.current=JSON.stringify(fields);setProfile(fields);setExists(true);setSuccess(true);setMessage('Perfil salvo. Suas modalidades ficam vinculadas à mesma conta.');
     } catch {if(generation.current===token)setMessage('Não foi possível salvar. Confira sua sessão e tente novamente.');}
     finally {if(generation.current===token)setSaving(false);}
   }
@@ -99,11 +102,11 @@ export default function CreatorOnboarding() {
   <Link className="text-link" href="/painel/criador/loja">Configurar minha loja e perfil público ↗</Link>
     <p>Escolha uma ou mais formas de trabalhar. Você pode alterá-las depois, sem criar outra conta.</p>
     {loading?<p role="status">Carregando seu perfil…</p>:failed?<button className="dark-button" onClick={()=>setRetry(n=>n+1)}>Tentar novamente</button>:!userId?<><p>Entre na sua conta para configurar seu perfil profissional.</p><Link className="dark-button" href="/conta">Entrar na minha conta</Link><Link href="/cadastro">Criar conta</Link></>:<form onSubmit={save}>
-      <label>Nome profissional<input required minLength={2} maxLength={80} autoComplete="nickname" value={profile.professional_name} onChange={e=>setProfile(p=>({...p,professional_name:e.target.value}))}/></label>
+      <div className="ux-editor-preview" aria-label="Prévia do perfil profissional"><span className="ux-private-label">Perfil profissional privado</span><h2>{profile.professional_name||'Seu nome, sua assinatura'}</h2><p>{profile.bio||'Conte o que torna seu trabalho único.'}</p></div><h2>Identidade</h2><label>Nome profissional<input required minLength={2} maxLength={80} autoComplete="nickname" value={profile.professional_name} onChange={e=>setProfile(p=>({...p,professional_name:e.target.value}))}/></label>
       <label>Bio<textarea maxLength={1000} value={profile.bio} onChange={e=>setProfile(p=>({...p,bio:e.target.value}))}/></label>
-      <div className="form-row"><label>Cidade<input maxLength={100} autoComplete="address-level2" value={profile.city} onChange={e=>setProfile(p=>({...p,city:e.target.value}))}/></label><label>Estado (UF)<input maxLength={2} pattern="[A-Za-z]{2}" autoComplete="address-level1" value={profile.state} onChange={e=>setProfile(p=>({...p,state:e.target.value.toUpperCase()}))}/></label></div>
+      <details className="ux-form-advanced"><summary>Minha localização</summary><div className="form-row"><label>Cidade<input maxLength={100} autoComplete="address-level2" value={profile.city} onChange={e=>setProfile(p=>({...p,city:e.target.value}))}/></label><label>Estado (UF)<input maxLength={2} pattern="[A-Za-z]{2}" autoComplete="address-level1" value={profile.state} onChange={e=>setProfile(p=>({...p,state:e.target.value.toUpperCase()}))}/></label></div></details>
       <fieldset><legend>Modalidades de atuação</legend>{choices.map(choice=><label className="modality-option" key={choice.value}><input type="checkbox" checked={profile.modalities.includes(choice.value)} onChange={e=>setProfile(p=>({...p,modalities:e.target.checked?[...p.modalities,choice.value]:p.modalities.filter(x=>x!==choice.value)}))}/><span><strong>{choice.label}</strong><small>{choice.detail}</small></span></label>)}</fieldset>
-      <p>Seu perfil está privado nesta etapa. Você já pode organizar serviços e trabalhos. Publicação do perfil e campanhas estarão disponíveis nas próximas etapas.</p>
+      <p>Seu perfil profissional é privado. Sua vitrine pública é configurada em Minha loja.</p>
       <button className="dark-button" disabled={saving}>{saving?'Salvando…':'Salvar perfil'}</button>
     </form>}
     {message&&<p role={success?'status':'alert'}>{message}</p>}

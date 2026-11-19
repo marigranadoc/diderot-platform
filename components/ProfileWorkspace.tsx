@@ -4,13 +4,16 @@ import Link from 'next/link';
 import {usePathname} from 'next/navigation';
 import {useAccountProfile} from './useAccountProfile';
 import {SignedShopImage} from './ShopImageUpload';
+import AppIcon,{type IconName} from './AppIcon';
 import {getBrowserClient} from '../lib/supabase-browser';
 
 export default function ProfileWorkspace({children}:{children:React.ReactNode}){
  const {userId,profile,hint}=useAccountProfile(),pathname=usePathname();
  const [hash,setHash]=useState('');
  useEffect(()=>{const sync=()=>setHash(window.location.hash);sync();window.addEventListener('hashchange',sync);return()=>window.removeEventListener('hashchange',sync);},[pathname]);
- const type=profile?.account_type??hint;
+ const type=pathname.startsWith('/painel/criador')||pathname.startsWith('/conta/criador')?'creator':pathname.startsWith('/painel/marca')?'brand':pathname.startsWith('/painel/shopper')?'shopper':profile?.account_type??hint;
+ const [spaces,setSpaces]=useState<string[]>([]),[menuOpen,setMenuOpen]=useState(false);
+ useEffect(()=>{let active=true;setSpaces([]);const db=getBrowserClient();if(db&&userId)void Promise.all([db.from('creator_profiles').select('user_id').eq('user_id',userId).maybeSingle(),db.from('organization_members').select('organization_id').eq('user_id',userId)]).then(([creator,members])=>{if(active&&!creator.error&&!members.error)setSpaces(['shopper',...(creator.data?['creator']:[]),...(members.data?.length?['brand']:[])]);});return()=>{active=false;};},[userId]);
  const [photo,setPhoto]=useState<string|null>(null);
  useEffect(()=>{
   let active=true;setPhoto(null);const db=getBrowserClient();
@@ -26,9 +29,11 @@ export default function ProfileWorkspace({children}:{children:React.ReactNode}){
  },[userId,type]);
 
  const links=type==='creator'?[
-  ['Meu perfil','/conta/perfil'],['Minha loja','/painel/criador/loja#profile'],['Produtos','/painel/criador/loja#products'],['Coleções','/painel/criador/loja#collections'],['Posts','/painel/criador/loja#posts'],['Serviços','/conta/criador/servicos'],['Portfólio','/conta/criador/portfolio'],['Perfil profissional','/conta/criador'],
+  ['Início','/painel/criador'],['Meu perfil','/conta/perfil'],['Minha loja','/painel/criador/loja'],['Produtos','/painel/criador/loja#products'],['Coleções','/painel/criador/loja#collections'],['Posts','/painel/criador/loja#posts'],['Serviços','/conta/criador/servicos'],['Portfólio','/conta/criador/portfolio'],['Perfil profissional','/conta/criador'],['Oportunidades','/explorar/campanhas'],
  ]:type==='brand'?[
-  ['Meu perfil','/conta/perfil'],['Minha marca','/painel/marca'],
+  ['Início','/painel/marca'],['Meu perfil','/conta/perfil'],['Minha marca','/painel/marca'],
  ]:[['Meu perfil','/conta/perfil'],['Meus favoritos','/painel/shopper']];
- return <div className={userId?'profile-workspace':'profile-workspace-guest'}>{userId&&<aside className="profile-workspace-sidebar"><div className="workspace-identity">{type!=='shopper'&&<SignedShopImage path={photo} alt={type==='brand'?'Foto da minha marca':'Minha foto de perfil'} avatar/>}<strong>{profile?.display_name||'Meu espaço'}</strong><Link href="/conta/perfil#foto">Editar perfil{type!=='shopper'?' e foto':''}</Link></div><nav aria-label="Navegação do meu espaço">{links.map(([label,href])=>{const Entry=href.includes('#')?'a':Link;return <Entry href={href} key={href} aria-current={pathname+hash===href?'page':undefined}>{label}</Entry>;})}<Link href="/conta">Acesso e segurança</Link></nav></aside>}<div className={userId?'profile-workspace-content':undefined}>{children}</div></div>;
+ const iconFor=(label:string):IconName=>label==='Início'?'home':label.includes('loja')?'store':label==='Produtos'?'package':label==='Coleções'?'layers':label==='Oportunidades'||label==='Serviços'?'briefcase':label==='Portfólio'||label==='Posts'?'image':label.includes('marca')?'building':label.includes('favoritos')?'heart':'user';
+ const mobile=type==='creator'?[['Início','/painel/criador','home'],['Minha loja','/painel/criador/loja','store'],['Criar','/painel/criador/loja#create','plus'],['Oportunidades','/explorar/campanhas','briefcase'],['Perfil','/conta/perfil','user']]:type==='brand'?[['Início','/painel/marca','home'],['Campanhas','/painel/marca#campaigns','briefcase'],['Equipe','/painel/marca#team','users'],['Perfil','/conta/perfil','building']]:[['Descobrir','/','home'],['Buscar','/criador#catalogo','search'],['Coleções','/#circulos','layers'],['Favoritos','/painel/shopper','heart'],['Conta','/conta/perfil','user']];
+ return <div className={userId?'profile-workspace':'profile-workspace-guest'}>{userId&&<aside className="profile-workspace-sidebar"><div className="workspace-identity">{type!=='shopper'&&<SignedShopImage path={photo} alt={type==='brand'?'Foto da minha marca':'Minha foto de perfil'} avatar/>}<strong>{profile?.display_name||'Meu espaço'}</strong><Link href="/conta/perfil#foto">Editar perfil{type!=='shopper'?' e foto':''}</Link></div><details className="ux-space-picker"><summary><AppIcon name={type==='creator'?'store':type==='brand'?'building':'heart'}/> Meu espaço de {type==='brand'?'marca':type}</summary><div>{spaces.map(space=><Link key={space} href={space==='creator'?'/painel/criador':space==='brand'?'/painel/marca':'/painel/shopper'}>{space==='creator'?'Meu espaço de creator':space==='brand'?'Minha marca':'Minhas descobertas'}</Link>)}<Link href="/conta/perfil">Configurar meus espaços</Link></div></details><button className="ux-mobile-menu-toggle" aria-label="Mais opções do meu espaço" type="button" aria-expanded={menuOpen} onClick={()=>setMenuOpen(!menuOpen)}>Mais opções</button><nav data-expanded={menuOpen} aria-label="Navegação do meu espaço">{links.map(([label,href])=>{const Entry=href.includes('#')?'a':Link;return <Entry href={href} key={href} aria-current={pathname+hash===href?'page':undefined}><AppIcon name={iconFor(label)}/>{label}</Entry>;})}<Link href="/conta"><AppIcon name="settings"/>Acesso e segurança</Link></nav></aside>}<div className={userId?'profile-workspace-content':undefined}>{children}</div>{userId&&<nav className="ux-mobile-nav" aria-label="Navegação rápida">{mobile.map(([label,href,icon])=>{const Entry=href.includes('#')?'a':Link;return <Entry key={label} href={href} aria-current={pathname+hash===href||pathname===href?'page':undefined}><AppIcon name={icon as IconName}/><span>{label}</span></Entry>;})}</nav>}</div>;
 }

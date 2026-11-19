@@ -8,6 +8,7 @@ test('DASH-02 contrato simulado: contagens, navegação e falha sem números inv
  const access_token=[{alg:'HS256',typ:'JWT'},{sub:user.id,role:'authenticated',aud:'authenticated',exp},'test-only'].map(x=>Buffer.from(typeof x==='string'?x:JSON.stringify(x)).toString('base64url')).join('.');
  await page.addInitScript(value=>localStorage.setItem('sb-mbxpwrgfujnjonyxzvfw-auth-token',JSON.stringify(value)),{access_token,refresh_token:'test-only',expires_at:exp,expires_in:3600,token_type:'bearer',user});
  let fail=false;
+ await page.route('**/rest/v1/creator_shops**',r=>r.fulfill({json:null}));await page.route('**/rest/v1/profile_photos**',r=>r.fulfill({json:null}));
  await page.route('**/auth/v1/user',route=>route.fulfill({json:user}));
  await page.route('**/rest/v1/creator_profiles**',route=>route.fulfill({json:{professional_name:'Creator demonstrativo'}}));
  for(const [table,count] of [['creator_services',2],['creator_portfolio_items',3]] as const){await page.route(`**/rest/v1/${table}**`,route=>route.fulfill(fail?{status:503,body:''}:{status:200,headers:{'content-range':`0-${count-1}/${count}`,'access-control-expose-headers':'content-range'},body:''}));}

@@ -7,6 +7,7 @@ test('SRV-01 visitante não recebe formulário de gestão',async({page})=>{
 });
 
 test('SRV-02 contrato simulado: criar, reler, editar, falhar e excluir com confirmação',async({page})=>{
+ page.on('dialog',dialog=>dialog.accept());
  const user={id:'44444444-4444-4444-8444-444444444444',aud:'authenticated',role:'authenticated',email:'services@example.invalid',app_metadata:{},user_metadata:{},created_at:new Date().toISOString()};
  const exp=Math.floor(Date.now()/1000)+3600;
  const access_token=[{alg:'HS256',typ:'JWT'},{sub:user.id,role:'authenticated',aud:'authenticated',exp},'test-only'].map(x=>Buffer.from(typeof x==='string'?x:JSON.stringify(x)).toString('base64url')).join('.');
@@ -23,7 +24,8 @@ test('SRV-02 contrato simulado: criar, reler, editar, falhar e excluir com confi
   const removed=rows[0];rows=[];return route.fulfill({json:{id:removed.id}});
  });
  await page.goto('/conta/criador/servicos');
- await expect(page.getByText('Nenhum serviço cadastrado.',{exact:false})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'Seu trabalho tem valor',exact:true})).toBeVisible();
+ await page.getByRole('button',{name:'Adicionar serviço',exact:true}).click();await page.getByRole('button',{name:'Vídeo UGC',exact:true}).click();
  await page.getByLabel('Título do serviço',{exact:true}).fill('Vídeo de demonstração');
  await page.getByRole('button',{name:'Salvar serviço'}).click();
  await expect(page.getByRole('main').getByRole('status')).toContainText('Serviço salvo');
@@ -31,7 +33,7 @@ test('SRV-02 contrato simulado: criar, reler, editar, falhar e excluir com confi
  await page.reload();
  await expect(page.getByRole('heading',{name:'Vídeo de demonstração'})).toBeVisible();
  await page.getByRole('button',{name:'Editar Vídeo de demonstração',exact:true}).click();
- await page.getByRole('combobox',{name:'Forma de preço',exact:true}).selectOption('starting');
+ await page.getByText('Descrição e condições',{exact:true}).click();await page.getByRole('combobox',{name:'Forma de preço',exact:true}).selectOption('starting');
  await page.getByLabel('Preço inicial (R$)',{exact:true}).fill('450.50');
  await page.getByRole('button',{name:'Salvar serviço'}).click();
  await expect(page.getByText('A partir de R$ 450,50',{exact:true})).toBeVisible();
@@ -50,7 +52,7 @@ test('SRV-02 contrato simulado: criar, reler, editar, falhar e excluir com confi
  await page.getByRole('button',{name:'Confirmar exclusão'}).click();
  await expect(page.getByRole('main').getByRole('status')).toContainText('Serviço excluído');
  await page.reload();
- await expect(page.getByText('Nenhum serviço cadastrado.',{exact:false})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'Seu trabalho tem valor',exact:true})).toBeVisible();
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  hasProfile=false;await page.reload();
  await expect(page.getByText('Configure seu perfil de creator antes de adicionar serviços.')).toBeVisible();

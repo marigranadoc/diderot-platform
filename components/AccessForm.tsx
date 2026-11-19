@@ -1,10 +1,13 @@
 'use client';
-import {useEffect, useState, type FormEvent} from 'react';
+import {useEffect, useId, useState, type FormEvent} from 'react';
 import Link from 'next/link';
 import {getBrowserClient} from '../lib/supabase-browser';
-import {accountTypes,accountLabels,type AccountType} from '../lib/account-types';
+import {IntentCards,FlowProgress} from './ExperienceUI';
+import {type AccountType} from '../lib/account-types';
 
 export default function AccessForm({mode}: {mode: 'signup' | 'recovery'}) {
+  const feedbackId=useId();
+  const [stage,setStage]=useState(0);
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   const [confirmation,setConfirmation] = useState('');
@@ -83,13 +86,15 @@ export default function AccessForm({mode}: {mode: 'signup' | 'recovery'}) {
   return <section className="account-card"><span className="eyebrow">SUA CONTA DIDEROT</span>
     <h1>{mode==='signup'?'Criar conta':canChangePassword?'Definir nova senha':'Recuperar acesso'}</h1>
     <p>{mode==='signup'?'Comece pelas suas descobertas. Você também poderá configurar seu perfil de creator, sem exigência de seguidores.':canChangePassword?'Escolha uma senha nova para sua conta.':'Informe seu e-mail para receber um link de recuperação.'}</p>
-    <form onSubmit={submit}>
-      {mode==='signup'&&<fieldset className="signup-role-options"><legend>Como você quer começar?</legend>{accountTypes.map(type=><label className="modality-option" key={type}><input type="radio" name="signup-account-type" value={type} checked={accountType===type} onChange={()=>setAccountType(type)}/>{accountLabels[type]}</label>)}</fieldset>}
+    {mode==='signup'&&<FlowProgress labels={['Seu espaço','Sua conta']} step={stage}/>}
+    {mode==='signup'&&stage===0?<><IntentCards value={accountType} onChange={setAccountType} name="signup-account-type"/><button className="dark-button" type="button" onClick={()=>setStage(1)}>Continuar com este espaço</button></>:<form onSubmit={submit} aria-describedby={message?feedbackId:undefined}>
+
       {!canChangePassword&&<label>E-mail<input type="email" autoComplete="email" required value={email} onChange={e=>setEmail(e.target.value)}/></label>}
-      {needsPassword&&<><label>Nova senha<input type="password" autoComplete="new-password" minLength={8} required value={password} onChange={e=>setPassword(e.target.value)}/></label><label>Confirmar senha<input type="password" autoComplete="new-password" minLength={8} required value={confirmation} onChange={e=>setConfirmation(e.target.value)}/></label></>}
+      {needsPassword&&<><label>Nova senha<input type="password" aria-describedby={message&&!success?feedbackId:undefined} aria-invalid={message.includes('confirme a mesma senha')||undefined} autoComplete="new-password" minLength={8} required value={password} onChange={e=>setPassword(e.target.value)}/></label><label>Confirmar senha<input type="password" autoComplete="new-password" minLength={8} required value={confirmation} onChange={e=>setConfirmation(e.target.value)}/></label></>}
       <button className="dark-button" disabled={busy||checking}>{busy||checking?'Aguarde…':mode==='signup'?'Criar conta':canChangePassword?'Salvar nova senha':'Enviar link de recuperação'}</button>
-    </form>
-    {message&&<p role={success?'status':'alert'}>{message}</p>}
+    </form>}
+    {mode==='signup'&&stage===1&&<button type="button" disabled={busy||resending} onClick={()=>setStage(0)}>Voltar e trocar espaço</button>}
+    {message&&<p id={feedbackId} role={success?'status':'alert'}>{message}</p>}
     {mode==='signup'&&accessInstead&&<div className="campaign-actions"><Link href="/conta">Entrar na minha conta</Link><Link href="/recuperar-acesso">Recuperar minha senha</Link></div>}
     {mode==='signup'&&confirmationEmail&&<><Link className="dark-button" href={hasSession?'/onboarding':'/conta'}>{hasSession?'Continuar meu cadastro':'Entrar após confirmar meu e-mail'}</Link>{!hasSession&&<button type="button" disabled={resending||busy} onClick={()=>void resend()}>{resending?'Solicitando…':'Reenviar confirmação'}</button>}</>}
     {mode==='signup'&&<Link href="/demo">Conhecer os espaços da Diderot</Link>}

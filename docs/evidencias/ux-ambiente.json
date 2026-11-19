@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-19",
+  "responses": [
+    {
+      "url": "https://www.shopdiderot.com/",
+      "status": 200,
+      "sha256": "b31ad7a594526aecf063240f78b53e3deb7d6fe23e7b212bb9a8f4b6d247f350",
+      "assets": [
+        "/_next/static/chunks/437-b6d1f6430d560c68.js",
+        "/_next/static/chunks/4bd1b696-cd566323a07c169f.js",
+        "/_next/static/chunks/500-863cc2266cad9a2f.js",
+        "/_next/static/chunks/794-ca41c4930bb9e537.js",
+        "/_next/static/chunks/app/error-7b51bfeb190b64f5.js",
+        "/_next/static/chunks/app/layout-5f704f536d7b51f9.js",
+        "/_next/static/chunks/app/page-c2d848d423839588.js",
+        "/_next/static/chunks/main-app-de0074944ec71a62.js",
+        "/_next/static/chunks/polyfills-42372ed130431b0a.js",
+        "/_next/static/chunks/webpack-79fd6bcde72d830b.js"
+      ]
+    },
+    {
+      "url": "https://diderot-platform-mari-granado.vercel.app/",
+      "status": 200,
+      "sha256": "b31ad7a594526aecf063240f78b53e3deb7d6fe23e7b212bb9a8f4b6d247f350",
+      "assets": [
+        "/_next/static/chunks/437-b6d1f6430d560c68.js",
+        "/_next/static/chunks/4bd1b696-cd566323a07c169f.js",
+        "/_next/static/chunks/500-863cc2266cad9a2f.js",
+        "/_next/static/chunks/794-ca41c4930bb9e537.js",
+        "/_next/static/chunks/app/error-7b51bfeb190b64f5.js",
+        "/_next/static/chunks/app/layout-5f704f536d7b51f9.js",
+        "/_next/static/chunks/app/page-c2d848d423839588.js",
+        "/_next/static/chunks/main-app-de0074944ec71a62.js",
+        "/_next/static/chunks/polyfills-42372ed130431b0a.js",
+        "/_next/static/chunks/webpack-79fd6bcde72d830b.js"
+      ]
+    }
+  ],
+  "matchingAssets": true
+}

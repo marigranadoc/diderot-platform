@@ -1,0 +1,567 @@
+{
+  "date": "2026-11-19",
+  "stats": {
+    "startTime": "2026-11-19T11:10:33.591Z",
+    "duration": 278639.777,
+    "expected": 92,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "cases": [
+    {
+      "title": "SHOP-01 contrato: perfil com foto, redes sociais, produto, seção e post persistem",
+      "project": "computador",
+      "status": "expected",
+      "duration": 9397
+    },
+    {
+      "title": "SHOP-01 contrato: perfil com foto, redes sociais, produto, seção e post persistem",
+      "project": "celular",
+      "status": "expected",
+      "duration": 7289
+    },
+    {
+      "title": "SHOP-02 contrato: catálogo, duplicar/ocultar/ordenar seções e publicação explícita",
+      "project": "computador",
+      "status": "expected",
+      "duration": 4586
+    },
+    {
+      "title": "SHOP-02 contrato: catálogo, duplicar/ocultar/ordenar seções e publicação explícita",
+      "project": "celular",
+      "status": "expected",
+      "duration": 4220
+    },
+    {
+      "title": "SHOP-03 contrato: resposta perdida, conflito, campos preservados e URL insegura",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2256
+    },
+    {
+      "title": "SHOP-03 contrato: resposta perdida, conflito, campos preservados e URL insegura",
+      "project": "celular",
+      "status": "expected",
+      "duration": 2648
+    },
+    {
+      "title": "SHOP-04 backend real: loja pública demonstrativa, redes abaixo do CTA e acesso pelo painel",
+      "project": "computador",
+      "status": "expected",
+      "duration": 9750
+    },
+    {
+      "title": "SHOP-04 backend real: loja pública demonstrativa, redes abaixo do CTA e acesso pelo painel",
+      "project": "celular",
+      "status": "expected",
+      "duration": 9005
+    },
+    {
+      "title": "SHOP-05 contrato: marca envia/remove foto e membro permanece somente leitura",
+      "project": "computador",
+      "status": "expected",
+      "duration": 3616
+    },
+    {
+      "title": "SHOP-05 contrato: marca envia/remove foto e membro permanece somente leitura",
+      "project": "celular",
+      "status": "expected",
+      "duration": 2688
+    },
+    {
+      "title": "SHOP-06 saída em outra aba descarta resposta privada pendente",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2351
+    },
+    {
+      "title": "SHOP-06 saída em outra aba descarta resposta privada pendente",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1857
+    },
+    {
+      "title": "SHOP-07 loja pública: cards compactos, busca, ordenação e favorito de visitante persistente",
+      "project": "computador",
+      "status": "expected",
+      "duration": 3823
+    },
+    {
+      "title": "SHOP-07 loja pública: cards compactos, busca, ordenação e favorito de visitante persistente",
+      "project": "celular",
+      "status": "expected",
+      "duration": 3398
+    },
+    {
+      "title": "SHOP-08 perfil: upload compartilhado com loja, navegação por área e publicação da foto",
+      "project": "computador",
+      "status": "expected",
+      "duration": 4930
+    },
+    {
+      "title": "SHOP-08 perfil: upload compartilhado com loja, navegação por área e publicação da foto",
+      "project": "celular",
+      "status": "expected",
+      "duration": 5398
+    },
+    {
+      "title": "SHOP-09 criação app: seções, coleções, catálogo com foto própria, reutilizar, arquivar e restaurar",
+      "project": "computador",
+      "status": "expected",
+      "duration": 8775
+    },
+    {
+      "title": "SHOP-09 criação app: seções, coleções, catálogo com foto própria, reutilizar, arquivar e restaurar",
+      "project": "celular",
+      "status": "expected",
+      "duration": 8504
+    },
+    {
+      "title": "SHOP-10 criação app: URL manual, erro de foto, campos preservados e edição protegida",
+      "project": "computador",
+      "status": "expected",
+      "duration": 3488
+    },
+    {
+      "title": "SHOP-10 criação app: URL manual, erro de foto, campos preservados e edição protegida",
+      "project": "celular",
+      "status": "expected",
+      "duration": 3110
+    },
+    {
+      "title": "SHOP-11 coleção: criar seção junto, ocultar e mover produto sem duplicar o registro",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2987
+    },
+    {
+      "title": "SHOP-11 coleção: criar seção junto, ocultar e mover produto sem duplicar o registro",
+      "project": "celular",
+      "status": "expected",
+      "duration": 2352
+    },
+    {
+      "title": "SHOP-12 ordem visual: arrastar coleção salva e relê a ordem",
+      "project": "computador",
+      "status": "expected",
+      "duration": 3887
+    },
+    {
+      "title": "SHOP-12 ordem visual: arrastar coleção salva e relê a ordem",
+      "project": "celular",
+      "status": "expected",
+      "duration": 3010
+    },
+    {
+      "title": "SHOP-13 etapas: voltar preserva produto, foto e dados opcionais",
+      "project": "computador",
+      "status": "expected",
+      "duration": 3121
+    },
+    {
+      "title": "SHOP-13 etapas: voltar preserva produto, foto e dados opcionais",
+      "project": "celular",
+      "status": "expected",
+      "duration": 3780
+    },
+    {
+      "title": "DS-01 tokens e componentes globais seguem a referência fornecida",
+      "project": "computador",
+      "status": "expected",
+      "duration": 872
+    },
+    {
+      "title": "DS-01 tokens e componentes globais seguem a referência fornecida",
+      "project": "celular",
+      "status": "expected",
+      "duration": 980
+    },
+    {
+      "title": "DS-02 catálogo e detalhe usam fotografias locais carregadas",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2092
+    },
+    {
+      "title": "DS-02 catálogo e detalhe usam fotografias locais carregadas",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1754
+    },
+    {
+      "title": "DS-03 composição responsiva mantém cabeçalho, hero e formulários acessíveis",
+      "project": "computador",
+      "status": "expected",
+      "duration": 5121
+    },
+    {
+      "title": "DS-03 composição responsiva mantém cabeçalho, hero e formulários acessíveis",
+      "project": "celular",
+      "status": "expected",
+      "duration": 3105
+    },
+    {
+      "title": "ONB-01 cadastro confirma envio sem inventar sessão e valida senha",
+      "project": "computador",
+      "status": "expected",
+      "duration": 996
+    },
+    {
+      "title": "ONB-01 cadastro confirma envio sem inventar sessão e valida senha",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1177
+    },
+    {
+      "title": "ONB-02 recuperação trata falha e resposta sem revelar existência da conta",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1018
+    },
+    {
+      "title": "ONB-02 recuperação trata falha e resposta sem revelar existência da conta",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1116
+    },
+    {
+      "title": "ONB-03 link de recuperação permite trocar senha após sessão verificada",
+      "project": "computador",
+      "status": "expected",
+      "duration": 972
+    },
+    {
+      "title": "ONB-03 link de recuperação permite trocar senha após sessão verificada",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1100
+    },
+    {
+      "title": "ONB-04 link expirado não libera formulário de nova senha",
+      "project": "computador",
+      "status": "expected",
+      "duration": 804
+    },
+    {
+      "title": "ONB-04 link expirado não libera formulário de nova senha",
+      "project": "celular",
+      "status": "expected",
+      "duration": 901
+    },
+    {
+      "title": "ONB-05 visitante precisa entrar para configurar perfil",
+      "project": "computador",
+      "status": "expected",
+      "duration": 753
+    },
+    {
+      "title": "ONB-05 visitante precisa entrar para configurar perfil",
+      "project": "celular",
+      "status": "expected",
+      "duration": 763
+    },
+    {
+      "title": "ONB-06 contrato simulado: UGC sem seguidores, reload, atuação híbrida e erro de gravação",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2716
+    },
+    {
+      "title": "ONB-06 contrato simulado: UGC sem seguidores, reload, atuação híbrida e erro de gravação",
+      "project": "celular",
+      "status": "expected",
+      "duration": 3116
+    },
+    {
+      "title": "ONB-07 troca de conta em outra aba (normal) remove o perfil anterior",
+      "project": "computador",
+      "status": "expected",
+      "duration": 3350
+    },
+    {
+      "title": "ONB-07 troca de conta em outra aba (normal) remove o perfil anterior",
+      "project": "celular",
+      "status": "expected",
+      "duration": 2591
+    },
+    {
+      "title": "ONB-08 troca de conta em outra aba (without-broadcast) remove o perfil anterior",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2704
+    },
+    {
+      "title": "ONB-08 troca de conta em outra aba (without-broadcast) remove o perfil anterior",
+      "project": "celular",
+      "status": "expected",
+      "duration": 3100
+    },
+    {
+      "title": "ONB-09 troca de conta em outra aba (delayed-storage) remove o perfil anterior",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2313
+    },
+    {
+      "title": "ONB-09 troca de conta em outra aba (delayed-storage) remove o perfil anterior",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1943
+    },
+    {
+      "title": "ONB-10 confirmação clara, reenvio real pelo contrato e falha sem falso sucesso",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1659
+    },
+    {
+      "title": "ONB-10 confirmação clara, reenvio real pelo contrato e falha sem falso sucesso",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1104
+    },
+    {
+      "title": "ONB-11 resposta ofuscada orienta acesso sem inventar envio de confirmação",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1320
+    },
+    {
+      "title": "ONB-11 resposta ofuscada orienta acesso sem inventar envio de confirmação",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1137
+    },
+    {
+      "title": "início, perfil, coleção, produto e retorno",
+      "project": "computador",
+      "status": "expected",
+      "duration": 3790
+    },
+    {
+      "title": "início, perfil, coleção, produto e retorno",
+      "project": "celular",
+      "status": "expected",
+      "duration": 2611
+    },
+    {
+      "title": "busca, categoria, ordenação, favoritos e estado vazio",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2738
+    },
+    {
+      "title": "busca, categoria, ordenação, favoritos e estado vazio",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1869
+    },
+    {
+      "title": "rotas, links internos, imagens e largura responsiva",
+      "project": "computador",
+      "status": "expected",
+      "duration": 21067
+    },
+    {
+      "title": "rotas, links internos, imagens e largura responsiva",
+      "project": "celular",
+      "status": "expected",
+      "duration": 15829
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 320px",
+      "project": "computador",
+      "status": "expected",
+      "duration": 3527
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 320px",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1396
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 375px",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2405
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 375px",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1448
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 390px",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2637
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 390px",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1754
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 768px",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2418
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 768px",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1629
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 1024px",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2366
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 1024px",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1405
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 1440px",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1851
+    },
+    {
+      "title": "UX-01 cadastro e descoberta em 1440px",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1640
+    },
+    {
+      "title": "UX-02 filtros do catálogo sobrevivem a recarregar e voltar do produto",
+      "project": "computador",
+      "status": "expected",
+      "duration": 3592
+    },
+    {
+      "title": "UX-02 filtros do catálogo sobrevivem a recarregar e voltar do produto",
+      "project": "celular",
+      "status": "expected",
+      "duration": 3586
+    },
+    {
+      "title": "UX-03 escolha de intenção funciona por teclado",
+      "project": "computador",
+      "status": "expected",
+      "duration": 851
+    },
+    {
+      "title": "UX-03 escolha de intenção funciona por teclado",
+      "project": "celular",
+      "status": "expected",
+      "duration": 919
+    },
+    {
+      "title": "UX-04 compartilhar loja usa o endereço público e confirma cópia real pelo contrato",
+      "project": "computador",
+      "status": "expected",
+      "duration": 2672
+    },
+    {
+      "title": "UX-04 compartilhar loja usa o endereço público e confirma cópia real pelo contrato",
+      "project": "celular",
+      "status": "expected",
+      "duration": 2227
+    },
+    {
+      "title": "UX-05 seletor de espaços usa vínculos consultados, não metadata",
+      "project": "computador",
+      "status": "expected",
+      "duration": 985
+    },
+    {
+      "title": "UX-05 seletor de espaços usa vínculos consultados, não metadata",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1070
+    },
+    {
+      "title": "UX-06 navegação autenticada em 320px",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1019
+    },
+    {
+      "title": "UX-06 navegação autenticada em 320px",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1257
+    },
+    {
+      "title": "UX-06 navegação autenticada em 375px",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1000
+    },
+    {
+      "title": "UX-06 navegação autenticada em 375px",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1150
+    },
+    {
+      "title": "UX-06 navegação autenticada em 390px",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1000
+    },
+    {
+      "title": "UX-06 navegação autenticada em 390px",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1041
+    },
+    {
+      "title": "UX-06 navegação autenticada em 768px",
+      "project": "computador",
+      "status": "expected",
+      "duration": 963
+    },
+    {
+      "title": "UX-06 navegação autenticada em 768px",
+      "project": "celular",
+      "status": "expected",
+      "duration": 965
+    },
+    {
+      "title": "UX-06 navegação autenticada em 1024px",
+      "project": "computador",
+      "status": "expected",
+      "duration": 1279
+    },
+    {
+      "title": "UX-06 navegação autenticada em 1024px",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1012
+    },
+    {
+      "title": "UX-06 navegação autenticada em 1440px",
+      "project": "computador",
+      "status": "expected",
+      "duration": 977
+    },
+    {
+      "title": "UX-06 navegação autenticada em 1440px",
+      "project": "celular",
+      "status": "expected",
+      "duration": 1332
+    }
+  ],
+  "scope": "Final build: SHOP-01–13, UX-01–06, DS-01–03, Store journeys and ONB-01–11, desktop/mobile. Six widths and reduced viewport. Real existing fictional account reads; CRUD/Storage/Auth signup operations use controlled mocks. No production business writes or email send.",
+  "limits": "Not a full application audit or WCAG certification. Broader 220/224 run is recorded separately; the four legacy selector failures passed here after correction."
+}

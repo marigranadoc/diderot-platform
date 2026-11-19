@@ -1,0 +1,14 @@
+{
+  "origin": "http://127.0.0.1:3002",
+  "phase": "after",
+  "results": [
+    {
+      "width": 390,
+      "businessWrites": 0
+    },
+    {
+      "width": 1440,
+      "businessWrites": 0
+    }
+  ]
+}

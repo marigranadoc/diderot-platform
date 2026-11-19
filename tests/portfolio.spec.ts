@@ -13,6 +13,7 @@ test('PORT-02 visitante precisa entrar para gerenciar portfólio',async({page})=
 });
 
 test('PORT-03 contrato simulado: validar, criar, reler, editar, falhar e excluir',async({page})=>{
+ page.on('dialog',dialog=>dialog.accept());
  const user={id:'66666666-6666-4666-8666-666666666666',aud:'authenticated',role:'authenticated',email:'portfolio@example.invalid',app_metadata:{},user_metadata:{},created_at:new Date().toISOString()};
  const exp=Math.floor(Date.now()/1000)+3600;
  const access_token=[{alg:'HS256',typ:'JWT'},{sub:user.id,role:'authenticated',aud:'authenticated',exp},'test-only'].map(x=>Buffer.from(typeof x==='string'?x:JSON.stringify(x)).toString('base64url')).join('.');
@@ -28,13 +29,14 @@ test('PORT-03 contrato simulado: validar, criar, reler, editar, falhar e excluir
   const removed=rows[0];rows=[];return route.fulfill({json:{id:removed.id}});
  });
  await page.goto('/conta/criador/portfolio');
- await expect(page.getByText('Nenhum trabalho cadastrado.',{exact:false})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'Seu trabalho merece um lugar',exact:true})).toBeVisible();
+ await page.getByRole('button',{name:'Adicionar trabalho',exact:true}).click();await page.getByRole('button',{name:'Vídeo UGC',exact:true}).click();
  await page.getByLabel('Título do trabalho',{exact:true}).fill('Demonstração UGC');
  await page.getByLabel('Link do trabalho',{exact:true}).fill('http://example.com/video');
  await page.getByRole('button',{name:'Salvar trabalho'}).click();
  await expect(page.getByRole('main').getByRole('alert')).toContainText('HTTPS válido');expect(writes).toBe(0);
  await page.getByLabel('Link do trabalho',{exact:true}).fill('https://example.com/video');
- await page.getByLabel('Sua participação',{exact:true}).fill('Roteiro e edição');
+ await page.getByText('Conte mais sobre este trabalho',{exact:true}).click();await page.getByLabel('Sua participação',{exact:true}).fill('Roteiro e edição');
  await page.getByRole('button',{name:'Salvar trabalho'}).click();
  await expect(page.getByRole('main').getByRole('status')).toContainText('Trabalho salvo');
  await page.reload();
@@ -56,7 +58,7 @@ test('PORT-03 contrato simulado: validar, criar, reler, editar, falhar e excluir
  await page.getByRole('button',{name:'Excluir Case de teste',exact:true}).click();
  await page.getByRole('button',{name:'Confirmar exclusão'}).click();
  await expect(page.getByRole('main').getByRole('status')).toContainText('Trabalho excluído');
- await page.reload();await expect(page.getByText('Nenhum trabalho cadastrado.',{exact:false})).toBeVisible();
+ await page.reload();await expect(page.getByRole('heading',{name:'Seu trabalho merece um lugar',exact:true})).toBeVisible();
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  hasProfile=false;await page.reload();await expect(page.getByText('Configure seu perfil de creator antes de adicionar trabalhos.')).toBeVisible();
  await expect(page.getByRole('button',{name:'Salvar trabalho'})).toHaveCount(0);

@@ -21,7 +21,7 @@ Salvar modifica o rascunho completo; não altera silenciosamente a versão públ
 
 Foto de creator/afiliada fica acessível no perfil profissional e no editor da loja. O perfil profissional precisa existir antes de vincular a imagem. Marca troca sua foto no cartão da organização em `/painel/marca`; responsável edita, membro consulta. Não foi criada uma página pública de marca neste incremento.
 
-Aceita JPEG/PNG/WebP até 8 MB e 40 megapixels no cliente. O navegador reprocessa para WebP: perfil quadrado de 512 px; produto/post até 1.600 px, preservando proporção. Bucket privado admite somente WebP até 4 MB. Upload e vínculo são etapas distintas; falha de vínculo não é anunciada como foto salva. Salvamento/publicação aguardam os uploads do formulário. Remover desvincula a foto do cadastro, sem apagar um arquivo que possa estar em uma versão publicada.
+Aceita JPEG/PNG/WebP até 20 MB e 60 megapixels no cliente. O navegador gera WebP ou preserva a saída raster compatível (PNG/JPEG): perfil com enquadramento quadrado de 512 px; produto/post até 1.600 px, preservando proporção. Bucket privado admite WebP/PNG/JPEG até 4 MB, com extensão e MIME correspondentes. Upload e vínculo são etapas distintas; falha de vínculo não é anunciada como foto salva. Salvamento/publicação aguardam os uploads do formulário. Remover desvincula a foto do cadastro, sem apagar um arquivo que possa estar em uma versão publicada.
 
 Imagens não publicadas ficam privadas. Apenas mídias referenciadas no snapshot publicado são acessíveis a visitantes por URLs temporárias de até 15 minutos. Retirar publicação bloqueia novas autorizações; URLs já emitidas podem continuar válidas até expirar, e arquivos já baixados não são revogados. Uploads abandonados/substituídos podem permanecer privados; não foi criada limpeza automática destrutiva.
 
@@ -98,3 +98,7 @@ As áreas de conta e painel têm navegação lateral no desktop e horizontal no 
 ## Organização e criação — 18/11/2026
 
 [Guia de referência](REFERENCIA-CONSTRUCAO-LOJA-SHOPMY.md) e [requisitos do incremento 43](PRD-DIDEROT.md#43-organização-da-loja-em-três-camadas--18112026). Seções são abas, coleções pertencem a seções e itens podem ser reutilizados em coleções. Menu + inferior abre produto por URL manual/catálogo/registros existentes, coleção, seção e post. Nova seção pode ser criada junto da coleção. Arquivar/restaurar mantém conteúdo privado; publicação exclui grupos ocultos/arquivados e seus conteúdos exclusivos. Prévia aplica as mesmas regras. Produtos do catálogo aceitam foto própria na loja sem alterar o catálogo. Entrada de foto passa a até 20 MB, com limites e tratamento HEIC descritos no PRD; a menção anterior a 8 MB é histórica. Salvar produto confirma por releitura; publicar atualiza a vitrine.
+
+## Enquadramento e compatibilidade — 19/11/2026
+
+Fotos de perfil abrem ajuste com zoom, arraste e posição antes de enviar. Cancelar não faz upload; o vínculo continua confirmado por releitura. Erro de rede preserva os campos e permite reenviar a preparação. Navegadores sem encoder WebP usam PNG/JPEG válidos, mantendo pastas privadas e as restrições de titularidade. Alternâncias de visibilidade, detalhes expansíveis e navegação móvel receberam refinamentos de interação. [Verificação e limites](FOTOS-INTERACOES-MOBILE.md).

@@ -27,7 +27,7 @@ O modelo futuro está no PRD e no [anexo](TELAS-FLUXOS-SHOPMY.md), explicitament
 
 `creator_shops` mantém um documento privado por titular e snapshot público separado. Itens/seções/posts têm IDs locais e relações N:N ordenadas validadas no RPC; esta versão não usa tabelas separadas por entidade da loja. Limites de 1 MB/200 itens/50 seções/100 posts tornam explícito o escopo inicial. Versão esperada e recibo protegem gravação atômica/retry. Campos canônicos de itens do catálogo são resolvidos no servidor, separados das recomendações externas pessoais.
 
-`profile_photos` armazena referências por creator/organização. Bucket privado `diderot-media` aceita WebP e usa RLS por proprietário, vínculo de marca ou snapshot efetivamente publicado. `creator_shop_public_media` é fechado ao acesso direto; helpers guardados consultam a associação publicada. `/loja/[slug]` consulta RPC público com chave publicável e assina apenas mídias permitidas por 15 minutos; sem service_role ou cache de documento privado. Remoção de publicação impede novas autorizações, sem revogar arquivos já baixados/URLs ainda válidas.
+`profile_photos` armazena referências por creator/organização. Bucket privado `diderot-media` aceita WebP/PNG/JPEG, com extensão/MIME correspondentes e limite de 4 MB e usa RLS por proprietário, vínculo de marca ou snapshot efetivamente publicado. `creator_shop_public_media` é fechado ao acesso direto; helpers guardados consultam a associação publicada. `/loja/[slug]` consulta RPC público com chave publicável e assina apenas mídias permitidas por 15 minutos; sem service_role ou cache de documento privado. Remoção de publicação impede novas autorizações, sem revogar arquivos já baixados/URLs ainda válidas.
 
 
 ## Navegação privada e edição de perfil — incremento 40
@@ -58,3 +58,7 @@ experience.css estende os tokens existentes sem substituir globals/design-tokens
 Criação de produto/coleção usa estado local de etapas e prévia sobre ShopDocument; gravação permanece no save_creator_shop existente, com revisão/recibo/releitura e publicação explícita. Modelos, RLS, Auth, Storage e APIs não mudaram. A ordenação por drag/drop usa a mesma sequência JSON validada; botões permanecem como alternativa. Serviços/portfólio continuam privados e por contratos existentes. Catálogo grava filtros canônicos na URL e remove aliases antigos ao alterá-los para manter limpar/reload consistentes.
 
 PRD 1.11 e [relatório de UX](UX-OVERHAUL.md) registram baseline, escolhas, provas e limitações. Nova etapa está em branch/PR de revisão; produção preservada. Capturas autenticadas não são publicadas no repositório.
+
+## Fotos e interações — incremento 46
+
+photo-processing centraliza limites, decodificação e exportação pelo MIME real do navegador. PhotoCropDialog usa canvas e portal/modal nativo, mantendo a edição fora de fieldsets desabilitados. Nenhum arquivo é enviado ao cancelar. ShopImageUpload valida identidade antes/depois do upload, preserva preparação em erro e só vincula com retorno confirmado existente. interactions.css acrescenta controles e movimento reduzido sobre a identidade atual. Migração browser_photo_formats inclui PNG/JPEG sem abrir bucket ou reduzir escopo de titularidade.

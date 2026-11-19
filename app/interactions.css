@@ -1,0 +1,68 @@
+
+/* Interações complementam a identidade existente; não alteram tokens de marca. */
+:root{--ux-success:#166443;--ux-success-bg:#edf7f0;--ux-soft-shadow:0 8px 30px #10101008}
+.ux-action-card,.ux-owner-card,.ux-checklist,.ux-editor-preview{border-radius:16px;box-shadow:var(--ux-soft-shadow)}
+.ux-action-card{transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;background:linear-gradient(145deg,#fff,#f7f7f7)}
+.ux-actions-grid>.ux-action-card:first-child{color:#fff;border-color:#323232;background:radial-gradient(ellipse at 100% 0,#ffffff18,transparent 65%),linear-gradient(130deg,#151515,#383838);box-shadow:0 12px 28px #1112}
+.ux-actions-grid>.ux-action-card:first-child p,.ux-actions-grid>.ux-action-card:first-child small{color:#e2e2e2}
+@media(hover:hover){.ux-action-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px #1111}.shop-create-options button:hover{transform:translateX(-3px);border-color:#aaa}}
+.ux-action-card:active,.shop-create-options button:active{transform:scale(.985)}
+.ux-checklist li[data-complete=true] a{color:var(--ux-success)}.ux-checklist li[data-complete=true] small{background:var(--ux-success-bg);padding:5px 9px;border-radius:20px}
+.ux-checklist progress{accent-color:var(--ux-success)}.ux-flow-progress li[data-complete=true]{color:var(--ux-success)}.ux-flow-progress li[data-complete=true] span{border-color:#bad8c6;background:var(--ux-success-bg)}
+.ux-form-advanced{padding:16px;background:#f7f7f7;border:1px solid #ebebeb;border-radius:12px}
+.ux-form-advanced>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;list-style:none}.ux-form-advanced>summary::-webkit-details-marker{display:none}.ux-form-advanced>summary::after{content:'+';font-size:20px;font-weight:400;transition:transform .2s}.ux-form-advanced[open]>summary::after{transform:rotate(45deg)}
+@supports(interpolate-size:allow-keywords){.ux-form-advanced{interpolate-size:allow-keywords}.ux-form-advanced::details-content{height:0;overflow:clip;transition:height .22s ease,content-visibility .22s allow-discrete}.ux-form-advanced[open]::details-content{height:auto}}
+.shop-check{display:flex!important;align-items:center;gap:12px!important;padding:12px 0;line-height:1.5}
+.shop-check input[type=checkbox]{appearance:none!important;position:relative;flex:0 0 42px;width:42px!important;height:24px!important;min-height:24px!important;border:1px solid #bebebe!important;border-radius:20px!important;background:#dedede;padding:0!important;cursor:pointer;transition:background .2s,border-color .2s}
+.shop-check input[type=checkbox]::before{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:white;box-shadow:0 1px 3px #0003;transition:transform .2s}
+.shop-check input[type=checkbox]:checked{background:var(--ux-success);border-color:var(--ux-success)!important}.shop-check input[type=checkbox]:checked::before{transform:translateX(18px)}
+.shop-check input[type=checkbox]:focus-visible{outline:2px solid var(--ux-success);outline-offset:3px}.shop-check input:disabled{opacity:.5;cursor:wait}
+.ux-slide-options{animation:ux-panel-enter .2s ease both}.shop-edit-form>fieldset,.ux-editor-preview{animation:ux-stage-enter .2s ease both}
+@keyframes ux-panel-enter{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:translateX(0)}}
+@keyframes ux-stage-enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.shop-upload{padding:18px;background:#f7f7f7;border:1px solid #e8e8e8;border-radius:14px}
+.shop-upload [role=status],.profile-photo-editor>[role=status]{color:var(--ux-success);font-size:13px}
+.shop-file-label{border-radius:30px!important;background:#222!important;color:white!important;display:inline-flex!important;align-items:center;justify-content:center;min-height:44px;padding:12px 18px!important;cursor:pointer}
+.shop-file-label:focus-within{outline:2px solid var(--ux-success);outline-offset:3px}
+.photo-crop-dialog{border:1px solid #444;border-radius:24px;padding:28px;width:440px;max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px);overflow:auto;color:#f5f5f5;background:radial-gradient(ellipse at 100% 0,#484848,#1c1c1c 65%);box-shadow:0 24px 80px #0005}
+.photo-crop-dialog::backdrop{background:#0009;backdrop-filter:blur(5px)}
+.photo-crop-dialog[open]{animation:ux-panel-enter .2s ease both}
+.photo-crop-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}.photo-crop-heading h2{font:32px/1.15 var(--font-serif);margin:8px 0}.photo-crop-heading small{font-size:9px;letter-spacing:.15em;color:#c7c7c7}
+.photo-crop-heading button{display:grid;place-items:center;border:1px solid #777;background:#ffffff08;color:white;border-radius:50%;width:44px;height:44px;flex:none}.photo-crop-dialog>p{font-size:13px;line-height:1.7;color:#ddd}.photo-crop-heading svg{width:20px;height:20px}
+.photo-crop-stage{position:relative;width:280px;max-width:100%;aspect-ratio:1;margin:24px auto;background:#111;border-radius:12px;overflow:hidden}
+.photo-crop-stage canvas{display:block;width:100%;height:100%;touch-action:none;cursor:grab}.photo-crop-stage canvas:active{cursor:grabbing}
+.photo-crop-stage>span{position:absolute;inset:0;display:grid;place-items:center}
+.photo-crop-mask{pointer-events:none;position:absolute;inset:0;border-radius:50%;border:1px solid #fff9;box-shadow:0 0 0 80px #0008}
+.photo-crop-controls{border:0;padding:0;display:grid;gap:16px}.photo-crop-controls label{display:grid;gap:8px;font-size:12px}.photo-crop-controls input{width:100%;accent-color:#c6e5d3;min-height:28px}.photo-crop-position{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.photo-crop-controls button{background:transparent;border:0;padding:8px;color:#ddd;text-decoration:underline;font-size:12px;min-height:44px}
+.photo-crop-actions{display:flex;justify-content:space-between;gap:12px;margin-top:22px}.photo-crop-actions button{min-height:44px;border:1px solid #777;border-radius:30px;padding:12px 18px;background:transparent;color:white;font-size:12px}.photo-crop-actions .dark-button{background:#edf7f0;color:#153d2a;border-color:#edf7f0}
+.photo-crop-dialog [role=alert]{padding:12px;border:1px solid #e5a1a1;border-radius:10px;color:#ffe5e5}
+.photo-crop-dialog button:focus-visible{outline:2px solid #c6e5d3;outline-offset:3px}
+@media(max-width:767px){
+ .profile-workspace-sidebar{display:grid!important;grid-template-columns:minmax(0,1fr) auto;gap:12px;border-bottom:1px solid #e9e9e9;background:linear-gradient(140deg,#fafafa,#f1f1f1)!important}
+ .workspace-identity{display:grid!important;grid-template-columns:44px minmax(0,1fr);gap:4px 10px!important;text-align:left!important;align-items:center!important}
+ .workspace-identity .shop-avatar{grid-row:span 2;width:44px!important;height:44px!important;margin:0!important}.workspace-identity strong{font-size:14px;overflow-wrap:anywhere}.workspace-identity>a{font-size:11px;margin:0!important}.workspace-identity:not(:has(.shop-avatar)){grid-template-columns:1fr}
+ .ux-mobile-menu-toggle{grid-column:2;grid-row:1;align-self:center;border:1px solid #ddd!important;background:#fff!important;padding:8px 12px!important;border-radius:30px}
+ .ux-space-picker{grid-column:1/-1;width:100%;max-width:100%;margin:0;border-radius:12px;background:#ffffffb3}
+ .profile-workspace-sidebar>nav{grid-column:1/-1}.profile-workspace-sidebar>nav[data-expanded=true]{display:grid!important;grid-template-columns:1fr 1fr;gap:6px;animation:ux-stage-enter .2s ease}
+ .profile-workspace-sidebar>nav[data-expanded=true] a{background:white;padding:10px!important;border-radius:8px}
+ .creator-dashboard,.shop-manager,.account-setup{padding-top:28px!important}.ux-dashboard-hero{padding:20px;background:linear-gradient(135deg,#f8f8f8,#ededed);border:1px solid #e7e7e7;border-radius:18px;margin-bottom:20px}
+ .ux-dashboard-hero h2{font-size:28px}.ux-checklist{background:#fafafa}.ux-action-card{gap:12px;padding:20px}
+ .shop-management-grid{display:block!important}.shop-manager-nav{display:flex!important;gap:6px!important;overflow-x:auto;max-width:100%;padding:8px!important;position:static!important;background:#f1f1f1;border-radius:14px;margin-bottom:24px}
+ .shop-manager-nav button{flex:none;white-space:nowrap;padding:10px 14px!important;min-height:44px;border:0!important;border-radius:9px!important;font-size:12px;text-decoration:none!important;background:transparent}
+ .shop-manager-nav button[aria-current=page]{background:#222!important;color:white!important;box-shadow:0 2px 6px #0002}
+ .ux-step-actions{position:static!important;padding:18px 0;margin-top:24px;border-top:1px solid #e7e7e7}
+ .shop-edit-form,.setup-form{padding:20px!important;border:1px solid #e9e9e9!important;border-radius:16px;background:white;box-shadow:var(--ux-soft-shadow)}
+ .shop-edit-form fieldset{min-width:0}.shop-layout-options label{padding:12px}.shop-upload{padding:14px}
+ .photo-crop-dialog{padding:20px;border-radius:20px}.photo-crop-heading h2{font-size:28px}.photo-crop-stage{margin:18px auto;width:min(260px,100%)}.photo-crop-position{gap:14px}
+ .ux-mobile-nav{background:#ffffffef;backdrop-filter:blur(16px);box-shadow:0 -4px 24px #11108}.ux-mobile-nav a[aria-current=page]{background:#f0f2ef;border-radius:12px}
+}
+@media(prefers-reduced-motion:reduce){.ux-action-card,.shop-create-options button,.shop-check input,.shop-check input::before,.ux-form-advanced>summary::after{transition:none}.ux-slide-options,.shop-edit-form>fieldset,.ux-editor-preview,.photo-crop-dialog[open],.profile-workspace-sidebar>nav[data-expanded=true]{animation:none}.ux-form-advanced::details-content{transition:none}}
+
+.photo-crop-dialog{inset:0;margin:auto}
+.photo-crop-dialog h2,.photo-crop-dialog label{color:#f5f5f5}
+.photo-crop-dialog input[type=range]:focus-visible{outline:2px solid #c6e5d3;outline-offset:3px;border-radius:6px}
+.ux-actions-grid>.ux-action-card:first-child h2{color:#fff}
+
+@media(max-width:767px){.profile-workspace-sidebar>.workspace-identity{grid-column:1!important;grid-row:1!important}.profile-workspace-sidebar>.ux-mobile-menu-toggle{white-space:nowrap;width:auto;min-height:44px;justify-self:end;border-radius:24px!important}}
+.ux-checklist progress::-webkit-progress-bar{background:#e5eae6;border-radius:4px}.ux-checklist progress::-webkit-progress-value{background:var(--ux-success);border-radius:4px}.ux-checklist progress::-moz-progress-bar{background:var(--ux-success);border-radius:4px}

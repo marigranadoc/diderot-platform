@@ -1,6 +1,6 @@
 # PRD Diderot — produto, implementação e próximos passos
 
-**Versão:** 1.12 — categorias de conta, criação contextual e layouts · **Atualizado em:** 19/11/2026 · **Base de implementação:** incrementos 26–45, nos ambientes e limites de suas evidências; [plano de lançamento do MVP](PLANO-LANCAMENTO-MVP.md) e [mapa de telas e fluxos](TELAS-FLUXOS-SHOPMY.md).
+**Versão:** 1.13 — fotos com enquadramento e interações móveis · **Atualizado em:** 19/11/2026 · **Base de implementação:** incrementos 26–46, nos ambientes e limites de suas evidências; [plano de lançamento do MVP](PLANO-LANCAMENTO-MVP.md) e [mapa de telas e fluxos](TELAS-FLUXOS-SHOPMY.md).
 
 **Estado:** documento de referência para desenvolvimento. O estado implementado está documentado; as decisões de produto propostas estão identificadas e ainda precisam ser validadas. Não representa conclusão dos módulos futuros nem lançamento integral do MVP.
 
@@ -867,3 +867,17 @@ Coleções oferecem cinco cartões visuais de layout diretamente no formulário,
 Usuária autorizou explicitamente envio ao GitHub e deploy desta versão após os ajustes e testes. Isso substitui a restrição de entrega somente em prévia do incremento 44 para esta entrega. Evidências e implantação serão registradas no progresso.
 
 Verificação do incremento 45: 106/106 testes de navegador aprovados, sem ignorados ou flaky; [evidência e limites](evidencias/ux-ajustes-validacao-final.json). Mudanças de categoria e layouts usam contratos existentes com confirmação e releitura. Escritas simuladas não equivalem a homologação de novos dados reais. Publicado após autorização em [www.shopdiderot.com](https://www.shopdiderot.com): código f4b82d9 / merge 599faf3 do [PR #1](https://github.com/marigranadoc/diderot-platform/pull/1), Vercel success. [Jornadas publicadas](evidencias/ux-ajustes-publicacao.json) com três contas fictícias em 390/1440 px, sem tentativas de gravação de negócio. Local 3002 também verificado.
+
+## 46. Enquadramento de fotos e interações móveis — 19/11/2026
+
+Direção: preservar a UI aprovada e melhorar a experiência com alternâncias, slides, transições e feedback. Cards com contraste discreto, gradientes preto/cinza, grupos visuais e verde em confirmações complementam a identidade existente; sem refazer a home ou adicionar integrações fictícias.
+
+Foto de perfil de creator/afiliada e marca: após escolher o arquivo, abrir modal com prévia circular, zoom, arraste, ajustes horizontal/vertical e centralização. Cancelar/Escape não deve enviar arquivo. Confirmar exporta apenas o enquadramento quadrado de 512×512; manter guardas de sessão e confirmação/releitura do vínculo. Controles sem deslocamento possível ficam desabilitados. Produto/post preservam proporção, com lado máximo 1600 px.
+
+Compatibilidade: o cliente deve verificar o MIME realmente gerado pelo navegador, sem exigir WebP como única saída. Aceitar WebP, PNG ou JPEG até 4 MB, com extensão correspondente; entrada mantém 20 MB/60 MP e HEIC/HEIF dependente de decodificação nativa. Bucket permanece privado, apenas pastas do proprietário, formatos raster e titular/perfil válidos; sem SVG nem permissão de upload anônimo. A migração browser_photo_formats preserva essas restrições e valida extensão/MIME no vínculo. Isso substitui a exigência de saída exclusivamente WebP das etapas anteriores.
+
+Erro de upload preserva campos e permite nova tentativa da imagem já preparada. No perfil, erro mantém o recorte para tentar novamente. Falha de vínculo não pode ser anunciada como foto salva. Enviar não publica loja nem substitui salvar produto. Arquivo privado sem vínculo não altera o snapshot público.
+
+Interações: controles de visibilidade com aparência de alternância e semântica nativa de checkbox; Espaço/teclado continuam funcionando. Detalhes expansíveis e etapas têm transições discretas com movimento reduzido respeitado. Menu móvel fecha com Escape, devolve foco e recolhe ao mudar de área. Cabeçalho compacto e abas horizontais da loja eliminam empilhamento redundante; ações do formulário não cobrem o conteúdo no celular.
+
+Verificação: testes de recorte/cancelamento, pixels e arquivo enviado, formatos alternativos, retry, perfil/marca, teclado e larguras móveis. SQL isolado com rollback valida formatos, titular/pasta, MIME inconsistente e rejeição de SVG. Envios reais autorizados somente na conta fictícia, sem salvar/publicar loja. Não afirmar execução em iPhone físico: a ausência de encoder WebP é reproduzida no navegador de teste. [Detalhes e evidências](FOTOS-INTERACOES-MOBILE.md).

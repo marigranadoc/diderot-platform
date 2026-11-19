@@ -21,3 +21,7 @@ Upload WebP real no Chrome da conta fictícia retornou 200; não foi reproduzida
 Envio real autorizado de PNG com encoder WebP indisponível simulado: HTTP 200, extensão png, MIME image/png; zero gravações REST de negócio. A conta fictícia recebe arquivos privados sem vínculo novo; loja/perfil/publicação não foram alterados pelo probe. Aprovação explícita recebida após a revisão automática bloquear a primeira tentativa. Capturas autenticadas permanecem locais.
 
 Limites: nenhum iPhone físico foi testado. A compatibilidade de HEIC depende do navegador. Não houve e-mails, operações financeiras, seeds ou alteração de dados reais de usuários. Avisos anteriores de segurança (incluindo configuração de senhas) não foram alterados para resolver upload; esta entrega não é auditoria integral de segurança.
+
+## Publicação verificada
+
+[PR #2](https://github.com/marigranadoc/diderot-platform/pull/2) incorporado, código 24ea3cf / merge a9aaf9e. Vercel success; [Diderot publicada](https://www.shopdiderot.com) testada com PNG enviado e relido na prévia, sem alertas, na conta fictícia. [Evidência](evidencias/fotos-interacoes-publicacao.json). Três contas em 390/1440 px verificadas em leitura, sem tentativas de escrita REST de negócio. Três arquivos privados de teste da etapa permanecem sem novo vínculo conforme autorização; nenhum perfil/loja foi salvo/publicado pelo probe. Local 3002 atualizado.

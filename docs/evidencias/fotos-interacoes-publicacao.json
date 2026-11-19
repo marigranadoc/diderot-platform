@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-19T16:25:42.057Z",
+  "sourceCommit": "24ea3cffa7c40e38116ea13d7d808a0164b35694",
+  "productionMerge": "a9aaf9ee57147543720bc19e17676fe5b8d9ab93",
+  "pullRequest": "https://github.com/marigranadoc/diderot-platform/pull/2",
+  "vercel": "success",
+  "vercelInspection": "https://vercel.com/mari-granado/diderot-platform/6o8xGwDvEZd3EcnVdMDen4B3K5sG",
+  "photoProbe": {
+    "origin": "https://www.shopdiderot.com",
+    "mode": "webp-unavailable",
+    "storage": [
+      {
+        "status": 200,
+        "extension": "png",
+        "mime": "image/png"
+      }
+    ],
+    "alerts": [],
+    "businessWrites": 0,
+    "privateRead": true
+  },
+  "readOnlyJourneys": {
+    "origin": "https://www.shopdiderot.com",
+    "phase": "fotos-publicado",
+    "results": [
+      {
+        "width": 390,
+        "businessWrites": 0
+      },
+      {
+        "width": 1440,
+        "businessWrites": 0
+      }
+    ]
+  },
+  "limits": [
+    "Foto de teste enviada somente pela conta fictícia; nenhuma gravação REST de loja/perfil ou publicação.",
+    "Três arquivos privados de teste criados nesta etapa e mantidos sem novo vínculo conforme autorização.",
+    "Compatibilidade sem encoder WebP simulada no Chrome; nenhum iPhone físico testado.",
+    "Capturas autenticadas locais; não incluídas no repositório."
+  ]
+}

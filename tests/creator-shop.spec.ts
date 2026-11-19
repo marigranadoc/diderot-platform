@@ -3,6 +3,7 @@ import {test,expect,type Page} from '@playwright/test';
 import {readFile} from 'node:fs/promises';
 import type {ShopDocument,ShopRow} from '../lib/creator-shop';
 const id='11111111-1111-4111-8111-111111111111';
+async function confirmCrop(page:Page){const dialog=page.getByRole('dialog',{name:'Ajustar foto de perfil',exact:true});await expect(dialog).toBeVisible();await dialog.getByRole('button',{name:'Usar este recorte',exact:true}).click();await expect(dialog).not.toBeVisible();}
 async function productDestination(page:Page){const next=page.getByRole('button',{name:'Continuar para destino',exact:true}),save=page.getByRole('button',{name:'Salvar produto',exact:true});await expect(next.or(save)).toBeVisible();if(await next.isVisible())await next.click();}
 async function saveProduct(page:Page){await productDestination(page);await page.getByRole('button',{name:'Salvar produto',exact:true}).click();}
 async function collectionContents(page:Page){const next=page.getByRole('button',{name:'Continuar coleção',exact:true}),contents=page.getByRole('group',{name:'Produtos desta coleção',exact:true});await expect(next.or(contents).first()).toBeVisible();if(!await contents.isVisible())await next.click();}
@@ -18,7 +19,7 @@ async function setup(page:Page){
  await page.route('**/rest/v1/favorites**',route=>route.fulfill({json:[]}));
  await page.route('**/rest/v1/account_profiles**',route=>route.fulfill({json:null}));
  await page.route('**/rest/v1/creator_profiles**',route=>route.fulfill({json:{professional_name:'Clara de teste'}}));
- const state={row:null as ShopRow|null,photos:{} as Record<string,string|null>,requests:[] as {p_id:string;p_slug:string;p_revision:number;p_request:string;p_action:string;p_document:ShopDocument}[],photoWrites:0,uploads:0,loseResponse:false,conflict:false,failRead:false};
+ const state={row:null as ShopRow|null,photos:{} as Record<string,string|null>,requests:[] as {p_id:string;p_slug:string;p_revision:number;p_request:string;p_action:string;p_document:ShopDocument}[],photoWrites:0,uploads:0,uploadBodies:[] as Buffer[],loseResponse:false,conflict:false,failRead:false};
  await page.route('**/rest/v1/profile_photos**',route=>{const kind=new URL(route.request().url()).searchParams.get('kind')?.slice(3)??'creator';return route.fulfill({json:kind in state.photos?{object_path:state.photos[kind]}:null});});
  await page.route('**/rest/v1/rpc/save_profile_photo',route=>{const input=route.request().postDataJSON();state.photoWrites++;state.photos[input.p_kind]=input.p_path;return route.fulfill({json:{kind:input.p_kind,subject_id:input.p_subject,object_path:input.p_path}});});
  const image=await readFile('public/products/bolsa-oliva.webp');
@@ -26,7 +27,7 @@ async function setup(page:Page){
   const url=new URL(route.request().url()),method=route.request().method();
   if(method==='GET')return route.fulfill({contentType:'image/webp',body:image});
   if(url.pathname.includes('/object/sign/'))return route.fulfill({json:{signedURL:url.pathname.replace('/storage/v1','')+'?token=test-only'}});
-  state.uploads++;return route.fulfill({json:{Id:crypto.randomUUID(),Key:url.pathname.split('/object/')[1]}});
+  state.uploads++;const body=route.request().postDataBuffer();if(body)state.uploadBodies.push(body);return route.fulfill({json:{Id:crypto.randomUUID(),Key:url.pathname.split('/object/')[1]}});
  });
  await page.route('**/rest/v1/creator_shops**',route=>route.fulfill(state.failRead?{status:503,json:{message:'test outage'}}:{json:state.row}));
  const receipts=new Map<string,ShopRow>();
@@ -47,7 +48,7 @@ async function saved(page:Page){await expect(page.getByText('Suas alterações f
 
 test('SHOP-01 contrato: perfil com foto, redes sociais, produto, seção e post persistem',async({page},info)=>{
  const state=await setup(page);await fillProfile(page);
- await page.getByLabel('Escolher foto de perfil',{exact:true}).setInputFiles('public/products/bolsa-oliva.webp');await expect(page.getByText('Foto salva e confirmada.',{exact:true})).toBeVisible();expect(state.photoWrites).toBe(1);
+ await page.getByLabel('Escolher foto de perfil',{exact:true}).setInputFiles('public/products/bolsa-oliva.webp');await confirmCrop(page);await expect(page.getByText('Foto salva e confirmada.',{exact:true})).toBeVisible();expect(state.photoWrites).toBe(1);
  await page.getByRole('button',{name:'Salvar perfil da loja',exact:true}).click();await saved(page);
  await page.getByRole('button',{name:'Produtos',exact:true}).click();await page.getByRole('button',{name:'Adicionar produto',exact:true}).click();
  await page.getByLabel('Nome do produto',{exact:true}).fill('Minha bolsa');await page.getByText('Mais detalhes do produto',{exact:true}).click();await page.getByLabel('Marca ou loja',{exact:true}).fill('Minha seleção');await page.getByLabel('Preço informado (R$, opcional)',{exact:true}).fill('150,50');await page.getByLabel('Link do produto ou link de afiliado',{exact:true}).fill('https://example.invalid/bolsa');await page.getByLabel('Este é um link de afiliado informado por mim',{exact:true}).check();
@@ -82,7 +83,7 @@ test('SHOP-04 backend real: loja pública demonstrativa, redes abaixo do CTA e a
 test('SHOP-05 contrato: marca envia/remove foto e membro permanece somente leitura',async({page})=>{
  const state=await setup(page);const org='22222222-2222-4222-8222-222222222222';let member=false;
  await page.route('**/rest/v1/organizations**',route=>route.fulfill({json:[{id:org,owner_user_id:member?'33333333-3333-4333-8333-333333333333':id,name:'Marca com foto',website:'',description:'',created_at:'2026-11-01T00:00:00Z'}]}));await page.route('**/rest/v1/organization_members**',route=>route.fulfill({json:[{organization_id:org,role:member?'member':'owner'}]}));
- await page.goto('/painel/marca');await page.getByLabel('Escolher foto da marca',{exact:true}).setInputFiles('public/products/bolsa-oliva.webp');await expect(page.getByText('Foto salva e confirmada.',{exact:true})).toBeVisible();expect(state.photos.brand).toContain('/brand/');
+ await page.goto('/painel/marca');await page.getByLabel('Escolher foto da marca',{exact:true}).setInputFiles('public/products/bolsa-oliva.webp');await confirmCrop(page);await expect(page.getByText('Foto salva e confirmada.',{exact:true})).toBeVisible();expect(state.photos.brand).toContain('/brand/');
  await page.getByRole('button',{name:'Remover foto',exact:true}).click();await expect(page.getByText('Foto removida do cadastro.',{exact:true})).toBeVisible();expect(state.photos.brand).toBeNull();expect(state.photoWrites).toBe(2);
  member=true;await page.reload();await expect(page.getByRole('heading',{name:'Marca com foto',exact:true})).toBeVisible();await expect(page.getByLabel('Escolher foto da marca',{exact:true})).toHaveCount(0);expect(state.photoWrites).toBe(2);
 });
@@ -121,7 +122,7 @@ test('SHOP-08 perfil: upload compartilhado com loja, navegação por área e pub
  await page.route('**/rest/v1/organizations**',route=>route.fulfill({json:null}));
  await page.goto('/conta/perfil');
  await expect(page.getByRole('button',{name:'Salvar perfil',exact:true})).toBeVisible();
- await page.getByLabel('Escolher foto de perfil',{exact:true}).setInputFiles('public/products/bolsa-oliva.webp');
+ await page.getByLabel('Escolher foto de perfil',{exact:true}).setInputFiles('public/products/bolsa-oliva.webp');await confirmCrop(page);
  await expect(page.getByText('Foto salva e confirmada.',{exact:true})).toBeVisible();
  await expect(page.locator('aside').getByRole('img',{name:'Minha foto de perfil',exact:true})).toBeVisible();
  await page.reload();await expect(page.getByRole('main').getByRole('img',{name:'Escolher foto de perfil',exact:true})).toBeVisible();
@@ -184,4 +185,15 @@ test('SHOP-14 menu lateral, seções e layouts persistem após releitura',async(
   await page.getByRole('button',{name:'Editar coleção Meu editorial',exact:true}).click();await page.getByRole('radio',{name:label,exact:true}).check();await page.getByRole('button',{name:'Salvar coleção',exact:true}).click();await saved(page);expect(state.requests.at(-1)!.p_document.collections[0].layout).toBe(value);await page.reload();await page.getByRole('button',{name:'Editar coleção Meu editorial',exact:true}).click();await expect(page.getByRole('radio',{name:label,exact:true})).toBeChecked();await page.getByRole('button',{name:'Cancelar coleção',exact:true}).click();
  }
  await fab.click();await menu.locator('.shop-create-sections button').first().click();await expect(page).toHaveURL(/#sections$/);await expect(page.getByRole('heading',{name:'Editar seção da loja',exact:true})).toBeVisible();await page.getByLabel('Nome da seção',{exact:true}).fill('Minhas inspirações');await page.getByRole('button',{name:'Salvar seção',exact:true}).click();await saved(page);expect(state.row!.document.sections![0].title).toBe('Minhas inspirações');await fab.click();await expect(menu.locator('.shop-create-sections')).toContainText('Minhas inspirações');await page.emulateMedia({reducedMotion:'reduce'});expect(await menu.evaluate(el=>getComputedStyle(el).transitionDuration)).toBe('0s');await page.keyboard.press('Escape');await expect(menu).not.toBeVisible();await expect(fab).toBeFocused();
+});
+
+test('SHOP-15 foto: cancelar recorte não envia; zoom e posição alteram os pixels enviados',async({page},info)=>{
+ const state=await setup(page);const photo=page.getByLabel('Escolher foto de perfil',{exact:true});await photo.setInputFiles('public/products/bolsa-oliva.webp');const dialog=page.getByRole('dialog',{name:'Ajustar foto de perfil',exact:true});await expect(dialog.getByRole('button',{name:'Usar este recorte',exact:true})).toBeEnabled();const before=await dialog.locator('canvas').evaluate(el=>(el as HTMLCanvasElement).toDataURL());await dialog.getByLabel('Zoom',{exact:true}).fill('2');await dialog.getByLabel('Posição horizontal',{exact:true}).fill('0.6');await dialog.getByLabel('Posição vertical',{exact:true}).fill('-0.4');await expect.poll(()=>dialog.locator('canvas').evaluate(el=>(el as HTMLCanvasElement).toDataURL())).not.toBe(before);expect(state.uploads).toBe(0);await page.screenshot({path:'../../work/screenshots/'+info.project.name+'-ajustar-foto.png'});await page.keyboard.press('Escape');await expect(dialog).not.toBeVisible();await expect(photo).toBeFocused();expect(state.uploads).toBe(0);expect(state.photoWrites).toBe(0);await photo.setInputFiles('public/products/bolsa-oliva.webp');await dialog.getByLabel('Zoom',{exact:true}).fill('1.8');await dialog.getByRole('button',{name:'Usar este recorte',exact:true}).click();await expect(dialog).not.toBeVisible();await expect(page.getByText('Foto salva e confirmada.',{exact:true})).toBeVisible();expect(state.uploads).toBe(1);expect(state.photoWrites).toBe(1);const body=state.uploadBodies[0],header=body.indexOf(Buffer.from('Content-Type: image/')),start=body.indexOf(Buffer.from('\r\n\r\n'),header)+4,end=body.lastIndexOf(Buffer.from('\r\n--'));expect(header).toBeGreaterThan(0);const dimensions=await page.evaluate(async bytes=>{const bitmap=await createImageBitmap(new Blob([new Uint8Array(bytes)]));const size={width:bitmap.width,height:bitmap.height};bitmap.close();return size;},[...body.subarray(start,end)]);expect(dimensions).toEqual({width:512,height:512});
+});
+test('SHOP-16 foto: navegador sem encoder WebP envia PNG com extensão e conteúdo corretos',async({page})=>{
+ await page.addInitScript(()=>{const encode=HTMLCanvasElement.prototype.toBlob;HTMLCanvasElement.prototype.toBlob=function(cb,type,quality){return encode.call(this,cb,type==='image/webp'?'image/png':type,quality);};});
+ const state=await setup(page);await page.getByRole('button',{name:'Produtos',exact:true}).click();await page.getByRole('button',{name:'Adicionar produto',exact:true}).click();let uploaded='';await page.route('**/storage/v1/object/diderot-media/**',r=>{uploaded=new URL(r.request().url()).pathname;return r.fulfill({json:{Id:crypto.randomUUID(),Key:uploaded.split('/object/')[1]}});});await page.getByLabel('Escolher foto do produto',{exact:true}).setInputFiles('public/products/bolsa-oliva.webp');await expect(page.getByText('Foto enviada. Salve o formulário para guardar a alteração.',{exact:true})).toBeVisible();expect(uploaded).toMatch(/\.png$/);await page.getByLabel('Nome do produto',{exact:true}).fill('Foto compatível');await saveProduct(page);await saved(page);expect(state.row!.document.items[0].image_path).toMatch(/\.png$/);await page.reload();await page.getByRole('button',{name:'Editar produto Foto compatível',exact:true}).click();await expect(page.getByRole('img',{name:'Escolher foto do produto',exact:true})).toBeVisible();
+});
+test('SHOP-17 foto: falha de rede permite nova tentativa sem perder a preparação',async({page})=>{
+ const state=await setup(page);await page.getByRole('button',{name:'Produtos',exact:true}).click();await page.getByRole('button',{name:'Adicionar produto',exact:true}).click();await page.getByLabel('Nome do produto',{exact:true}).fill('Meu produto preservado');let attempts=0;await page.route('**/storage/v1/object/diderot-media/**',r=>{attempts++;return r.fulfill(attempts===1?{status:503,json:{message:'temporary outage'}}:{json:{Id:crypto.randomUUID(),Key:new URL(r.request().url()).pathname.split('/object/')[1]}});});await page.getByLabel('Escolher foto do produto',{exact:true}).setInputFiles('public/products/bolsa-oliva.webp');await page.getByRole('button',{name:'Tentar enviar foto novamente',exact:true}).click();await expect(page.getByText('Foto enviada. Salve o formulário para guardar a alteração.',{exact:true})).toBeVisible();await expect(page.getByLabel('Nome do produto',{exact:true})).toHaveValue('Meu produto preservado');expect(attempts).toBe(2);expect(state.requests).toHaveLength(0);
 });

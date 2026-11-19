@@ -1,0 +1,15 @@
+{
+  "production": {
+    "url": "https://www.shopdiderot.com/",
+    "status": 200,
+    "assetsUnchanged": true
+  },
+  "preview": {
+    "url": "https://diderot-platform-git-feat-ux-overhaul-2026-11-18-mari-granado.vercel.app",
+    "status": 200,
+    "finalUrl": "https://vercel.com/login",
+    "signupFlowPresent": false,
+    "protected": true
+  },
+  "limits": "Public GET only. No signup, authentication or business writes."
+}

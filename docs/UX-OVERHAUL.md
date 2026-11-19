@@ -94,3 +94,18 @@ Candidaturas, contratação, tracking/comissões, pagamentos, administração, c
 Revalidação final: **92/92 aprovados**, 278.6 s, sem skips/retries/flaky. [Evidência final](evidencias/ux-revalidacao-final.json). Rodada ampla anterior: 220/224; as quatro falhas eram verificações antigas de DS/cópia e passaram nesta revalidação. Não combinar execuções para afirmar uma auditoria integral. Build e check passaram; navegação real em leitura das três contas, seis larguras e capturas revisadas.
 
 História verificada: intenção/criação → payload existente → retorno confirmado/releitura → prévia/publicação, com simulação de erro e identidade no navegador. Backend de negócio inalterado; provas históricas de RLS/rollback não substituem homologação HTTP real de novas gravações nesta etapa. As jornadas com contas reais foram somente leitura e não enviaram e-mails.
+
+
+## Código e acesso para revisão
+
+[PR #1](https://github.com/marigranadoc/diderot-platform/pull/1), branch feat/ux-overhaul-2026-11-18, código 67b7b68. [Prévia Vercel](https://diderot-platform-git-feat-ux-overhaul-2026-11-18-mari-granado.vercel.app) com build Ready e login da equipe obrigatório; execução automatizada protegida não foi liberada. Use a prévia local na porta 3002 para a jornada já verificada. Produção segue no código anterior, com [assets inalterados](evidencias/ux-implantacao-revisao.json); sem merge/promote. A revisão automática recusou compartilhar temporariamente a implantação e publicar captura autenticada; os caminhos protegidos não foram contornados.
+
+
+## Arquivos principais
+
+- Entrada: [AccessForm](../components/AccessForm.tsx) e [AccountSetup](../components/AccountSetup.tsx).
+- Navegação e interações: [ProfileWorkspace](../components/ProfileWorkspace.tsx), [ExperienceUI](../components/ExperienceUI.tsx), [AppIcon](../components/AppIcon.tsx) e [estilos](../app/experience.css).
+- Creator/loja: [CreatorDashboard](../components/CreatorDashboard.tsx), [CreatorShopEditor](../components/CreatorShopEditor.tsx) e [ShopContentForms](../components/ShopContentForms.tsx).
+- Perfil/ofertas: [CreatorOnboarding](../components/CreatorOnboarding.tsx), [CreatorServices](../components/CreatorServices.tsx), [CreatorPortfolio](../components/CreatorPortfolio.tsx).
+- Marca/descoberta: [BrandWorkspace](../components/BrandWorkspace.tsx), [CampaignExplorer](../components/CampaignExplorer.tsx), [Catalog](../components/Catalog.tsx).
+- Verificação nova: [testes UX](../tests/ux-overhaul.spec.ts), além dos módulos existentes atualizados no PR.
